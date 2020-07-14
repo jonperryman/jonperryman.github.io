@@ -1,0 +1,166 @@
+<!doctype html>
+
+<html lang="en" style="background: tan;">
+<head>
+
+  <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+  <meta name="viewport" content="width=device-width, user-scalable=no" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+  <title>Social Robots - spidy</title>
+  <meta name="description" content="social robot programming spidy">
+  <meta name="author" content="Jon Perryman">
+  <style>
+  <!-- disable pinch to zoom -->
+  * {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: -moz-none;
+    -o-user-select: none;
+    user-select: none;
+    }
+
+</style>
+
+<script>
+    function fail(object) {
+        object.style.backgroundColor = "pink";
+    }
+
+    function success(object) {
+        // object.style.backgroundColor = "pink";
+        screen();  // next screen
+    }
+
+    function screen(screen_specified) {
+        if (screen_specified)
+            screen_number = screen_specified;
+        else
+            screen_number += 1; // next screen
+
+        document.getElementById("screen").innerHTML = "";
+        document.getElementById("screen").appendChild(document.getElementById("screen"+screen_number).content.cloneNode(true));
+
+        var video_list = document.getElementsByClassName("video");
+        for(var i=0; i<video_list.length; i++) {
+            video_list[i].innerHTML =
+                '<video loop autoplay height="180" muted controls>'
+                    + '<source src="' + video_list[i].getAttribute("name") + '" type="video/mp4"/>'
+                    + 'Your browser does not support MP4 video\'s, Please use a web browser that supports MP4.'
+                + '</video>'
+                + '<br/><br/>'
+        }
+    }
+</script>
+
+<style>
+    .answer {
+        background-color: lightblue;
+        margin-bottom: 10px;
+    }
+</style>
+
+</head>
+
+<body>
+
+<div style="text-align: center;"><div id="screen" style="text-align: center; max-width: 9in; margin: 0 auto;"></div></div>
+
+<template id="screen1">
+    <h1>Servo training</h1>
+
+    <div class="video" name="training_servo_1.mp4"></div>
+
+    What is a servo?<br/>
+    <button class="answer" onclick="fail(this);">a) Part of a computer</button>&nbsp;&nbsp;&nbsp;
+    <button class="answer" onclick="fail(this);">b) a type of car</button>&nbsp;&nbsp;&nbsp;
+    <button class="answer" onclick="success(this);">c) a type of electric motor</button><br/>
+</template>
+
+<template id="screen2">
+    <H4>Correct, it's a type of electric motor.</H4>
+
+    All electric motors can rotate in one direction at a specific speed but there are electric motors that are more
+    flexible. Some examples: servo, stepper, linear, direct drive and actuator. <br/>
+
+    <div class="video" name="training_servo_2.mp4"></div>
+
+    What is special about a servo motor?<br/>
+    <button class="answer" onclick="fail(this);">a) Nothing special</button>&nbsp;&nbsp;&nbsp;
+    <button class="answer" onclick="fail(this);">b) Rotates to a position</button>&nbsp;&nbsp;&nbsp;
+    <button class="answer" onclick="success(this);">c) Rotates to a position and holds that position</button><br/>
+</template>
+
+<template id="screen3">
+    <h4>Correct, it rotates to a specified position and stays in that position.</H2>
+
+    <div class="video" name="training_servo_3.mp4"></div>
+
+    What is the difference between a 180 servo, 360 servo, 520 servo and continuous servo?<br/>
+    <button class="answer" onclick="fail(this);">a) Size of the motor</button>&nbsp;&nbsp;&nbsp;
+    <button class="answer" onclick="fail(this);">b) Number of gears in the servo</button>&nbsp;&nbsp;&nbsp;
+    <button class="answer" onclick="success(this);">c) The maximum angle the servo will rotate</button><br/>
+</template>
+
+<template id="screen4">
+    <h4>Correct, The number represents the maximum angle the motor can rotate. </h2>
+
+    A 180 servo can rotate
+    180 degrees (half circle) and a 360 servo can rotate 360 degree's (full circle). The exception
+    is a continuous servo which rotates continuously instead of stopping. Instead of specifying a position,
+    you specify the speed and direction.<br/>
+
+    <div class="video" name="training_servo_4.mp4"></div>
+
+    What is the special meaning when number 0 is sent to a servo?<br/>
+    <button class="answer" onclick="fail(this);">a) The position on the servo</button>&nbsp;&nbsp;&nbsp;
+    <button class="answer" onclick="fail(this);">b) Angle</button>&nbsp;&nbsp;&nbsp;
+    <button class="answer" onclick="success(this);">c) Power off the servo</button><br/>
+</template>
+
+<template id="screen5">
+    <h4>Correct. Number 0 turns the power off to the servo.</h4>
+
+    When the power is off, you can turn the servo by hand.<br/>
+
+    <div class="video" name="training_servo_5.mp4"></div>
+
+    What do numbers 1000 to 2000 represent?<br/>
+    <button class="answer" onclick="fail(this);">a) Nothing special</button>&nbsp;&nbsp;&nbsp;
+    <button class="answer" onclick="fail(this);">b) An angle</button>&nbsp;&nbsp;&nbsp;
+    <button class="answer" onclick="success(this);">c) A position within the servo's range</button><br/>
+</template>
+
+<template id="screen6">
+    <h4>Correct, a number from 1000 to 2000 is a position within the servo's angle range.</H2>
+
+    Most but not all servo's follow a standard where 1000 is the 0 degree position and 2000 the
+        angle mentioned on the servo. E.g. a 180 servo, 2000 is the 180 degree position.<br/><br/>
+
+    Formula to calculate number from angle: 1000 / servo angle * desired angle + 1000. E.g. position
+    a 360 servo at 90 degree's: 1000/360*90+1000 = 1250.<br/><br/>
+
+    <div class="video" name="training_servo_6.mp4"></div>
+
+    What happens if you specify a number between 1 and 999 or a number greater than 2000?<br/>
+    <button class="answer" onclick="fail(this);">a) The servo assumes 0</button>&nbsp;&nbsp;&nbsp;
+    <button class="answer" onclick="fail(this);">b) The servo assumes 1000 or 2000</button>&nbsp;&nbsp;&nbsp;
+    <button class="answer" onclick="success(this);">c) The servo might break</button>&nbsp;&nbsp;&nbsp;
+</template>
+
+<template id="screen7">
+    <h4>Correct, From 1 to 999 or above 2000 could break the servo.</h4>
+
+    Many servo's will allow these numbers even though they will break the servo. In most cases, 990 to 2010
+    will be ok. Using 500 or 2500 should be avoided.<br/><br/>
+
+    <H1>Congradulations. You have mastered the basics of servo's.</H1>
+
+    <h2></h2><a href="demo.html">Return to main demonstration screen</a></h2>
+
+</template>
+
+<script>screen(1);</script>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<h1 class="pageTitle">High Level Assembler</h1>
+<p> This is not your ordinary assembler and is by far one of the most powerful languages available.
+    The integrated macro language allows you to easily create a level of integration
+    and simplicity that is not possible in C, C++ and most other languages.</p>
+
+<p> In the following assembler code, my #SRESEND macro is used to
+    send the current service request to the command processor
+    to execute the HELP command.</p>
+
+<code _title="Simple use of #SEN    D macro">
+.        #SEND TASK=COMMAND,          Send it to the command process   X
+               DATA='START MONITOR'
+</code>
+
+<code _title="Dump formatter for SRE control block">
+.        #IPCS CB=SRE
+         END   ,
+</code>
+
+<code _title="">
+.        #SRESEND SRE=NEWSERVICE,     Create a new SRE and send it     X
+               MESSAGES=YES,          We want to receive messages      X
+               VARIABLES=YES,         We want to receive variables     X
+               TASK=COMMAND,          Send it to the command process   X
+               TAG='EXECCMD',         Exec command                     X
+               USERTYPE=EXEC,         ISPF user                        X
+               USER=USERID,           ISPF user name                   X
+               DATA=(MDLCME,(R6)),                                     X
+               DATALEN=(MDLCME_LEN,(R2)),                              X
+               WAIT=YES,              Wait for response                X
+               ERROR=MAIN900,         Request failed while sending     X
+               MF=(E,WRKSEND)
+</code>
+
+<code _title="">
+WRK      #CB   TYPE=BEGIN,INITFLDS=YES
+WRKMCNT  DC    PL8'0'                 Message count
+WRKSEND  #SRESEND MF=L
+         #CB   TYPE=LAST_INIT_FIELD
+
+WRKMSTEM DS    CL(L'CMEMSTEM+1)       Message stem
+WRKSTEML DS    H                      Stem length
+WRKNUM   DS    CL6                    Display number
+WRK@SRM  DS    A                      First @SRM
+WRK@SRV  DS    A                      First @SRV
+WRKMSGCT DS    A                      Message count
+WRKMSG   DS    CL120                  Message work area
+WRKREMZT DS    CL(L'REMZNAME)         REMZ target
+         #CB   TYPE=END     CB trailer (CB id & length)
+</code>

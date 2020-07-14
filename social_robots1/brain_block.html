@@ -1,0 +1,294 @@
+<!doctype html>
+
+<html lang="en" style="background: tan;">
+<head>
+
+    <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+    <meta name=”viewport” content=”width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no” />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+    <title>Social Robots - brain blocks</title>
+    <meta name="description" content="social robot programming spidy">
+    <meta name="author" content="Jon Perryman">
+
+    <style>
+        <!-- disable pinch to zoom in tablets-->
+        * {
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: -moz-none;
+            -o-user-select: none;
+            user-select: none;
+        }
+
+        .modifier_entry {
+            border: 2px solid black;
+            background-color: lightgreen;
+        }
+    </style>
+
+    <style id="dynamicStyle">
+
+    </style>
+
+    <template id="new_tile_template">
+        <div id="new_tile" style="position: fixed; z-index: 5;">
+            <img id="new_tile_output" height="15" class="input_arrow"
+                 src="images/bb_arrow_right.gif" style="position: relative; top: 15px; float: left;" />
+            <img id="new_tile_select" height="60" class="select"
+                 src="images/bb_square_wave.jpg" style="float: left;"/>
+            <img id="new_tile_input" height="15" class="output_arrow"
+                 src="images/bb_arrow_right.gif" style="position: relative; top: 15px; float: left;" />
+       </div>
+    </template>
+
+    <template id="modifier_list_template">
+        <table id="modifier_list" style="position: relative; z-index: 3;">
+            <tr><td id="images/bb_sine_wave.jpg" class="modifier_entry">sine wave</td></tr>
+            <tr><td id="images/bb_square_wave.png" class="modifier_entry">square wave</td></tr>
+        </table>
+    </template>
+
+    <template id="draw_line_inactive_template">
+    </template>
+
+    <template id="draw_line_active_template">
+        .input_arrow {
+            animation: blinker 1s linear infinite;
+        }
+        @keyframes blinker {
+            80% {
+                opacity: 0;
+            }
+        }
+    </template>
+
+    <script>
+        function setup() {
+
+            bb = Object();         // brain block is global variable for this code
+
+            bb.screenSize = [window.innerHeight, window.innerWidth];
+console.log("running setup" + bb.screensize);
+            window.onresize = resize_screen;
+            resize_screen();       // initialize screen resize
+
+            bb.tiles = Object();   // List of tiles on screen
+
+            var work = add_modifier.getClientRects();
+            bb.nextInput = work[0].bottom + 10;                // location to place next new input block
+            bb.nextOutput = bb.nextInput;                      // location to place next new output block
+
+            dynamicStyle.innerHTML = draw_line_inactive_template.innerHTML
+
+            add_tile("input1", "input", "images/bb_motion_sensor.png");
+            add_tile("input2", "input", "images/bb_potentiometer_sensor.png");
+            add_tile("input3", "input", "images/bb_distance_sensor.png");
+            add_tile("input4", "input", "images/bb_potentiometer_sensor.png");
+            add_tile("output1", "output", "images/bb_continuous_servo.png");
+            add_tile("output2", "output", "images/bb_led.png");
+            add_tile("output3", "output", "images/bb_continuous_servo.png");
+
+            pointerSetup();
+        }
+
+        function add_tile(name, tileType, image) {
+            document.body.appendChild(document.getElementById("new_tile_template").content.cloneNode(true));
+
+            new_tile_select.src = image;
+            new_tile_select.id = name + "_select";
+
+            if (tileType == "input") {
+                new_tile_input.id = name + "_input";    // Name the input connector
+                new_tile.removeChild(new_tile_output);  // remove output connector
+                new_tile.style.left = "0px";           // input tiles always on the left side
+                new_tile.style.top = bb.nextInput + "px";
+
+            } else if (tileType == "output") {
+                new_tile_output.id = name + "_output"; // name the output connector
+                new_tile.removeChild(new_tile_input);  // remove input connector
+                new_tile.style.right = "0px";          // output tiles always on the right side
+                new_tile.style.top = bb.nextOutput + "px";
+
+            } else if (tileType == "modifier") {
+                new_tile_input.id = name + "_input";
+                new_tile_output.id = name + "_output";
+                new_tile.style.left = "300px";
+                new_tile.style.top = "0px"
+            }
+
+            bb.tiles[name] = new_tile.getClientRects();
+            bb.tiles[name].tileType = tileType;
+
+            if (tileType == "input")
+                bb.nextInput = bb.tiles[name][0].top + bb.tiles[name][0].height + 5;
+            if (tileType == "output")
+                bb.nextOutput = bb.tiles[name][0].top + bb.tiles[name][0].height + 5;
+
+            new_tile.id = name;
+        }
+
+        // zoom and resizing can't be used because of absolute positioning
+        function resize_screen(e) {
+            if (! bb.hasOwnProperty("screenSize")) {    // First time called
+console.log("no screen size");
+//               bb.screenSize = [window.innerHeight, window.innerWidth];
+                return;
+            }
+            if (bb.screenSize[0] != window.innerHeight || bb.screenSize[1] != window.innerWidth) {
+console.log("size change" + bb.screenSize[0] + " " + bb.screenSize[1] + "  " + window.innerWidth + " " + window.innerHeight);
+//                alert("resizing screen causes problems and should not be allowed. Resize back to original size.");
+            }
+        }
+
+        function pointerSetup() {
+            window.onpointerdown = pointerDown;
+            window.ondragstart = pointerDisableDrag;
+        }
+
+        function pointerDisableDrag (e) {
+            e.preventDefault();  // Stop browser's built in drag facility
+            return false;
+        }
+
+        function pointerDown(e) {
+
+            if (bb.hasOwnProperty("activePointer")) {    // a previous pointer down action already active {
+
+                if (bb.activePointer.type == "add_modifier") {
+                    if (e.target.className == "modifier_entry") {
+                        add_tile("modifier", "modifier", e.target.id);
+                    } else
+                        alert("aborting add modifier block");
+                    modifier_list.parentElement.removeChild(modifier_list);
+                    delete bb.activePointer;
+                    return;
+                }
+
+                if (bb.activePointer.type != "line")
+                    alert("Continuing pointer activity: " + e.target.id);
+                return;
+            }
+
+            // displays modifier list of modifiers that can be added
+            if (e.target.id == "add_modifier") {
+                bb.activePointer = { type : "add_modifier",  // adding a new modifier block
+                };
+                document.body.appendChild(document.getElementById("modifier_list_template").content.cloneNode(true));
+                return;   // ignore pointerup & pointermove
+
+            // If tile, then process pointer down
+            } else if (bb.tiles.hasOwnProperty(e.target.parentElement.id)) {
+                if (pointerDownTileFailed(e))
+                    return;
+            } else {
+//                alert("invalid screen field selected: " + e.target.id);
+                return;  // ignore targets that are not part of a tile (tile is also not a valid target)
+            }
+
+            // Monitor these pointer events because we are either drawing a line or moving a tile
+            window.onpointermove = pointerMove;
+            window.onpointerup = pointerUp;
+            window.onpointercancel = pointerUp;
+        }
+
+        function pointerDownTileFailed(e) {
+            if (e.target.id.slice(-7) == "_select"
+            && bb.tiles[e.target.parentElement.id].tileType == "modifier") {
+                bb.activePointer = { type : "tile",  // moving a tile
+                    tile : e.target.parentElement,
+                    offsetX: parseInt(e.clientX - e.target.getBoundingClientRect().left),
+                    offsetY: parseInt(e.clientY - e.target.getBoundingClientRect().top)
+                };
+
+            // click on output connector starts a line connecting to an input connector
+            } else if (e.target.id.slice(-6) == "_input") {
+                bb.activePointer = { type : "line",  // connecting 2 tiles with a line
+                    output : e.target
+                };
+                var new_line = svgArea.appendChild(new_line_prototype.cloneNode(true));
+                new_line.id = "new_line";
+                new_line.setAttributeNS(null, "x1", e.target.getBoundingClientRect().right);
+                new_line.setAttributeNS(null, "y1", e.target.getBoundingClientRect().top + 5)
+                new_line.setAttributeNS(null, "x2", e.clientX)
+                new_line.setAttributeNS(null, "y2", e.clientY)
+                lineBlink("start");
+
+            } else {
+                alert("invalid tile field selected: " + e.target.id);
+                return true;  // ignore clicking on everything else
+            }
+        }
+
+        function pointerUp(e) {
+            if (! window.onpointermove)
+                return;  // pointer events are currently being ignored
+
+            // Drawing a line
+            if (bb.activePointer.type == "line") {
+
+                lineBlink("stop");
+
+                if (e.target.id.slice(-7) == "_output") {  // Connecting line to input
+                    new_line.style.stroke = "blue";
+                    new_line.id = "xxx";
+
+                } else { // line not connected to input
+                    if (confirm("Line did not connect. Continue connecting line or cancel?"))
+                        return;
+                    new_line.parentElement.removeChild(new_line);
+                }
+            }
+
+            // These pointer events are no longer needed - remove them
+            window.onpointermove = null;
+            window.onpointerup = null;
+            window.onpointercancel = null;
+
+            // Pointer is no longer active
+            delete bb.activePointer;
+        }
+
+        // Move tile or line around the screen
+        function pointerMove(e) {
+            if (bb.activePointer.type == "line") {
+                new_line.setAttributeNS(null, "x2", e.clientX)
+                new_line.setAttributeNS(null, "y2", e.clientY)
+            }
+            if (bb.activePointer.type == "tile") {
+                bb.activePointer.tile.style.left = (e.clientX - bb.activePointer.offsetX) + "px";
+                bb.activePointer.tile.style.top = (e.clientY - bb.activePointer.offsetY) + "px";
+            }
+        }
+
+        // Draw attention to line attributes by blinking relevant information,
+        function lineBlink(arg) {
+            if (arg == "start") {
+                dynamicStyle.innerHTML = draw_line_active_template.innerHTML;
+            }
+
+            if (arg == "stop") {
+                dynamicStyle.innerHTML = draw_line_inactive_template.innerHTML
+            }
+        }
+
+    </script>
+
+</head>
+
+<body onload="setup();">
+
+    <svg id="svgArea" style="position: fixed; top: 0px; left: 0px; width: 100%; height: 100%;">
+        <line id="new_line_prototype" x1="0" y1="0" x2="0" y2="0" style="stroke: red; stroke-width: 2;" />
+    </svg>
+
+    <div>
+        <span style="float: left; background-color: white;">Input blocks</span>
+        <span style="float: left; padding-right: 10%;">&nbsp;</span>
+        <span id="add_modifier" style="float: left; background-color: lightgreen; position: relative; z-index: 2"
+            >Add new modifier block</span>
+        <span style="float: right; background-color: white;">Output blocks</span>
+    </div>
+
+</body>
+</html>

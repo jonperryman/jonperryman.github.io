@@ -1,0 +1,620 @@
+<h2>  Integrated compile time language for GO</h2>
+
+<style>
+    table {
+        style="background-color: lightblue; color: black;"
+    }
+    td {
+        padding-left: 10px;
+    }
+</style>
+
+<h3>Would you consider yourself a novice, intermediate, or experienced Go programmer?</h3>
+Intermediate.
+
+<h3>What other languages do you have experience with?</h3>
+C, C++, Assembler, Python, SAS, JavaScript, PHP, HTML/CSS and more.
+
+<h3>Would this change make Go easier or harder to learn, and why?</h3>
+Advanced API's and frameworks can be made trivial to use.
+E.g. Messages should be multi-lingual but it's so difficult that even the GO compiler does not offer this capability.
+Look at the example below to see how this feature makes it trivial where all products could easily become multi-lingual.
+
+<h3>Has this idea, or one like it, been proposed before?</h3>
+
+<p>Don't confuse this with C macro's nor code generators.
+    Nor is this an alternative for functions.
+    Instead, this provides control and flexibility at compile time that would normally require
+    GO compiler source changes. As part of the compiler, it has some basic knowledge (e.g. making reflection available
+    at compile time).
+</p>
+
+<h3>Who does this proposal help, and why?</h3>
+
+<p>Everyone, from beginners to the compiler developer's will greatly benefit from this feature. Some of the benefits are:
+</p>
+
+<ul>
+    <li>Ability to develop elegant solutions to problems not easily solved with the current compiler.</li>
+    <li>Improve performance by reducing the impact of worst case scenario solutions.</li>
+    <li>Greatly simplify API usage and add validity checking for API's.</li>
+    <li>Ability to write compile time algorithms instead of run time algorithms (e.g. reflection).</li>
+    <li>Greatly reduce repetitive code.</li>
+    <li>Avoid the need for creating gofix code when their API's change.</li>
+    <li>Ability to include more resources in the source that are externalized now.</li>
+    <li>Go language developers, can see the type of functionality developers really need.</li>
+    <li>Potential circumvention to compiler bugs or deficiencies.</li>
+</ul>
+
+<h3>What is the proposed change?</h3>
+
+<p> An integrated compile time language for GO that everyone can use. It will provide the ability
+    to create compile time logic. It provides access to reflection at compile time, insertion of GO
+    code and issue compile time error messages. The compile time language needs to be determined.
+    GO would be nice because it would be consistent syntax and run efficiently but compile time programs must be
+    compiled before compiling programs that use them along with dynamically loading / calling these programs.
+    A language like Python might be more suitable because it is intepreted at runtime but
+    it's drawbacks are another programming language and high overhead.
+</p>
+
+<h3>Demonstrating the importance of this functionality thru the UI.</h3>
+
+<p>I have real experience with the integrated compile time language that is built into the High Level Assembler.
+    There are many real use cases so I will only comment about a few. I'll start with messages.
+</p>
+
+<table style="background-color: lightblue; color: black;">
+
+<tr style="background-color:blue; color:white;"><td><h3>Easy to maintain call for a multi-lingual message</h3></td></tr>
+<tr><td><pre>
+Msg( msgId=cs00001, myVar1, myVar2)  // Display message cs0001 is the user's language
+</pre></td></tr>
+
+<tr style="background-color:blue; color:white;"><td><h3>Elegant and efficient message definition in an english message module</h3></td></tr>
+<tr><td><pre>
+Msg( msgId=cs0001, msgLevel=error, type=define,
+    msg='Message %v not displayed because message module %v was not found',
+    help={
+        ::Explanation:
+            Message "v1" was not displayed because the message module "v2" was not found.
+        ::System action:
+            The message is not displayed.
+        ::Corrective action:
+            Look at the help text for the original message to determine if you need to take
+            an action for that message. To resolve this bug, search the problem database for the
+            appropriate action to resolve the problem.
+    }
+)
+</pre></td></tr>
+</table>
+
+<p> Why are most messages in english instead of being multi-lingual? Why don't messages have help text?
+    Where are the advanced message features?
+</p>
+
+<p> The simple answer is GO and C are not convenient, efficient nor easy in solving many problems.
+    We must settle for mediocre solutions such as "gettext( )" that are high runtime overhead with a new language
+    to learn. Worse yet, you must understand the impact of changing the gettext message id.
+</p>
+
+<p>The example above was taken from my product written in High Level Assembler but changed to
+    be compatible with GO syntax. This solution suited my needs but could easily be changed to be more flexible.
+    The message definition is from one of the english language message modules so that the documentation writers
+    can easily fix problems.
+    The help text explains the message and guides users thru problem resolution. The message ID
+    crucial to identify the message regardless of user language. Equally important is that automation deals
+    with the correct message. Customer's can easily identify automation changes when
+    a message changes syntax. The error level ensures the return code is set correctly.
+</p>
+
+<table>
+<tr style="background-color:blue; color:white;"><td><h3>Excessive overhead in strings.IndexAny( )</h3></td></tr>
+<tr><td><pre>
+func IndexAny(s, chars string) int {
+	if chars == "" {
+		// Avoid scanning all of s.
+		return -1
+	}
+	if len(s) > 8 {
+		if as, isASCII := makeASCIISet(chars); isASCII {
+			for i := 0; i < len(s); i++ {
+				if as.contains(s[i]) {
+					return i
+				}
+			}
+			return -1
+		}
+	}
+	for i, c := range s {
+		for _, m := range chars {
+			if c == m {
+				return i
+			}
+		}
+	}
+	return -1
+}
+</pre></td></tr>
+</table>
+
+<p> This is the actual strings.IndexAny( ) code in GO.
+    Whether you code IndexAny( ) in GO or C, this logic is the best you can do
+    because there is not any compile time flexibility built into the language.
+    An integrated compile time language allows you to create very robust solution.
+    In this case, there are 3 compile time scenarios that must be considered to cover all situations.
+</p>
+
+<h4>Scenario 1: quoted search characters: strings.IndexAny( myString, "&lt;&gt;&amp;&semi;" )</h4>
+
+<p>The current implementation results in unnecessary runtime overhead that could be performed at compile time.
+    The double FOR loop results in 4 times the execution time in this example.
+    Using makeASCIISet( ) is a run time solution that occurs with every call to IndexAny.
+    The correct solution would be to create the ascii table at compile time (asciTable :=
+    [256]byte{ '&lt;' : 1, '&gt;' : 1, '&amp;' : 1, '&semi;' : 1 } but that's expecting too much from the developer.
+</p>
+
+<p>With this new functionality, creating the asciiTable statement is a simple loop thru the search characters.
+    Non-ascii unicode characters can generate an additional search for those characters.
+    Beginners don't notice any difference.
+</p>
+
+<h4> Scenario 2: search characters in a variable: strings.IndexAny( myString, searchCharactersVariable )</h4>
+
+<p>The standard implementation is the current implementation. It does not do any compile time optimization.
+    This is easy for beginners because they don't notice any difference.
+</p>
+
+<h4> Scenario 3: advanced search optimization features</h4>
+<p> For ease of use, beginners can ignore advanced features.
+    In fact, these features are only needed in extreme cases (e.g. large amounts of data fewer
+    than 8 search characters). This could be something as simple as a pre-allocated ascii buffer / search
+    structure. Using this feature could be keyword parameters or different call types.
+    Implementation is truly up to the developer of this functionality.
+</p>
+
+<table>
+<tr style="background-color:blue; color:white;"><td><h3>Formatted printing could be improved without UI changes</h3></td></tr>
+<tr><td><pre>
+fmt.Printf('x %T x %t x %4d x', a, b, c)
+</pre></td></tr>
+</table>
+
+<p> Why isn't the formatting string parsed at compile time?
+    Why aren't the formatting fields defitions determined at compile time to reduce runtime overhead?
+    Why aren't the argument types validated with the formatting string at compile time?
+    With this feature, we could easily solve these problems.
+</p>
+
+<table>
+<tr style="background-color:blue; color:white;"><td><h3>XML processing made easy and efficient</h3></td></tr>
+<tr><td><pre>
+result, err := xml.Unmarshal(data,
+    (   Person xml.RootElement {
+            Name    string    `xml:FullName"`
+            Phone   string
+            Email   []struct {
+                Where string  `xml:"where,attr"`
+                Addr  string
+            }
+            Groups  []string  `xml:"Group"`
+            Address struct {
+                City, State string
+            }
+        },
+        Company xml.RootElement {
+            Name    string    `xml:FullName"`
+            Phone   string
+            Email   []struct {
+                Where string  `xml:"where,attr"`
+                Addr  string
+            }
+            Groups  []string  `xml:"Group"`
+            Address struct {
+                City, State string
+            }
+        }
+    )
+)
+fmt.Println(result)
+</pre></td></tr>
+
+<tr style="background-color:blue; color:white;"><td><h3>versus todays implementation</h3></td></tr>
+<tr><td><pre>
+type Email struct {
+    Where string `xml:"where,attr"`
+    Addr  string
+}
+type Address struct {
+    City, State string
+}
+type Result struct {
+    XMLName xml.Name `xml:"Person"`
+    Name    string   `xml:"FullName"`
+    Phone   string
+    Email   []Email
+    Groups  []string `xml:"Group>Value"`
+    Address
+}
+result := Result{Name: "none", Phone: "none"}
+err := xml.Unmarshal(data, &result)
+fmt.Println(result)
+</pre></td></tr>
+</table>
+
+<p>My XML parser written in High Level Assembler executes in less than half the time it takes in GO.
+    The example above is in a GO compatible syntax. Compared with the current syntax, it is much easier
+    to comprehend for GO beginners who understand XML. Additionally, the current implementation
+    only allows for 1 standard implementation. There are several XML standards and advanced features which would be
+    better served using an integrated compile time language. The example above shows multiple
+    root elements (person & company) which is not available in the current implementation.
+</p>
+
+<h3>Please describe as precisely as possible the change to the language.</h3>
+
+<p>The minimum changes to the compiler:</p>
+
+<ol>
+    <li>Devise a mechanism to identify these functions to be called (e.g. a new definition statement or maybe use of #).</li>
+    <li>During the compile phase that sets data types, call the function that was identified.</li>
+    <li>Choose a compile time language. Possibly GO, Python, Java, NodeJS or ???</li>
+    <li>Runaway loop timer (user code)</li>
+    <li>API's:</li>
+        <ul>
+            <li>Delete AST's</li>
+            <li>Add GO code snippets as AST's.</li>
+            <li>Reflection using the AST's prior to the current position</li>
+            <li>Notes and errors</li>
+            <li>Global variables</li>
+        </ul>
+</ol>
+
+<p>Advanced features could be discussed later if this is accepted.</p>
+
+<h3>What would change in the [https://golang.org/ref/spec](language spec)?</h3>
+
+The only change is a new section to cover the integrated compile time language.
+
+<h3>Please also describe the change informally, as in a class teaching Go.</h3>
+
+To be written if this feature is to be implemented. Because of the impact, this feature will be large.
+
+<h3>Is this change backward compatible?</h3>
+
+Yes.
+
+<h3>Breaking the Go 1 compatibility guarantee is a large cost and requires a large benefit.</h3>
+
+Go 1 compatibility is not affected by this change.
+
+<h3>Show example code before and after the change.</h3>
+
+See above.
+
+<h3>What is the cost of this proposal? (Every language change has a cost).</h3>
+
+TBD.
+
+<h3>How many tools (such as vet, gopls, gofmt, goimports, etc.) would be affected?</h3>
+
+<p> Some generated code may not be available to the tools which may cause false errors such as missing variables.
+    Otherwise, keeping the UI syntax consistent with GO should allow most tools to function correctly.
+</p>
+
+<h3>What is the compile time cost?</h3>
+
+<p> Use of this feature will increase compile time which could be significant depending upon implementation and
+    compile time programs written. This can only be determined during the design phase.
+</p>
+
+<h3>What is the run time cost?</h3>
+
+Run time will never increase. In some cases, run time will decrease.
+
+<h3>Can you describe a possible implementation?</h3>
+
+
+<h3>Do you have a prototype? (This is not required.)</h3>
+
+Some UI prototypes are above. Called function would depend upon language chosen.
+
+<h3>How would the language spec change?</h3>
+
+Addtion to the language spec.
+
+<h3>Orthogonality: how does this change interact or overlap with existing features?</h3>
+
+Not applicable.
+
+<h3>Is the goal of this change a performance improvement?</h3>
+
+No, but that is one of the side benefits.
+
+<h3>If so, what quantifiable improvement should we expect?</h3>
+
+<h3>How would we measure it?</h3>
+
+<h3>Does this affect error handling?</h3>
+
+No.
+
+<h3>If so, how does this differ from previous error handling proposals?</h3>
+
+<h3>Is this about generics?</h3>
+
+<p> While not specifically about generics, it solves the basic complaint (repetitive coding).
+    You only need look at messages to see how great opportunities are missed because of compiler limitations.
+    When will the compiler have multi-lingual messages? When will the co,piler have help text for messages.
+</p>
+
+<h3>If so, how does this differ from the the current design draft and the previous generics proposals?</h3>
+
+
+
+<h3></h3>
+
+Compile time language is about making code much more readable, efficient, robust and maintainable.
+It can greatly simplify many complex problems. Let's assume the meta language is GO so
+that it's simple for everyone to use. Let's assume that #xxxx( ) calls this go function and passes the
+parsed data between the parenthesis. The only thing to learn is calling the compiler API's such as
+inserting code and using compile time reflection.
+
+Go generate or writting a pre-processor are a waste of time in resolving many problems. If they worked well for
+compile time logic, then how would you propose fixing the CPU overhead in the compiler.
+
+This feature does not change the GO language. It just allows insertion of GO code.
+Most meta language programs won't be more than a hundred lines.
+Of all the concerns, "abuse" is the only legitimate concern but that is true with other
+features (solved using standards and best practices).
+
+If you doubt this works, then ask yourself why the CPU overhead in scanner.go
+has never been addressed. The answer is it's painful without compile time logic.
+E.g. the following is code from func scanComment() processing for // comments:
+
+<pre>
+s.next() // ignore the //
+for s.ch != '\n' && s.ch >= 0 {
+    if s.ch == '\r' {
+        numCR++
+    }
+    s.next()
+}
+</pre>
+
+CPU usage could be reduced by over 50% (as much as 90%) for parsing but do you want to code it correctly
+when it looks so nasty? Do you want to repeat this everywhere this everywhere it occurs?
+
+<pre>
+s.next() // ignore the //
+for s.findNext( &[256]byte{0:1, '\n':1, '\r':1, 128:1, --- repeat to 255 --- } ) && s.ch != '\n' {
+    if s.ch == '\r' {
+        numCR++
+    }
+}
+</pre>
+
+With compile time language, this would look like:
+
+<pre>
+s.next() // ignore the //
+for s.#findNext( "\u0000\r\n" ) && s.ch != '\n' {
+    if s.ch == '\r' {
+        numCR++
+    }
+}
+</pre>
+
+#findNext( ) is the compile time function which is passed positional arg 1 "\u0000\r\n" and no keyword parms.
+It produces the findNext call that you would have coded by hand.
+
+<pre>
+func #findNext(args) {
+    goCode = "findNext( &[256]byte{ "
+    for i:=0; i<len(args.1); {
+        r, w = utf8.DecodeRune(s.src[s.rdOffset:])
+        if r == utf8.RuneError && w == 1 {
+            error("illegal UTF-8 encoding")
+        } else {
+            goCode += " " + args.1[i] + ":1, "
+        }
+        i += w
+    }
+    goCode += "})"
+    ast.insert(*,goCode)
+}
+</pre>
+
+
+
+#findNext adds a runtime call to Func findNext( ) which is a slightly modified version of the func next( ) from scanner.go.
+Replace the function prototype. A return true is needed where a character is found and return false when EOF is reached.
+The CPU reduction comes from the for loop skipping characters that are not used.
+
+<pre>
+func (s *Scanner) findNext(charTable [256]byte) {
+    for ; s.rdOffset < len(s.src) && charTable[s.src[s.rdOffset]] == 0; s.rdOffset++ {
+}
+</pre>
+
+This feature offers great benefits to all GO developers with a minor amount of work. Most developer's do not have
+experience with this type of feature. It's true value should not be underestimated.
+
+==============================================================================================================
+
+Languages such as Go and C strongly encourage a byte processing mentality. C get's around some of this inefficiency by providing multi-byte functions (e.g. memcmp, strcmp, memcpy, strcpy). It does not provide functions such as indexAny() because it is very inefficient without a compile time language. 
+
+You can do bandaid fixes to make scanner.go faster but to make it a speed demon, you will need a different mindset and do a rewrite. To make this easy to understand, lets discuss the small piece of code from scanComment that searches for \n as the end of the // comment.
+
+<pre>
+for s.ch != '\n' && s.ch >= 0 {                                   <===
+    if s.ch == '\r' {                                             <===
+        numCR++
+    }
+    s.next()                                                      <===
+}
+
+func (s *Scanner) next() {
+	if s.rdOffset < len(s.src) {
+		s.offset = s.rdOffset                                     <===
+		if s.ch == '\n' {                                         <===
+			s.lineOffset = s.offset
+			s.file.AddLine(s.offset)
+		}
+		r, w := rune(s.src[s.rdOffset]), 1                        <===
+		switch {
+		case r == 0:                                              <===
+			s.error(s.offset, "illegal character NUL")
+		case r >= utf8.RuneSelf:                                  <===
+			// not ASCII
+			r, w = utf8.DecodeRune(s.src[s.rdOffset:])
+			if r == utf8.RuneError && w == 1 {
+				s.error(s.offset, "illegal UTF-8 encoding")
+			} else if r == bom && s.offset > 0 {
+				s.error(s.offset, "illegal byte order mark")
+			}
+		}
+		s.rdOffset += w                                          <===
+		s.ch = r                                                 <===
+	} else {
+		s.offset = len(s.src)
+		if s.ch == '\n' {
+			s.lineOffset = s.offset
+			s.file.AddLine(s.offset)
+		}
+		s.ch = -1 // eof
+	}
+}
+</pre>
+
+Notice the statements with "<===" that are executed for each character. These statements don't do anything useful except for /r, /n, 0 and all runes because they are more than 1 byte. To efficiently execute these statements only for those characters, we need to pass a character translation array with the characters of interest on the next( ) function call.
+
+<pre>
+s.next( &[256]byte{0:1, '\n':1, '\r':1, 128:1, --- repeat to 255 --- } )
+</pre>
+
+This is a constant array that must be passed by reference (&) so avoid the overhead of copying the array at each call to next(). The array size must be 256 because a character value can be 0 to 255. We index into this array using each value of each character in the src. Each value in the array defaults to 0 and 0, \n and \r are set to a value of 1 (translation value).
+In addition, each rune start byte (128 to 255) is set to a value of 1 (translation value).
+
+<pre>
+func (s *Scanner) next(translationTable *[256]byte) {
+    for ; s.rdOffset < len(s.src) && translationTable[s.src[s.rdOffset]] == 0; s.rdOffset++ {
+    }
+</pre>
+
+The next( ) function is modified to accept the translation table by reference from the caller. A tight "for loop" loop through the source until there's no more data or the translation value is not 0 (found a character of interest). The compiler should optimize the "for loop" to be very fast because it's so small.
+
+UTF8 is designed to be fast by having all bytes of a rune look like a rune (>127). Since comments are not interested in rune characters, they actually don't need to be included in translation table unless you want rune validation which probably isn't important.
+
+As for other parts of scanner.go, they need the same changes but are convoluted. They should be made readable for clarity and maintenance.
+
+To further improve maintainability and reduce CPU, the GOTO statement should be modified to allow GOTO DEPENDING ON where it supports multiple labels and the label is selected using a variable that contains an index. By specifying the index to a label for each character used in the translation table, you avoid the overhead for IF and CASE statements. The maintainability is improved by reducing repetition.
+
+Also note that other modules need these changes (e.g. xml and json parsing).
+
+=======================================================================================================
+
+
+
+An important proposal will fail without your support
+
+This proposal will be a huge benefit to everyone. Are writing pre-processors and GO generate truly meeting our needs? Is the extra implementation work worth the effort. Do you wish for compile time logic? Proposal https://github.com/golang/go/issues/37292 will fail if it does not get some "likes". Remember, this is a loosly formulated proposal and not a design document.
+
+There are many examples where compile time flexibity is important. Consider the current mindset's effect on GNU GETTEXT( ):
+
+GETTEXT( ) is very important - native language support (multi-lingual messages and localization)
+Hundreds of developer's involved in design and Implementation. This is their best implementation.
+Documentation is 17 chapters -> https://www.gnu.org/software/gettext/manual/gettext.html
+Big-o time complexity o(n^2)
+Several utilities for maintaining catalogs.
+Use and maintenance is labor intensive and time consuming.
+
+You have difficult decisions and lots of work early in your project with this implementation.
+
+fmt.Println( gettext( fmt.Sprintf"message text at %v with %v bytes", time.format( ), number) ) )
+
+This is the current implementation where gettext is a function call with the message to be translated. The message must be contain everything to be translated. After determining the language and localization, gettext searches for a matching message translation rule in the language specific catalog. The rule is applied to the message and data needing localization is converted (e.g. dates, numbers, currency).
+
+#gettext( "message text at %t with %n bytes", time, number )
+    or
+#gettext( msgid="jon001", time, number )
+
+Users should find this much easier to code and the big-o time complexity is o(n)!
+
+The gettext product developer will create the #gettext() function which is invisible to the users. One possible implementation for #gettext with my proposal gives you lots of flexibility and eliminates 90% of the code in the real GNU gettext( ). The compiler would call the following function:
+
+func #gettext( args Args ) {
+    src := "gettext("         // call real gettext function
+    current_positional_arg := 1
+    if args.msgid != nil {    // keyword argument "msgid" not specified
+        src += args.msgid + " ,nil"
+    } else {
+        src += "nil, " + args.positional[1]
+        current_positional_arg := 2
+    }
+    for ; current_positional_arg <= args.positional.length; current_positional_arg {
+        arg = args.positional[current_positional_arg]
+        if reflect.TypeOf(arg) == "time.Time" {
+            src += ",gettext.TimeLocal(" + arg + ")"
+        } else if reflect.TypeOf(arg) == "int" {
+            src += ",gettext.Number(" + arg + ")"
+        } else {
+            src += "," + arg
+        }
+    }
+    compiler.AddStatement(*,src)   // replaces the #gettext( ) with the new source code
+}
+
+This compiler called function replaces the #gettext( ... ):
+
+#gettext(msgid="jon001", number, time)
+    would be replaced with
+gettext("jon001", nil, gettext.Number(number), gettext.TimeLocal(time) )
+
+The real gettext( ) is greatly simplified. Messages are now in a GO module instead of searching a specialized catalog. There would be several language specific message modules that are dynamically loaded as needed. E.g. en_jon.go where en is an english message module and jon is the first part of the message id (e.g. jon001). The message rule for the last 3 characters is returned. Gettext( ) uses this rule to translate the message.
+
+Since the language specific message modules are editted by translators instead of programmers, it needs to be similar to the GNU standard while having GO syntax.
+
+#msg( language=en, prefix=jon )   // english messages jon###
+
+//  translator-comments
+//  extracted-comments
+// reference…
+// flag…
+#msg(
+    id=001,                   // msg id jon001
+    msgstr[0]="message text at %t with %n bytes",
+    ...
+    msgstr[N]="message text at %t with %n bytes"
+)
+
+//  translator-comments
+//  extracted-comments
+// reference…
+// flag…
+#msg(
+    id=002,
+    msgstr[0]="message text at %t with %n bytes",
+    ...
+    msgstr[N]="message text at %t with %n bytes"
+)
+
+//  translator-comments
+//  extracted-comments
+// reference…
+// flag…
+#msg(
+    id=002,
+    msgstr[0]="message text at %t with %n bytes",
+    ...
+    msgstr[N]="message text at %t with %n bytes"
+)
+
+A compile time language has many more benefits that are not obvious. I strongly urge everyone to vote on proposal https://github.com/golang/go/issues/37292 .
+
+
+
+
+
+
+
+
+

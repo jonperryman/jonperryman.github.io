@@ -1,0 +1,169 @@
+<!doctype html>
+
+<html lang="en" style="background: tan;">
+<head>
+
+    <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+    <title>Social Robots - spidy</title>
+    <meta name="description" content="social robot programming spidy">
+    <meta name="author" content="Jon Perryman">
+    <style>
+        <!-- disable pinch to zoom -->
+        * {
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: -moz-none;
+        -o-user-select: none;
+        user-select: none;
+        }
+    </style>
+
+</head>
+
+<body>
+<div id="screen" style="max-width: 9in; margin: 0 auto;">
+
+    <h1 align="center">Kiosk training made simple</h1>
+
+    <ul>
+        <li>Anyone can easily create and modify training.</li>
+        <li>Only 2 minutes to Learn how to create and modify a training content.</li>
+        <li>Each template below is a screen followed by the next template / screen.</li>
+        <li>Add new screens in seconds.</li>
+        <li>Uses very basic and simple HTML.</li>
+        <li>Or make it even easier by using MS Word.</li>
+    </ul>
+
+    <a href="demo.html"><h4>Return to previous screen</h4></a>
+
+<pre style="border-style: double;">
+&lt;template name="screen">
+    &lt;h4>Social robot's training&lt;/h4>
+
+    &lt;img src="sr_input_blocks.jpg" width="300" />&lt;br/>
+
+    What is an input?&lt;br/>
+    &lt;button class="answer" onclick="fail(this);">a) An entrance to the museum&lt;/button>&nbsp;&nbsp;&nbsp;
+    &lt;button class="answer" onclick="success(this);">b) Something coming in&lt;/button>&lt;br/>
+&lt;/template>
+</pre>
+
+<pre style="border-style: double;">
+&lt;template name="screen">
+    &lt;h4>Correct, Input is something coming in.&lt;/h4>
+
+    Typically, it's an event that comes in. A good example is turning a
+        Slight switch on and off. &lt;br/>&lt;br/>
+
+    &lt;img src="sr_input_blocks.jpg" width="300" />&lt;br/>
+
+    What social robot input blocks do we provided?&lt;br/>
+    &lt;button class="answer" onclick="fail(this);">a) Button and 180 servo&lt;/button>&nbsp;&nbsp;&nbsp;
+    &lt;button class="answer" onclick="fail(this);">b) Button, dial and switch&lt;/button>&nbsp;&nbsp;&nbsp;
+    &lt;button class="answer" onclick="success(this);">
+        c) Button, dial, switch, distance sensor and movement sensor
+    &lt;/button>&lt;br/>
+&lt;/template>
+</pre>
+
+<pre style="border-style: double;">
+&lt;template name="screen">
+    &lt;h4>Correct, our input blocks are Button, dial, switch, distance sensor
+        and movement sensor.&lt;/H4>
+
+    &lt;img src="sr_output_blocks.jpg" width="300" />&lt;br/>
+
+    What is an output?&lt;br/>
+    &lt;button class="answer" onclick="fail(this);">a) The exit to the museum&lt;/button>&nbsp;&nbsp;&nbsp;
+    &lt;button class="answer" onclick="success(this);">b) Something going out&lt;/button>&lt;br/>
+&lt;/template>
+</pre>
+
+<pre style="border-style: double;">
+&lt;template name="screen">
+    &lt;h4>Correct, output is something going out.&lt;/h4>
+
+    It's an action or activity gets triggered. E.g. a light can be on or off.&lt;br/>&lt;br/>
+
+    &lt;img src="sr_output_blocks.jpg" width="300" />&lt;br/>
+
+    What are the social robots output blocks?&lt;br/>
+    &lt;button class="answer" onclick="fail(this);">a) Switch and LED&lt;/button>&nbsp;&nbsp;&nbsp;
+    &lt;button class="answer" onclick="success(this);">b) 180 servo, 360 servo and LED&lt;br/>
+&lt;/template>
+</pre>
+
+<pre style="border-style: double;">
+&lt;template name="screen">
+    &lt;h4>Correct. The output blocks are 180 servo, 360 servo and LED.&lt;/h4>
+
+    &lt;img src="sr_input_blocks.jpg" width="300" />
+    &lt;img src="bb_arrow_right.png" width="100" />
+    &lt;img src="sr_output_blocks.jpg" width="300" />&lt;br/>
+
+    Why are input and output important?&lt;br/>
+    &lt;button class="answer" onclick="fail(this);">
+        a) Social robots has blocks of these types&lt;/button>&nbsp;&nbsp;&nbsp;
+    &lt;button class="answer" onclick="success(this);">
+        b) They are only useful when used together&lt;/button>&lt;br/>
+&lt;/template>
+</pre>
+
+<pre style="border-style: double;">
+&lt;template name="screen">
+    &lt;h4>Correct. Input and output are only useful when used together.&lt;/h4>
+
+    A light switch is useless without a light. A light is useless without a light switch.
+    Your job is to connect an input block to an output block.
+
+    &lt;div class="video" name="sr_connect_blue_cables.mp4">&lt;/div>
+
+    Where do you connect each end of the blue cable?&lt;br/>
+    &lt;button class="answer" onclick="fail(this);">a) To any 2 red magnets&lt;/button>&nbsp;&nbsp;&nbsp;
+    &lt;button class="answer" onclick="fail(this);">b) To any 2 blue magnets&lt;/button>&nbsp;&nbsp;&nbsp;
+    &lt;button class="answer" onclick="success(this);">
+        c) One end to an input blocks blue magnet and the other end to
+        an output block blue magnet&lt;/button>&lt;br/>
+&lt;/template>
+</pre>
+
+<pre style="border-style: double;">
+&lt;template name="screen">
+    &lt;h4>Correct, connect blue cables, One end to an input blocks blue magnet
+        and the other end to an output block blue magnet&lt;/h4>
+
+    The blue cable sends the input block event so an output block can
+        perform the action.&lt;br/>&lt;br/>
+
+    &lt;div class="video" name="sr_connect_red.mp4">&lt;/div>
+
+    Where do you connect red connectors on each cube?&lt;br/>
+    &lt;button class="answer" onclick="fail(this);">a)Any 2 red magnets&lt;/button>&nbsp;&nbsp;&nbsp;
+    &lt;button class="answer" onclick="fail(this);">b) Any 2 blue magnets&lt;/button>&nbsp;&nbsp;&nbsp;
+    &lt;button class="answer" onclick="success(this);">
+        c) One end to an input blocks red magnet and the other end to
+        an output block red magnet&lt;/button>&lt;br/>
+&lt;/template>
+</pre>
+
+<pre style="border-style: double;">
+&lt;template name="screen">
+    &lt;h4>Correct. Connect any 2 red magnets.&lt;/h4>
+
+    The red connectors pass electricity.
+    It doesn't matter how you connect these together.&lt;br/>&lt;br/>
+
+    &lt;h1>Congradulations. You are ready to build your robot.&lt;/h1>
+
+    &lt;h2>&lt;a href="demo.html">Return to main demonstration screen&lt;/a>&lt;/h2>
+&lt;/template>
+</pre>
+
+    <a href="demo.html"><h4>Return to previous screen</h4></a>
+
+</div>
+</body>
+</html>

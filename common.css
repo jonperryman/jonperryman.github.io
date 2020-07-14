@@ -1,0 +1,141 @@
+html,body{ 
+    height: 98%;
+    width: 99%;
+    border: none;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+body {
+  background-color: black;
+  background-size: cover; 
+  background-attachment: fixed; 
+  background-size: 100%; 
+  color: black;
+}
+
+#hdrPhoto {
+  float: left;
+  padding-right: 30px;
+  height: 1in;
+}
+
+#hdrCenter {
+  float: left; 
+  padding-top: 10px; 
+  line-height: 1.2em; 
+  text-align: center;
+}
+
+#hdrInfo {
+  float: right; 
+  height: 100%;
+}
+
+.highlight {
+  font-size:130%;
+  font-weight: bold;
+}
+
+.menu {
+    float: left;
+}
+
+.menu li {
+    float: left;
+    list-style: none;
+    position: relative;
+    background-color: lightblue;
+    color: darkblue;
+    padding: 3px 10px;
+  }
+
+.menu li:hover {
+    background-color: rgba(74, 170, 230, 0.973);
+}
+
+/* Create pulldown menu in header */
+.menu li ul {
+    display: none;
+    position: absolute;
+    padding: 5px;
+    border-radius: 0px 0px 4px 4px;
+}
+
+.menu li:hover ul {
+    display: block;
+}
+
+.menu li ul li {
+    /*width: 100px;*/
+    width: auto;
+    white-space: pre;
+    border-radius: 2px;
+    padding: 2px 4px;
+}
+
+.menu li ul li:hover {
+    background-color: rgba(74, 170, 230, 0.973);
+}
+
+.pageTitle {
+    padding-top: 0px;
+    margin: 0px;
+    text-align: center;
+    /* padding-left: 50px; */
+}
+
+h2 {
+    padding-left: 50px;
+}
+
+.codeTable { 
+    overflow: auto;
+}
+
+.codeTable table {
+    background: lightblue;
+}
+
+.codeTable th {
+    background: blue;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: left;
+}
+
+.codeTable td {
+    color: black;
+    line-height: 1.3;
+    white-space: pre;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-family: "Lucida Console", Monaco, monospace;
+    font-size: small;
+}
+
+/* .codeTable tr:nth-child(even) {
+    background: rgb(230, 242, 255)
+} */
+
+#hdrInfo {
+    background-color: gold;
+    border-left: 3px solid black;
+    padding-left: 5px;
+    paddding-right: 5px;
+}
+
+#pageArea {
+    background-color: #8aafff;
+    padding-top: 0px;
+    padding-left: 5px;
+    margin: 0px;
+}
+
+#pageData {
+    padding-right: 5px;
+    overflow: auto;
+    background-image: linear-gradient(to right, #8aafff, #9eff8a);
+    border-top: 3px solid black;
+}

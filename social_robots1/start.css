@@ -1,0 +1,32 @@
+.answer { background-color: lightblue; margin-bottom: 10px; }
+
+@keyframes snoopy_k {
+  0% {right: 200px; bottom: 60px;}
+  50% {right: 4in; bottom: 60px;}
+  100% {right: 550px; bottom: 15px;}
+}
+
+@keyframes left_k {
+  0% {left: 200px;}
+  25% {left: 400px;}
+  75% {left: 400px;}
+  100% {left: 200px;}
+}
+
+@keyframes right_k {
+  0% {right: 200px;}
+  25% {right: 400px;}
+  75% {right: 400px;}
+  100% {right: 200px;}
+}
+
+button {
+    margin-right: 2px;
+}
+
+#screen_area {
+    text-align: center;
+    max-width: 9in;
+    margin: 0 auto;
+}
+button

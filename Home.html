@@ -1,0 +1,89 @@
+<h1 class="pageTitle">Developer of exceptional sofware</h1>
+
+<p> Being in the top 10%, I create extraordinary and elegant solutions that others overlook.
+    I am able to solve the tough problems.
+    The links above and the teaser's below highlight my diverse skillset.</p>
+
+<h2>Fundamental problem with C, C++ and Go</h2>
+
+<p> Developers need a simple method to customize languages without modifying the compiler source.
+    Click <u onclick="loadPageData.call(this);" style="background-color: lightblue; color: black;">C, C++, Go</u>
+    for details about how a compiler change would revolutionize C, C++ and Go.</p>
+
+<code _title="Most languages force bad solutions like this">
+    printf("%i %hi %li %u %hu %lu", a, b, c, d, e, f)
+</code>
+
+<p> Help us to help ourselves. We need flexibility in the languages that allows
+    us to avoid solutions that are not optimal.</p>
+
+<code _title="Let developers simplify and create efficient code">
+    printf("%i %i %i %i %i %i", a, b, c, d, e, f)
+</code>
+
+<h2>Recognizing real problems</h2>
+
+<code _title="Why Arduino Serial.print() and Serial.write() are slow">
+    size_t HardwareSerial::write(uint8_t c {
+        // If the buffer and the data register is empty, just write the byte
+        // to the data register and be done. This shortcut helps
+        // significantly improve the effective data rate at high (>
+        // 500kbit/s) bitrates, where interrupt overhead becomes a slowdown.
+</code>
+
+<p>From the comments of this fix, the developer thinks the problem is solved.
+    All Serial print and writes call this function to buffer each byte.
+    The correct solution is to buffer multiple bytes.
+    After correcting the bug, Serial.write() for 60 bytes is 9 times
+    faster (800 instructions versus 7200).</p>
+
+<h2>Simple solutions often go overlooked</h2>
+
+<p>Code boxes are useful to demonstrate code samples</p>
+
+<code _title="This is a sample code box">
+    text += cars[0] + "<br>";
+    text += cars[1] + "<br>";
+    text += cars[2] + "<br>";
+    text += cars[3] + "<br>";
+
+    var i;
+    for (i = 0; i < cars.length; i++) {
+        text += cars[i] + "<br>";
+    }
+</code>
+
+<p>For most developers, reformatting and keeping these up to date is very time consuming.
+    Using W3schools solution as an example because they have code boxes in the thousands
+    and specialize in teaching HTML, javascript and CSS.</p>
+
+<code _title="w3schools.com hand written HTML for code snippet display">
+    <div class="w3-example">
+        <h3>code snippet title</h3>
+        <div class="w3-code notranslate jsHigh">
+            text += cars[0] + &quot;&lt;br&gt;&quot;;<br>text += cars[1] + &quot;&lt;br&gt;&quot;;<br> 
+            text += cars[2] + &quot;&lt;br&gt;&quot;;<br>text += cars[3] + &quot;&lt;br&gt;&quot;; 
+        </div>
+        <br>
+        <div class="w3-code notranslate jsHigh">
+            var i;<br>for (i = 0; i &lt; cars.length; i++) 
+                { <br>&nbsp;&nbsp;&nbsp;&nbsp;text += cars[i] + &quot;&lt;br&gt;&quot;;<br> }
+        </div>
+    </div> 
+</code>
+
+<p>My solution greatly simplifies creating and maintaining code boxes.</p>
+
+<code _title="my hand written HTML for the same code display">
+    <code _title="code snippet title">
+        text += cars[0] + "<br>";
+        text += cars[1] + "<br>";
+        text += cars[2] + "<br>";
+        text += cars[3] + "<br>";
+
+        var i;
+        for (i = 0; i < cars.length; i++) {
+            text += cars[i] + "<br>";
+        }
+    </code>
+</code>

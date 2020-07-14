@@ -1,0 +1,107 @@
+<!doctype html> <html lang="en" style="background: tan;"> <head><script src="training.js" ></script> <link rel="stylesheet" href="training.css"></head> <body onload="training.setup();">
+
+<div style="text-align: center;"><div id="screen_area" style="text-align: center; max-width: 9in; margin: 0 auto;"></div></div>
+
+    <template name="screen">
+
+        <h4>Social robot's training</h4>
+
+        <img src="images/sr_input_blocks.jpg" width="300" /><br/>
+
+        <question>What is an input?</question>
+        <answer>An entrance to the museum</answer>&nbsp;&nbsp;&nbsp;
+        <answer correct>Something coming in</answer>
+    </template>
+
+    <template name="screen">
+
+        <h4>Correct, Input is something coming in.</h4>
+
+        Typically, it's an event that comes in. A good example is turning a light switch on and off. <br/><br/>
+
+        <img src="images/sr_input_blocks.jpg" width="300" /><br/>
+
+        <question>What social robot input blocks do we provided?</question>
+        <answer>Button and 180 servo</answer>&nbsp;&nbsp;&nbsp;
+        <answer>Button, dial and switch</answer>&nbsp;&nbsp;&nbsp;
+        <answer correct>Button, dial, switch, distance sensor and movement sensor</answer>
+    </template>
+
+    <template name="screen">
+
+        <h4>Correct, our input blocks are Button, dial, switch, distance sensor and movement sensor.</H4>
+
+        <img src="images/sr_output_blocks.jpg" width="300" /><br/>
+
+        <question>What is an output?</question>
+        <answer>The exit to the museum</answer>&nbsp;&nbsp;&nbsp;
+        <answer correct>Something going out</answer>
+    </template>
+
+    <template name="screen">
+
+        <h4>Correct, output is something going out.</h4>
+
+        It's an action or activity gets triggered. E.g. a light can be on or off.<br/><br/>
+
+        <img src="images/sr_output_blocks.jpg" width="300" /><br/>
+
+        <question>What are the social robots output blocks?</question>
+        <answer>a) Switch and LED</answer>&nbsp;&nbsp;&nbsp;
+        <answer correct>b) 180 servo, 360 servo and LED</answer>
+    </template>
+
+    <template name="screen">
+        <h4>Correct. The output blocks are 180 servo, 360 servo and LED.</h4>
+
+        <img src="images/sr_input_blocks.jpg" width="300" />
+        <img src="images/bb_arrow_right.png" width="100" />
+        <img src="images/sr_output_blocks.jpg" width="300" /><br/>
+
+        <question>Why are input and output important?</question>
+        <answer>Social robots has blocks of these types</answer>&nbsp;&nbsp;&nbsp;
+        <answer correct>They are only useful when used together</answer>
+    </template>
+
+    <template name="screen">
+        <h4>Correct. Input and output are only useful when used together.</h4>
+
+        A light switch is useless without a light. A light is useless without a light switch.
+        Your job is to connect an input block to an output block.
+
+        <video name="sr_connect_blue_cables.mp4"></video>
+
+        <question>Where do you connect each end of the blue cable?</question>
+        <answer>a) To any 2 red magnets</answer>&nbsp;&nbsp;&nbsp;
+        <answer>b) To any 2 blue magnets</answer>&nbsp;&nbsp;&nbsp;
+        <answer correct>c) One end to an input blocks blue magnet and the other end to
+        an output block blue magnet</answer>
+    </template>
+
+    <template name="screen">
+        <h4>Correct, connect blue cables, One end to an input blocks blue magnet and the other end to
+        an output block blue magnet</h4>
+
+        The blue cable sends the input block event so an output block can perform the action.<br/><br/>
+
+        <video name="sr_connect_red.mp4"></video>
+
+        <question>Where do you connect red connectors on each cube?</question>
+        <answer>a)Any 2 red magnets</answer>&nbsp;&nbsp;&nbsp;
+        <answer>b) Any 2 blue magnets</answer>&nbsp;&nbsp;&nbsp;
+        <answer correct>c) One end to an input blocks red magnet and the other end to
+        an output block red magnet</answer>
+    </template>
+
+    <template name="screen">
+        <h4>Correct. Connect any 2 red magnets.</h4>
+
+        The red connectors pass electricity. It doesn't matter how you connect these together.<br/><br/>
+
+        <question><h1>Congradulations. You are ready to build your robot.</h1></question>
+    </template>
+
+ <a href="demo.html" style="position: fixed; bottom: 0; left: 0; background-color: white;">Return to main demonstration screen</a>
+
+</body>
+</html>

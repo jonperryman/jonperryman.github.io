@@ -1,0 +1,851 @@
+<!doctype html> <html lang="en" style="background: tan;"> <head><script src="start.js" ></script> <link rel="stylesheet" href="start.css"></head> <body onload="training.setup();">
+
+<div style="text-align: center;">
+    <div id="menu_area">
+        <button onclick='training.setup("objective");'>objective</button>
+        <button onclick='training.setup("write_tutorial");'>Writting a tutorial</button>
+        <button onclick='training.setup("training_bb");'>learn to use brain blocks</button>
+        <a href="brain_block.html" style="margin-right: 3px; background-color: white;" target="brainblock ">Use brain block</a>
+        <button onclick='training.setup("training_servo");'>Learn about servo's</button>
+        <button onclick='training.setup("training_social_robots");'>learn to build a social robot</button>
+    </div>
+</div>
+
+<div>
+    <div id="screen_area" style="width: 100%; height: 100%;"></div>
+</div>
+
+<div id="template_work"></div>
+
+<!-- ***********************************************************************************************
+ * Learn to write a tutorial.
+ * Learn to write a tutorial.
+ * Learn to write a tutorial.
+ * Learn to write a tutorial.
+ * Learn to write a tutorial.
+ * Learn to write a tutorial.
+ * Learn to write a tutorial.
+ ***************************************************************************************************-->
+
+<template id="write_tutorial">
+
+    <template name="screen" include="animated_screen" video="images/cyber_detectives.mp4">
+        Your business is not about computers. Computer's should work for you instead being a
+        slave to your computers.
+        <question>Who should have written the tutorial programs in cyber detectives?
+            <answer>An outside company's IT staff</answer>
+            <answer>The Tech IT staff with training</answer>
+            <answer correct>Anyone can easily write it with the right tool</answer>
+        </question>
+    </template>
+
+    <template name="screen" include="animated_screen" video="images/cyber_detectives.mp4">
+        The following sample shows how easy a screen can be created.
+        <pre style="background-color: lightblue; text-align: left;">
+                      &lt;template name="screen">
+                          Text providing some information.
+                          &lt;question>Ask a question?
+                              &lt;answer>bad answer&lt;/answer>
+                              &lt;answer>bad answer&lt;/answer>
+                              &lt;answer correct>the correct answer&lt/answer>
+                          &lt;/question>
+                      &lt;/template> </pre>
+        <question>Where does a screen definition start and end?
+            <answer>&amp;lt;answer> and &amp;lt;/answer></answer>
+            <answer>&amp;lt;question> and &amp;lt;/question></answer>
+            <answer correct>&amp;lt;template name="screen"> and &amp;lt;/template></answer>
+        </question>
+    </template>
+
+    <template name="screen" include="animated_screen" video="images/cyber_detectives.mp4">
+        <pre style="background-color: lightblue; text-align: left;">
+                      &lt;template name="screen">
+                          Text providing some information.
+                          &lt;question>Ask a question?
+                              &lt;answer>bad answer&lt;/answer>
+                              &lt;answer>bad answer&lt;/answer>
+                              &lt;answer correct>the correct answer&lt/answer>
+                          &lt;/question>
+                      &lt;/template> </pre>
+        <question>Where does a question definition start and end?
+            <answer>&amp;lt;answer> and &amp;lt;/answer></answer>
+            <answer correct>&amp;lt;question> and &amp;lt;/question></answer>
+            <answer>&amp;lt;template name="screen"> and &amp;lt;/template></answer>
+        </question>
+    </template>
+
+    <template name="screen" include="animated_screen" video="images/cyber_detectives.mp4">
+        <pre style="background-color: lightblue; text-align: left;">
+                      &lt;template name="screen">
+                          Text providing some information.
+                          &lt;question>Ask a question?
+                              &lt;answer>bad answer&lt;/answer>
+                              &lt;answer>bad answer&lt;/answer>
+                              &lt;answer correct>the correct answer&lt/answer>
+                          &lt;/question>
+                      &lt;/template> </pre>
+        <question>Where does an answer definition start and end?
+            <answer correct>&amp;lt;answer> and &amp;lt;/answer></answer>
+            <answer>&amp;lt;question> and &amp;lt;/question></answer>
+            <answer>&amp;lt;template name="screen"> and &amp;lt;/template></answer>
+        </question>
+    </template>
+
+    <template name="screen" include="animated_screen" video="images/cyber_detectives.mp4">
+        <pre style="background-color: lightblue; text-align: left;">
+                      &lt;template name="screen">
+                          Text providing some information.
+                          &lt;question>Ask a question?
+                              &lt;answer>bad answer&lt;/answer>
+                              &lt;answer>bad answer&lt;/answer>
+                              &lt;answer correct>the correct answer&lt/answer>
+                          &lt;/question>
+                      &lt;/template> </pre>
+        <question>How many answer definitions can you have?
+            <answer>3</answer>
+            <answer>10</answer>
+            <answer correct>As many as you want but keep it reasonable</answer>
+        </question>
+    </template>
+
+    <template name="screen" include="animated_screen" video="images/cyber_detectives.mp4">
+        <pre style="background-color: lightblue; text-align: left;">
+                      &lt;template name="screen">
+                          Text providing some information.
+                          &lt;question>Ask a question?
+                              &lt;answer>bad answer&lt;/answer>
+                              &lt;answer>bad answer&lt;/answer>
+                              &lt;answer correct>the correct answer&lt/answer>
+                          &lt;/question>
+                          Additional text after the question
+                      &lt;/template> </pre>
+        <question>What are the restrictions on text before and after the question?
+            <answer>1 line</answer>
+            <answer>10 lines</answer>
+            <answer correct>None but keep it reasonable</answer>
+        </question>
+    </template>
+
+    <template name="screen" include="animated_screen" video="images/cyber_detectives.mp4">
+        <pre style="background-color: lightblue; text-align: left;">
+                      &lt;template name="screen">
+                          Text providing some information.
+                          &lt;question>Ask a question?
+                              &lt;answer>bad answer&lt;/answer>
+                              &lt;answer>bad answer&lt;/answer>
+                              &lt;answer correct>the correct answer&lt/answer>
+                          &lt;/question>
+                          Additional text after the question
+                      &lt;/template> </pre>
+        <question>How many paragraphs can you have in the text?
+            <answer>Only 1</answer>
+            <answer>As many as you want by seperating with a blank line</answer>
+            <answer correct>As many as you want by enclosing each paragraph in &amp;lt;p> and &amp;lt;/p></answer>
+        </question>
+    </template>
+
+
+    <template name="screen" include="animated_screen" video="images/cyber_detectives.mp4">
+        <pre style="background-color: lightblue; text-align: left;">
+                      &lt;template name="screen">
+                          Text providing some information.
+                          &lt;question>Ask a question?
+                              &lt;answer>bad answer&lt;/answer>
+                              &lt;answer>bad answer&lt;/answer>
+                              &lt;answer correct>the correct answer&lt/answer>
+                          &lt;/question>
+                      &lt;/template> </pre>
+        <question>Which answer is the correct answer to the question?
+            <answer>First answer</answer>
+            <answer>Last answer</answer>
+            <answer correct>The answer definition containing the word correct</answer>
+        </question>
+    </template>
+
+    <template name="screen" include="animated_screen" video="images/cyber_detectives.mp4">
+        <pre style="background-color: lightblue; text-align: left;">
+                      &lt;template name="screen">
+                          Text providing some information.
+                          &lt;question>Ask a question?
+                              &lt;answer>bad answer&lt;/answer>
+                              &lt;answer>bad answer&lt;/answer>
+                              &lt;answer correct>the correct answer&lt/answer>
+                          &lt;/question>
+                      &lt;/template> </pre>
+        <question>What happens when the student clicks on the correct answer?
+            <answer>A random screen definition is displayed</answer>
+            <answer correct>The next screen definition is displayed</answer>
+        </question>
+    </template>
+
+    <template name="screen" include="animated_screen" video="images/cyber_detectives.mp4">
+        <pre style="background-color: lightblue; text-align: left;">
+                      &lt;template name="screen">
+                          Text providing some information.
+                          &lt;question>Ask a question?
+                              &lt;answer>bad answer&lt;/answer>
+                              &lt;answer>bad answer&lt;/answer>
+                              &lt;answer correct>the correct answer&lt/answer>
+                          &lt;/question>
+                      &lt;/template> </pre>
+        <question>How many screen definitions can you have?
+            <answer>10</answer>
+            <answer>50</answer>
+            <answer correct>As many as you want but keep it reasonable</answer>
+        </question>
+    </template>
+
+
+    <template name="screen" include="animated_screen" video="images/cyber_detectives.mp4">
+        Asking questions on each screen is important because it keeps the student's attention.
+        <pre style="background-color: lightblue; text-align: left;">
+                      &lt;template name="screen">
+                          Text providing some information.
+                          &lt;question>
+                              &lt;answer correct>Next sceen&lt/answer>
+                          &lt;/question>
+                      &lt;/template> </pre>
+        <question>Must every screen ask a question?
+            <answer>Yes</answer>
+            <answer correct>No but You must have a question definition without a question and answer definition that is obvious to the student.
+        </question>
+    </template>
+
+    <template name="screen">
+        <h4>More to come.</h4>
+
+        <h1>Congradulations. You are ready to create educational content.</h1>
+    </template>
+
+
+</template>
+
+<!-- ***********************************************************************************************
+ * Introduction to the objectives.
+ * Introduction to the objectives.
+ * Introduction to the objectives.
+ * Introduction to the objectives.
+ * Introduction to the objectives.
+ * Introduction to the objectives.
+ * Introduction to the objectives.
+ * Introduction to the objectives.
+ * Introduction to the objectives.
+ ***************************************************************************************************-->
+
+<template id="objective"><template name="screen">
+
+    <h2>Creating value from hidden investments</h2>
+
+    <style>
+        .pictext {
+            font-size: 130%;
+            font-weight: bold;
+            position: relative;
+            bottom: 50px;
+        }
+    </style>
+
+    <div style="    float: left;">
+        <img src="images/sr_charging_stations.webp" height="100px" />
+        <span class="pictext">= 12 useless touch screens = $10,000 =</span>
+        <img src="images/demo_throw_money_away.jpg" height="100px" />
+    </div>
+
+    <div style="float: left;">
+        <img src="images/sr_bb_table.webp" height="100px" />
+        <span class="pictext">= 3 rarely used brain block tables = $50,000 =</span>
+        <img src="images/demo_throw_money_away.jpg" height="100px" />
+    </div>
+
+
+    <div style="float: left;">
+        <img src="images/solvefall_old_graph.webp" height="100px" />
+        <span class="pictext">why complex when simple is so easy</span>
+        <img src="images/solvefall_new_graph.webp" height="100px"/>
+    </div>
+
+    <div style="float: left;">
+        <img src="images/demo_globe.jpg" height="100px" />
+        <span class="pictext">Let's go global</span>
+    </div>
+
+    <div style="float: left;">
+        <video loop autoplay height="180" muted controls>'
+            <source src="images/training_servo_1.mp4" type="video/mp4"/>
+            Your browser does not support MP4 video\'s, Please use a web browser that supports MP4.
+        </video>
+        <span class="pictext">Integrate real robots with brain blocks</span>
+    </div>
+
+    <div style="float: left;">
+        <img src="images/demo_labs.webp" height="100px" />
+        <span class="pictext">Why not flex labs for social robots instead of 4 fixed labs (200 vs 60 students)?</span>
+    </div>
+</template></template>
+
+<template id="old1"><template name="screen">
+    <p>These are proof of concept examples that need to be finished and prettified. Since the code size is less than 10%
+        of the original, it should be easy to complete.</p>
+    <p>The big advantage is this has been greatly simplified and will allow you to participate in more
+        of the process.</p>
+
+    <div align="center">
+        <img src="images/sr_charging_stations.webp" height="100px" />
+        <span style="font-size: 130%; font-weight: bold; position: relative; bottom: 30px;">
+            = 12 useless touch screens = $10,000 =
+        </span>
+        <img src="images/demo_throw_money_away.jpg" height="100px" />
+    </div>
+
+    <p>These screens can be used as training kiosks. Cyber Secuity leverages this concept in
+        8 stations. It's sad they made something so easy to create, look so difficult.
+    </p>
+
+    <ul>
+        <li>Teach guests key concepts while waiting for a base.</li>
+        <li><a href="training_social_robots.html">Sample Social Robots training</a></li>
+        <li>Anyone can easily write <a href="training_social_robots_code.html">a training kiosk routine</a></li>
+        <li><a href="training_servo.html">Sample servo training</a></li>
+    </ul>
+
+    <div align="center">
+        <img src="images/sr_bb_table.webp" height="100px;" />
+        <span style="font-size: 130%; font-weight: bold;">
+            = 3 rarely used brain block tables = $50,000 =
+        </span>
+        <img src="images/demo_throw_money_away.jpg" height="100px;" />
+    </div>
+
+    <ul>
+        <li><a href="training_bb.html" target="brainblock">Make the brain block app simple and intuitive.</a></li>
+        <li>Increase guest use from less than 40 guests per week to far more than 500 per week.</li>
+        <li>App can be used from 12 base station monitors to increase use.</li>
+        <li>Training video would make it even easier.</li>
+    </ul>
+
+    <div align="center">
+        <img src="images/demo_labs.webp" height="100px" />
+    </div>
+
+    <p>Social robot Labs are great but can't we do better than 16 guests per hour.
+    Staff interaction is great but it can be greatly enhanced.</p>
+
+    <ul>
+        <li>Flex labs - smaller groups that don't aren't fixed to a specific time.</li>
+        <li>Basic training thru training kiosks.</li>
+        <li>Staff - discuss design and ask reinforcement questions.</li>
+        <li>Volunteer participation.</li>
+        <li>Worst case, staff still deals with 16 guests per hour and additional guests use training kiosks only.</li>
+    </ul>
+
+    <div align="center">
+        <video loop autoplay height="180" muted controls>'
+            <source src="images/training_servo_1.mp4" type="video/mp4"/>
+            Your browser does not support MP4 video\'s, Please use a web browser that supports MP4.
+        </video>
+    </div>
+
+    <p>In addition to the pre-built SR robot for brain blocks, a couple of real type robots could
+        be included. This would add flexibility to the brain block tables and let guests
+        experiment with real world examples.
+    </p>
+
+    <div align="center">
+        <img src="images/demo_globe.jpg" height="100px" />
+    </div>
+
+    <h4>Let's go global, extend access & museum's for all</h4>
+
+    School groups get 4 hours minus Imax, lunch, breaks and waiting (around 2 hours).
+    The Tech Interactive also wants to make a global impact. Here are some easy and
+    inexpensive ways to greatly increase value and impact.
+
+    <ul>
+        <li>After hours access thru the web.</li>
+        <li>Training mentioned above is web enabled and could be opened to the world.</li>
+        <li>Brain block mentioned above is web enabled.
+            Add a web camera for pre-built robots to allow visitors to run their programs.</li>
+        <li>At school training could prepare school groups before they come to the Tech.</li>
+        <li>Web activities could reinforce school groups learning after visiting the museum.</li>
+    </ul>
+</template></template>
+
+<!-- ***********************************************************************************************
+ * training screens for brain blocks.
+ * training screens for brain blocks.
+ * training screens for brain blocks.
+ * training screens for brain blocks.
+ * training screens for brain blocks.
+ * training screens for brain blocks.
+ * training screens for brain blocks.
+ ***************************************************************************************************-->
+
+<template id="training_bb">
+    <template name="screen" include="animated_screen" video="images/training_bb_ioblocks.mp4">
+        <question>What do brain blocks have in common with the social robot you built?
+            <answer>input blocks</answer>
+            <answer>output blocks</answer>
+            <answer correct>input and output blocks</answer>
+        </question>
+    </template>
+
+    <template name="screen" include="animated_screen" video="images/training_bb_ioblocks.mp4">
+        <h4>Correct, input and output blocks are real and common between the bases and Brain block</h4>
+
+        <question>Why doesn't the brain block display the same blocks as the real blocks?
+            <answer> Brain block has different blocks</answer>
+            <answer correct> The brain block displays the blocks currently attached.</answer>
+        </question>
+    </template>
+
+
+    <template name="screen">
+        <h4>Correct. Input and output blocks are attached to the Brain block. These attached blocks are displayed.
+            Adding and removing a block will change the display.</h4>
+
+        <video name="images/training_bb_blue_connectors.mp4"></video>
+
+        <question>What do the blue arrows represent on the input and output blocks?
+            <answer> The block should be moved in that direction</answer>
+            <answer correct> The blue connectors on real input and output blocks</answer>
+        </question>
+    </template>
+
+    <template name="screen">
+        <h4>Correct, the blue arrows represent the blue connectors on the block being represented.</h4>
+
+        <video name="images/training_bb_blue_connectors.mp4"></video>
+
+        <question>Why does the input block arrow point out of the block and the output block arrow
+            point into the block?
+            <answer> No reason</answer>
+            <answer> It's consistent</answer>
+            <answer correct> Input blocks send the input to the output block</answer>
+        </question>
+    </template>
+
+    <template name="screen">
+        <h4>Correct. The input block sends the sensor data to the output block. The output block
+            uses the information from the output block.</h4>
+
+        <video name="images/training_bb_blue_connectors.mp4"></video>
+
+        <question>Why is the red connector missing from the brain block display?
+            <answer> We forgot about it</answer>
+            <answer correct> The brain block does not know about the red connectors</answer>
+        </question>
+    </template>
+
+    <template name="screen">
+        <h4>Correct. Red connectors supply each block with electricty. The brain block
+        does not know anything about the red connectors.</h4>
+
+        <video name="images/training_bb_connect_blue.mp4"></video>
+
+        <question>Why are the arrows on the output blocks blinking when you select an input block blue connector?
+            <answer> It looks pretty</answer>
+            <answer correct> Input connect to output blocks (not input blocks)</answer>
+        </question>
+    </template>
+
+    <template name="screen">
+        <h4>Correct. The arrows for output blocks blink because input blocks must connect to an output block.</h4>
+
+        <video name="images/training_bb_connect_blue.mp4"></video>
+
+        <question>Why is the block connection cable red until connected to the output block?
+            <answer>It should connect to a red connector.</answer>
+            <answer correct> So you can easily see the cable currently being used.</answer>
+        </question>
+    </template>
+
+    <template name="screen">
+        <h4>Correct. The cable is red so that you can easily distinguish it from the other cables. It will turn
+            blue when connected to an output block.</h4>
+
+        <video name="images/training_bb_add_modifier.mp4"></video>
+
+        <question>What is a modifier block?
+            <answer> Same as Input blocks</answer>
+            <answer> Same as Output blocks</answer>
+            <answer correct> A new type of block that modifies the input
+                before it is sent to the next block</answer>
+        </question>
+    </template>
+
+    <template name="screen">
+        <h4>Correct, modifier blocks are both an input and output block combined.
+            It receives information from the incoming block, modifies it and sends it to
+            the next block.</h4>
+
+        <video name="images/training_bb_input_output_blocks.mp4"></video>
+
+        <question>Why move the modifier block after it is added?
+            <answer> To be closer to the input block</answer>
+            <answer correct> To avoid new modifier blocks from overlaying each other.</answer>
+        </question>
+    </template>
+
+    <template name="screen">
+        <h4>Correct. New modifier blocks are added at the same location. You won't be able to see the second modifier
+        blockuntil the first modifier block is moved</h4>
+
+        <h1>Congradulations. You are ready to use the brain block.</h1>
+    </template>
+
+</template>
+
+<!-- ***********************************************************************************************
+ * training screens for social robots.
+ * training screens for social robots.
+ * training screens for social robots.
+ * training screens for social robots.
+ * training screens for social robots.
+ * training screens for social robots.
+ * training screens for social robots.
+ ***************************************************************************************************-->
+<template id="training_social_robots">
+    <template name="screen">
+
+        <h4>Social robot's training</h4>
+
+        <img src="images/sr_input_blocks.jpg" width="300" />
+
+        <question>What is an input?
+        <answer>An entrance to the museum</answer>&nbsp;&nbsp;&nbsp;
+        <answer correct>Something coming in</answer>
+        </question>
+    </template>
+
+    <template name="screen">
+
+        <h4>Correct, Input is something coming in.</h4>
+
+        Typically, it's an event that comes in. A good example is turning a light switch on and off. <br/><br/>
+
+        <img src="images/sr_input_blocks.jpg" width="300" />
+
+        <question>What social robot input blocks do we provided?
+        <answer>Button and 180 servo</answer>&nbsp;&nbsp;&nbsp;
+        <answer>Button, dial and switch</answer>&nbsp;&nbsp;&nbsp;
+        <answer correct>Button, dial, switch, distance sensor and movement sensor</answer>
+        </question>
+    </template>
+
+    <template name="screen">
+
+        <h4>Correct, our input blocks are Button, dial, switch, distance sensor and movement sensor.</H4>
+
+        <img src="images/sr_output_blocks.jpg" width="300" />
+
+        <question>What is an output?
+        <answer>The exit to the museum</answer>&nbsp;&nbsp;&nbsp;
+        <answer correct>Something going out</answer>
+        </question>
+    </template>
+
+    <template name="screen">
+
+        <h4>Correct, output is something going out.</h4>
+
+        It's an action or activity gets triggered. E.g. a light can be on or off.
+
+        <img src="images/sr_output_blocks.jpg" width="300" />
+
+        <question>What are the social robots output blocks?
+        <answer>a) Switch and LED</answer>&nbsp;&nbsp;&nbsp;
+        <answer correct>b) 180 servo, 360 servo and LED</answer>
+        </question>
+    </template>
+
+    <template name="screen">
+        <h4>Correct. The output blocks are 180 servo, 360 servo and LED.</h4>
+
+        <img src="images/sr_input_blocks.jpg" width="300" />
+        <img src="images/bb_arrow_right.png" width="100" />
+        <img src="images/sr_output_blocks.jpg" width="300" />
+
+        <question>Why are input and output important?
+        <answer>Social robots has blocks of these types</answer>&nbsp;&nbsp;&nbsp;
+        <answer correct>They are only useful when used together</answer>
+        </question>
+    </template>
+
+    <template name="screen">
+        <h4>Correct. Input and output are only useful when used together.</h4>
+
+        A light switch is useless without a light. A light is useless without a light switch.
+        Your job is to connect an input block to an output block.
+
+        <video name="images/sr_connect_blue_cables.mp4"></video>
+
+        <question>Where do you connect each end of the blue cable?
+        <answer>To any 2 red magnets</answer>&nbsp;&nbsp;&nbsp;
+        <answer>To any 2 blue magnets</answer>&nbsp;&nbsp;&nbsp;
+        <answer correct>One end to an input blocks blue magnet and the other end to
+        an output block blue magnet</answer>
+        </question>
+    </template>
+
+    <template name="screen">
+        <h4>Correct, connect blue cables, One end to an input blocks blue magnet and the other end to
+        an output block blue magnet</h4>
+
+        The blue cable sends the input block event so an output block can perform the action.
+
+        <video name="images/sr_connect_red.mp4"></video>
+
+        <question>Where do you connect red connectors on each cube?
+        <answer>a)Any 2 red magnets</answer>&nbsp;&nbsp;&nbsp;
+        <answer>b) Any 2 blue magnets</answer>&nbsp;&nbsp;&nbsp;
+        <answer correct>c) One end to an input blocks red magnet and the other end to
+        an output block red magnet</answer>
+        </question>
+    </template>
+
+    <template name="screen">
+        <h4>Correct. Connect any 2 red magnets.</h4>
+
+        The red connectors pass electricity. It doesn't matter how you connect these together.
+
+        <h1>Congradulations. You are ready to build your robot.</h1>
+    </template>
+</template>
+
+<!-- ***********************************************************************************************
+ * training screens for coding these screens.
+ * training screens for coding these screens.
+ * training screens for coding these screens.
+ * training screens for coding these screens.
+ * training screens for coding these screens.
+ * training screens for coding these screens.
+ ***************************************************************************************************-->
+
+<!-- ***********************************************************************************************
+ * training screens for servo's.
+ * training screens for servo's.
+ * training screens for servo's.
+ * training screens for servo's.
+ * training screens for servo's.
+ * training screens for servo's.
+ * training screens for servo's.
+ ***************************************************************************************************-->
+<template id="training_servo">
+    <template name="screen">
+        <h1>Servo training</h1>
+
+        <video name="images/training_servo_1.mp4"></video>
+
+        <question>What is a servo?
+        <answer> Part of a computer</answer>&nbsp;&nbsp;&nbsp;
+        <answer> a type of car</answer>
+        <answer correct> a type of electric motor</answer>
+        </question>
+    </template>
+
+    <template name="screen">
+        <H4>Correct, it's a type of electric motor.</H4>
+
+        All electric motors can rotate in one direction at a specific speed but there are electric motors that are more
+        flexible. Some examples: servo, stepper, linear, direct drive and actuator. <br/>
+
+        <video name="images/training_servo_1.mp4"></video>
+
+        <question>What is special about a servo motor?
+        <answer>Nothing special</answer>
+        <answer>Rotates to a position</answer>
+        <answer correct>Rotates to a position and holds that position</answer>
+        </question>
+    </template>
+
+    <template name="screen">
+        <h4>Correct, it rotates to a specified position and stays in that position.</H4>
+
+        <video name="images/training_servo_1.mp4"></video>
+
+        <question>What is the difference between a 180 servo, 360 servo, 520 servo and continuous servo?
+        <answer>Size of the motor</answer>
+        <answer>Number of gears in the servo</answer>
+        <answer correct>The maximum angle the servo will rotate</answer>
+        </question>
+    </template>
+
+    <template name="screen">
+        <h4>Correct, The number represents the maximum angle the motor can rotate. </h4>
+
+        A 180 servo can rotate
+        180 degrees (half circle) and a 360 servo can rotate 360 degree's (full circle). The exception
+        is a continuous servo which rotates continuously instead of stopping. Instead of specifying a position,
+        you specify the speed and direction.
+
+        <video name="images/training_servo_1.mp4"></video>
+
+        <question>What is the special meaning when number 0 is sent to a servo?
+        <answer>The position on the servo</answer>
+        <answer>Angle</answer>&nbsp;&nbsp;&nbsp;
+        <answer correct>Power off the servo</answer>
+        </question>
+    </template>
+
+    <template name="screen">
+        <h4>Correct. Number 0 turns the power off to the servo.</h4>
+
+        When the power is off, you can turn the servo by hand.
+
+        <video name="images/training_servo_1.mp4"></video>
+
+        <question>What do numbers 1000 to 2000 represent?
+        <answer>Nothing special</answer>
+        <answer>An angle</answer>&nbsp;&nbsp;&nbsp;
+        <answer correct>A position within the servo's range</answer>
+        </question>
+    </template>
+
+    <template name="screen">
+        <h4>Correct, a number from 1000 to 2000 is a position within the servo's angle range.</h4>
+
+        <span>Most but not all servo's follow a standard where 1000 is the 0 degree position and 2000 the
+            angle mentioned on the servo. E.g. a 180 servo, 2000 is the 180 degree position.</span>
+
+        <span>Formula to calculate number from angle: 1000 / servo angle * desired angle + 1000. E.g. position
+            a 360 servo at 90 degree's: 1000/360*90+1000 = 1250.</span>
+
+        <video name="images/training_servo_1.mp4"></video>
+
+        <question>What happens if you specify a number between 1 and 999 or a number greater than 2000?
+        <answer>The servo assumes 0</answer>
+        <answer>The servo assumes 1000 or 2000</answer>
+        <answer correct>The servo might break</answer>
+        </question>
+    </template>
+
+    <template name="screen">
+        <h4>Correct, From 1 to 999 or above 2000 could break the servo.</h4>
+
+        Many servo's will allow these numbers even though they will break the servo. In most cases, 990 to 2010
+        will be ok. Using 500 or 2500 should be avoided.
+
+        <H1>Congradulations. You have mastered the basics of servo's.</H1>
+
+    </template>
+
+</template>
+
+<!-- ***********************************************************************************************
+ * Do not touch the following - it can be simplified later if you want to proceed
+ * Do not touch the following - it can be simplified later if you want to proceed
+ * Do not touch the following - it can be simplified later if you want to proceed
+ * Do not touch the following - it can be simplified later if you want to proceed
+ * Do not touch the following - it can be simplified later if you want to proceed
+ * Do not touch the following - it can be simplified later if you want to proceed
+ * Do not touch the following - it can be simplified later if you want to proceed
+ * Do not touch the following - it can be simplified later if you want to proceed
+ ***********************************************************************************************-->
+
+<template id="animated_screen">
+    <div id="anim_screen" style="position: fixed; left: 0px; bottom: 0px; width: 15in; text-align: center;">
+        <div id="desk" style="z-index: 1000; position: absolute; right: 5.5in; bottom: 0px;">
+            <img src="images/desk2.webp" width="350" />
+            <img src="images/snoopy_elbows.webp" id="snoopy_elbows" width="81" style="z-index: 26; visibility: hidden; position: absolute; right: 25px; bottom: 75px;" />
+            <video id="pc_video_player" loop autoplay width="220" muted controls style="position: absolute; bottom: 93px; left: 5px;">
+                <source id="pc_video" src="" type="video/mp4"/>
+                Your browser does not support MP4 video\'s, Please use a web browser that supports MP4.
+            </video>
+        </div>
+
+        <img src="images/charliebrown.webp" id="charlie" width="133" style="z-index: 25; transform: scaleX(-1); position: absolute; left: 0px; bottom: 80px;" />
+        <img src="images/wall.webp" width="450" style="z-index: 10; position: absolute; left: 0px; bottom: 110px;" />
+        <img src="images/goofy.webp" id="goofy" width="165" style="z-index: 15; position: absolute; left: 0px; bottom: 130px;" />
+        <img src="images/wall.webp" width="410" style="z-index: 20; position: absolute; left: 0px; bottom: 60px;" />
+        <img src="images/popeye.webp" id="popeye" width="240" style="z-index: 5; position: absolute; left: 0px; bottom: 180px;" />
+        <img src="images/wall.webp" width="370" style="z-index: 30; position: absolute; left: 0px; bottom: 10px;" />
+
+        <img src="images/daffy.webp" id="daffy" width="149" style="z-index: 5; position: absolute; right: 0px; bottom: 180px;" />
+        <img src="images/wall.webp" width="450" style="z-index: 10; transform: scaleX(-1); position: absolute; right: 0px; bottom: 110px;" />
+        <img src="images/mickey.webp" id="mickey" width="177" style="z-index: 15; position: absolute; right: 0px; bottom: 130px;" />
+        <img src="images/wall.webp" width="410" style="z-index: 20; transform: scaleX(-1); position: absolute; right: 0px; bottom: 60px;" />
+        <img src="images/snoopy.webp" id="snoopy" width="100" style="z-index: 25; position: absolute; right: 0px; bottom: 60px;" />
+        <img src="images/wall.webp" width="370" style="z-index: 30; transform: scaleX(-1); position: absolute; right: 0px; bottom: 10px;" />
+    </div>
+    <script>
+        anim_success = function() {
+            if (window.mickey != undefined)
+                mickey.style.animation = "right_k 3s";
+        }
+
+        anim_fail = function() {
+            if(window.popeye != undefined) {
+                goofy.style.animation = "";
+                daffy.style.animation = "";
+                charlie.style.animation = "";
+                popeye.style.animation = "left_k 3s";
+            }
+        }
+
+        snoopy.onanimationend = function(e) {
+            snoopy.style.visibility = "hidden";
+            snoopy_elbows.style.visibility = "";
+            goofy.style.animation = "left_k 3s";
+            daffy.style.animation = "";
+            charlie.style.animation = "";
+        }
+
+        goofy.onanimationend = function(e) {
+            daffy.style.animation = "right_k 3s";
+            goofy.style.animation = "";
+        }
+
+        daffy.onanimationend = function(e) {
+            charlie.style.animation = "left_k 3s";
+            daffy.style.animation = "";
+        }
+
+        charlie.onanimationend = function(e) {
+            goofy.style.animation = "left_k 3s";
+            charlie.style.animation = "";
+        }
+
+        popeye.onanimationend = function(e) {
+            popeye.style.animation = "";
+            charlie.onanimationend();
+        }
+
+        mickey.onanimationend = function(e) {
+            mickey.style.animation = "";
+        }
+
+        setTimeout(function() {snoopy.style.animation = "snoopy_k 3s";}, 500);
+
+        pc_video.src = window["screen" + training.screen_number].getAttribute("video");
+
+        window.onresize = function(e) {
+            if (window.anim_screen == undefined)
+                return;
+            if (window.innerHeight < 500 || window.innerWidth < 850) {
+                alert('Screen size smaller than required. Please zoom your screen out.');
+            }
+            anim_screen.style.left = (window.innerWidth - anim_screen.clientWidth)/2 + 'px';
+        }
+        window.onresize();
+    </script>
+</template>
+
+<!-- ***********************************************************************************************
+ * Do not touch the following - it can be simplified later if you want to proceed
+ * Do not touch the following - it can be simplified later if you want to proceed
+ * Do not touch the following - it can be simplified later if you want to proceed
+ * Do not touch the following - it can be simplified later if you want to proceed
+ * Do not touch the following - it can be simplified later if you want to proceed
+ * Do not touch the following - it can be simplified later if you want to proceed
+ * Do not touch the following - it can be simplified later if you want to proceed
+ * Do not touch the following - it can be simplified later if you want to proceed
+ ***********************************************************************************************-->
+
+<template id="animated_screen2">
+    <div id="anim_screen" style="position: fixed; left: 0px; bottom: 0px; width: 15in; text-align: center;">
+    </div>
+    <script>
+    </script>
+</template>
+
+</body></html>
