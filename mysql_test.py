@@ -10,9 +10,9 @@ race_table = {'Black' : 'Black',
 
 mydb = mysql.connector.connect(
     host="localhost",
-    user="jon",
+    user="stduser",
     database="police_shootings",
-    passwd="465Gabilan"
+    passwd="pwdStduser"
     )
 
 mycursor = mydb.cursor()
@@ -201,5 +201,5 @@ add year varchar(100) , add county varchar(100) , add race_or_ethnicity varchar(
 
 add county varchar(100) , add reporting_agency varchar(100) , add agency_full_name varchar(100) , add ncic_number_county varchar(100) , add ncic_number_city varchar(100) , add ncic_number_agency varchar(100) , add date_of_birth_mm varchar(100) , add date_of_birth_dd varchar(100) , add date_of_birth_yyyy varchar(100) , add race varchar(100) , add gender varchar(100) , add custody_status varchar(100) , add custody_offense varchar(100) , add date_of_death_yyyy varchar(100) , add date_of_death_mm varchar(100) , add date_of_death_dd varchar(100) , add custodial_responsibility_at_time_of_death varchar(100) , add location_where_cause_of_death_occurred varchar(100) , add facility_death_occured varchar(100) , add manner_of_death varchar(100) , add means_of_death varchar(100)
 
-name varchar(100) , add age varchar(100) , add gender varchar(100) , add ace varchar(100) , add URL_image_victim varchar(100) , add Date varchar(100) , add Address_Incident varchar(100) , add City varchar(100) , add State varchar(100) , add Zip varchar(100) , add County varchar(100) , add Agency varchar(100) , add Cause varchar(100) , add description varchar(100) , add Official_disposition varchar(100) , add Criminal_Charges varchar(100) , add url_news_article_or_photo_of_official_document varchar(100) , add mental_illness varchar(100) , add Unarmed varchar(100) , add Alleged_Weapon varchar(100) , add Alleged_Threat_Level varchar(100) , add Fleeing varchar(100) , add Body_Camera varchar(100) , add WaPo_ID_If_in_WaPo_database varchar(100) , add Off_Duty_Killing varchar(100) , add Geography varchar(100) , add ID
+name varchar(100) , add age varchar(100) , add gender varchar(100) , add ace varchar(100) , add URL_image_victim varchar(100) , add Date varchar(100) , add Address_Incident varchar(100) , add City varchar(100) , add State varchar(100) , add Zip varchar(100) , add County varchar(100) , add Agency varchar(100) , add Cause varchar(100) , add description varchar(100) , add Official_disposition varchar(100) , add Criminal_Charges varchar(100) , add url_news_article_or_photo_of_official_document varchar(100) , add mental_illness varchar(100) , add Unarmed varchar(100) , add Alleged_Weapon varchar(100) , add Alleged_Threat_Level varchar(100) , add Fleeing varchar(100) , add Body_Camera varchar(100) , add WaPo_ID_If_in_WaPo_database varchar(100) , add Off_Duty_Killing varchar(100) , add Geography varchar(100) , add ID int
 """
