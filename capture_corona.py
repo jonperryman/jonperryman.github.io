@@ -78,8 +78,12 @@ file.write("""
     }
     """)
 
-get_corona_data("country",["us","france"])
-get_corona_data("usa",["california","texas","new-york","new-jersey"])
+get_corona_data("country",["us", "france", "italy", "spain", "germany", "mexico", "sweden",
+    "finland", "norway", "denmark", "belgium", "brazil", "argentina", "uk", "colombia",
+    "poland", "belgium", "iraq"])
+get_corona_data("usa",["california","texas","new-york","new-jersey","florida","texas",
+    "illinois", "ohio", "georgia", "michigan", "wisconsin", "pennsylvania", 
+    "arizona", "louisiana", "massachusetts", "south-carolina"])
 
 file.write("""
     download.href += downloaded_data;
