@@ -1,15 +1,30 @@
+/* 
+    Capture worldometer corona data manually for the previous day.
+    
+    To run this javascript:    
+    1. open the worldometer web page for the corona data you wish collect. 
+    2. Open deveveloper tools. 
+    3. Select the source tab.
+    4. Select "snippets". This may be hidden. Click the ">>" where you see "page source >>".
+    5. If this is the first time you run this, then click "new snippet" and 
+       give it a name. In the snippet area, paste a copy of this javascript.
+    6. Right mouse click on the snippet name and click on "run".
+    7. A CSV download file will be created.
+    8. For additional locations, change to that location and repeat step 6.
+*/
+
 function capture_file(filename, text) {
-    var pom = document.createElement('a');
-    pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
-    pom.setAttribute('download', filename);
+    var a = document.createElement('a');
+    a.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+    a.setAttribute('download', filename);
 
     if (document.createEvent) {
         var event = document.createEvent('MouseEvents');
         event.initEvent('click', true, true);
-        pom.dispatchEvent(event);
+        a.dispatchEvent(event);
     }
     else {
-        pom.click();
+        a.click();
     }
 }
 
@@ -35,7 +50,7 @@ function capture() {
     if (work.getHours() < 17)
         work.setDate(work.getDate()-1);
     else if (work.getHours() < 19)
-        throw "Covid database updates between 5 to 7.";
+        throw "Covid database updates from 5 to 7.";
 
     work = work.toLocaleDateString().split("/")
     var date = work[2]+"-"+work[0]+"-"+work[1];

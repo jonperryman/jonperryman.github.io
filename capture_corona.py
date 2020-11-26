@@ -2,18 +2,26 @@
     Program to extract corona virus daily new cases and deaths from worldometers.
 
     Python3 required to run this program.
-    You will need to modify os.command() below if you are not running under Linux or not using Chrome web browser.
-    Any web browser should work fine to create the CSV data in the download directory.
+    You will need to modify os.command() below if you are not running under Linux 
+    or not using Chrome web browser. Any web browser should work fine to create 
+    the CSV data in the download directory.
 
-
-
+    Change variables countries and states to the places you want to see.
 """
+
+countries = [ "france", "italy", "spain", "germany", "mexico", "sweden",
+    "finland", "norway", "denmark", "belgium", "brazil", "argentina", "uk", "colombia",
+    "poland", "belgium", "iraq"]
+states = ["california","texas","new-york","new-jersey","florida","texas",
+    "illinois", "ohio", "georgia", "michigan", "wisconsin", "pennsylvania", 
+    "arizona", "louisiana", "massachusetts", "south-carolina"]
 
 import requests
 import os
 
 def get_corona_data(directory,locations):
     for location in locations:
+        print("downloading worldometer data for", location)
         p = requests.get("https://www.worldometers.info/coronavirus/" + directory + "/"+location)
         p = p.content.decode()
         p = p.split("Highcharts.chart(")
@@ -27,7 +35,7 @@ file.write("""
     <html>
     <body>
     <div id='download_progress'>Extracting data for:</div>
-    <a id='download' href='data:text/plain;charset=utf-8,' download='corona.csv'></a>
+    <a id='download' href='data:text/plain;charset=utf-8,' download='capture_corona.csv'></a>
 
     <script>
 
@@ -62,28 +70,25 @@ file.write("""
                     + data.series[2].data + '\\n'; 
                 download_progress.innerHTML += ' <span style=\\'background-color: lightgreen;\\'>completed</span>';
             
-            } else {  // graphing data
+            } else {  // graphing data instead of creating csv data
                 if (downloaded_data == '') 
                     downloaded_data = 'ylabel = [' + q(data.xAxis.categories.join('\\', \\'')) + '];\\n';     // labels 
-                downloaded_data += 'graphdata(' + q(location) + ', '  //  daily
+                downloaded_data += 'graphdata(' + q(location) + ', ' 
                     + q(description) + ', '
                     + q(data.title.text) + ', '
-                    + q(data.series[2].name) + ', ' 
+                    + q(data.series[2].name) + ', '    // 7 day running average
                     + '[' + data.series[2].data + ']\\n'
                     + ');\\n\\n'; 
             }
-        } else {
+
+        } else {  // ignore this file
             download_progress.innerHTML += ' <span style=\\'background-color: pink;\\'>Skipped</span>';
         }
     }
     """)
 
-get_corona_data("country",["us", "france", "italy", "spain", "germany", "mexico", "sweden",
-    "finland", "norway", "denmark", "belgium", "brazil", "argentina", "uk", "colombia",
-    "poland", "belgium", "iraq"])
-get_corona_data("usa",["california","texas","new-york","new-jersey","florida","texas",
-    "illinois", "ohio", "georgia", "michigan", "wisconsin", "pennsylvania", 
-    "arizona", "louisiana", "massachusetts", "south-carolina"])
+get_corona_data("country", countries)
+get_corona_data("usa", states)
 
 file.write("""
     download.href += downloaded_data;
