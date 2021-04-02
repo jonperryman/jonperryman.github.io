@@ -17,14 +17,14 @@
          END   ,
 </code>
 
-<code _title="">
+<code _title="Send a new service request to the exec processor">
 .        #SRESEND SRE=NEWSERVICE,     Create a new SRE and send it     X
                MESSAGES=YES,          We want to receive messages      X
                VARIABLES=YES,         We want to receive variables     X
                TASK=COMMAND,          Send it to the command process   X
                TAG='EXECCMD',         Exec command                     X
-               USERTYPE=EXEC,         ISPF user                        X
-               USER=USERID,           ISPF user name                   X
+               USERTYPE=EXEC,         TSO user                         X
+               USER=USERID,           TSO user name                    X
                DATA=(MDLCME,(R6)),                                     X
                DATALEN=(MDLCME_LEN,(R2)),                              X
                WAIT=YES,              Wait for response                X
@@ -32,7 +32,7 @@
                MF=(E,WRKSEND)
 </code>
 
-<code _title="">
+<code _title="Program work area definition">
 WRK      #CB   TYPE=BEGIN,INITFLDS=YES
 WRKMCNT  DC    PL8'0'                 Message count
 WRKSEND  #SRESEND MF=L
