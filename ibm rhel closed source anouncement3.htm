@@ -1,0 +1,289 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 14 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:0in;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-link:"Balloon Text Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	font-size:8.0pt;
+	font-family:"Tahoma","sans-serif";}
+span.BalloonTextChar
+	{mso-style-name:"Balloon Text Char";
+	mso-style-link:"Balloon Text";
+	font-family:"Tahoma","sans-serif";}
+p.msochpdefault, li.msochpdefault, div.msochpdefault
+	{mso-style-name:msochpdefault;
+	margin-right:0in;
+	margin-left:0in;
+	font-size:12.0pt;
+	font-family:"Calibri","sans-serif";}
+p.msopapdefault, li.msopapdefault, div.msopapdefault
+	{mso-style-name:msopapdefault;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:0in;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+.MsoChpDefault
+	{font-size:10.0pt;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+
+<script>
+let speakMsg = new SpeechSynthesisUtterance();
+function findVoice(voice) {
+	console.log('process', voice.name);
+	return /.*Aria.*English.*United States.*/.test(voice.name);
+}
+function junk() {
+	speakMsg.text = 'Hello! this is a test';
+	speakMsg.onend = (event) => {
+		document.getElementById('speakButton').innerText = 'Read the text aloud';
+       		console.log("message ended");
+	}
+ 	speakMsg.onpause = (event) => {
+		document.getElementById('speakButton').innerText = 'Resume';
+       		console.log("message ended");
+	}
+	speakMsg.onresume = (event) => {
+		document.getElementById('speakButton').innerText = 'Pause';
+       		console.log("message ended");
+	}
+	speakMsg.onstart = (event) => {
+		document.getElementById('speakButton').innerText = 'Pause';
+       		console.log("message ended");
+	}
+	speakMsg.voice = window.speechSynthesis.getVoices().find(findVoice);
+	window.speechSynthesis.speak(speakMsg);
+}
+
+function speakButton() {
+	let buttonText = document.getElementById('speakButton').innerText;
+	if (buttonText == 'Pause') {
+		document.getElementById('speakButton').innerText = 'Pausing';
+		window.speechSynthesis.pause();
+	}
+	else if (buttonText == 'Resume') {
+		document.getElementById('speakButton').innerText = 'Resuming';
+		window.speechSynthesis.resume();
+	}
+	else if (buttonText == 'Read the text aloud') {
+		document.getElementById('speakButton').innerText = 'Starting speech';
+		if (speakMsg.text == '') {
+			speakMsg.text = document.getElementsByClassName("WordSection1")[0].innerText;
+			speakMsg.onend = (event) => {
+				document.getElementById('speakButton').innerText = 'Read the text aloud';
+			}
+			speakMsg.onpause = (event) => {
+				document.getElementById('speakButton').innerText = 'Resume';
+			}
+			speakMsg.onresume = (event) => {
+				document.getElementById('speakButton').innerText = 'Pause';
+			}
+			speakMsg.onstart = (event) => {
+				document.getElementById('speakButton').innerText = 'Pause';
+			}
+			speakMsg.voice = window.speechSynthesis.getVoices().find(findVoice);
+		}
+		window.speechSynthesis.speak(speakMsg);
+	}	
+}
+
+msg = null;
+function speakButtonx() {
+    console.log("speakbutton");
+    msg = new SpeechSynthesisUtterance (document.getElementsByClassName("WordSection1")[0].innerText); 
+    voices = window.speechSynthesis.getVoices();
+    msg.voice = voices[5];
+    msg.onpause = (event) => {
+       console.log("paused");
+    }
+    msg.onresume = (event) => {
+       console.log("resumed");
+    }
+    msg.onstart = (event) => {
+       console.log("starting");
+       window.speechSynthesis.pause();
+       console.log("pausing");
+    }
+    msg.onend = (event) => {
+       console.log("end");
+    }
+    window.speechSynthesis.speak(msg);
+    console.log("speaking");
+}
+</script>
+</head>
+
+<body lang=EN-US link=blue vlink=purple>
+
+<div class=WordSection1>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:115%;font-family:
+"Times New Roman","serif"'>Read the text aloud</button> </span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:14.0pt;line-height:115%;font-family:"Arial","sans-serif";
+color:#222222;background:white'>IBM’s Red Hat Enterprise Linux closed source
+announcement:</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:14.0pt;line-height:115%;font-family:"Arial","sans-serif";
+color:#222222;background:white'>Linux finally grows up when z/OS (IBM’s
+flagship OS) is merged.</span></p>
+
+<p class=MsoNormal><span style='font-family:"Arial","sans-serif";color:#222222;
+background:white'>Very few people understand why IBM needs RHEL to be closed
+source. IBM’s RHEL closed source announcement is </span>experiencing the
+extreme ire of the entire Linux open source community and has gone unnoticed by
+the z/OS community. Neither understands the decision for this announcement nor
+how both will be greatly affected. Closed source will not force Google, Amazon,
+Oracle, Rocky Linux and others to pay for RHEL. Instead, they will easily
+switch to another free Linux Distro. Someone will move key RHEL features from
+the last open source to a different open source Linux. Why do people believe
+that IBMs intent is to boost profits when closed source doesn’t change the RHEL
+customer base?</p>
+
+<p class=MsoNormal><b><span style='font-family:"Arial","sans-serif";color:#222222;
+background:white'>Linux is a 20<sup>th</sup> century dinosaur which needs to be
+rewritten!</span></b> Google has an army of thousands whose only job is to keep
+their 5,500,000 Linux servers running. On average, a Google Linux server
+computer has 24 cores but never more than 48 cores which means that 24
+computations can occur at the same exact moment in time. However, an IBM z/OS
+Sysplex server computer can have up to 102,400 cores allowing for 102,400
+computations at the same exact moment in time. Google could easily reduce their
+army to a couple hundred people by moving to a couple thousand IBM z/OS Sysplex
+servers. In layman’s terms, Google has a traffic congestion problem because
+they use a fleet of cars when they should use a combination of cars, buses,
+trucks, planes and trains.</p>
+
+<p class=MsoNormal align=center style='text-align:center'><b><span
+style='font-family:"Arial","sans-serif";color:#222222;background:white'><img
+width=433 height=289
+src="IBM%20RHEL%20closed%20source%20anouncement2_files/image001.jpg"></span></b></p>
+
+<p class=MsoNormal>Without IBM z/OS technologies in RHEL, RHEL must run as
+virtualized RHEL servers on IBM z computers using VM or LPAR. There is no
+benefit for Google to run 5,500,000 virtual Linux servers on a couple thousand
+IBM z systems versus 5,500,000 cheaper real computers. Linux without z/OS
+technologies still requires the same Army.</p>
+
+<p class=MsoNormal><b><span style='font-family:"Arial","sans-serif";color:#222222;
+background:white'>IBM needs a Linux designed for the 21<sup>st</sup> century
+that runs efficiently on the most advanced computers in the world.</span></b>
+Although IBM z/OS is the most advanced OS in the world, companies refuse to buy
+z/OS because Linux is free. If the mountain won't come to Muhammad, then
+Muhammad must go to the mountain. Linux is currently a jack of all trades but
+master of none. You can run it on any computer but that doesn’t mean it runs
+well. IBM is looking at implementing z/OS technologies in Linux.</p>
+
+<p class=MsoNormal><b><span style='font-family:"Arial","sans-serif";color:#222222;
+background:white'>IBM’s closed source policy has made huge design contributions
+to the Open Source community.</span></b> &nbsp;Anyone can write code. The
+biggest flaw with open source is the lack of expert design skills. Google’s
+5,500,000 Linux servers demonstrates’ how the lack of expert design skills has
+impacted Linux. Where would Linux be if DARPA hadn’t designed the internet?
+It’s very unlikely the coders of open source TCP/IP (Internet) had the design
+skills to create it from scratch. All the open source coding contributions are
+insignificant compared to IBM’s expert software technology design contributions
+(for example: Virtualization (VM, LPAR, VMWare, Virtualbox), Databases, SQL,
+High Availability, The Cloud, Big Data, HTML and much more). Without the existence
+of these designs, open source coders would have failed in creating the Linux
+they love so much. If open source coders had replicated some of IBM’s z/OS
+efficiencies technologies, we would see Linux running efficiently on computers
+with more than 100,000 cores.</p>
+
+<p class=MsoNormal><b><span style='font-family:"Arial","sans-serif";color:#222222;
+background:white'>Closed source is required for IBM to merge z/OS technologies
+into Linux.</span></b> &nbsp;In my opinion, IBM is about to move lucrative z/OS
+technologies to Linux. 70% of the Fortune 500 companies buy z/OS because Linux
+isn’t capable of providing these critical capabilities. If this move is
+successful, IBM will have destroyed their z/OS, z/VSE and z/VM customer base
+thus costing them billions of dollars every year. Open source would cause IBM
+to expose trade secrets.</p>
+
+<p class=MsoNormal><b><span style='font-family:"Arial","sans-serif";color:#222222;
+background:white'>Businesses choose RHEL but don’t buy it from RHEL.</span></b>
+<a href="https://www.youtube.com/watch?v=KyADkmRVe0U">The Linux Tier List -
+YouTube</a> is a decent ranking of the more than 40 Linux distro’s. A small
+minority of businesses use SUSE Linux ($650 million in revenues). The vast
+majority use a Linux distro based on RHEL (Oracle Linux, Rocky Linux, Alma
+Linux and RHEL). Even before IBM bought RHEL, RHEL was considered the devil,
+much like IBM. For instance, Google 2022 revenues were $283 billion but they
+paid RHEL $0. Instead, they paid Rocky Linux which they installed on many of
+their 5,500,000 servers. It’s more likely that Google will install SUSE Linux
+instead of IBM’s RHEL. Even Amazon Linux is based on RHEL but didn’t pay
+anything to RHEL.</p>
+
+<p class=MsoNormal><b><span style='font-family:"Arial","sans-serif";color:#222222;
+background:white'>IBM (International Business Machines).</span></b> Of all the computer
+companies, IBM represents business needs above all. IBM has the only computers
+with zero down time which is why they call it “IBM System z”. IBM has the only
+computers with more than 100 cores thus allowing businesses to have 1 server
+instead of a server farm with a cast of thousands of employees. IBM has the
+only computers that are run by business needs instead of by people more
+knowledgeable about computers than the business. If RHEL is successful, the
+business will become the master.</p>
+
+<p class=MsoNormal><b><span style='font-family:"Arial","sans-serif";color:#222222;
+background:white'>False speculation about IBM buying RHEL.</span></b> It’s a
+small possibility that IBM wants to force companies to pay for REHL but that
+doesn’t make sense because they are more likely to lose customers and revenues.
+Until RHEL went closed source, it made no sense why IBM bought RHEL in 2019. In
+my opinion, IBM wants to stop discounting hardware for Linux and JAVA. But
+charging full price will require extra value which in my opinion will be to
+migrate z/OS technologies into Linux and create a Linux Sysplex. For more than
+20 years, IBM partnered with RHEL for IBM z computers. In my opinion, they
+didn’t buy RHEL for its small revenue stream that is &lt;5% and certainly not
+to retain open source customer base. </p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-family:"Arial","sans-serif";color:#222222;background:white'><img
+border=0 width=281 height=224
+src="IBM%20RHEL%20closed%20source%20anouncement2_files/image002.jpg"></span><span
+style='font-family:"Arial","sans-serif";color:#222222;background:white'><img
+border=0 width=279 height=221
+src="IBM%20RHEL%20closed%20source%20anouncement2_files/image003.jpg"></span>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+</div>
+
+</body>
+
+</html>
