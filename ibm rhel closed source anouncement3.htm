@@ -66,30 +66,15 @@ div.WordSection1
 
 <script>
 let speakMsg = new SpeechSynthesisUtterance();
+function addSpeakButton() {
+	var newDiv = document.createElement('div');
+	newDiv.innerHTML = "<button onclick='speakButton();'>Read text aloud</button>";
+	newDiv.style = "position:absolute; top:0; left:0;"
+	document.getElementsById('pageData').appendChild(newDiv);
+}
 function findVoice(voice) {
 	console.log('process', voice.name);
 	return /.*Aria.*English.*United States.*/.test(voice.name);
-}
-function junk() {
-	speakMsg.text = 'Hello! this is a test';
-	speakMsg.onend = (event) => {
-		document.getElementById('speakButton').innerText = 'Read the text aloud';
-       		console.log("message ended");
-	}
- 	speakMsg.onpause = (event) => {
-		document.getElementById('speakButton').innerText = 'Resume';
-       		console.log("message ended");
-	}
-	speakMsg.onresume = (event) => {
-		document.getElementById('speakButton').innerText = 'Pause';
-       		console.log("message ended");
-	}
-	speakMsg.onstart = (event) => {
-		document.getElementById('speakButton').innerText = 'Pause';
-       		console.log("message ended");
-	}
-	speakMsg.voice = window.speechSynthesis.getVoices().find(findVoice);
-	window.speechSynthesis.speak(speakMsg);
 }
 
 function speakButton() {
@@ -124,29 +109,6 @@ function speakButton() {
 	}	
 }
 
-msg = null;
-function speakButtonx() {
-    console.log("speakbutton");
-    msg = new SpeechSynthesisUtterance (document.getElementsByClassName("WordSection1")[0].innerText); 
-    voices = window.speechSynthesis.getVoices();
-    msg.voice = voices[5];
-    msg.onpause = (event) => {
-       console.log("paused");
-    }
-    msg.onresume = (event) => {
-       console.log("resumed");
-    }
-    msg.onstart = (event) => {
-       console.log("starting");
-       window.speechSynthesis.pause();
-       console.log("pausing");
-    }
-    msg.onend = (event) => {
-       console.log("end");
-    }
-    window.speechSynthesis.speak(msg);
-    console.log("speaking");
-}
 </script>
 </head>
 
@@ -154,21 +116,18 @@ function speakButtonx() {
 
 <div class=WordSection1>
 
-<p class=MsoNormal><span style='font-size:12.0pt;line-height:115%;font-family:
-"Times New Roman","serif"'>Read the text aloud</button> </span></p>
-
 <p class=MsoNormal align=center style='text-align:center'><span
 style='font-size:14.0pt;line-height:115%;font-family:"Arial","sans-serif";
-color:#222222;background:white'>IBM’s Red Hat Enterprise Linux closed source
+color:#222222;'>IBM’s Red Hat Enterprise Linux closed source
 announcement:</span></p>
 
 <p class=MsoNormal align=center style='text-align:center'><span
 style='font-size:14.0pt;line-height:115%;font-family:"Arial","sans-serif";
-color:#222222;background:white'>Linux finally grows up when z/OS (IBM’s
+color:#222222;'>Linux finally grows up when z/OS (IBM’s
 flagship OS) is merged.</span></p>
 
 <p class=MsoNormal><span style='font-family:"Arial","sans-serif";color:#222222;
-background:white'>Very few people understand why IBM needs RHEL to be closed
+'>Very few people understand why IBM needs RHEL to be closed
 source. IBM’s RHEL closed source announcement is </span>experiencing the
 extreme ire of the entire Linux open source community and has gone unnoticed by
 the z/OS community. Neither understands the decision for this announcement nor
@@ -180,7 +139,7 @@ that IBMs intent is to boost profits when closed source doesn’t change the RHEL
 customer base?</p>
 
 <p class=MsoNormal><b><span style='font-family:"Arial","sans-serif";color:#222222;
-background:white'>Linux is a 20<sup>th</sup> century dinosaur which needs to be
+'>Linux is a 20<sup>th</sup> century dinosaur which needs to be
 rewritten!</span></b> Google has an army of thousands whose only job is to keep
 their 5,500,000 Linux servers running. On average, a Google Linux server
 computer has 24 cores but never more than 48 cores which means that 24
@@ -193,9 +152,9 @@ they use a fleet of cars when they should use a combination of cars, buses,
 trucks, planes and trains.</p>
 
 <p class=MsoNormal align=center style='text-align:center'><b><span
-style='font-family:"Arial","sans-serif";color:#222222;background:white'><img
+style='font-family:"Arial","sans-serif";color:#222222;'><img
 width=433 height=289
-src="IBM%20RHEL%20closed%20source%20anouncement2_files/image001.jpg"></span></b></p>
+src="img/ibm_vs_google.jpg"></span></b></p>
 
 <p class=MsoNormal>Without IBM z/OS technologies in RHEL, RHEL must run as
 virtualized RHEL servers on IBM z computers using VM or LPAR. There is no
@@ -204,7 +163,7 @@ IBM z systems versus 5,500,000 cheaper real computers. Linux without z/OS
 technologies still requires the same Army.</p>
 
 <p class=MsoNormal><b><span style='font-family:"Arial","sans-serif";color:#222222;
-background:white'>IBM needs a Linux designed for the 21<sup>st</sup> century
+'>IBM needs a Linux designed for the 21<sup>st</sup> century
 that runs efficiently on the most advanced computers in the world.</span></b>
 Although IBM z/OS is the most advanced OS in the world, companies refuse to buy
 z/OS because Linux is free. If the mountain won't come to Muhammad, then
@@ -213,7 +172,7 @@ master of none. You can run it on any computer but that doesn’t mean it runs
 well. IBM is looking at implementing z/OS technologies in Linux.</p>
 
 <p class=MsoNormal><b><span style='font-family:"Arial","sans-serif";color:#222222;
-background:white'>IBM’s closed source policy has made huge design contributions
+'>IBM’s closed source policy has made huge design contributions
 to the Open Source community.</span></b> &nbsp;Anyone can write code. The
 biggest flaw with open source is the lack of expert design skills. Google’s
 5,500,000 Linux servers demonstrates’ how the lack of expert design skills has
@@ -229,7 +188,7 @@ efficiencies technologies, we would see Linux running efficiently on computers
 with more than 100,000 cores.</p>
 
 <p class=MsoNormal><b><span style='font-family:"Arial","sans-serif";color:#222222;
-background:white'>Closed source is required for IBM to merge z/OS technologies
+'>Closed source is required for IBM to merge z/OS technologies
 into Linux.</span></b> &nbsp;In my opinion, IBM is about to move lucrative z/OS
 technologies to Linux. 70% of the Fortune 500 companies buy z/OS because Linux
 isn’t capable of providing these critical capabilities. If this move is
@@ -238,7 +197,7 @@ thus costing them billions of dollars every year. Open source would cause IBM
 to expose trade secrets.</p>
 
 <p class=MsoNormal><b><span style='font-family:"Arial","sans-serif";color:#222222;
-background:white'>Businesses choose RHEL but don’t buy it from RHEL.</span></b>
+'>Businesses choose RHEL but don’t buy it from RHEL.</span></b>
 <a href="https://www.youtube.com/watch?v=KyADkmRVe0U">The Linux Tier List -
 YouTube</a> is a decent ranking of the more than 40 Linux distro’s. A small
 minority of businesses use SUSE Linux ($650 million in revenues). The vast
@@ -251,7 +210,7 @@ instead of IBM’s RHEL. Even Amazon Linux is based on RHEL but didn’t pay
 anything to RHEL.</p>
 
 <p class=MsoNormal><b><span style='font-family:"Arial","sans-serif";color:#222222;
-background:white'>IBM (International Business Machines).</span></b> Of all the computer
+'>IBM (International Business Machines).</span></b> Of all the computer
 companies, IBM represents business needs above all. IBM has the only computers
 with zero down time which is why they call it “IBM System z”. IBM has the only
 computers with more than 100 cores thus allowing businesses to have 1 server
@@ -261,7 +220,7 @@ knowledgeable about computers than the business. If RHEL is successful, the
 business will become the master.</p>
 
 <p class=MsoNormal><b><span style='font-family:"Arial","sans-serif";color:#222222;
-background:white'>False speculation about IBM buying RHEL.</span></b> It’s a
+'>False speculation about IBM buying RHEL.</span></b> It’s a
 small possibility that IBM wants to force companies to pay for REHL but that
 doesn’t make sense because they are more likely to lose customers and revenues.
 Until RHEL went closed source, it made no sense why IBM bought RHEL in 2019. In
@@ -273,12 +232,12 @@ didn’t buy RHEL for its small revenue stream that is &lt;5% and certainly not
 to retain open source customer base. </p>
 
 <p class=MsoNormal align=center style='text-align:center'><span
-style='font-family:"Arial","sans-serif";color:#222222;background:white'><img
+style='font-family:"Arial","sans-serif";color:#222222;'><img
 border=0 width=281 height=224
-src="IBM%20RHEL%20closed%20source%20anouncement2_files/image002.jpg"></span><span
-style='font-family:"Arial","sans-serif";color:#222222;background:white'><img
+src="img/ibm_revenues.jpg"></span><span
+style='font-family:"Arial","sans-serif";color:#222222;'><img
 border=0 width=279 height=221
-src="IBM%20RHEL%20closed%20source%20anouncement2_files/image003.jpg"></span>&nbsp;</p>
+src="img/redhat_revenues.jpg"></span>&nbsp;</p>
 
 <p class=MsoNormal>&nbsp;</p>
 
