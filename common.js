@@ -54,7 +54,7 @@ function loadPageData() {
             currentPage = window.location.href.substr(
                 window.location.href.indexOf('page=')+5) + '.html';
     } else
-        currentPage = this.innerText.replace(/[^a-zA-Z0-9]/g, '_') + '.html';
+        currentPage = this.innerText.trim().replace(/[^a-zA-Z0-9]/g, '_') + '.html';
     currentPage += '?_=' + new Date().getTime(); // ignore caches
     currentPage = currentPage.toLowerCase();
 
