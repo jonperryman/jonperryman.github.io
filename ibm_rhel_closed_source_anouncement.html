@@ -95,6 +95,12 @@ function pauseAudio() {
 	shared.audio.pause();
 }
 
+function stopAudio() {
+	shared.audio.pause();
+	shared.audio.src = '';
+	shared.audio.load();
+}
+
 function speakButton() {
 	if (typeof shared.audio !== 'undefined') {
 		shared.audio = new Audio();
