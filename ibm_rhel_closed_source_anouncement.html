@@ -93,10 +93,14 @@ function prevAudio() {
 
 function pauseAudio() {
 	shared.audio.pause();
+	document.getElementById('pauseAudio').style.visibility = "hidden";
+	document.getElementById('resumeAudio').style.visibility = "visible";
 }
 
 function resumeAudio() {
 	shared.audio.play();
+	document.getElementById('pauseAudio').style.visibility = "visible";
+	document.getElementById('resumeAudio').style.visibility = "hidden";	
 }
 
 function stopAudio() {
@@ -137,7 +141,7 @@ function speakButton() {
 <div id="playerButtons" style="position:sticky; top:0; left:0; visibility: hidden;">
 	<button id="prevButton" onclick="prevButton();">&lt;</button>
 	<button id="pauseButton" onclick="pauseButton();">||</button>
-	<button id="resumeButton" onclick="resumeButton();">||</button>
+	<button id="resumeButton" style="visibility:hidden;" onclick="resumeButton();">||</button>
 	<button id="nextButton" onclick="nextButton();">&gt;</button>
 	<button id="restartButton" onclick="restartButton();">restart</button>
 </div>
