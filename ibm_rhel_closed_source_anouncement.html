@@ -61,10 +61,15 @@ div.WordSection1
 
 <div class=WordSection1>
 
-	<div style="position:sticky; top:0; left:0;">
-		<button id="speakButton" onclick="speakButton();">Read text aloud</button>
-		<button id="nextButton" onclick="nextButton();" style="visibility: hidden;">next paragraph</button>
-	</div>
+<div id="speakButton" style="position:sticky; top:0; left:0;">
+	<button id="speakButton" onclick="speakButton();">Read text aloud</button>
+</div>
+<div id="playerButtons" style="position:sticky; top:0; left:0; visibility: hidden;">
+	<button id="prevButton" onclick="prevButton();">&lt;</button>
+	<button id="pauseButton" onclick="pauseButton();">||</button>
+	<button id="nextButton" onclick="nextButton();">&gt;</button>
+	<button id="restartButton" onclick="restartButton();">restart</button>
+</div>
 	
 <p class=MsoNormal align=center style='text-align:center'><span
 style='font-size:14.0pt;line-height:115%;font-family:"Arial","sans-serif";
