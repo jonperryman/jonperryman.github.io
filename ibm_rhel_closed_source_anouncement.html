@@ -108,6 +108,7 @@ function stopAudio() {
 function speakButton() {
 	if (typeof shared.audio !== 'undefined') {
 		shared.audio = new Audio();
+		shared.audio.onended = nextAudio();
 	}
 	shared.audioParagraph = 0;
 	nextAudio();
