@@ -113,7 +113,7 @@ function observerCallback(mutationsList, observer) {
 }
 	
 function speakButton() {
-	if (typeof shared.audio !== 'undefined') {
+	if (typeof shared.audio == 'undefined') {
 		shared.audio = new Audio();
 		shared.audio.onended = nextAudio();
 	}
@@ -137,6 +137,7 @@ function speakButton() {
 <div id="playerButtons" style="position:sticky; top:0; left:0; visibility: hidden;">
 	<button id="prevButton" onclick="prevButton();">&lt;</button>
 	<button id="pauseButton" onclick="pauseButton();">||</button>
+	<button id="resumeButton" onclick="resumeButton();">||</button>
 	<button id="nextButton" onclick="nextButton();">&gt;</button>
 	<button id="restartButton" onclick="restartButton();">restart</button>
 </div>
