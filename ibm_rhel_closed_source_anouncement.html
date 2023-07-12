@@ -94,8 +94,11 @@ function prevAudio() {
 function pauseAudio() {
 	shared.audio.pause();
 }
+
 function speakButton() {
-	shared.audio = new Audio();
+	if (typeof shared.audio !== 'undefined') {
+		shared.audio = new Audio();
+	}
 	shared.audioParagraph = 0;
 	nextAudio();
 	document.getElementById('speakButton').style.visibility = 'hidden';
