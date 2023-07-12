@@ -148,3 +148,47 @@ function processPageData() {
                 = '<th>'+ codeElements[i].getAttribute('_title') + '</th>';
     }
 }
+
+let speakMsg = new SpeechSynthesisUtterance();
+function addSpeakButton() {
+	document.getElementById('pageData').insertAdjacentHTML('afterbegin','<div style="position:sticky; top:0; left:0;">
+		<button onclick="speakButton();">Read text aloud</button>
+		<button id="nextButton" onclick="nextButton();" style="visibility: hidden;">next paragraph</button>
+		</div>');
+}
+function findVoice(voice) {
+	console.log('process', voice.name);
+	return /.*Aria.*English.*United States.*/.test(voice.name);
+}
+
+function speakButton() {
+	let buttonText = document.getElementById('speakButton').innerText;
+	if (buttonText == 'Pause') {
+		document.getElementById('speakButton').innerText = 'Pausing';
+		window.speechSynthesis.pause();
+	}
+	else if (buttonText == 'Resume') {
+		document.getElementById('speakButton').innerText = 'Resuming';
+		window.speechSynthesis.resume();
+	}
+	else if (buttonText == 'Read the text aloud') {
+		document.getElementById('speakButton').innerText = 'Starting speech';
+		if (speakMsg.text == '') {
+			speakMsg.text = document.getElementsByClassName("WordSection1")[0].innerText;
+			speakMsg.onend = (event) => {
+				document.getElementById('speakButton').innerText = 'Read the text aloud';
+			}
+			speakMsg.onpause = (event) => {
+				document.getElementById('speakButton').innerText = 'Resume';
+			}
+			speakMsg.onresume = (event) => {
+				document.getElementById('speakButton').innerText = 'Pause';
+			}
+			speakMsg.onstart = (event) => {
+				document.getElementById('speakButton').innerText = 'Pause';
+			}
+			speakMsg.voice = window.speechSynthesis.getVoices().find(findVoice);
+		}
+		window.speechSynthesis.speak(speakMsg);
+	}	
+}
