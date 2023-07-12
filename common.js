@@ -150,12 +150,7 @@ function processPageData() {
 }
 
 let speakMsg = new SpeechSynthesisUtterance();
-function addSpeakButton() {
-	document.getElementById('pageData').insertAdjacentHTML('afterbegin','<div style="position:sticky; top:0; left:0;">' +
-		'<button onclick="speakButton();">Read text aloud</button>' +
-		'<button id="nextButton" onclick="nextButton();" style="visibility: hidden;">next paragraph</button>' +
-		'</div>');
-}
+
 function findVoice(voice) {
 	console.log('process', voice.name);
 	return /.*Aria.*English.*United States.*/.test(voice.name);
