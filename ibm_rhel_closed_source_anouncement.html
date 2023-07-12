@@ -105,6 +105,13 @@ function stopAudio() {
 	shared.audio.load();
 }
 
+// Callback function to execute when mutations are observed
+function observerCallback(mutationsList, observer) {
+	console.log('A child node has been added or removed.');
+	console.log(mutationsList[0]);
+	// observer.disconnect();
+}
+	
 function speakButton() {
 	if (typeof shared.audio !== 'undefined') {
 		shared.audio = new Audio();
@@ -114,29 +121,11 @@ function speakButton() {
 	nextAudio();
 	document.getElementById('speakButton').style.visibility = 'hidden';
 	document.getElementById('playerButtons').style.visibility = 'visible';
-	shared.audio.play()
+	shared.audio.play();
 
-// Options for the observer (which mutations to observe)
-var config = {
-  childList: true,
-  subtree: true
-};
-
-// Callback function to execute when mutations are observed
-var observerCallback = function(mutationsList, observer) {
-  console.log('A child node has been added or removed.');
-  console.log(mutationsList[0]);
-};
-
-// Create an observer instance linked to the callback function
-shared.observer = new MutationObserver(observerCallback);
-
-// Start observing the target node for configured mutations
-shared.observer.observe(document.getElementById('test1'), {childList: true});
-
-// Later, you can stop observing
-// observer.disconnect();
-
+	// Watch for current page being replaced 
+	shared.observer = new MutationObserver(observerCallback);
+	shared.observer.observe(document.getElementById('pageData'), {childList: true});
 }
 </script>
 
