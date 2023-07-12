@@ -189,3 +189,74 @@ function speakButton() {
 		window.speechSynthesis.speak(speakMsg);
 	}	
 }
+
+function xx() {
+var audio = new Audio();
+audio.play();
+audio.load();
+audio.pause();
+audio.onended
+audio.onpause
+audio.onplay
+audio.src = 'ibm_rhel_closed_source_audio_paragraph' + '1' + '.mp3'
+}
+
+
+function nextAudio() {
+	shared.audio.pause();
+	if (shared.audioParagraph < 10) {
+		shared.audioParagraph += 1;
+		shared.audio.src = 'ibm_rhel_closed_source_audio_paragraph' + shared.audioParagraph + '.mp3';
+		shared.audio.play();
+	}
+}
+
+function prevAudio() {
+	shared.audio.pause();
+	if (shared.audioParagraph > 1) {
+		shared.audioParagraph -= 1;
+		shared.audio.src = 'ibm_rhel_closed_source_audio_paragraph' + shared.audioParagraph + '.mp3';
+		shared.audio.play();
+	}
+}
+
+function pauseAudio() {
+	shared.audio.pause();
+	document.getElementById('pauseAudio').style.visibility = "hidden";
+	document.getElementById('resumeAudio').style.visibility = "visible";
+}
+
+function resumeAudio() {
+	shared.audio.play();
+	document.getElementById('pauseAudio').style.visibility = "visible";
+	document.getElementById('resumeAudio').style.visibility = "hidden";	
+}
+
+function stopAudio() {
+	shared.audio.pause();
+	shared.audio.src = '';
+	shared.audio.load();
+}
+
+// Callback function to execute when mutations are observed
+function observerCallback(mutationsList, observer) {
+	console.log('A child node has been added or removed.');
+	console.log(mutationsList[0]);
+	// observer.disconnect();
+}
+	
+function speakButton() {
+	if (typeof shared.audio == 'undefined') {
+		shared.audio = new Audio();
+		shared.audio.onended = nextAudio();
+	}
+	shared.audioParagraph = 0;
+	nextAudio();
+	document.getElementById('speakButton').style.visibility = 'hidden';
+	document.getElementById('playerButtons').style.visibility = 'visible';
+	shared.audio.play();
+
+	// Watch for current page being replaced 
+	shared.observer = new MutationObserver(observerCallback);
+	shared.observer.observe(document.getElementById('pageData'), {childList: true});
+}
