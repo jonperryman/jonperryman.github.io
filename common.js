@@ -171,12 +171,12 @@ function speakButton() {
 		document.getElementById('speakButton').innerText = 'Resuming';
 		window.speechSynthesis.resume();
 	}
-	else if (buttonText == 'Read the text aloud') {
+	else if (buttonText == 'Read text aloud') {
 		document.getElementById('speakButton').innerText = 'Starting speech';
 		if (speakMsg.text == '') {
 			speakMsg.text = document.getElementsByClassName("WordSection1")[0].innerText;
 			speakMsg.onend = (event) => {
-				document.getElementById('speakButton').innerText = 'Read the text aloud';
+				document.getElementById('speakButton').innerText = 'Read text aloud';
 			}
 			speakMsg.onpause = (event) => {
 				document.getElementById('speakButton').innerText = 'Resume';
