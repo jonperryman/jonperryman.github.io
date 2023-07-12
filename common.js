@@ -253,7 +253,7 @@ function speakButton() {
 	shared.audioParagraph = 0;
 	nextAudio();
 	document.getElementById('speakButton').style.display = 'none';
-	document.getElementById('playerButtons').style.visibility = '';
+	document.getElementById('playerButtons').style.display = '';
 	shared.audio.play();
 
 	// Watch for current page being replaced 
