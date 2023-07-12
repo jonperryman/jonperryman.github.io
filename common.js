@@ -1,3 +1,5 @@
+document.shared = {} // shared variables to eliminate need for global variables
+
 // Each menu item needs ONCLICK= 
 function setupMenu() {
     var menus = document.getElementsByClassName("menu");
