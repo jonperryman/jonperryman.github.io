@@ -222,14 +222,14 @@ function prevAudio() {
 
 function pauseAudio() {
 	shared.audio.pause();
-	document.getElementById('pauseAudio').style.visibility = "hidden";
-	document.getElementById('resumeAudio').style.visibility = "visible";
+	document.getElementById('pauseAudio').style.display = "none";
+	document.getElementById('resumeAudio').style.display = "";
 }
 
 function resumeAudio() {
 	shared.audio.play();
-	document.getElementById('pauseAudio').style.visibility = "visible";
-	document.getElementById('resumeAudio').style.visibility = "hidden";	
+	document.getElementById('pauseAudio').style.display = "";
+	document.getElementById('resumeAudio').style.display = "none";	
 }
 
 function stopAudio() {
@@ -252,8 +252,8 @@ function speakButton() {
 	}
 	shared.audioParagraph = 0;
 	nextAudio();
-	document.getElementById('speakButton').style.visibility = 'hidden';
-	document.getElementById('playerButtons').style.visibility = 'visible';
+	document.getElementById('speakButton').style.display = 'none';
+	document.getElementById('playerButtons').style.visibility = '';
 	shared.audio.play();
 
 	// Watch for current page being replaced 
