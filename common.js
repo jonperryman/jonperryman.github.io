@@ -158,7 +158,7 @@ function findVoice(voice) {
 	return /.*Aria.*English.*United States.*/.test(voice.name);
 }
 
-function speakButton() {
+function speakButtonOld() {
 	let buttonText = document.getElementById('speakButton').innerText;
 	if (buttonText == 'Pause') {
 		document.getElementById('speakButton').innerText = 'Pausing';
