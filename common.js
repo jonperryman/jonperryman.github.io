@@ -222,14 +222,14 @@ function prevAudio() {
 
 function pauseAudio() {
 	shared.audio.pause();
-	document.getElementById('pauseAudio').style.display = "none";
-	document.getElementById('resumeAudio').style.display = "";
+	document.getElementById('pauseButton').style.display = "none";
+	document.getElementById('resumeButton').style.display = "";
 }
 
 function resumeAudio() {
 	shared.audio.play();
-	document.getElementById('pauseAudio').style.display = "";
-	document.getElementById('resumeAudio').style.display = "none";	
+	document.getElementById('pauseButton').style.display = "";
+	document.getElementById('resumeButton').style.display = "none";	
 }
 
 function stopAudio() {
