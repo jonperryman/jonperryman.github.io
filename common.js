@@ -206,7 +206,7 @@ function nextAudio() {
 	shared.audio.pause();
 	if (shared.audioParagraph < 10) {
 		shared.audioParagraph += 1;
-		shared.audio.src = 'ibm_rhel_closed_source_audio_paragraph' + shared.audioParagraph + '.mp3';
+		shared.audio.src = 'audio/ibm_rhel_closed_source_audio_paragraph' + shared.audioParagraph + '.mp3';
 		shared.audio.play();
 	}
 }
@@ -215,7 +215,7 @@ function prevAudio() {
 	shared.audio.pause();
 	if (shared.audioParagraph > 1) {
 		shared.audioParagraph -= 1;
-		shared.audio.src = 'ibm_rhel_closed_source_audio_paragraph' + shared.audioParagraph + '.mp3';
+		shared.audio.src = 'audio/ibm_rhel_closed_source_audio_paragraph' + shared.audioParagraph + '.mp3';
 		shared.audio.play();
 	}
 }
