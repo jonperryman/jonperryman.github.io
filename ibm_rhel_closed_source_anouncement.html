@@ -64,15 +64,15 @@ div.WordSection1
 
 </script>
 
-<div id="speakButton" style="position:sticky; top:0; left:0;">
+<div style="position:sticky; top:0; left:0;">
 	<button id="speakButton" onclick="speakButton();">Read text aloud</button>
-</div>
-<div id="playerButtons" style="position:sticky; top:0; left:0; display: none;">
+	<span id="playerButtons" style="display: none;">
 	<button id="prevButton" onclick="prevAudio();">&lt;</button>
 	<button id="pauseButton" onclick="pauseAudio();">||</button>
 	<button id="resumeButton" style="display:none;" onclick="resumeAudio();"><img src="img/playButton.png"></button>
 	<button id="nextButton" onclick="nextAudio();">&gt;</button>
 	<button id="restartButton" onclick="restartAudio();">restart</button>
+	</span>
 </div>
 
 <div class=WordSection1>
