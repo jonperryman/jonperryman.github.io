@@ -228,7 +228,7 @@ function stopAudio() {
 	document.getElementById('playerButtons').style.display = 'none';
     shared.audio.onerror = null;
 	shared.audio.pause();
-	shared.audio.src = '';
+	shared.audio.src = shared.audio.src + "_stopped";
 	shared.audio.load();
 	shared.observer.disconnect();
 }
