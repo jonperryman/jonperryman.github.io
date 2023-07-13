@@ -190,16 +190,6 @@ function speakButtonOld() {
 	}	
 }
 
-function xx() {
-var audio = new Audio();
-audio.play();
-audio.load();
-audio.pause();
-audio.onended
-audio.onpause
-audio.onplay
-audio.src = 'ibm_rhel_closed_source_audio_paragraph' + '1' + '.mp3'
-}
 
 
 function nextAudio() {
