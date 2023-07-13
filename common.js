@@ -240,6 +240,7 @@ function speakButton() {
         shared.observer = new MutationObserver(observerCallback);
 		shared.audio = new Audio();
 		shared.audio.onended = nextAudio;
+        shared.audio.onerror = stopAudio;
         // Resize resume button
 		document.getElementById('resumeButton').firstChild.style.height = document.getElementById('speakButton').clientHeight + "px";
 		document.getElementById('resumeButton').firstChild.style.width = document.getElementById('speakButton').clientHeight + "px";
