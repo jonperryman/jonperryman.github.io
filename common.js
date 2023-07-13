@@ -250,7 +250,7 @@ function speakButton() {
 		shared.audio = new Audio();
 		shared.audio.onended = nextAudio();
 		document.getElementById('resumeButton').firstChild.style.height = document.getElementById('speakButton').clientHeight + "px";
-		document.getElementById('resumeButton').firstChild.style.width = document.getElementByIdgetElementById('speakButton').clientHeight + "px";
+		document.getElementById('resumeButton').firstChild.style.width = document.getElementById('speakButton').clientHeight + "px";
 	}
 	shared.audioParagraph = 0;
 	nextAudio();
