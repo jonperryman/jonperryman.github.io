@@ -198,8 +198,7 @@ function nextAudio() {
 	    shared.audioParagraph += 1;
 	    shared.audio.src = 'audio/ibm_rhel_closed_source_audio_paragraph' + shared.audioParagraph + '.mp3';
 		shared.audio.play();
-        console.log(shared.audio.error);
-	}
+ 	}
 }
 
 function prevAudio() {
