@@ -242,7 +242,10 @@ function stopAudio() {
 function observerCallback(mutationsList, observer) {
 	console.log('A child node has been added or removed.');
 	console.log(mutationsList[0]);
-	// observer.disconnect();
+	shared.observer.disconnect();
+    shared.audio.pause();
+    shared.audio.src = "";
+    shared.audio.load();
 }
 	
 function speakButton() {
