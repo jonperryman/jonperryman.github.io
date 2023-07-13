@@ -249,6 +249,8 @@ function speakButton() {
 	if (typeof shared.audio == 'undefined') {
 		shared.audio = new Audio();
 		shared.audio.onended = nextAudio();
+		document.getElementById('resumeButton').firstChild.style.height = document.getElementById.clientHeight + "px";
+		document.getElementById('resumeButton').firstChild.style.width = document.getElementById.clientHeight + "px";
 	}
 	shared.audioParagraph = 0;
 	nextAudio();
