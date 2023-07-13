@@ -248,7 +248,7 @@ function observerCallback(mutationsList, observer) {
 function speakButton() {
 	if (typeof shared.audio == 'undefined') {
 		shared.audio = new Audio();
-		shared.audio.onended = nextAudio();
+		shared.audio.onended = nextAudio;
 		document.getElementById('resumeButton').firstChild.style.height = document.getElementById('speakButton').clientHeight + "px";
 		document.getElementById('resumeButton').firstChild.style.width = document.getElementById('speakButton').clientHeight + "px";
 	}
