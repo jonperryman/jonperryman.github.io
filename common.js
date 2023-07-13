@@ -190,14 +190,15 @@ function speakButtonOld() {
 	}	
 }
 
-
-
 function nextAudio() {
-	shared.audio.pause();
-	if (shared.audioParagraph < 10) {
-		shared.audioParagraph += 1;
-		shared.audio.src = 'audio/ibm_rhel_closed_source_audio_paragraph' + shared.audioParagraph + '.mp3';
+    if (shared.audioParagraph == 10) {
+        stopAudio();
+    } else {
+	    shared.audio.pause();
+	    shared.audioParagraph += 1;
+	    shared.audio.src = 'audio/ibm_rhel_closed_source_audio_paragraph' + shared.audioParagraph + '.mp3';
 		shared.audio.play();
+        console.log(shared.audio.error);
 	}
 }
 
@@ -226,25 +227,23 @@ function stopAudio() {
 	shared.audio.pause();
 	shared.audio.src = '';
 	shared.audio.load();
+	shared.observer.disconnect();
 }
 
 // Callback function to execute when mutations are observed
 function observerCallback(mutationsList, observer) {
-	console.log('A child node has been added or removed.');
-	console.log(mutationsList[0]);
-	shared.observer.disconnect();
-    shared.audio.pause();
-    shared.audio.src = "";
-    shared.audio.load();
+    stopAudio();
 }
 	
 function speakButton() {
 	if (typeof shared.audio == 'undefined') {
+        shared.observer = new MutationObserver(observerCallback);
 		shared.audio = new Audio();
 		shared.audio.onended = nextAudio;
+        // Resize resume button
 		document.getElementById('resumeButton').firstChild.style.height = document.getElementById('speakButton').clientHeight + "px";
 		document.getElementById('resumeButton').firstChild.style.width = document.getElementById('speakButton').clientHeight + "px";
-	}
+    }
 	shared.audioParagraph = 0;
 	nextAudio();
 	document.getElementById('speakButton').style.display = 'none';
@@ -252,6 +251,5 @@ function speakButton() {
 	shared.audio.play();
 
 	// Watch for current page being replaced 
-	shared.observer = new MutationObserver(observerCallback);
 	shared.observer.observe(document.getElementById('pageData'), {childList: true});
 }
