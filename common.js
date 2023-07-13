@@ -224,6 +224,8 @@ function resumeAudio() {
 }
 
 function stopAudio() {
+	document.getElementById('speakButton').style.display = '';
+	document.getElementById('playerButtons').style.display = 'none';
 	shared.audio.pause();
 	shared.audio.src = '';
 	shared.audio.load();
