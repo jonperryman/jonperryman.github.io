@@ -53,10 +53,15 @@ function loadPageData() {
         if (window.location.href.indexOf('page=') < 0) 
             currentPage = 'Home.html';
         else
-            currentPage = window.location.href.substr(
+            currentPage = window.location.href.substring(
                 window.location.href.indexOf('page=')+5) + '.html';
-    } else
-        currentPage = this.innerText.trim().replace(/[^a-zA-Z0-9]/g, '_') + '.html';
+    } else {
+        currentPage = this.getAttribute("directory");
+        if (currentPage == null)
+            currentPage = this.innerText.trim().replace(/[^a-zA-Z0-9]/g, '_') + '.html';
+        else
+            currentPage += "/" + this.innerText.trim().replace(/[^a-zA-Z0-9]/g, '_') + '.html';
+    }
     currentPage += '?_=' + new Date().getTime(); // ignore caches
     currentPage = currentPage.toLowerCase();
 
