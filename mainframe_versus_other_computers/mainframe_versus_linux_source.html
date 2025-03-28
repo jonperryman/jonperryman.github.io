@@ -13,6 +13,10 @@
 
 	<script>
 
+		function setup() { 
+			prepare_body_data.style.display = "";
+		}
+
 		function prepare_for_website() {
 			setupAnchors(); 
 			setupTOC();
@@ -56,7 +60,7 @@
 	</script>
 </head>
 
-<body>
+<body onload="setup()">
 
 <div id="page_container">
 
@@ -152,9 +156,11 @@
 		<ul id="toc_content" style="display: none;"></ul>
 	</div>
 	
-	<button style="float: right;
-					font-size: 130%;
-					font-weight: 300%;"
+	<button  id="prepare_body_data"
+		style="float: right;
+			font-size: 130%;
+			font-weight: 300%;
+			display: none;"
 		onclick="prepare_for_website();">
 		prepare for website
 	</button>
