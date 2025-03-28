@@ -1,0 +1,916 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+<channel>
+<title>IBM-MAIN List</title>
+<link>https://listserv.ua.edu/cgi-bin/wa?A0=IBM-MAIN</link>
+<description>IBM-MAIN List Archives</description>
+<lastBuildDate>17 Mar 2025 20:41:49 Z</lastBuildDate>
+<image>
+<url>https://www.lsoft.com/images/listserv_64x64.png</url>
+<link>https://listserv.ua.edu/cgi-bin/wa?A0=IBM-MAIN</link>
+<title>Powered by L-Soft's LISTSERV email list software</title>
+</image>
+<generator>LISTSERV 17.5</generator>
+
+<item>
+  <title>Re: AR Mode: MVCL R0,Rx No; MVCL Rx,Ry Yes</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;1f69c009.2503</link>
+  <description>That's almost what I would have wanted. The only thing that raised my eyebrows was the loophole in the check for overlap. --  Shmuel (Seymour J.) Metz http://mason.gmu.edu/~smetz3 עַם יִשְׂרָאֵל חַי נֵ֣צַח יִשְׂרָאֵ֔ל לֹ֥א יְשַׁקֵּ֖ר ________________________________________ From: IBM Mainframe Discussion List &lt;IBM-MAIN@LISTSERV.UA.EDU&gt; on behalf of Richard Zierdt &lt;Richard.Zierdt@FRESCHESOLUTIONS.COM&gt; Sent: Monday, March 17, 2025 2:32 PM To: IBM-MAIN@LISTSERV.UA.EDU Subject: AR Mode: MVCL R0,Rx No; MVCL Rx,Ry Yes External Message: Use Caution The following is documented in PoPs, but what the hey. Primary (ASC) Mode: MVCL R0,Rx is fine AR (ASC) Mode: MVCL R0,Rx is *not* fine — AR0 is not honored [...]</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;1f69c009.2503</guid>
+   <author>Seymour J Metz &lt;smetz3@GMU.EDU&gt;</author>
+  <pubDate>Mon, 17 Mar 2025 20:12:07 +0000</pubDate>
+</item>
+
+<item>
+  <title>Re: Links for ESS manuals</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;766c94f3.2503</link>
+  <description>DuckDuckGo has the same annoying behaviour.&lt;br&gt;&lt;br&gt;Cheers, Martin&lt;br&gt;&lt;br&gt;From: IBM Mainframe Discussion List &amp;lt;IBM-MAIN@LISTSERV.UA.EDU&amp;gt; on behalf of Tom Brennan &amp;lt;tom@TOMBRENNANSOFTWARE.COM&amp;gt;&lt;br&gt;Date: Monday, 17 March 2025 at 14:58&lt;br&gt;To: IBM-MAIN@LISTSERV.UA.EDU &amp;lt;IBM-MAIN@LISTSERV.UA.EDU&amp;gt;&lt;br&gt;Subject: [EXTERNAL] Re: Links for ESS manuals&lt;br&gt;IBM should remove the version number from the URL&apos;s for the latest doc.&lt;br&gt;Then maybe Google will get the hint and quit sending me to old versions,&lt;br&gt;unless I&apos;m specifically looking for those. [...] </description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;766c94f3.2503</guid>
+   <author>Martin Packer &lt;martin_packer@UK.IBM.COM&gt;</author>
+  <pubDate>Mon, 17 Mar 2025 19:55:34 +0000</pubDate>
+</item>
+
+<item>
+  <title>Re: AR Mode: MVCL R0,Rx No; MVCL Rx,Ry Yes</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;ef44473d.2503</link>
+  <description>On Mon, 17 Mar 2025 at 14:32, Richard Zierdt &amp;lt;&lt;br&gt;Richard.Zierdt@freschesolutions.com&amp;gt; wrote:&lt;br&gt;&lt;br&gt;&amp;gt; The following is documented in PoPs, but what the hey.&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt; Primary (ASC) Mode: MVCL R0,Rx is fine&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt; AR (ASC) Mode: MVCL R0,Rx is *not* fine — AR0 is not honored&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt; The PoPs manual on MVCL:&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt; &amp;quot;In the access-register mode, the contents of access&lt;br&gt;&amp;gt; register R1 and access register R2 are compared. If&lt;br&gt;&amp;gt; the R1 or R2 field is zero, 32 zeros are used rather&lt;br&gt;&amp;gt; than the contents of access register 0. &amp;quot;&lt;br&gt;&amp;gt; [...]</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;ef44473d.2503</guid>
+   <author>Tony Harminc &lt;tony@HARMINC.NET&gt;</author>
+  <pubDate>Mon, 17 Mar 2025 15:33:16 -0400</pubDate>
+</item>
+
+<item>
+  <title>Re: AR Mode: MVCL R0,Rx No; MVCL Rx,Ry Yes</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;8d2a09c1.2503</link>
+  <description>I&apos;m confused: it seems clear to me: AR0 is ignored same as GPR0 when specified? What am I missing...&lt;br&gt;&lt;br&gt;-----Original Message-----&lt;br&gt;From: IBM Mainframe Discussion List &amp;lt;IBM-MAIN@LISTSERV.UA.EDU&amp;gt; On Behalf Of Binyamin Dissen&lt;br&gt;Sent: Monday, March 17, 2025 3:25 PM&lt;br&gt;To: IBM-MAIN@LISTSERV.UA.EDU&lt;br&gt;Subject: Re: AR Mode: MVCL R0,Rx No; MVCL Rx,Ry Yes&lt;br&gt;&lt;br&gt;I see it as the opposite. [...] </description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;8d2a09c1.2503</guid>
+   <author>Phil Smith III &lt;lists@AKPHS.COM&gt;</author>
+  <pubDate>Mon, 17 Mar 2025 15:32:03 -0400</pubDate>
+</item>
+
+<item>
+  <title>Re: AR Mode: MVCL R0,Rx No; MVCL Rx,Ry Yes</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;b075bfd6.2503</link>
+  <description>I see it as the opposite.&lt;br&gt;&lt;br&gt;I would not have expected R0 to address data.&lt;br&gt;&lt;br&gt;But in the case of MVCL R0 is explicitly specified, (unlike other instructions&lt;br&gt;where 0 is the absence of a base/index register) so that may be why they&lt;br&gt;allowed it to address data. Perhaps the hardware cannot use AR0 in that way. [...] </description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;b075bfd6.2503</guid>
+   <author>Binyamin Dissen &lt;bdissen@DISSENSOFTWARE.COM&gt;</author>
+  <pubDate>Mon, 17 Mar 2025 21:24:56 +0200</pubDate>
+</item>
+
+<item>
+  <title>AR Mode: MVCL R0,Rx No; MVCL Rx,Ry Yes</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;e9c6734a.2503</link>
+  <description>The following is documented in PoPs, but what the hey.&lt;br&gt;&lt;br&gt;Primary (ASC) Mode: MVCL R0,Rx is fine&lt;br&gt;&lt;br&gt;AR (ASC) Mode: MVCL R0,Rx is *not* fine — AR0 is not honored&lt;br&gt;&lt;br&gt;The PoPs manual on MVCL:&lt;br&gt;&lt;br&gt;&amp;quot;In the access-register mode, the contents of access&lt;br&gt;register R1 and access register R2 are compared. If&lt;br&gt;the R1 or R2 field is zero, 32 zeros are used rather&lt;br&gt;than the contents of access register 0. &amp;quot; [...] </description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;e9c6734a.2503</guid>
+   <author>Richard Zierdt &lt;Richard.Zierdt@FRESCHESOLUTIONS.COM&gt;</author>
+  <pubDate>Mon, 17 Mar 2025 18:32:21 +0000</pubDate>
+</item>
+
+<item>
+  <title>Re: Links for ESS manuals</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;54f9c6a4.2503</link>
+  <description>The problem is that we are not the customer, we are the product. Google is in the business of selling eyeballs. Nor is google the only offender. I keep seeing ads from Temu for Butyl Mercaptan; the links go to totally unrelated products. Presumably if I search for foo then I want to buy foo! --  Shmuel (Seymour J.) Metz http://mason.gmu.edu/~smetz3 עַם יִשְׂרָאֵל חַי נֵ֣צַח יִשְׂרָאֵ֔ל לֹ֥א יְשַׁקֵּ֖ר ________________________________________ From: IBM Mainframe Discussion List &lt;IBM-MAIN@LISTSERV.UA.EDU&gt; on behalf of billogden &lt;billogden@OPTONLINE.NET&gt; Sent: Monday, March 17, 2025 10:39 AM To: IBM-MAIN@LISTSERV.UA.EDU Subject: Re: Links for ESS manuals External Message: Use Caution &gt; [...]</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;54f9c6a4.2503</guid>
+   <author>Seymour J Metz &lt;smetz3@GMU.EDU&gt;</author>
+  <pubDate>Mon, 17 Mar 2025 16:25:09 +0000</pubDate>
+</item>
+
+<item>
+  <title>Re: Links for ESS manuals</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;ea0d24ca.2503</link>
+  <description>My problem isn't that google gives me a URL for an older version, it's that google doesn't give me a URL for any version but does give me URLs that have nothing to do with what I'm searching for.&lt;br&gt;&lt;br&gt;For z/OS and z/VM, the URLs seem to be stable, and I can navigate from a release-specific page to the main page. But what I'm looking for are hardware manuals that I couldn't find on bitsavers.</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;ea0d24ca.2503</guid>
+   <author>Seymour J Metz &lt;smetz3@GMU.EDU&gt;</author>
+  <pubDate>Mon, 17 Mar 2025 16:19:58 +0000</pubDate>
+</item>
+
+<item>
+  <title>Re: Links for ESS manuals</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;93e2ed18.2503</link>
+  <description>That would require either (a) manual updates when versions change or (b) a real CMS (not VM CMS). Remember, IBM moved all their web stuff to other countries and nobody understands it any more.&lt;br&gt;&lt;br&gt;-----Original Message-----&lt;br&gt;From: IBM Mainframe Discussion List &amp;lt;IBM-MAIN@LISTSERV.UA.EDU&amp;gt; On Behalf Of Tom Brennan&lt;br&gt;Sent: Monday, March 17, 2025 10:58 AM&lt;br&gt;To: IBM-MAIN@LISTSERV.UA.EDU&lt;br&gt;Subject: Re: Links for ESS manuals [...]</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;93e2ed18.2503</guid>
+   <author>Phil Smith III &lt;lists@AKPHS.COM&gt;</author>
+  <pubDate>Mon, 17 Mar 2025 11:02:04 -0400</pubDate>
+</item>
+
+<item>
+  <title>Re: IBM Abandoning Metal C?</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;e82e711.2503</link>
+  <description>What's the best way to convey the importance of Metal/C to IBM?&lt;br&gt;&lt;br&gt;-----Original Message-----&lt;br&gt;From: IBM Mainframe Discussion List &amp;lt;IBM-MAIN@LISTSERV.UA.EDU&amp;gt; On Behalf Of David Crayford&lt;br&gt;Sent: Monday, March 17, 2025 7:11 AM&lt;br&gt;To: IBM-MAIN@LISTSERV.UA.EDU&lt;br&gt;Subject: Re: IBM Abandoning Metal C?&lt;br&gt;&lt;br&gt;&amp;gt; On 17 Mar 2025, at 6:45 pm, David Cole &amp;lt;dbcole@COLESOFT.COM&amp;gt; wrote:&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt; On another thread, David Crayford wrote:&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt;&amp;gt; Our understanding is that Metal/C will not be updated for the next architecture or the one after that.&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt; Really? Does anyone have any idea why?&lt;br&gt;&amp;gt;&lt;br&gt;&gt; Metal C already does not support Z16 architecture. [...]</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;e82e711.2503</guid>
+   <author>Jon Newton &lt;jon.newton@DINO-SOFTWARE.COM&gt;</author>
+  <pubDate>Mon, 17 Mar 2025 14:59:09 +0000</pubDate>
+</item>
+
+<item>
+  <title>Re: Links for ESS manuals</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;b357f34.2503</link>
+  <description>IBM should remove the version number from the URL's for the latest doc.&lt;br&gt;Then maybe Google will get the hint and quit sending me to old versions,&lt;br&gt;unless I'm specifically looking for those.&lt;br&gt;&lt;br&gt;https://www.ibm.com/docs/en/zos/ &amp;lt; current&lt;br&gt;https://www.ibm.com/docs/en/zos/2.5.0 &amp;lt; old&lt;br&gt;https://www.ibm.com/docs/en/zos/2.4.0 &amp;lt; older&lt;br&gt;&lt;br&gt;Then when the new version arrives:&lt;br&gt;&lt;br&gt;https://www.ibm.com/docs/en/zos/ &amp;lt; current&lt;br&gt;https://www.ibm.com/docs/en/zos/3.1.0 &amp;lt; old&lt;br&gt;https://www.ibm.com/docs/en/zos/2.5.0 &amp;lt; older&lt;br&gt;https://www.ibm.com/docs/en/zos/2.4.0 &amp;lt; older [...]</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;b357f34.2503</guid>
+   <author>Tom Brennan &lt;tom@TOMBRENNANSOFTWARE.COM&gt;</author>
+  <pubDate>Mon, 17 Mar 2025 07:58:21 -0700</pubDate>
+</item>
+
+<item>
+  <title>Re: Links for ESS manuals</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;9dfd12f2.2503</link>
+  <description>&amp;gt; I have found google to be useless for locating old IBM manuals.&lt;br&gt;&lt;br&gt;While it is not exactly relevant to IBM-MAIN topics, I seem to see recent&lt;br&gt;google results as having considerably less &amp;quot;accuracy&amp;quot; than in earlier days&lt;br&gt;and considerably more &amp;quot;advertising&amp;quot; or &amp;quot;marketing&amp;quot; orientation. I find I am&lt;br&gt;using it less now than I did a year or two ago. (Even for z/OS-related&lt;br&gt;searches!) I realize this is a fuzzy topic that could be debated at least a&lt;br&gt;dozen different ways but, to me at least, it has somewhat reduced the&lt;br&gt;usefulness of the web. [...] </description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;9dfd12f2.2503</guid>
+   <author>billogden &lt;billogden@OPTONLINE.NET&gt;</author>
+  <pubDate>Mon, 17 Mar 2025 10:39:14 -0400</pubDate>
+</item>
+
+<item>
+  <title>Re: Open XL C dramaticallly slower thant z/OS XL C compiler - expected?</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;c35143b0.2503</link>
+  <description>Peter:&lt;br&gt;&lt;br&gt;On Mon, Mar 17, 2025 at 3:13 AM Farley, Peter &amp;lt;&lt;br&gt;0000031df298a9da-dmarc-request@listserv.ua.edu&amp;gt; wrote:&lt;br&gt;&lt;br&gt;&amp;gt; Metal/C is not to be updated for the next two architecture generations??&lt;br&gt;&amp;gt; WTF?? What reason was given (if you’re not bound by NDA)? Are they out of&lt;br&gt;&amp;gt; their ever-loving minds? With what the blazes do they propose to replace&lt;br&gt;&amp;gt; it? Or haven't they thought that far ahead? [...]</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;c35143b0.2503</guid>
+   <author>Mike Shaw &lt;techsupport@QUICKREF.COM&gt;</author>
+  <pubDate>Mon, 17 Mar 2025 09:33:47 -0400</pubDate>
+</item>
+
+<item>
+  <title>Re: Open XL C dramaticallly slower thant z/OS XL C compiler - expected?</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;bdbc7ec0.2503</link>
+  <description>Classification: Confidential&lt;br&gt;&lt;br&gt;Also check TUNE/ARCH compile options ...&lt;br&gt;&lt;br&gt;-----Original Message-----&lt;br&gt;From: IBM Mainframe Discussion List &amp;lt;IBM-MAIN@LISTSERV.UA.EDU&amp;gt; On Behalf Of Charles Mills&lt;br&gt;Sent: Sunday, March 16, 2025 3:48 PM&lt;br&gt;To: IBM-MAIN@LISTSERV.UA.EDU&lt;br&gt;Subject: Re: Open XL C dramaticallly slower thant z/OS XL C compiler - expected?&lt;br&gt;&lt;br&gt;[CAUTION: This Email is from outside the Organization. Unless you trust the sender, Don’t click links or open attachments as it may be a Phishing email, which can steal your Information and compromise your Computer.] [...]</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;bdbc7ec0.2503</guid>
+   <author>Allan Staller &lt;allan.staller@HCLTECH.COM&gt;</author>
+  <pubDate>Mon, 17 Mar 2025 12:50:31 +0000</pubDate>
+</item>
+
+<item>
+  <title>Re: Executing a clist from debug tool</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;4a8846f9.2503</link>
+  <description>Thanks&lt;br&gt;&lt;br&gt;&amp;gt; On Mar 16, 2025, at 5:37 AM, Binyamin Dissen &amp;lt;00000662573e2c3a-dmarc-request@listserv.ua.edu&amp;gt; wrote:&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt; ﻿Place&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt; CONTROL LIST SYMLIST CONLIST&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt; in your CLIST.&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt; On Wed, 12 Mar 2025 09:15:28 -0400 Joseph Reichman&lt;br&gt;&amp;gt; &amp;lt;000005812645a43c-dmarc-request@LISTSERV.UA.EDU&amp;gt; wrote:&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt; :&amp;gt;Hi&lt;br&gt;&amp;gt; :&amp;gt;&lt;br&gt;&amp;gt; :&amp;gt;I’m running / debugging a program using debug tool&lt;br&gt;&amp;gt; :&amp;gt;&lt;br&gt;&amp;gt; :&amp;gt;I would like to execute a clist&lt;br&gt;&amp;gt; :&amp;gt;&lt;br&gt;&amp;gt; :&amp;gt;Debug tool allows you to execute clists when it’s run from the TSO Ready prompt&lt;br&gt;&amp;gt; :&amp;gt;&lt;br&gt;&amp;gt; :&amp;gt;Which is what I doing&lt;br&gt;&amp;gt; :&amp;gt;&lt;br&gt;&gt; :&gt;I have done other tso commands [...]</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;4a8846f9.2503</guid>
+   <author>Joseph Reichman &lt;reichmanjoe@GMAIL.COM&gt;</author>
+  <pubDate>Mon, 17 Mar 2025 07:40:32 -0400</pubDate>
+</item>
+
+<item>
+  <title>Re: IBM Abandoning Metal C?</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;57bc34c6.2503</link>
+  <description>&amp;gt; On 17 Mar 2025, at 6:45 pm, David Cole &amp;lt;dbcole@COLESOFT.COM&amp;gt; wrote:&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt; On another thread, David Crayford wrote:&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt;&amp;gt; Our understanding is that Metal/C will not be updated for the next architecture or the one after that.&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt; Really? Does anyone have any idea why?&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt; Metal C already does not support Z16 architecture. What would it take to get them to reverse direction? [...]</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;57bc34c6.2503</guid>
+   <author>David Crayford &lt;dcrayford@GMAIL.COM&gt;</author>
+  <pubDate>Mon, 17 Mar 2025 19:11:19 +0800</pubDate>
+</item>
+
+<item>
+  <title>IBM Abandoning Metal C?</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;799d3e9a.2503</link>
+  <description>On another thread, David Crayford wrote:&lt;br&gt;&lt;br&gt;&amp;gt;Our understanding is that Metal/C will not be updated for the next&lt;br&gt;&amp;gt;architecture or the one after that.&lt;br&gt;&lt;br&gt;Really? Does anyone have any idea why?&lt;br&gt;&lt;br&gt;Metal C already does not support Z16 architecture. What would it take&lt;br&gt;to get them to reverse direction?&lt;br&gt;&lt;br&gt;Dave Cole, Developer&lt;br&gt;&lt;br&gt;dbcole@gmail.com (personal)&lt;br&gt;dbcole@colesoft.com (business)&lt;br&gt;540-456-6518 (cell) </description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;799d3e9a.2503</guid>
+   <author>David Cole &lt;dbcole@COLESOFT.COM&gt;</author>
+  <pubDate>Mon, 17 Mar 2025 05:45:00 -0500</pubDate>
+</item>
+
+<item>
+  <title>Re: New to Z - History of SPF / ISPF Presentation / Tips &amp; Tricks?</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;c99f02f4.2503</link>
+  <description>Hi Steve,&lt;br&gt;&lt;br&gt;If you are a SHARE member or delegate, login to share.org and search the proceedings archives for any of the many presentations given by the likes of Tom Conley, Dan Dirkse, Bruce Koss, Lionel Dyck, as well as several IBMers. Dan, Lionel and others are also active in LinkedIn groups such as Mainframe Experts, where much information is available too, including history, tips, and tricks. There is also a System Z Enthusiasts Discord community where ISPF is one of many topics of interest. [...]</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;c99f02f4.2503</guid>
+   <author>Art Gutowski &lt;Arthur.Gutowski@HUNTINGTON.COM&gt;</author>
+  <pubDate>Mon, 17 Mar 2025 03:44:18 -0500</pubDate>
+</item>
+
+<item>
+  <title>Re: Open XL C dramaticallly slower thant z/OS XL C compiler - expected?</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;2a43c81b.2503</link>
+  <description>Metal/C is not to be updated for the next two architecture generations?? WTF?? What reason was given (if you’re not bound by NDA)? Are they out of their ever-loving minds?&lt;br&gt;&lt;br&gt;With what the blazes do they propose to replace it? Or haven't they thought that far ahead?&lt;br&gt;&lt;br&gt;Sheesh! I knew Armonk politics was nutty as a fruitcake, but this really tops the list. [...]</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;2a43c81b.2503</guid>
+   <author>Farley, Peter &lt;Peter.Farley@BROADRIDGE.COM&gt;</author>
+  <pubDate>Mon, 17 Mar 2025 07:13:58 +0000</pubDate>
+</item>
+
+<item>
+  <title>Re: MapMVS</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;36951f49.2503</link>
+  <description>Rob,&lt;br&gt;&lt;br&gt;I'd be happy to review the documentation for the new function in the&lt;br&gt;release (in PDF format). I found it is always good to have different&lt;br&gt;eyes, because after a while you do not see problems.&lt;br&gt;&lt;br&gt;Colin&lt;br&gt;&lt;br&gt;On Sun, 16 Mar 2025 at 18:09, Rob Scott &amp;lt;&lt;br&gt;00000618c90e6fdf-dmarc-request@listserv.ua.edu&amp;gt; wrote:&lt;br&gt;&lt;br&gt;&amp;gt; Hi Colin&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt; Understood -however we would need a different character as &amp;quot;?&amp;quot; is used by&lt;br&gt;&amp;gt; JDS on SYSOUT panels.&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt; Apropos of nothing, there is a new release of SDSF coming out in September&lt;br&gt;&amp;gt; (ahem).&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt; Rob&lt;br&gt;&amp;gt;&lt;br&gt;&gt; Sent from Outlook for [...]</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;36951f49.2503</guid>
+   <author>Colin Paice &lt;colinpaice3@GMAIL.COM&gt;</author>
+  <pubDate>Mon, 17 Mar 2025 06:57:44 +0000</pubDate>
+</item>
+
+<item>
+  <title>Re: Open XL C dramaticallly slower thant z/OS XL C compiler - expected?</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;31109846.2503</link>
+  <description>&amp;gt; On 17 Mar 2025, at 1:14 am, Farley, Peter &amp;lt;0000031df298a9da-dmarc-request@LISTSERV.UA.EDU&amp;gt; wrote:&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt; I too am concerned about Metal/C not keeping up with the hardware generations, especially as it seems that IBM is about to announce another generation.&lt;br&gt;&lt;br&gt;IBM Data Virtualization Manager is possibly the largest Metal/C application in the world, with millions of lines of code. It is built for every supported architecture, determined at runtime, and dynamically loaded. However, this does not work for z16. [...]</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;31109846.2503</guid>
+   <author>David Crayford &lt;dcrayford@GMAIL.COM&gt;</author>
+  <pubDate>Mon, 17 Mar 2025 08:37:54 +0800</pubDate>
+</item>
+
+<item>
+  <title>Re: Open XL C dramaticallly slower thant z/OS XL C compiler - expected?</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;f7daf402.2503</link>
+  <description>Apologies, I fat fingered the previous email on my iPad.&lt;br&gt;&lt;br&gt;All our tests have been conducted from a z/OS UNIX shell, which has a maximum region size. Using precompiled headers won’t make much difference since most of the header files being read are part of the runtime and are not precompiled. The XLC compiler used to include precompiled header files, but IBM dropped them, stating they intended to improve compiler performance, making them unnecessary. [...]</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;f7daf402.2503</guid>
+   <author>David Crayford &lt;dcrayford@GMAIL.COM&gt;</author>
+  <pubDate>Mon, 17 Mar 2025 08:21:48 +0800</pubDate>
+</item>
+
+<item>
+  <title>Re: Open XL C dramaticallly slower thant z/OS XL C compiler - expected?</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;6bb65c66.2503</link>
+  <description>T sting region size is pointless. All our tests have been conducted in the shell which has a maximum regi&lt;br&gt;&lt;br&gt;&amp;gt; On 17 Mar 2025, at 06:53, Charles Mills &amp;lt;charlesm@mcn.org&amp;gt; wrote:&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt; ﻿Both tests specified REGION=0M. Here are the stats from the two compiles:&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt; Open:&lt;br&gt;&amp;gt; CPU: 0 HR 00 MIN 01.29 SEC SRB: 0 HR 00 MIN 00.03 SEC&lt;br&gt;&amp;gt; VIRT: 20K SYS: 244K EXT: 243432K SYS: 25660K&lt;br&gt;&amp;gt; ATB- REAL: 68856K SLOTS: 0K&lt;br&gt;&amp;gt; VIRT- ALLOC: 88M SHRD: 0M&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt; Legacy:&lt;br&gt;&gt; CPU: 0 HR 00 MIN 00.36 SEC SRB: 0 HR 00 MIN [...]</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;6bb65c66.2503</guid>
+   <author>David Crayford &lt;dcrayford@GMAIL.COM&gt;</author>
+  <pubDate>Mon, 17 Mar 2025 07:11:30 +0800</pubDate>
+</item>
+
+<item>
+  <title>Re: Open XL C dramaticallly slower thant z/OS XL C compiler - expected?</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;e04560a0.2503</link>
+  <description>Both tests specified REGION=0M. Here are the stats from the two compiles:&lt;br&gt;&lt;br&gt;Open:&lt;br&gt;CPU: 0 HR 00 MIN 01.29 SEC SRB: 0 HR 00 MIN 00.03 SEC&lt;br&gt;VIRT: 20K SYS: 244K EXT: 243432K SYS: 25660K&lt;br&gt;ATB- REAL: 68856K SLOTS: 0K&lt;br&gt;VIRT- ALLOC: 88M SHRD: 0M&lt;br&gt;&lt;br&gt;Legacy:&lt;br&gt;CPU: 0 HR 00 MIN 00.36 SEC SRB: 0 HR 00 MIN 00.00 SEC&lt;br&gt;VIRT: 80K SYS: 252K EXT: 108328K SYS: 16728K&lt;br&gt;ATB- REAL: 232K SLOTS: 0K&lt;br&gt;VIRT- ALLOC: 13M SHRD: 0M [...]</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;e04560a0.2503</guid>
+   <author>Charles Mills &lt;charlesm@MCN.ORG&gt;</author>
+  <pubDate>Sun, 16 Mar 2025 17:53:24 -0500</pubDate>
+</item>
+
+<item>
+  <title>Re: Open XL C dramaticallly slower thant z/OS XL C compiler - expected?</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;cde9e532.2503</link>
+  <description>Trying to hold down the noise by doing one reply for all of your great suggestions.&lt;br&gt;&lt;br&gt;@Peter, no, did not know about .pch. The documentation is sorely lacking. Would like to give that a try but no idea how.&lt;br&gt;&amp;gt; Did you run both of those tests using the same REGION value on the same LPAR?&lt;br&gt;Same exact virtual machine on both but I am not certain about the REGION size. Suspect it was the same. I will look when I get back online and possibly re-test. [...]</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;cde9e532.2503</guid>
+   <author>Charles Mills &lt;charlesm@MCN.ORG&gt;</author>
+  <pubDate>Sun, 16 Mar 2025 15:48:18 -0500</pubDate>
+</item>
+
+<item>
+  <title>Re: MapMVS</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;37308705.2503</link>
+  <description>Hi Colin&lt;br&gt;&lt;br&gt;Understood -however we would need a different character as &amp;quot;?&amp;quot; is used by JDS on SYSOUT panels.&lt;br&gt;&lt;br&gt;Apropos of nothing, there is a new release of SDSF coming out in September (ahem).&lt;br&gt;&lt;br&gt;Rob&lt;br&gt;&lt;br&gt;Sent from Outlook for Android&amp;lt;https://aka.ms/AAb9ysg&amp;gt; </description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;37308705.2503</guid>
+   <author>Rob Scott &lt;rscott@ROCKETSOFTWARE.COM&gt;</author>
+  <pubDate>Sun, 16 Mar 2025 18:08:42 +0000</pubDate>
+</item>
+
+<item>
+  <title>Re: Links for ESS manuals</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;13df55ea.2503</link>
+  <description>I have found google to be useless for locating old IBM manuals.&lt;br&gt;&lt;br&gt;GIYF? Friends don't give friends false positives.</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;13df55ea.2503</guid>
+   <author>Seymour J Metz &lt;smetz3@GMU.EDU&gt;</author>
+  <pubDate>Sun, 16 Mar 2025 18:08:18 +0000</pubDate>
+</item>
+
+<item>
+  <title>Re: MapMVS</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;faf49086.2503</link>
+  <description>Hi Rob,&lt;br&gt;&lt;br&gt;One improvement for SDSF would be to have a ? as a line command, as a&lt;br&gt;shortcut to display the available line command options.&lt;br&gt;'/' gives all of the columns, but ? would be good as well.&lt;br&gt;&lt;br&gt;Just a thought...&lt;br&gt;&lt;br&gt;Colin&lt;br&gt;&lt;br&gt;On Fri, 14 Mar 2025 at 10:40, Rob Scott &amp;lt;&lt;br&gt;00000618c90e6fdf-dmarc-request@listserv.ua.edu&amp;gt; wrote:&lt;br&gt;&lt;br&gt;&amp;gt; Colin&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt; You can try the &amp;quot;JC&amp;quot; action against an address space in SDSF &amp;quot;DA&amp;quot; and also&lt;br&gt;&amp;gt; the &amp;quot;LPD&amp;quot; primary command.&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt; JC shows the load modules in the ASID and LPD shows the link pack area&lt;br&gt;&amp;gt; directory.&lt;br&gt;&amp;gt;&lt;br&gt;&gt; [...]</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;faf49086.2503</guid>
+   <author>Colin Paice &lt;colinpaice3@GMAIL.COM&gt;</author>
+  <pubDate>Sun, 16 Mar 2025 17:44:45 +0000</pubDate>
+</item>
+
+<item>
+  <title>Re: Open XL C dramaticallly slower thant z/OS XL C compiler - expected?</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;1c7a3790.2503</link>
+  <description>I too am concerned about Metal/C not keeping up with the hardware generations, especially as it seems that IBM is about to announce another generation.&lt;br&gt;&lt;br&gt;Has anyone already submitted an “idea” to update Metal/C hardware support? Or in the alternative, to open-source Metal/C so that the community can upgrade it themselves? (Yeah, I know – two chances of that happening: slim and none, but it doesn’t hurt to ask.) [...]</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;1c7a3790.2503</guid>
+   <author>Farley, Peter &lt;Peter.Farley@BROADRIDGE.COM&gt;</author>
+  <pubDate>Sun, 16 Mar 2025 17:14:57 +0000</pubDate>
+</item>
+
+<item>
+  <title>Re: Open XL C dramaticallly slower thant z/OS XL C compiler - expected?</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;e487c872.2503</link>
+  <description>True about REGION size – the more you give it the faster it will be. Did you run both of those tests using the same REGION value on the same LPAR?&lt;br&gt;&lt;br&gt;For the new compiler, have the standard library headers all been pre-compiled (suffix “.pch”)? I am told that those make a HUGE difference in C++ compile speeds. [...]</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;e487c872.2503</guid>
+   <author>Farley, Peter &lt;Peter.Farley@BROADRIDGE.COM&gt;</author>
+  <pubDate>Sun, 16 Mar 2025 17:06:30 +0000</pubDate>
+</item>
+
+<item>
+  <title>Re: Open XL C dramaticallly slower thant z/OS XL C compiler - expected?</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;5de481d9.2503</link>
+  <description>&amp;gt; On 16 Mar 2025, at 3:02 pm, David Cole &amp;lt;dbcole@COLESOFT.COM&amp;gt; wrote:&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt; I think the more interesting question is not, whether the compiler is slower.&lt;br&gt;&amp;gt; It's whether the compiled code is slower.&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt; Is it?&lt;br&gt;&amp;gt;&lt;br&gt;&lt;br&gt;That’s an interesting question because the legacy XL C/C++ compiler has been functionally stabilized. There is significant concern that Metal/C has not been updated to support the z16 architecture. [...]</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;5de481d9.2503</guid>
+   <author>David Crayford &lt;dcrayford@GMAIL.COM&gt;</author>
+  <pubDate>Sun, 16 Mar 2025 22:39:19 +0800</pubDate>
+</item>
+
+<item>
+  <title>Re: Executing a clist from debug tool</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;d6a82ea5.2503</link>
+  <description>Place&lt;br&gt;&lt;br&gt;CONTROL LIST SYMLIST CONLIST&lt;br&gt;&lt;br&gt;in your CLIST.&lt;br&gt;&lt;br&gt;On Wed, 12 Mar 2025 09:15:28 -0400 Joseph Reichman&lt;br&gt;&amp;lt;000005812645a43c-dmarc-request@LISTSERV.UA.EDU&amp;gt; wrote:&lt;br&gt;&lt;br&gt;:&amp;gt;Hi&lt;br&gt;:&amp;gt;&lt;br&gt;:&amp;gt;Im running / debugging a program using debug tool&lt;br&gt;:&amp;gt;&lt;br&gt;:&amp;gt;I would like to execute a clist&lt;br&gt;:&amp;gt;&lt;br&gt;:&amp;gt;Debug tool allows you to execute clists when its run from the TSO Ready prompt&lt;br&gt;:&amp;gt;&lt;br&gt;:&amp;gt;Which is what I doing&lt;br&gt;:&amp;gt;&lt;br&gt;:&amp;gt;I have done other tso commands from the debug tool command line&lt;br&gt;:&amp;gt;&lt;br&gt;:&amp;gt;So when I type the following from the debug tool command line&lt;br&gt;:&amp;gt;&lt;br&gt;:&amp;gt;TSO Ex tsoid.mytso.clist(testicular) clstparm&lt;br&gt;:&amp;gt;&lt;br&gt;:&amp;gt;From the debug tool command line I get&lt;br&gt; [...] </description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;d6a82ea5.2503</guid>
+   <author>Binyamin Dissen &lt;bdissen@DISSENSOFTWARE.COM&gt;</author>
+  <pubDate>Sun, 16 Mar 2025 11:37:03 +0200</pubDate>
+</item>
+
+<item>
+  <title>Re: Open XL C dramaticallly slower thant z/OS XL C compiler - expected?</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;e591a6e6.2503</link>
+  <description>I think the more interesting question is not, whether the compiler is slower.&lt;br&gt;It&apos;s whether the compiled code is slower.&lt;br&gt;&lt;br&gt;Is it?&lt;br&gt;&lt;br&gt;Dave Cole, Developer&lt;br&gt;dbcole@gmail.com (personal)&lt;br&gt;dbcole@colesoft.com (business)&lt;br&gt;540-456-6518 (cell)&lt;br&gt;&lt;br&gt;At 3/16/2025 01:33 AM, Allan Staller wrote:&lt;br&gt;&amp;gt;Classification: Confidential&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt;Region. The Optimizer takes a whole lot of virtual storage&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt;-----Original Message-----&lt;br&gt;&amp;gt;From: IBM Mainframe Discussion List&lt;br&gt;&amp;gt;&amp;lt;IBM-MAIN@LISTSERV.UA.EDU&amp;gt; On Behalf Of Charles Mills&lt;br&gt;&amp;gt;Sent: Friday, March 14, 2025 1:39 PM&lt;br&gt;&amp;gt;To: IBM-MAIN@LISTSERV.UA.EDU&lt;br&gt;&amp;gt;Subject: Open XL C dramaticallly slower thant z/OS XL C compiler - expected?&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt;[CAUTION: This Email is from outside the&lt;br&gt;&gt;Organization. Unless you trust the [...] </description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;e591a6e6.2503</guid>
+   <author>David Cole &lt;dbcole@COLESOFT.COM&gt;</author>
+  <pubDate>Sun, 16 Mar 2025 02:02:15 -0500</pubDate>
+</item>
+
+<item>
+  <title>Re: Open XL C dramaticallly slower thant z/OS XL C compiler - expected?</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;ac6340f6.2503</link>
+  <description>Classification: Confidential&lt;br&gt;&lt;br&gt;Region. The Optimizer takes a whole lot of virtual storage&lt;br&gt;&lt;br&gt;-----Original Message-----&lt;br&gt;From: IBM Mainframe Discussion List &amp;lt;IBM-MAIN@LISTSERV.UA.EDU&amp;gt; On Behalf Of Charles Mills&lt;br&gt;Sent: Friday, March 14, 2025 1:39 PM&lt;br&gt;To: IBM-MAIN@LISTSERV.UA.EDU&lt;br&gt;Subject: Open XL C dramaticallly slower thant z/OS XL C compiler - expected?&lt;br&gt;&lt;br&gt;[CAUTION: This Email is from outside the Organization. Unless you trust the sender, Don’t click links or open attachments as it may be a Phishing email, which can steal your Information and compromise your Computer.] [...]</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;ac6340f6.2503</guid>
+   <author>Allan Staller &lt;allan.staller@HCLTECH.COM&gt;</author>
+  <pubDate>Sun, 16 Mar 2025 06:33:23 +0000</pubDate>
+</item>
+
+<item>
+  <title>Re: Links for ESS manuals</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;6b579638.2503</link>
+  <description>On Sun, 16 Mar 2025 02:06:38 +0000, Seymour J Metz wrote:&lt;br&gt;&lt;br&gt;&amp;gt;Does anybody have links for Enterprise Storage Controller manuals that don't require a subscription? How about newer DASD subsystems? I want to update some dead links on wiki.&lt;br&gt;&amp;gt; .&lt;br&gt;GIYF? Any of these?:&lt;br&gt;&amp;lt;https://www.google.com/search?q=site:IBM.com+Enterprise+Storage+Controller&amp;gt;&lt;br&gt;&lt;br&gt;--&lt;br&gt;gil</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;6b579638.2503</guid>
+   <author>Paul Gilmartin &lt;PaulGBoulder@AOL.COM&gt;</author>
+  <pubDate>Sat, 15 Mar 2025 22:49:39 -0500</pubDate>
+</item>
+
+<item>
+  <title>Links for ESS manuals</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;928d7781.2503</link>
+  <description>Does anybody have links for Enterprise Storage Controller manuals that don't require a subscription? How about newer DASD subsystems? I want to update some dead links on wiki. --  Shmuel (Seymour J.) Metz http://mason.gmu.edu/~smetz3 עַם יִשְׂרָאֵל חַי נֵ֣צַח יִשְׂרָאֵ֔ל לֹ֥א יְשַׁקֵּ֖ר</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;928d7781.2503</guid>
+   <author>Seymour J Metz &lt;smetz3@GMU.EDU&gt;</author>
+  <pubDate>Sun, 16 Mar 2025 02:06:38 +0000</pubDate>
+</item>
+
+<item>
+  <title>Re: Open XL C/C++ Documentation</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;9863a203.2503</link>
+  <description>On Thu, 13 Mar 2025 18:19:53 -0500, Charles Mills &amp;lt;charlesm@MCN.ORG&amp;gt; wrote:&lt;br&gt;&lt;br&gt;&amp;gt;On Thu, 13 Mar 2025 09:45:02 -0500, Linda Chui &amp;lt;lchui@CA.IBM.COM&amp;gt; wrote:&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt;&amp;gt;Assuming your -mzos-sys-include comes from https://www.ibm.com/docs/en/open-xl-c-cpp-zos/2.1?topic=compiler-jcl-example, you can see the preamble states it is for C (non-XPLINK).&lt;br&gt;&amp;gt;&amp;gt;&lt;br&gt;&amp;gt;&amp;gt;There is a USS (or shell) example given in the same document at https://www.ibm.com/docs/en/open-xl-c-cpp-zos/2.1?topic=applications-compiling which includes both C and C++ compilation parts.&lt;br&gt;&amp;gt;&amp;gt;&lt;br&gt;&amp;gt;&amp;gt;Please do ensure your z/OS service level is up to date as well as there may have been changes to the system, compiler, header files, etc.&lt;br&gt;&gt;&gt;In general, you should NOT need to specify [...]</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;9863a203.2503</guid>
+   <author>Linda Chui &lt;lchui@CA.IBM.COM&gt;</author>
+  <pubDate>Fri, 14 Mar 2025 19:14:08 -0500</pubDate>
+</item>
+
+<item>
+  <title>RACF problem updating RACF BACKUP database (LAST CONNECT date)</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;476b124a.2503</link>
+  <description>Hi!&lt;br&gt;&lt;br&gt; &lt;br&gt;&lt;br&gt;I havenoticed a pretty odd situation regarding our RACF backup database that I amstill unable to explain (I have already asked on RACFL).&lt;br&gt;&lt;br&gt; &lt;br&gt;&lt;br&gt;For my own RACFuserid, the LAST-CONNECT date to my “DEFAULT GROUP” is not being updated on theBACKUP RACF database (not even once a day). As far as I have tested, this isonly happening for my own userid (for all the others, things seems to beworking properly). LISTUSER shows the correct LAST-CONNECT date, but, as weknow, RACF commands read information from the PRIMARY RACF database. It is froman IRRDBU00 unload of the RACF BACKUP database [...]</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;476b124a.2503</guid>
+   <author>jgmautalen@yahoo.com.ar &lt;jgmautalen@YAHOO.COM.AR&gt;</author>
+  <pubDate>Fri, 14 Mar 2025 19:15:16 +0000</pubDate>
+</item>
+
+<item>
+  <title>Open XL C dramaticallly slower thant z/OS XL C compiler - expected?</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;c42efdbb.2503</link>
+  <description>I am trying to get started with the new, &amp;quot;open,&amp;quot; Clang-based XLC compiler. I am stunned at how noticeably slower it is than the legacy C compiler. I wasn't looking to benchmark -- the slow compile times just jumped out at me.&lt;br&gt;&lt;br&gt;Is this to be expected? I wish I had numbers for exactly the same source code but there are different userids involved and it's a little complicated. Different options for the two compiles because the option specifications are incompatible. Both modules are fairly vanilla source code written by the same author. [...]</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;c42efdbb.2503</guid>
+   <author>Charles Mills &lt;charlesm@MCN.ORG&gt;</author>
+  <pubDate>Fri, 14 Mar 2025 13:38:50 -0500</pubDate>
+</item>
+
+<item>
+  <title>Re: New to Z - History of SPF / ISPF Presentation / Tips &amp; Tricks?</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;b170d2be.2503</link>
+  <description>&lt;https://en.wikipedia.org/wiki/ISPF&gt; has some of the history. --  Shmuel (Seymour J.) Metz http://mason.gmu.edu/~smetz3 עַם יִשְׂרָאֵל חַי נֵ֣צַח יִשְׂרָאֵ֔ל לֹ֥א יְשַׁקֵּ֖ר ________________________________________ From: IBM Mainframe Discussion List &lt;IBM-MAIN@LISTSERV.UA.EDU&gt; on behalf of Steve Estle &lt;000005dcac13570d-dmarc-request@LISTSERV.UA.EDU&gt; Sent: Friday, March 14, 2025 10:55 AM To: IBM-MAIN@LISTSERV.UA.EDU Subject: New to Z - History of SPF / ISPF Presentation / Tips &amp; Tricks? External Message: Use Caution Hey Everyone, I'm part of the &quot;New to Z&quot; Community launching in Dallas area and am part of planning committee. We are looking for a good solid presentation that briefly discusses the history of SPF / ISPF/PDF and then goes [...]</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;b170d2be.2503</guid>
+   <author>Seymour J Metz &lt;smetz3@GMU.EDU&gt;</author>
+  <pubDate>Fri, 14 Mar 2025 17:46:21 +0000</pubDate>
+</item>
+
+<item>
+  <title>Re: New to Z - History of SPF / ISPF Presentation / Tips &amp; Tricks?</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;b5228754.2503</link>
+  <description>Steve,&lt;br&gt;&lt;br&gt;Below are links to the oldest ISPF/PDF manuals I can find. I remember using&lt;br&gt;a previous edition of the 'General Information' manual to teach an SPF&lt;br&gt;class to newbies in the early 1980s. It is a good intro, but the original&lt;br&gt;audience for that book was TSO line-mode users, folks that were used to the&lt;br&gt;native TSO line-mode EDIT, SUBMIT, STATUS and TEST commands, etc. [...]</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;b5228754.2503</guid>
+   <author>Mike Shaw &lt;techsupport@QUICKREF.COM&gt;</author>
+  <pubDate>Fri, 14 Mar 2025 12:59:53 -0400</pubDate>
+</item>
+
+<item>
+  <title>New to Z - History of SPF / ISPF Presentation / Tips &amp; Tricks?</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;c85ff519.2503</link>
+  <description>Hey Everyone,&lt;br&gt;&lt;br&gt;I'm part of the &amp;quot;New to Z&amp;quot; Community launching in Dallas area and am part of planning committee. We are looking for a good solid presentation that briefly discusses the history of SPF / ISPF/PDF and then goes into some cool / slick things you can do with the product (such as with the ISPF Editor). Just curious what might be out there for New to Z community? [...]</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;c85ff519.2503</guid>
+   <author>Steve Estle &lt;sestle1@GMAIL.COM&gt;</author>
+  <pubDate>Fri, 14 Mar 2025 09:55:54 -0500</pubDate>
+</item>
+
+<item>
+  <title>Re: Mystified by FTP working for one user but not another</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;b08bf9f6.2503</link>
+  <description>On Fri, 14 Mar 2025 14:27:33 +0200, Binyamin Dissen wrote:&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt;What happens when you issue the TSO OMVS command under that userid?&lt;br&gt;&amp;gt;&lt;br&gt;Wasn't that asked and answered in later plies n the thread?&lt;br&gt;&lt;br&gt;--&lt;br&gt;gil</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;b08bf9f6.2503</guid>
+   <author>Paul Gilmartin &lt;PaulGBoulder@AOL.COM&gt;</author>
+  <pubDate>Fri, 14 Mar 2025 08:50:16 -0500</pubDate>
+</item>
+
+<item>
+  <title>Re: MapMVS</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;48459232.2503</link>
+  <description>Rob,&lt;br&gt;&lt;br&gt;Brilliant! Thank you. It saved me having to schedule an SRB to go and&lt;br&gt;collect it.&lt;br&gt;&lt;br&gt;I can now call the loader to map the csects within the loadmodule. I&lt;br&gt;should be able to do this from rexx!&lt;br&gt;&lt;br&gt;I'll write this up in a blog post&lt;br&gt;&lt;br&gt;Colin&lt;br&gt;&lt;br&gt;On Fri, 14 Mar 2025 at 10:40, Rob Scott &amp;lt;&lt;br&gt;00000618c90e6fdf-dmarc-request@listserv.ua.edu&amp;gt; wrote: [...]</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;48459232.2503</guid>
+   <author>Colin Paice &lt;colinpaice3@GMAIL.COM&gt;</author>
+  <pubDate>Fri, 14 Mar 2025 12:28:40 +0000</pubDate>
+</item>
+
+<item>
+  <title>Re: Mystified by FTP working for one user but not another</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;88415356.2503</link>
+  <description>On Tue, 11 Mar 2025 18:29:57 -0500 Charles Mills &amp;lt;charlesm@MCN.ORG&amp;gt; wrote:&lt;br&gt;&lt;br&gt;:&gt;I have a Dallas system where I pretend to be a sysprog. I just added an additional userid. FTP to and from z/OS UNIX files works for my userid but not for the added userid. I have checked and all of the WS_FTP session parameters are the same. I looked at the console and realized I was getting EZB.INITSTACK.*.TCPIP (G) errors every time the new userid tried to transfer a file, so I went aha! and permitted the GROUP to EZB.INITSTACK.*.TCPIP (G) (and yes, did a refresh of SERVAUTH) [...] </description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;88415356.2503</guid>
+   <author>Binyamin Dissen &lt;bdissen@DISSENSOFTWARE.COM&gt;</author>
+  <pubDate>Fri, 14 Mar 2025 14:27:33 +0200</pubDate>
+</item>
+
+<item>
+  <title>Re: Data Spaces in general</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;4dee18ff.2503</link>
+  <description>Right. Duna Williamson, now long retired, did an excellent job with that book. And it has been nicely updated for 64 Bit.&lt;br&gt;&lt;br&gt;Cheers, Martin&lt;br&gt;&lt;br&gt;From: IBM Mainframe Discussion List &amp;lt;IBM-MAIN@LISTSERV.UA.EDU&amp;gt; on behalf of Rob Scott &amp;lt;00000618c90e6fdf-dmarc-request@LISTSERV.UA.EDU&amp;gt;&lt;br&gt;Date: Wednesday, 12 March 2025 at 20:59&lt;br&gt;To: IBM-MAIN@LISTSERV.UA.EDU &amp;lt;IBM-MAIN@LISTSERV.UA.EDU&amp;gt;&lt;br&gt;Subject: [EXTERNAL] Re: Data Spaces in general&lt;br&gt;I would not advise any new code use dataspaces. Use 64bit memory instead. [...] </description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;4dee18ff.2503</guid>
+   <author>Martin Packer &lt;martin_packer@UK.IBM.COM&gt;</author>
+  <pubDate>Fri, 14 Mar 2025 11:20:26 +0000</pubDate>
+</item>
+
+<item>
+  <title>Re: MapMVS</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;40de5931.2503</link>
+  <description>Colin&lt;br&gt;&lt;br&gt;You can try the &amp;quot;JC&amp;quot; action against an address space in SDSF &amp;quot;DA&amp;quot; and also the &amp;quot;LPD&amp;quot; primary command.&lt;br&gt;&lt;br&gt;JC shows the load modules in the ASID and LPD shows the link pack area directory.&lt;br&gt;&lt;br&gt;Rob Scott&lt;br&gt;Rocket Software </description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;40de5931.2503</guid>
+   <author>Rob Scott &lt;rscott@ROCKETSOFTWARE.COM&gt;</author>
+  <pubDate>Fri, 14 Mar 2025 10:40:07 +0000</pubDate>
+</item>
+
+<item>
+  <title>Re: z/PDOS-generic</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;1522f9bb.2503</link>
+  <description>On Wed, 22 Jan 2025 00:53:27 -0600, Paul Edwards &amp;lt;mutazilah@GMAIL.COM&amp;gt; wrote:&lt;br&gt;&lt;br&gt;&amp;gt;A 35+ year quest to port MSDOS (or similar) to the mainframe&lt;br&gt;&amp;gt;has now been sufficiently done.&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt;My usual integrity test is to see if gcc 3.2.3 can reproduce itself.&lt;br&gt;&amp;gt;The z/PDOS-generic version of gcc 3.2.3 can now do this - byte-exact.&lt;br&gt;&lt;br&gt;&amp;gt;You can get zpg.zip from https://pdos.org and run it under herc32.zip&lt;br&gt;&amp;gt;or herc64.zip (Hercules/380) from the same place. [...]</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;1522f9bb.2503</guid>
+   <author>Paul Edwards &lt;mutazilah@GMAIL.COM&gt;</author>
+  <pubDate>Thu, 13 Mar 2025 20:05:27 -0500</pubDate>
+</item>
+
+<item>
+  <title>Re: Executing a clist from debug tool</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;919c3665.2503</link>
+  <description>Hi Joseph,&lt;br&gt;&lt;br&gt;Sorry, I haven't done what you're trying to do in the z/OS Debugger. I can&lt;br&gt;only suggest trying to get an explanation and possible solution from IBM&lt;br&gt;support.&lt;br&gt;&lt;br&gt;Peter&lt;br&gt;&lt;br&gt;On Thu, 13 Mar 2025 at 23:01, Joseph Reichman &amp;lt;&lt;br&gt;000005812645a43c-dmarc-request@listserv.ua.edu&amp;gt; wrote:&lt;br&gt;&lt;br&gt;&amp;gt; Peter&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt; My clist has a call command&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt; Let me show you what I am doing&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt; The clist&lt;br&gt;&amp;gt; MYTSOID.CLIST(CALLCMD)’&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt; I type SYS CALLCMD&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt; PROC 0&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt; Call ‘MYTSOID.MYLOADLIB(MYPROG)’&lt;br&gt;&amp;gt;&lt;br&gt;&gt; I get the following message ion the the bottom of the debug tool [...]</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;919c3665.2503</guid>
+   <author>Peter Van Dyke &lt;pdvandyke@GMAIL.COM&gt;</author>
+  <pubDate>Fri, 14 Mar 2025 08:04:48 +0800</pubDate>
+</item>
+
+<item>
+  <title>Re: Open XL C/C++ Documentation</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;2f72b7c9.2503</link>
+  <description>On Thu, 13 Mar 2025 09:45:02 -0500, Linda Chui &amp;lt;lchui@CA.IBM.COM&amp;gt; wrote:&lt;br&gt;&lt;br&gt;&amp;gt;Assuming your -mzos-sys-include comes from https://www.ibm.com/docs/en/open-xl-c-cpp-zos/2.1?topic=compiler-jcl-example, you can see the preamble states it is for C (non-XPLINK).&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt;There is a USS (or shell) example given in the same document at https://www.ibm.com/docs/en/open-xl-c-cpp-zos/2.1?topic=applications-compiling which includes both C and C++ compilation parts.&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt;Please do ensure your z/OS service level is up to date as well as there may have been changes to the system, compiler, header files, etc.&lt;br&gt;&amp;gt;In general, you should NOT need to specify -mzos-sys-include explicitly since the install configuration should have set all the defaults for you. [...]</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;2f72b7c9.2503</guid>
+   <author>Charles Mills &lt;charlesm@MCN.ORG&gt;</author>
+  <pubDate>Thu, 13 Mar 2025 18:19:53 -0500</pubDate>
+</item>
+
+<item>
+  <title>Re: Command Line (was: Mystified by FTP ...)</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;fc920ce3.2503</link>
+  <description>It wouldn't be so bad if I had a 3290 simulator. --  Shmuel (Seymour J.) Metz http://mason.gmu.edu/~smetz3 עַם יִשְׂרָאֵל חַי נֵ֣צַח יִשְׂרָאֵ֔ל לֹ֥א יְשַׁקֵּ֖ר ________________________________________ From: IBM Mainframe Discussion List &lt;IBM-MAIN@LISTSERV.UA.EDU&gt; on behalf of Don Leahy &lt;don.leahy@LEACOM.CA&gt; Sent: Thursday, March 13, 2025 2:22 PM To: IBM-MAIN@LISTSERV.UA.EDU Subject: Re: Command Line (was: Mystified by FTP ...) External Message: Use Caution It was painful to decommission the local toolbox that I had built around WSA. I am almost over it now. On Wed, Mar 12, 2025 at 9:06 PM Seymour J Metz &lt;smetz3@gmu.edu&gt; wrote: &gt; Alas! &gt; &gt; -- &gt; Shmuel (Seymour J.) [...]</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;fc920ce3.2503</guid>
+   <author>Seymour J Metz &lt;smetz3@GMU.EDU&gt;</author>
+  <pubDate>Thu, 13 Mar 2025 20:23:51 +0000</pubDate>
+</item>
+
+<item>
+  <title>Re: Command Line (was: Mystified by FTP ...)</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;c8e79ce3.2503</link>
+  <description>It was painful to decommission the local toolbox that I had built around&lt;br&gt;WSA. I am almost over it now.&lt;br&gt;&lt;br&gt;On Wed, Mar 12, 2025 at 9:06 PM Seymour J Metz &amp;lt;smetz3@gmu.edu&amp;gt; wrote:&lt;br&gt;&lt;br&gt;&amp;gt; Alas!&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt; --&lt;br&gt;&amp;gt; Shmuel (Seymour J.) Metz&lt;br&gt;&amp;gt; http://mason.gmu.edu/~smetz3&lt;br&gt;&amp;gt; עַם יִשְׂרָאֵל חַי&lt;br&gt;&amp;gt; נֵ֣צַח יִשְׂרָאֵ֔ל לֹ֥א יְשַׁקֵּ֖ר&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt; ________________________________________&lt;br&gt;&amp;gt; From: IBM Mainframe Discussion List &amp;lt;IBM-MAIN@LISTSERV.UA.EDU&amp;gt; on behalf&lt;br&gt;&amp;gt; of Farley, Peter &amp;lt;0000031df298a9da-dmarc-request@LISTSERV.UA.EDU&amp;gt;&lt;br&gt;&amp;gt; Sent: Wednesday, March 12, 2025 6:46 PM&lt;br&gt;&amp;gt; To: IBM-MAIN@LISTSERV.UA.EDU&lt;br&gt;&amp;gt; Subject: Re: Command Line (was: Mystified by FTP ...)&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt; External Message: Use Caution&lt;br&gt;&amp;gt;&lt;br&gt; [...]</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;c8e79ce3.2503</guid>
+   <author>Don Leahy &lt;don.leahy@LEACOM.CA&gt;</author>
+  <pubDate>Thu, 13 Mar 2025 14:22:54 -0400</pubDate>
+</item>
+
+<item>
+  <title>Re: Executing a clist from debug tool</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;256b25e6.2503</link>
+  <description>Peter&lt;br&gt;&lt;br&gt;My clist has a call command&lt;br&gt;&lt;br&gt;Let me show you what I am doing&lt;br&gt;&lt;br&gt;The clist&lt;br&gt;MYTSOID.CLIST(CALLCMD)’&lt;br&gt;&lt;br&gt;I type SYS CALLCMD&lt;br&gt;&lt;br&gt;PROC 0&lt;br&gt;&lt;br&gt;Call ‘MYTSOID.MYLOADLIB(MYPROG)’&lt;br&gt;&lt;br&gt;I get the following message ion the the bottom of the debug tool screen&lt;br&gt;&lt;br&gt;The operating system has generated the following message:&lt;br&gt;&lt;br&gt;EQA4015I Load module information could not be retrieved for module IKJEFTSR because the loading service ( provider ) that loaded the module loaded it from a system managed library (e.g., LPA). The load module cannot be debugged.&lt;br&gt;The requested SYSTEM command could not be run&lt;br&gt;-----Original Message-----&lt;br&gt;From: IBM Mainframe Discussion List [...]</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;256b25e6.2503</guid>
+   <author>Joseph Reichman &lt;reichmanjoe@GMAIL.COM&gt;</author>
+  <pubDate>Thu, 13 Mar 2025 11:01:02 -0400</pubDate>
+</item>
+
+<item>
+  <title>Re: Open XL C/C++ Documentation</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;60d32b00.2503</link>
+  <description>On Thu, 13 Mar 2025 08:19:18 -0500, Charles Mills &amp;lt;charlesm@MCN.ORG&amp;gt; wrote:&lt;br&gt;&lt;br&gt;&amp;gt;On Wed, 12 Mar 2025 19:38:38 -0500, Linda Chui &amp;lt;lchui@CA.IBM.COM&amp;gt; wrote:&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt;&amp;gt;The errors you saw were likely from using the wrong header set.&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt;Linda, thanks for taking the time to help.&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt;I believe I am doing things exactly as you document. The documentation says&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt;-mzos-sys-include=&amp;quot;//'&amp;lt;DEFAULT_LE_HLQ, CEE in most cases&amp;gt;.SCEEH.+'&amp;quot;&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt;And my coding is&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt;-mzos-sys-include=&amp;quot;//'CEE.SCEEH.+'&amp;quot;&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt;CEE.SCEEH is to the best of my knowledge exactly as installed for the other C compiler V3R1.&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt;Is anyone outside of IBM actually using this compiler?&lt;br&gt;&amp;gt;&lt;br&gt; [...]</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;60d32b00.2503</guid>
+   <author>Linda Chui &lt;lchui@CA.IBM.COM&gt;</author>
+  <pubDate>Thu, 13 Mar 2025 09:45:02 -0500</pubDate>
+</item>
+
+<item>
+  <title>Re: Open XL C/C++ Documentation</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;c420e318.2503</link>
+  <description>On Wed, 12 Mar 2025 19:38:38 -0500, Linda Chui &amp;lt;lchui@CA.IBM.COM&amp;gt; wrote:&lt;br&gt;&lt;br&gt;&amp;gt;The errors you saw were likely from using the wrong header set.&lt;br&gt;&lt;br&gt;Linda, thanks for taking the time to help.&lt;br&gt;&lt;br&gt;I believe I am doing things exactly as you document. The documentation says&lt;br&gt;&lt;br&gt;-mzos-sys-include=&amp;quot;//'&amp;lt;DEFAULT_LE_HLQ, CEE in most cases&amp;gt;.SCEEH.+'&amp;quot;&lt;br&gt;&lt;br&gt;And my coding is&lt;br&gt;&lt;br&gt;-mzos-sys-include=&amp;quot;//'CEE.SCEEH.+'&amp;quot;&lt;br&gt;&lt;br&gt;CEE.SCEEH is to the best of my knowledge exactly as installed for the other C compiler V3R1. [...]</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;c420e318.2503</guid>
+   <author>Charles Mills &lt;charlesm@MCN.ORG&gt;</author>
+  <pubDate>Thu, 13 Mar 2025 08:19:18 -0500</pubDate>
+</item>
+
+<item>
+  <title>Re: Data Spaces in general</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;7ac70870.2503</link>
+  <description>Rob is right, memory is much easier and 64-bit makes it pretty simple.&lt;br&gt;&lt;br&gt;Brian</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;7ac70870.2503</guid>
+   <author>Brian Westerman &lt;Brian_Westerman@SYZYGYINC.COM&gt;</author>
+  <pubDate>Wed, 12 Mar 2025 23:43:14 -0500</pubDate>
+</item>
+
+<item>
+  <title>Re: Command Line (was: Mystified by FTP ...)</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;7cf461c0.2503</link>
+  <description>Alas! --  Shmuel (Seymour J.) Metz http://mason.gmu.edu/~smetz3 עַם יִשְׂרָאֵל חַי נֵ֣צַח יִשְׂרָאֵ֔ל לֹ֥א יְשַׁקֵּ֖ר ________________________________________ From: IBM Mainframe Discussion List &lt;IBM-MAIN@LISTSERV.UA.EDU&gt; on behalf of Farley, Peter &lt;0000031df298a9da-dmarc-request@LISTSERV.UA.EDU&gt; Sent: Wednesday, March 12, 2025 6:46 PM To: IBM-MAIN@LISTSERV.UA.EDU Subject: Re: Command Line (was: Mystified by FTP ...) External Message: Use Caution Wasn’t WSA removed from ISPF as of z/OS V2.5? Or am I mis-remembering? Peter From: IBM Mainframe Discussion List &lt;IBM-MAIN@LISTSERV.UA.EDU&gt; On Behalf Of Paul Gilmartin Sent: Wednesday, March 12, 2025 3:00 PM To: IBM-MAIN@LISTSERV.UA.EDU Subject: Command Line (was: Mystified by FTP ...) On Wed, 12 Mar 2025 13:27:48 -0500, Charles Mills [...]</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;7cf461c0.2503</guid>
+   <author>Seymour J Metz &lt;smetz3@GMU.EDU&gt;</author>
+  <pubDate>Thu, 13 Mar 2025 01:06:12 +0000</pubDate>
+</item>
+
+<item>
+  <title>Re: Open XL C/C++ Documentation</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;83840229.2503</link>
+  <description>On Wed, 12 Mar 2025 16:44:17 -0500, Charles Mills &amp;lt;charlesm@MCN.ORG&amp;gt; wrote:&lt;br&gt;&lt;br&gt;&amp;gt;Is it just me or does the &amp;quot;new&amp;quot; IBM Open XL C/C++ compiler seem under-documented?&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt;(This is in the department of old dogs trying to learn new tricks.)&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt;I am very, very familiar with the &amp;quot;legacy&amp;quot; IBM z/OS XL C/C++ compiler. (Is it just me or do these names seem unnecessarily confusing?)&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt;Where is the Language Reference? Where is the Programming Guide? Where is the User's Guide? Where are some command line compile examples?&lt;br&gt;&amp;gt;&lt;br&gt;&gt;Yeah, C++ is C++ and there is lots on the Web [...]</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;83840229.2503</guid>
+   <author>Linda Chui &lt;lchui@CA.IBM.COM&gt;</author>
+  <pubDate>Wed, 12 Mar 2025 19:38:38 -0500</pubDate>
+</item>
+
+<item>
+  <title>Re: Executing a clist from debug tool</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;b15e6639.2503</link>
+  <description>In other words the clist that is executed by the system command has no parms&lt;br&gt;And in the clist call another clist with parms&lt;br&gt;What is described in page 74 tso/e nested clists ?&lt;br&gt;&lt;br&gt;Correct&lt;br&gt;&lt;br&gt;Get Outlook for iOS&amp;lt;https://aka.ms/o0ukef&amp;gt;</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;b15e6639.2503</guid>
+   <author>Joseph Reichman &lt;reichmanjoe@GMAIL.COM&gt;</author>
+  <pubDate>Thu, 13 Mar 2025 00:10:43 +0000</pubDate>
+</item>
+
+<item>
+  <title>Re: Executing a clist from debug tool</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;ccdddc17.2503</link>
+  <description>Hi Joseph,&lt;br&gt;The z/OS Debugger documentation for the TSO and SYSTEM commands say they&lt;br&gt;are used to run a &amp;quot;valid TSO system command or CLIST name that *does not&lt;br&gt;require a parameter*&amp;quot;. Trying to pass a parameter might be the cause of&lt;br&gt;your problem. Please see the first Usage note here for information on how&lt;br&gt;to overcome this restriction:&lt;br&gt;https://www.ibm.com/docs/en/debug-for-zos/17.0?topic=commands-system-command-zos [...]</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;ccdddc17.2503</guid>
+   <author>Peter Van Dyke &lt;pdvandyke@GMAIL.COM&gt;</author>
+  <pubDate>Thu, 13 Mar 2025 08:01:47 +0800</pubDate>
+</item>
+
+<item>
+  <title>Re: Open XL C/C++ Documentation</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;b559d818.2503</link>
+  <description>On Wed, 12 Mar 2025 22:51:41 +0000, Farley, Peter &amp;lt;Peter.Farley@BROADRIDGE.COM&amp;gt; wrote:&lt;br&gt;&lt;br&gt;&amp;gt;I think only at the V1.1 (or is it V1.2?) level did the “new” Open XL compiler (the CLANG version) and libraries get support for JCL compilation. The initial version only supported shell invocation.&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt;Which version did you install?&lt;br&gt;&lt;br&gt;Both versions are installed I believe, but my feeble attempts at testing have been exclusively with V2R1. [...]</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;b559d818.2503</guid>
+   <author>Charles Mills &lt;charlesm@MCN.ORG&gt;</author>
+  <pubDate>Wed, 12 Mar 2025 18:59:47 -0500</pubDate>
+</item>
+
+<item>
+  <title>Re: Open XL C/C++ Documentation</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;77b6ee6a.2503</link>
+  <description>I think only at the V1.1 (or is it V1.2?) level did the “new” Open XL compiler (the CLANG version) and libraries get support for JCL compilation. The initial version only supported shell invocation.&lt;br&gt;&lt;br&gt;Which version did you install?&lt;br&gt;&lt;br&gt;Peter&lt;br&gt;&lt;br&gt;From: IBM Mainframe Discussion List &amp;lt;IBM-MAIN@LISTSERV.UA.EDU&amp;gt; On Behalf Of Charles Mills&lt;br&gt;Sent: Wednesday, March 12, 2025 5:44 PM&lt;br&gt;To: IBM-MAIN@LISTSERV.UA.EDU&lt;br&gt;Subject: Open XL C/C++ Documentation [...]</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;77b6ee6a.2503</guid>
+   <author>Farley, Peter &lt;Peter.Farley@BROADRIDGE.COM&gt;</author>
+  <pubDate>Wed, 12 Mar 2025 22:51:41 +0000</pubDate>
+</item>
+
+<item>
+  <title>Re: Command Line (was: Mystified by FTP ...)</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;45e15863.2503</link>
+  <description>Wasn’t WSA removed from ISPF as of z/OS V2.5? Or am I mis-remembering?&lt;br&gt;&lt;br&gt;Peter&lt;br&gt;&lt;br&gt;From: IBM Mainframe Discussion List &amp;lt;IBM-MAIN@LISTSERV.UA.EDU&amp;gt; On Behalf Of Paul Gilmartin&lt;br&gt;Sent: Wednesday, March 12, 2025 3:00 PM&lt;br&gt;To: IBM-MAIN@LISTSERV.UA.EDU&lt;br&gt;Subject: Command Line (was: Mystified by FTP ...)&lt;br&gt;&lt;br&gt;On Wed, 12 Mar 2025 13:27:48 -0500, Charles Mills \ wrote:&lt;br&gt;&lt;br&gt;&amp;gt;Yeah, you're right. Change is good. I have had associates who used ssh exclusively or almost exclusively, and it seemed to work for them. (The problem of remote work -- didn't get to look over their shoulders.) [...]</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;45e15863.2503</guid>
+   <author>Farley, Peter &lt;Peter.Farley@BROADRIDGE.COM&gt;</author>
+  <pubDate>Wed, 12 Mar 2025 22:46:59 +0000</pubDate>
+</item>
+
+<item>
+  <title>Re: [EXT] Re: Dataspaces</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;a3dd28a2.2503</link>
+  <description>Which is a major difference between it and shared 64 bit, where if an address&lt;br&gt;space gets a share it retains the share even if the creator disposes of the&lt;br&gt;memory object or terminates.&lt;br&gt;&lt;br&gt;On Wed, 12 Mar 2025 16:03:27 +0000 Glen Garrison &amp;lt;glene@US.IBM.COM&amp;gt; wrote:&lt;br&gt;&lt;br&gt;:&amp;gt;Whatever the communication mechanism you choose between creator of, and users of, the scope=common dataspace, the owning task can not terminate before the users are done using it or the users will abend when attempting to access the space. So yes.&lt;br&gt;:&amp;gt;&lt;br&gt;:&amp;gt;________________________________&lt;br&gt;:&gt;From: IBM Mainframe Discussion List &lt;IBM-MAIN@LISTSERV.UA.EDU&gt; on behalf of Ward, Mike S [...] </description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;a3dd28a2.2503</guid>
+   <author>Binyamin Dissen &lt;bdissen@DISSENSOFTWARE.COM&gt;</author>
+  <pubDate>Thu, 13 Mar 2025 00:23:18 +0200</pubDate>
+</item>
+
+<item>
+  <title>Open XL C/C++ Documentation</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;14caff6d.2503</link>
+  <description>Is it just me or does the &amp;quot;new&amp;quot; IBM Open XL C/C++ compiler seem under-documented?&lt;br&gt;&lt;br&gt;(This is in the department of old dogs trying to learn new tricks.)&lt;br&gt;&lt;br&gt;I am very, very familiar with the &amp;quot;legacy&amp;quot; IBM z/OS XL C/C++ compiler. (Is it just me or do these names seem unnecessarily confusing?) [...]</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;14caff6d.2503</guid>
+   <author>Charles Mills &lt;charlesm@MCN.ORG&gt;</author>
+  <pubDate>Wed, 12 Mar 2025 16:44:17 -0500</pubDate>
+</item>
+
+<item>
+  <title>Re: Using CSNBRNGL</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;c0bff7dc.2503</link>
+  <description>Here's some COBOL which calls CSNBRNGL. I have included calls to STCKF to get timings (see: https://github.com/admattingly/Macho/ ) but you can comment this out if you wish. Hopefully this logic is self-explanatory:&lt;br&gt;&lt;br&gt;identification division.&lt;br&gt;program-id. wrangle.&lt;br&gt;environment division.&lt;br&gt;data division.&lt;br&gt;working-storage section.&lt;br&gt;01 cca-return-code pic 9(9) comp-5.&lt;br&gt;01 cca-reason-code pic 9(9) comp-5.&lt;br&gt;01 cca-exit-data-length pic 9(9) comp-5.&lt;br&gt;01 cca-exit-data pic x.&lt;br&gt;01 cca-rule-array-count pic 9(9) comp-5.&lt;br&gt;01 cca-rule-array.&lt;br&gt;05 cca-rule pic x(8) occurs 8.&lt;br&gt;01 rng-key-identifier-length pic 9(9) comp-5.&lt;br&gt;01 rng-key-identifier pic x(64).&lt;br&gt;01 rng-random-number-length pic 9(9) comp-5.&lt;br&gt;01 rng-random-number pic x(4096).&lt;br&gt;01 rng-function pic x(8) value 'CSNBRNGL'.&lt;br&gt;*&lt;br&gt;01 [...]</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;c0bff7dc.2503</guid>
+   <author>Andrew Mattingly &lt;andrew@MATTINGLY.COM&gt;</author>
+  <pubDate>Wed, 12 Mar 2025 16:20:54 -0500</pubDate>
+</item>
+
+<item>
+  <title>Re: Data Spaces in general</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;ffb9eb89.2503</link>
+  <description>I would not advise any new code use dataspaces. Use 64bit memory instead.&lt;br&gt;&lt;br&gt;If you have existing dataspace code, the Extended Addressability manual is pretty good to use as a reference.&lt;br&gt;&lt;br&gt;Rob Scott&lt;br&gt;Rocket Software&lt;br&gt;&lt;br&gt;Sent from Outlook for Android&amp;lt;https://aka.ms/AAb9ysg&amp;gt; </description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;ffb9eb89.2503</guid>
+   <author>Rob Scott &lt;rscott@ROCKETSOFTWARE.COM&gt;</author>
+  <pubDate>Wed, 12 Mar 2025 20:59:16 +0000</pubDate>
+</item>
+
+<item>
+  <title>Re: Mystified by FTP working for one user but not another</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;6852c7e4.2503</link>
+  <description>And sometimes you can't teach a new dog old tricks. Way back in my innocent youth I discovered what I called &amp;quot;young fogies&amp;quot;; people in their teens or 20s who were already ossified. As someone who is attracted to the bleeding edge and settles for the leading edge, I found them frustrating.</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;6852c7e4.2503</guid>
+   <author>Seymour J Metz &lt;smetz3@GMU.EDU&gt;</author>
+  <pubDate>Wed, 12 Mar 2025 20:58:50 +0000</pubDate>
+</item>
+
+<item>
+  <title>Data Spaces in general</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;32742f17.2503</link>
+  <description>Anyone know of any good books, besides the IBM manuals on Data Spaces that describes better on how to set them up and use them? Any help here would be appreciated.&lt;br&gt;======================================= This email, and any files transmitted with it, is confidential and intended solely for the use of the individual or entity to which it is addressed. If you have received this email in error, please notify the system manager. This message contains confidential information and is intended only for the individual named. If you are not the named addressee, you should not disseminate, distribute or copy this e-mail. [...] </description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;32742f17.2503</guid>
+   <author>Ward, Mike S &lt;mward@SSFCU.ORG&gt;</author>
+  <pubDate>Wed, 12 Mar 2025 20:47:33 +0000</pubDate>
+</item>
+
+<item>
+  <title>Re: Command Line (was: Mystified by FTP ...)</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;e7900dd0.2503</link>
+  <description>On Wed, 12 Mar 2025 13:59:38 -0500, Paul Gilmartin &amp;lt;PaulGBoulder@AOL.COM&amp;gt; wrote:&lt;br&gt;&lt;br&gt;&amp;gt;With which command line interfaces are you conversant?&lt;br&gt;&lt;br&gt;Not sure &quot;the public&quot; cares but FWIW almost none. Trying to think of what I do from a command line. Use Windows GUI all the time but almost never the command line. Have a couple of .BAT scripts hung off of desktop icons -- that's it. I have used the CLI on my wife's Mac to solve problems but not in a while. I know almost enough z UNIX to be almost dangerous. ls and cat. chown and chmod. cp. mv. [...]</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;e7900dd0.2503</guid>
+   <author>Charles Mills &lt;charlesm@MCN.ORG&gt;</author>
+  <pubDate>Wed, 12 Mar 2025 15:39:21 -0500</pubDate>
+</item>
+
+<item>
+  <title>Re: Rescue system (was stupid outages)</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;8a875043.2503</link>
+  <description>W dniu 12.03.2025 o 16:49, Jeremy Nicoll pisze:&lt;br&gt;&amp;gt; On Tue, 11 Mar 2025, at 19:53, Radoslaw Skorupka wrote:&lt;br&gt;&amp;gt;&amp;gt; W dniu 07.03.2025 o 18:49, Jeremy Nicoll pisze:&lt;br&gt;&amp;gt;&amp;gt;&amp;gt; If this &amp;quot;tech LPAR&amp;quot; is specifcially limited to emergency use that might be&lt;br&gt;&amp;gt;&amp;gt;&amp;gt; ok, but where I worked the sysprog LPARs had no access to any of the&lt;br&gt;&amp;gt;&amp;gt;&amp;gt; disks used by live systems - so I can't see how one could use such an&lt;br&gt;&amp;gt;&amp;gt;&amp;gt; LPAR to fix anything.&lt;br&gt;&amp;gt;&amp;gt; It is up to you how the tech LPAR is set up. Including I/O definition.&lt;br&gt;&gt; NO, it wasn't up to [...]</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;8a875043.2503</guid>
+   <author>Radoslaw Skorupka &lt;R.Skorupka@HOTMAIL.COM&gt;</author>
+  <pubDate>Wed, 12 Mar 2025 21:37:54 +0100</pubDate>
+</item>
+
+<item>
+  <title>Re: Mystified by FTP working for one user but not another</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;4fdd5041.2503</link>
+  <description>On 3/12/2025 11:39 AM, Farley, Peter wrote:&lt;br&gt;&amp;gt; To quote the old cereal commercial, “Try it! You’ll like it!”.&lt;br&gt;&lt;br&gt;We just need to find someone named Mikey who hates everything :)&lt;br&gt;https://www.youtube.com/watch?v=vYEXzx-TINc</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;4fdd5041.2503</guid>
+   <author>Tom Brennan &lt;tom@TOMBRENNANSOFTWARE.COM&gt;</author>
+  <pubDate>Wed, 12 Mar 2025 12:36:44 -0700</pubDate>
+</item>
+
+<item>
+  <title>Re: Command Line (was: Mystified by FTP ...)</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;a44d4b76.2503</link>
+  <description>On 3/12/25 2:59 PM, Paul Gilmartin wrote:&lt;br&gt;&amp;gt; ISPF. It's a pith that IBM never refactored ISPF as an X11 client to&lt;br&gt;&amp;gt; eliminate 3270 entanglement.&lt;br&gt;&lt;br&gt;I was gonna suggest the Worstation Agent ...&lt;br&gt;&lt;br&gt;&amp;gt; (How much of that does WSA do? What desktop platforms does WSA support?)&lt;br&gt;&lt;br&gt; ... but then you gone and did it! [...]</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;a44d4b76.2503</guid>
+   <author>Rick Troth &lt;trothr@GMAIL.COM&gt;</author>
+  <pubDate>Wed, 12 Mar 2025 15:08:45 -0400</pubDate>
+</item>
+
+<item>
+  <title>Command Line (was: Mystified by FTP ...)</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;9015e9eb.2503</link>
+  <description>On Wed, 12 Mar 2025 13:27:48 -0500, Charles Mills \ wrote:&lt;br&gt;&lt;br&gt;&amp;gt;Yeah, you're right. Change is good. I have had associates who used ssh exclusively or almost exclusively, and it seemed to work for them. (The problem of remote work -- didn't get to look over their shoulders.)&lt;br&gt;&amp;gt;&lt;br&gt;With which command line interfaces are you conversant?&lt;br&gt;(Linux or MacOS resemble OMVS more nearly than the Other System does.) [...]</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;9015e9eb.2503</guid>
+   <author>Paul Gilmartin &lt;PaulGBoulder@AOL.COM&gt;</author>
+  <pubDate>Wed, 12 Mar 2025 13:59:38 -0500</pubDate>
+</item>
+
+<item>
+  <title>Re: Mystified by FTP working for one user but not another</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;246d2e52.2503</link>
+  <description>Re: “You can teach an old dog new tricks, but you have to overcome the dog's resistance to change.”&lt;br&gt;&lt;br&gt;So true. It is a challenge I faced myself at times, but in my “old” age I find that learning “new” things is actually quite stimulating to the gray matter and tends to increase my enthusiasm for getting up for work every day. [...]</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;246d2e52.2503</guid>
+   <author>Farley, Peter &lt;Peter.Farley@BROADRIDGE.COM&gt;</author>
+  <pubDate>Wed, 12 Mar 2025 18:39:04 +0000</pubDate>
+</item>
+
+<item>
+  <title>Re: Dataspaces</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;70c7d4e1.2503</link>
+  <description>You did nor specify the op/sys....However, all answers were MVShere is the VSE version: a systemwide dataspace can survive if it is marked as vdisk.MartinVon meinem/meiner Galaxy gesendet -------- Ursprüngliche Nachricht --------Von: &quot;Ward, Mike S&quot; &lt;mward@SSFCU.ORG&gt; Datum: 12.03.25 16:08 (GMT+01:00) An: IBM-MAIN@LISTSERV.UA.EDU Betreff: Dataspaces I have a question. If a program creates a dataspace, and the program ends or abends. Does the dataspace go away or is it still there?======================================= This email, and any files transmitted with it, is confidential and intended solely for the use of the individual or entity to which it is addressed. If you have received [...]</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;70c7d4e1.2503</guid>
+   <author>martin &lt;martin@PI-SYSPROG.DE&gt;</author>
+  <pubDate>Wed, 12 Mar 2025 19:29:20 +0100</pubDate>
+</item>
+
+<item>
+  <title>Re: Mystified by FTP working for one user but not another</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;2811bb00.2503</link>
+  <description>Yeah, you're right. Change is good. I have had associates who used ssh exclusively or almost exclusively, and it seemed to work for them. (The problem of remote work -- didn't get to look over their shoulders.)&lt;br&gt;&lt;br&gt;You can teach an old dog new tricks, but you have to overcome the dog's resistance to change. [...]</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;2811bb00.2503</guid>
+   <author>Charles Mills &lt;charlesm@MCN.ORG&gt;</author>
+  <pubDate>Wed, 12 Mar 2025 13:27:48 -0500</pubDate>
+</item>
+
+<item>
+  <title>Re: Mystified by FTP working for one user but not another</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;216064f0.2503</link>
+  <description>ATTLS comes to mind which can have specific profiles per use which have different network constraints. Although that doesn’t seem likely to be the cause I thought I’d throw it out.&lt;br&gt;&lt;br&gt;--&lt;br&gt;Matt Hogstrom&lt;br&gt;&lt;br&gt;“To achieve great things two things are needed: a plan, and not quite enough time.”&lt;br&gt;- Leonard Bernstein&lt;br&gt;&lt;br&gt;&amp;gt; On Mar 12, 2025, at 14:24, Charles Mills &amp;lt;charlesm@mcn.org&amp;gt; wrote:&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt; On Wed, 12 Mar 2025 17:38:22 +0000, Len Rugen &amp;lt;rugenl@YAHOO.COM&amp;gt; wrote:&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt;&amp;gt; From my wayback machine. Ftp can have problems with firewall ruled. There are active and passive modes. Look for net blocks.&lt;br&gt;&amp;gt;&lt;br&gt; [...]</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;216064f0.2503</guid>
+   <author>Matt Hogstrom &lt;matt@HOGSTROM.ORG&gt;</author>
+  <pubDate>Wed, 12 Mar 2025 14:26:26 -0400</pubDate>
+</item>
+
+<item>
+  <title>Re: Mystified by FTP working for one user but not another</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;a68aecb8.2503</link>
+  <description>On Wed, 12 Mar 2025 17:38:22 +0000, Len Rugen &amp;lt;rugenl@YAHOO.COM&amp;gt; wrote:&lt;br&gt;&lt;br&gt;&amp;gt;From my wayback machine.  Ftp can have problems with firewall ruled.  There are active and passive modes.  Look for net blocks.&lt;br&gt;&lt;br&gt;Well aware. Would not be userid-specific, unless I am very confused.&lt;br&gt;&lt;br&gt;Charles</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;a68aecb8.2503</guid>
+   <author>Charles Mills &lt;charlesm@MCN.ORG&gt;</author>
+  <pubDate>Wed, 12 Mar 2025 13:24:17 -0500</pubDate>
+</item>
+
+<item>
+  <title>Re: Mystified by FTP working for one user but not another</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;e9126f0e.2503</link>
+  <description>From my wayback machine.  Ftp can have problems with firewall ruled.  There are active and passive modes.  Look for net blocks.&lt;br&gt;We forced ftps, (not sftp) which was another set of problems.  &lt;br&gt;&lt;br&gt;Yahoo Mail - Email Simplified&lt;br&gt;&lt;br&gt;On Wed, Mar 12, 2025 at 11:26 AM, Charles Mills&amp;lt;charlesm@MCN.ORG&amp;gt; wrote: On Tue, 11 Mar 2025 19:56:02 -0500, Paul Gilmartin &amp;lt;PaulGBoulder@AOL.COM&amp;gt; wrote: [...]</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;e9126f0e.2503</guid>
+   <author>Len Rugen &lt;rugenl@YAHOO.COM&gt;</author>
+  <pubDate>Wed, 12 Mar 2025 17:38:22 +0000</pubDate>
+</item>
+
+<item>
+  <title>Re: Mystified by FTP working for one user but not another</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;18fa090f.2503</link>
+  <description>Charles,&lt;br&gt;&lt;br&gt;I recommend that you go register at the Zxplore website (link below) and start taking the “challenges” there to work your way up to the introductions to Unix access via ssh to a z/OS system (challenge USS1 et. seq.). They were most helpful to me in learning my way around the “new way” (i.e., not 3270) to access the mainframe and I would hope would do the same for you. IMHO well worth your time and effort. And who knows, you may find that you like it . . . :) [...]</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;18fa090f.2503</guid>
+   <author>Farley, Peter &lt;Peter.Farley@BROADRIDGE.COM&gt;</author>
+  <pubDate>Wed, 12 Mar 2025 17:16:51 +0000</pubDate>
+</item>
+
+<item>
+  <title>Re: Mystified by FTP working for one user but not another</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;30d39eb8.2503</link>
+  <description>On Wed, 12 Mar 2025 11:26:40 -0500, Charles Mills wrote:&lt;br&gt;&amp;gt; ...&lt;br&gt;&amp;gt;But your post triggered a related thought: &amp;quot;can the new user access z/OS legacy data sets with FTP?&amp;quot; So after dinner last night I went and checked. And the answer is ...&lt;br&gt;&amp;gt;&lt;br&gt;FTP, certainly. It was there before OMVS. sftp? Probably not directly,&lt;br&gt;but with ISV alternatives. Rocket? Dovetailed? [...]</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;30d39eb8.2503</guid>
+   <author>Paul Gilmartin &lt;PaulGBoulder@AOL.COM&gt;</author>
+  <pubDate>Wed, 12 Mar 2025 12:14:57 -0500</pubDate>
+</item>
+
+<item>
+  <title>Re: Mystified by FTP working for one user but not another</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;db892c12.2503</link>
+  <description>On Tue, 11 Mar 2025 19:56:02 -0500, Paul Gilmartin &amp;lt;PaulGBoulder@AOL.COM&amp;gt; wrote:&lt;br&gt;&lt;br&gt;&amp;gt;To add a little more TCP/IP to the mix, can both users alike access z/OS UNIX files&lt;br&gt;&amp;gt;via ssh/sftp?&lt;br&gt;&lt;br&gt;You know, that's a real good thought. Unfortunately, I have zero experience with ssh and sftp and so that would be a whole new can of worms to take on. [...]</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;db892c12.2503</guid>
+   <author>Charles Mills &lt;charlesm@MCN.ORG&gt;</author>
+  <pubDate>Wed, 12 Mar 2025 11:26:40 -0500</pubDate>
+</item>
+
+<item>
+  <title>Re: [EXT] Re: [EXT] Re: Dataspaces</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;8714048.2503</link>
+  <description>Thank you for the response, reading the IBM manuals I didn&apos;t get that impression, so thank you very much for your response.&lt;br&gt;&lt;br&gt;-----Original Message-----&lt;br&gt;From: IBM Mainframe Discussion List &amp;lt;IBM-MAIN@LISTSERV.UA.EDU&amp;gt; On Behalf Of Glen Garrison&lt;br&gt;Sent: Wednesday, March 12, 2025 11:03 AM&lt;br&gt;To: IBM-MAIN@LISTSERV.UA.EDU&lt;br&gt;Subject: [EXT] Re: [EXT] Re: Dataspaces&lt;br&gt;&lt;br&gt;Please Note: This email is from an [EXTERNAL] sender. Do not click on links or attachments unless you expect them from the sender and know the content is safe. Please contact the Service Desk if you have any concerns regarding this message. [...] </description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;8714048.2503</guid>
+   <author>Ward, Mike S &lt;mward@SSFCU.ORG&gt;</author>
+  <pubDate>Wed, 12 Mar 2025 16:14:12 +0000</pubDate>
+</item>
+
+<item>
+  <title>Re: Executing a clist from debug tool</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;f1cdc2c1.2503</link>
+  <description>What are the second level messages? --  Shmuel (Seymour J.) Metz http://mason.gmu.edu/~smetz3 עַם יִשְׂרָאֵל חַי נֵ֣צַח יִשְׂרָאֵ֔ל לֹ֥א יְשַׁקֵּ֖ר ________________________________________ From: IBM Mainframe Discussion List &lt;IBM-MAIN@LISTSERV.UA.EDU&gt; on behalf of Joseph Reichman &lt;000005812645a43c-dmarc-request@LISTSERV.UA.EDU&gt; Sent: Wednesday, March 12, 2025 9:15 AM To: IBM-MAIN@LISTSERV.UA.EDU Subject: Executing a clist from debug tool External Message: Use Caution Hi I’m running / debugging a program using debug tool I would like to execute a clist Debug tool allows you to execute clists when it’s run from the TSO Ready prompt Which is what I doing I have done other tso commands from the debug tool command [...]</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;f1cdc2c1.2503</guid>
+   <author>Seymour J Metz &lt;smetz3@GMU.EDU&gt;</author>
+  <pubDate>Wed, 12 Mar 2025 16:05:24 +0000</pubDate>
+</item>
+
+<item>
+  <title>Re: [EXT] Re: Dataspaces</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;8aa1d467.2503</link>
+  <description>Whatever the communication mechanism you choose between creator of, and users of, the scope=common dataspace, the owning task can not terminate before the users are done using it or the users will abend when attempting to access the space. So yes. </description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;8aa1d467.2503</guid>
+   <author>Glen Garrison &lt;glene@US.IBM.COM&gt;</author>
+  <pubDate>Wed, 12 Mar 2025 16:03:27 +0000</pubDate>
+</item>
+
+<item>
+  <title>Re: Rescue system (was stupid outages)</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;67c4a91d.2503</link>
+  <description>On Tue, 11 Mar 2025, at 19:53, Radoslaw Skorupka wrote:&lt;br&gt;&amp;gt; W dniu 07.03.2025 o 18:49, Jeremy Nicoll pisze:&lt;br&gt;&amp;gt;&amp;gt; If this &amp;quot;tech LPAR&amp;quot; is specifcially limited to emergency use that might be&lt;br&gt;&amp;gt;&amp;gt; ok, but where I worked the sysprog LPARs had no access to any of the&lt;br&gt;&amp;gt;&amp;gt; disks used by live systems - so I can't see how one could use such an&lt;br&gt;&amp;gt;&amp;gt; LPAR to fix anything.&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt; It is up to you how the tech LPAR is set up. Including I/O definition. [...]</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;67c4a91d.2503</guid>
+   <author>Jeremy Nicoll &lt;jn.ls.mfrm.71@LETTERBOXES.ORG&gt;</author>
+  <pubDate>Wed, 12 Mar 2025 15:49:28 +0000</pubDate>
+</item>
+
+<item>
+  <title>Re: Debug tool from clist</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;7456c46f.2503</link>
+  <description>I believe so. --  Shmuel (Seymour J.) Metz http://mason.gmu.edu/~smetz3 עַם יִשְׂרָאֵל חַי נֵ֣צַח יִשְׂרָאֵ֔ל לֹ֥א יְשַׁקֵּ֖ר ________________________________________ From: IBM Mainframe Discussion List &amp;lt;IBM-MAIN@LISTSERV.UA.EDU&amp;gt; on behalf of Joseph Reichman &amp;lt;000005812645a43c-dmarc-request@LISTSERV.UA.EDU&amp;gt; Sent: Wednesday, March 12, 2025 11:39 AM To: IBM-MAIN@LISTSERV.UA.EDU Subject: Debug tool from clist External Message: Use Caution Hi When invoking debug tool from a clist can you pass a parm string ---------------------------------------------------------------------- For IBM-MAIN subscribe / signoff / archive access instructions, send email to listserv@listserv.ua.edu with the message: INFO IBM-MAIN</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;7456c46f.2503</guid>
+   <author>Seymour J Metz &lt;smetz3@GMU.EDU&gt;</author>
+  <pubDate>Wed, 12 Mar 2025 15:47:18 +0000</pubDate>
+</item>
+
+<item>
+  <title>Re: [EXT] Re: Dataspaces</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;456a85e4.2503</link>
+  <description>Thank you for replying. Also am I to understand that if I have program A creating a scope=common dataspace that program must not exit and maintain itself possibly waiting on an ecb to be posted so that it can then go to EOJ?&lt;br&gt;&lt;br&gt;-----Original Message-----&lt;br&gt;From: IBM Mainframe Discussion List &amp;lt;IBM-MAIN@LISTSERV.UA.EDU&amp;gt; On Behalf Of Glen Garrison&lt;br&gt;Sent: Wednesday, March 12, 2025 10:18 AM&lt;br&gt;To: IBM-MAIN@LISTSERV.UA.EDU&lt;br&gt;Subject: [EXT] Re: Dataspaces [...] </description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;456a85e4.2503</guid>
+   <author>Ward, Mike S &lt;mward@SSFCU.ORG&gt;</author>
+  <pubDate>Wed, 12 Mar 2025 15:42:57 +0000</pubDate>
+</item>
+
+<item>
+  <title>Debug tool from clist</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;d846270b.2503</link>
+  <description>Hi&lt;br&gt;&lt;br&gt;When invoking debug tool from a clist can you pass a parm string </description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;d846270b.2503</guid>
+   <author>Joseph Reichman &lt;reichmanjoe@GMAIL.COM&gt;</author>
+  <pubDate>Wed, 12 Mar 2025 11:39:21 -0400</pubDate>
+</item>
+
+<item>
+  <title>Re: Dataspaces</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;426dd4d6.2503</link>
+  <description>From z/OS extended addressability guide.....&lt;br&gt;&lt;br&gt;Relationship between the data space and its owner&lt;br&gt;Your program can create a data space, but it cannot own the data space. If the unit of work that&lt;br&gt;represents the program is a TCB, that TCB is the owner of the data space, unless the program assigns&lt;br&gt;ownership to another TCB. If the unit of work is an SRB, the program must assign ownership to a TCB.&lt;br&gt;Because of this assignment of ownership, the owner of the data space and the creator of the data space&lt;br&gt;are not always the same TCB.&lt;br&gt;The data space [...] </description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;426dd4d6.2503</guid>
+   <author>Glen Garrison &lt;glene@US.IBM.COM&gt;</author>
+  <pubDate>Wed, 12 Mar 2025 15:17:49 +0000</pubDate>
+</item>
+
+<item>
+  <title>Dataspaces</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;3d4048b2.2503</link>
+  <description>I have a question. If a program creates a dataspace, and the program ends or abends. Does the dataspace go away or is it still there?&lt;br&gt;======================================= This email, and any files transmitted with it, is confidential and intended solely for the use of the individual or entity to which it is addressed. If you have received this email in error, please notify the system manager. This message contains confidential information and is intended only for the individual named. If you are not the named addressee, you should not disseminate, distribute or copy this e-mail. Please notify the sender immediately [...] </description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;3d4048b2.2503</guid>
+   <author>Ward, Mike S &lt;mward@SSFCU.ORG&gt;</author>
+  <pubDate>Wed, 12 Mar 2025 15:08:00 +0000</pubDate>
+</item>
+
+<item>
+  <title>Re: IBM Z Day: April 8, 2025</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;7fbe6fce.2503</link>
+  <description>Having been through a few releases, I think you can count on breaks every&lt;br&gt;hour after what might be a longer kick off session.&lt;br&gt;Chances are they (the folks responsible for delivering material), are still&lt;br&gt;trying to build content while getting things to work and behave as&lt;br&gt;expected.&lt;br&gt;Hopefully before the event, and to your point, they will break out each&lt;br&gt;track into focused content allowing folks to join the items most important&lt;br&gt;to them. [...]</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;7fbe6fce.2503</guid>
+   <author>Bfishing &lt;bfishing@GMAIL.COM&gt;</author>
+  <pubDate>Wed, 12 Mar 2025 10:53:58 -0400</pubDate>
+</item>
+
+<item>
+  <title>Re: IBM Z Day: April 8, 2025</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;639f5364.2503</link>
+  <description>I am guessing. Since it's about an 'unannounced' product, they don't want to give too much detail ahead of the official announcement. Hence a very high-level abstract for the 3 tracks 🙂</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;639f5364.2503</guid>
+   <author>P H &lt;parwez_hamid@HOTMAIL.COM&gt;</author>
+  <pubDate>Wed, 12 Mar 2025 14:49:37 +0000</pubDate>
+</item>
+
+<item>
+  <title>Re: IBM Z Day: April 8, 2025</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;b4d8620b.2503</link>
+  <description>That's not an agenda, that's a track description. I'm back to &amp;quot;Has nobody at IBM ever gone to a conference or even a user group meeting?&amp;quot; I can't block off the whole day on the off-chance that something is interesting!&lt;br&gt;&lt;br&gt;At least it's virtual. A few years ago some org was pushing hard for me to attend an in-person conference, and their idea of an agenda was &amp;quot;sessions &amp;lt;times&amp;gt;, breaks &amp;lt;times&amp;gt;&amp;quot;. I told them I couldn't commit to a day based on knowing when they were going to feed me; that seemed to be a tricky concept. [...]</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;b4d8620b.2503</guid>
+   <author>Phil Smith III &lt;lists@AKPHS.COM&gt;</author>
+  <pubDate>Wed, 12 Mar 2025 10:28:38 -0400</pubDate>
+</item>
+
+<item>
+  <title>Re: IBM Z Day: April 8, 2025</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;acbfff8b.2503</link>
+  <description>I guess I'm just to used to seeing ics files over little circles for&lt;br&gt;calendar invites:&lt;br&gt;A closer look showed me the following (noting that I am sure these will not&lt;br&gt;work unless you are registered):&lt;br&gt;Google and Apple ones worked just fine.&lt;br&gt;&lt;br&gt;*Mark Your Calendar!*&lt;br&gt;&lt;br&gt;Make sure you save the date by adding the event to your calendar: [...]</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;acbfff8b.2503</guid>
+   <author>Bfishing &lt;bfishing@GMAIL.COM&gt;</author>
+  <pubDate>Wed, 12 Mar 2025 10:15:00 -0400</pubDate>
+</item>
+
+<item>
+  <title>Re: IBM Z Day: April 8, 2025</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;cb1e28e2.2503</link>
+  <description>*April 8th, 2025 10am - 5pm ET *&lt;br&gt;&lt;br&gt;*Unveiling the future of mainframe technologies with 3 content-rich&lt;br&gt;technical tracks:*&lt;br&gt;&lt;br&gt;*🔹IBM zNext* – Experience cutting-edge enterprise computing with IBM&lt;br&gt;zNext, featuring up to 8x AI processors per core for unmatched scale,&lt;br&gt;performance, and security. Discover innovations behind the systems powering&lt;br&gt;70% of global transactions.&lt;br&gt;&lt;br&gt;*🔹AI &amp;amp; Data* – Unlock the potential of AI+ with IBM Z. Drive growth while&lt;br&gt;securing data, scaling AI with minimal performance impact. Harness&lt;br&gt;mainframe data for predictive modeling and AI-driven insights across&lt;br&gt;industries. [...]</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;cb1e28e2.2503</guid>
+   <author>Bfishing &lt;bfishing@GMAIL.COM&gt;</author>
+  <pubDate>Wed, 12 Mar 2025 10:01:55 -0400</pubDate>
+</item>
+
+<item>
+  <title>Re: Executing a clist from debug tool</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;35a39da4.2503</link>
+  <description>I fat fingered that sorry the member name was testclst the spell check intervened&lt;br&gt;&lt;br&gt;&amp;gt; On Mar 12, 2025, at 9:31 AM, David Spiegel &amp;lt;00000468385049d1-dmarc-request@listserv.ua.edu&amp;gt; wrote:&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt; ﻿Hi Joseph AMV&amp;quot;SH,&lt;br&gt;&amp;gt; Regarding your member name (Please forgive me, I can't resist puns) ...&lt;br&gt;&amp;gt; Are you nuts?&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt; Regards,&lt;br&gt;&amp;gt; David&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt;&amp;gt; On 2025-03-12 09:15, Joseph Reichman wrote:&lt;br&gt;&amp;gt;&amp;gt; Hi&lt;br&gt;&amp;gt;&amp;gt;&lt;br&gt;&amp;gt;&amp;gt; I’m running / debugging a program using debug tool&lt;br&gt;&amp;gt;&amp;gt;&lt;br&gt;&amp;gt;&amp;gt; I would like to execute a clist&lt;br&gt;&amp;gt;&amp;gt;&lt;br&gt;&amp;gt;&amp;gt; Debug tool allows you to execute clists when it’s run from the TSO Ready prompt&lt;br&gt;&amp;gt;&amp;gt;&lt;br&gt; [...]</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;35a39da4.2503</guid>
+   <author>Joseph Reichman &lt;reichmanjoe@GMAIL.COM&gt;</author>
+  <pubDate>Wed, 12 Mar 2025 09:38:32 -0400</pubDate>
+</item>
+
+<item>
+  <title>Re: Executing a clist from debug tool</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;44cb58fd.2503</link>
+  <description>Hi Joseph AMV&amp;quot;SH,&lt;br&gt;Regarding your member name (Please forgive me, I can't resist puns) ...&lt;br&gt;Are you nuts?&lt;br&gt;&lt;br&gt;Regards,&lt;br&gt;David&lt;br&gt;&lt;br&gt;On 2025-03-12 09:15, Joseph Reichman wrote:&lt;br&gt;&amp;gt; Hi&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt; I’m running / debugging a program using debug tool&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt; I would like to execute a clist&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt; Debug tool allows you to execute clists when it’s run from the TSO Ready prompt&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt; Which is what I doing&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt; I have done other tso commands from the debug tool command line&lt;br&gt;&amp;gt;&lt;br&gt;&amp;gt; So when I type the following from the debug tool command line&lt;br&gt; [...]</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;44cb58fd.2503</guid>
+   <author>David Spiegel &lt;dspiegelcan@HOTMAIL.COM&gt;</author>
+  <pubDate>Wed, 12 Mar 2025 09:31:14 -0400</pubDate>
+</item>
+
+<item>
+  <title>Executing a clist from debug tool</title>
+  <link>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;3cf55ca5.2503</link>
+  <description>Hi&lt;br&gt;&lt;br&gt;I’m running / debugging a program using debug tool&lt;br&gt;&lt;br&gt;I would like to execute a clist&lt;br&gt;&lt;br&gt;Debug tool allows you to execute clists when it’s run from the TSO Ready prompt&lt;br&gt;&lt;br&gt;Which is what I doing&lt;br&gt;&lt;br&gt;I have done other tso commands from the debug tool command line&lt;br&gt;&lt;br&gt;So when I type the following from the debug tool command line [...]</description>
+  <guid>https://listserv.ua.edu/cgi-bin/wa?A2=IBM-MAIN;3cf55ca5.2503</guid>
+   <author>Joseph Reichman &lt;reichmanjoe@GMAIL.COM&gt;</author>
+  <pubDate>Wed, 12 Mar 2025 09:15:28 -0400</pubDate>
+</item>
+
+</channel>
+</rss>

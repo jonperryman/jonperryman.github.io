@@ -1,0 +1,247 @@
+	<style>
+ 
+		h1 {text-align: center;}
+		h2 {text-align: center;}
+		body {background-color: lightblue;}
+		.center-container {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		hr {
+            border: 0;
+            height: 4px;
+            background: black; 
+		}
+		b {
+		  font-size:calc(120%);
+		}
+		.fake_anchor {
+			background: none;
+			border: none;
+			color: blue; 
+			text-decoration: underline;
+			cursor: pointer; 
+			font-size: inherit; 
+			padding: 0;
+		}
+
+		#toc_container {
+			background: #f9f9f9 none repeat scroll 0 0;
+			border: 1px solid #aaa;
+			display: table;
+			font-size: 95%;
+			margin-bottom: 1em;
+			padding: 20px;
+			width: auto;
+			position: sticky;
+			top: 0;
+		}
+
+		.toc_title {
+			font-weight: 700;
+			text-align: center;
+		}
+
+		#toc_container li, #toc_container ul, #toc_container ul li{
+			list-style: outside none none !important;
+		}
+
+		#toc ul {
+			padding-left: 1em;
+		}
+		#toc {
+			background: #f9f9f9 none repeat scroll 0 0;
+			border: 1px solid #aaa;
+			display: table;
+			position: fixed;  /* sticky; */
+			/* top: 0; */
+			padding-left: 1em;
+			padding-right: 1em; 
+		}
+		#toc_title {
+			padding: 3px; 
+			font-weight: 700; 
+			text-align: center; 
+			font-size: 120%;
+			position: sticky;
+		}
+		#page_container {
+			max-width: 800px; width: 100%; margin: auto;
+		}
+        #scrollable_div {
+			/*background: #f9f9f9 none repeat scroll 0 0; */
+			background-color: #f9f9f9;
+			position: fixed;
+			display: none;
+			max-width: 800px;  /* */
+            width: inherit; /* Set the width of the viewport */
+            height: 100vh; /* Set the height of the viewport */
+            overflow: auto; /* Enable scrolling */
+            border: 3px solid #ccc; /* Optional: Add a border for better visibility */
+            padding: 10px; /* Optional: Add some padding */
+        }
+
+	</style>
+
+<div id="page_container">
+
+	<div id="toc" onmouseenter="toc_content.style.display = &#39;block&#39;;" onmouseleave="toc_content.style.display = &#39;none&#39;;">
+		<div id="toc_title">Table of Contents</div>
+		<ul id="toc_content" style="display: none;"><li><a href="file:///C:/Users/jonpe/Documents/git/jonperryman.github.io/mainframe_versus_other_computers/mainframe_versus_linux_source.html#toc_0">Lie #1: You're an expert who understands "Distributed computing"</a></li>
+<ul>
+<li><a href="file:///C:/Users/jonpe/Documents/git/jonperryman.github.io/mainframe_versus_other_computers/mainframe_versus_linux_source.html#toc_1">For mainframe software developers, defining "distributed computing".</a></li>
+<li><a href="file:///C:/Users/jonpe/Documents/git/jonperryman.github.io/mainframe_versus_other_computers/mainframe_versus_linux_source.html#toc_2">For Linux software developers, why haven't you written Sysplex software?</a></li>
+<li><a href="file:///C:/Users/jonpe/Documents/git/jonperryman.github.io/mainframe_versus_other_computers/mainframe_versus_linux_source.html#toc_3">Case study: IRS mainframe modernization by implementing "Distributed computing"</a></li>
+</ul></ul>
+	</div>
+
+	<script>
+		function open_scrollable_div(template_name) {
+			scrollable_div.style.display = "block";
+			document.body.style.overflowY = "hidden";
+			scrollable_div.innerHTML = close_x.innerHTML + template_name.innerHTML;
+		}
+		function close_scrollable_div() {
+			scrollable_div.style.display = "none";
+			document.body.style.overflowY = "auto";
+		}
+	</script>
+	<div id="scrollable_div" onmouseleave="close_scrollable_div();" style="display: none;">
+	<div style="float: right">
+	<div style=" font-size: 200%; 
+		font-weight: 300%; 
+		float: right; 
+		border-style: solid;
+		position: fixed;
+		cursor: pointer; 
+		" onclick="close_scrollable_div();">
+		X
+	</div>
+	&nbsp; &nbsp; &nbsp;
+	</div>
+
+	<h1>I asked X Grok (AI) "Is IBM Telum the fastest CPU?"<br>
+		I was horrified by the lies people still believe</h1>
+	<h2>Determining whether the IBM Telum CPU is "faster than all others" depends on the context—specifically, what "faster" means (e.g., clock speed, throughput, latency, or specialized workloads) and which CPUs it’s being compared to. The Telum, introduced in 2021 for IBM’s z16 mainframe systems, is a highly specialized processor designed for enterprise workloads like financial transactions, real-time AI inference (e.g., fraud detection), and extreme reliability. It’s not a general-purpose CPU like those in consumer PCs or even most data center servers, so a direct comparison to "all others" requires nuance.</h2>
+	<p>The original Telum operates at a base clock speed exceeding 5 GHz (often cited as 5.2 GHz), with eight cores per chip, and scales up to 256 cores across 32 chips in a full mainframe system. Each core has a massive 32 MB private L2 cache, which can act as a virtual L3 (256 MB) or L4 (2 GB) cache across the system, optimizing low-latency access for high-volume transactional workloads. It also includes a 6 TFLOPS on-chip AI accelerator, boosting performance for specific AI tasks. The newer Telum II, announced in 2024, pushes this further with a 5.5 GHz clock, 36 MB L2 cache per core (360 MB virtual L3, 2.88 GB virtual L4), and a 24 TOPS AI accelerator, claiming up to 70% performance improvement over its predecessor in key system components.</p>
+	<h2>Clock Speed Comparison</h2>
+	<p>Telum (5.2 GHz) and Telum II (5.5 GHz) have among the highest base clock speeds for server-grade CPUs. Most modern server CPUs, like AMD EPYC (e.g., Zen 4, base ~3.0–4.0 GHz, boost up to 5.7 GHz) or Intel Xeon (e.g., Sapphire Rapids, base ~2.0–3.7 GHz, boost up to 4.1 GHz), prioritize core count over clock speed and rely on turbo boosts that don’t sustain as consistently as Telum’s fixed frequency.</p>
+	
+	<p>Consumer CPUs, like AMD Ryzen 9 7950X (up to 5.7 GHz boost) or Intel Core i9-14900K (up to 6.0 GHz boost), can exceed Telum’s clock speed but are designed for different workloads (e.g., gaming, single-threaded tasks) and lack the enterprise-grade reliability and scalability of mainframes.</p>
+	
+	<h2>Throughput and Workload-Specific Performance</h2>
+	<p>Telum shines in throughput for transactional workloads. A fully loaded z16 with 256 Telum cores can process tens of thousands of transactions per second with sub-millisecond latency—critical for banking or insurance systems. This is less about raw compute (e.g., FLOPS) and more about consistent, predictable performance. For contrast:</p>
+	<p>AMD EPYC 9754 (128 cores, 256 threads, ~3.0 GHz) or Intel Xeon Platinum 8592+ (64 cores, 128 threads, ~3.9 GHz boost) offer higher core counts and raw multi-threaded compute, excelling in HPC or cloud workloads but not necessarily in low-latency, high-reliability transaction processing.</p>
+	
+	<p>NVIDIA GPUs (e.g., H100, 3000+ INT8 TOPS) or dedicated AI accelerators dwarf Telum’s 24 TOPS for AI training or inference, but they’re not CPUs and don’t handle general-purpose tasks.</p>
+	
+	<h2>Specialized Features</h2>
+	<p>Telum’s on-chip AI accelerator and cache design (virtual L3/L4) give it an edge in real-time AI inference embedded in transactions—something neither x86 CPUs nor consumer chips replicate at the same scale or latency. Its reliability (seven nines uptime, or milliseconds of downtime per year) also outclasses typical server CPUs, which prioritize flexibility over such extreme consistency.</p>
+	<h2>Limitations</h2>
+	<p>Telum isn’t "faster" in every metric:</p>
+	<p>Core Count: With only 8 cores per chip (256 max in a system), it’s dwarfed by EPYC’s 128 or Xeon’s 64+ cores per socket for parallel workloads.</p>
+	<p>General Compute: It’s not built for high-performance computing (e.g., scientific simulations) or consumer tasks (e.g., gaming), where x86 or ARM CPUs dominate.</p>
+	
+	<p>AI Raw Power: Dedicated accelerators like NVIDIA’s H100 or Google’s TPUs far exceed Telum’s AI performance for training or large-scale inference.</p>
+	
+	<h2>Conclusion</h2>
+	<p></p>The IBM Telum (and Telum II) isn’t universally "faster than all others." It’s exceptionally fast—perhaps unmatched—in its niche: high-volume, low-latency, AI-infused transactional workloads with extreme reliability. For general-purpose computing, raw multi-threaded performance, or specialized AI tasks, other CPUs or accelerators (e.g., EPYC, Xeon, GPUs) outperform it. Its speed is tailored to mainframe demands, not a one-size-fits-all metric. If you’re asking about a specific use case or comparison (e.g., Telum vs. EPYC for a workload), let me know, and I can dig deeper!<p></p>
+</div>
+
+<br>
+<h1>Under construction and incomplete</h1>
+
+<h1>Enlightening Linux software developers 
+	<br>they lack Fundamental computer skills (even Google)</h1>
+
+	<p>I wanted to find out if most computer professionals now have fundamental computer skills. 
+		<span class="fake_anchor" onclick="open_scrollable_div(telum_grok);">I asked the GROK AI, "Is the IBM Telum the fastest CPU?".</span>
+	 The Answer was horrifying. A quarter century of Linux on the mainframe and computer professionals still believe the same lies they used to justify their expertise.</p>
+
+	<p>It's time to be brutally honest with yourself. Let me debunk a few of the most simple lies that you hang on to so dearly. Instead of allowing the IBM mainframe elevate you to its level, You've dragged the most modern computer into the abyss.</p> 
+
+	<div class="center-container"><img src="./mainframe_versus_linux_files/giphy.gif"></div>
+
+	<p>Linux runs on the mainframe so ask yourself why can't it do the same wonderful things GROK described (E.g. 100,000 transactions per second)! The only difference is software design and you need to understand that Linux, C and more are Broken As Designed (BAD). It's time to stop putting lipstick on this pig and see the blemishes.</p>
+
+	<p>It's time for you to ask your computer instructors why they failed to show you this pig without it's lipstick.</p>
+
+	<div class="center-container"><img src="./mainframe_versus_linux_files/lipstick_on_a_pig.jpg"></div>
+
+	<br><hr><h2 id="toc_0">Lie #1: You're an expert who understands "Distributed computing"</h2>
+
+	<p>How many attempts will it take for Linux to solve the "Distributed computing" problem? While you understand why "Distributed computing" is important, You don't understand how to solve "Distributed computing".</p>
+
+	<ul>
+		<li>Linux has Kubernetes but IBM mainframe uses Sysplex</li>
+		<li>Linux has "The Cloud" but IBM mainframe uses Sysplex</li>
+		<li>Linux has microservices but IBM mainframe uses Sysplex</li>
+		<li>Linux has grid computing but IBM mainframe uses Sysplex</li>
+		<li>Linux has pub/sub but IBM mainframe uses Sysplex</li>
+		<li>Linux has consumers &amp; suppliers but IBM mainframe uses Sysplex</li>
+		<li>Too many to list here</li>
+	</ul>
+
+	<p>Do you see the pattern? Those Linux products are only useful on the mainframe when Linux is part of the mainframe distributed computing solution. IBM designed one solution that has been successful for several decades. Linux developers must learn how to use their chosen solution but mainframe programmers don't even understand the need for distributed computing.</p>
+
+	<h2 id="toc_1">For mainframe software developers, defining "distributed computing".</h2>
+
+	<p>Because of IBM Sysplex software, mainframe people have never heard of "distributed computing" unless they've dealt with other platforms (e.g. Linux). In an ideal world, 1 computer would be large enough to do everything. Google has 5,000,000 servers because a single server is not large enough.</p>
+
+	<h2 id="toc_2">For Linux software developers, why haven't you written Sysplex software?</h2>
+
+	<p>IBM Sysplex is 35 years old. Ask yourself why does it need modernized when it was written correctly the first time?</p>
+
+	<p>IBM Sysplex is all software, so there is no excuse to not having Sysplex. Don't expect IBM to allow you to participate in their Sysplex. You are only as strong as your weakest link and it's painfully obvious that Linux is not good in distributed computing.</p>
+
+	<h2 id="toc_3">Case study: IRS mainframe modernization by implementing "Distributed computing"</h2>
+
+	<p>ROTFLOL (Rolling On The Floor, Laughing Out Loud)! The IRS is currently "modernizing" their mainframe using JAVA and the "distributed computing" database solution. JAVA was designed using Linux / Unix concepts. Forget all the other problems with JAVA and focus on JDBC (JAVA "distributed computing" database access). While this beast will not perform great on the mainframe, any other platform will be unacceptable because there's no IBM Sysplex. Since this can't be about portability, I must assume it's about programmers refusing to learn Cobol.</p>
+
+
+
+<template id="close_x">
+	<div style="float: right">
+	<div style=" font-size: 200%; 
+		font-weight: 300%; 
+		float: right; 
+		border-style: solid;
+		position: fixed;
+		cursor: pointer; 
+		"
+		onclick="close_scrollable_div();">
+		X
+	</div>
+	&nbsp; &nbsp; &nbsp;
+	</div>
+</template>
+
+<template id="telum_grok">
+	<h1>I asked X Grok (AI) "Is IBM Telum the fastest CPU?"<br/>
+		I was horrified by the lies people still believe</h1>
+	<H2>Determining whether the IBM Telum CPU is "faster than all others" depends on the context—specifically, what "faster" means (e.g., clock speed, throughput, latency, or specialized workloads) and which CPUs it’s being compared to. The Telum, introduced in 2021 for IBM’s z16 mainframe systems, is a highly specialized processor designed for enterprise workloads like financial transactions, real-time AI inference (e.g., fraud detection), and extreme reliability. It’s not a general-purpose CPU like those in consumer PCs or even most data center servers, so a direct comparison to "all others" requires nuance.</H2>
+	<P>The original Telum operates at a base clock speed exceeding 5 GHz (often cited as 5.2 GHz), with eight cores per chip, and scales up to 256 cores across 32 chips in a full mainframe system. Each core has a massive 32 MB private L2 cache, which can act as a virtual L3 (256 MB) or L4 (2 GB) cache across the system, optimizing low-latency access for high-volume transactional workloads. It also includes a 6 TFLOPS on-chip AI accelerator, boosting performance for specific AI tasks. The newer Telum II, announced in 2024, pushes this further with a 5.5 GHz clock, 36 MB L2 cache per core (360 MB virtual L3, 2.88 GB virtual L4), and a 24 TOPS AI accelerator, claiming up to 70% performance improvement over its predecessor in key system components.</P>
+	<H2>Clock Speed Comparison</H2>
+	<p>Telum (5.2 GHz) and Telum II (5.5 GHz) have among the highest base clock speeds for server-grade CPUs. Most modern server CPUs, like AMD EPYC (e.g., Zen 4, base ~3.0–4.0 GHz, boost up to 5.7 GHz) or Intel Xeon (e.g., Sapphire Rapids, base ~2.0–3.7 GHz, boost up to 4.1 GHz), prioritize core count over clock speed and rely on turbo boosts that don’t sustain as consistently as Telum’s fixed frequency.</p>
+	
+	<p>Consumer CPUs, like AMD Ryzen 9 7950X (up to 5.7 GHz boost) or Intel Core i9-14900K (up to 6.0 GHz boost), can exceed Telum’s clock speed but are designed for different workloads (e.g., gaming, single-threaded tasks) and lack the enterprise-grade reliability and scalability of mainframes.</p>
+	
+	<h2>Throughput and Workload-Specific Performance</h2>
+	<p>Telum shines in throughput for transactional workloads. A fully loaded z16 with 256 Telum cores can process tens of thousands of transactions per second with sub-millisecond latency—critical for banking or insurance systems. This is less about raw compute (e.g., FLOPS) and more about consistent, predictable performance. For contrast:</p>
+	<p>AMD EPYC 9754 (128 cores, 256 threads, ~3.0 GHz) or Intel Xeon Platinum 8592+ (64 cores, 128 threads, ~3.9 GHz boost) offer higher core counts and raw multi-threaded compute, excelling in HPC or cloud workloads but not necessarily in low-latency, high-reliability transaction processing.</p>
+	
+	<p>NVIDIA GPUs (e.g., H100, 3000+ INT8 TOPS) or dedicated AI accelerators dwarf Telum’s 24 TOPS for AI training or inference, but they’re not CPUs and don’t handle general-purpose tasks.</p>
+	
+	<h2>Specialized Features</h2>
+	<p>Telum’s on-chip AI accelerator and cache design (virtual L3/L4) give it an edge in real-time AI inference embedded in transactions—something neither x86 CPUs nor consumer chips replicate at the same scale or latency. Its reliability (seven nines uptime, or milliseconds of downtime per year) also outclasses typical server CPUs, which prioritize flexibility over such extreme consistency.</p>
+	<h2>Limitations</h2>
+	<p>Telum isn’t "faster" in every metric:</p>
+	<p>Core Count: With only 8 cores per chip (256 max in a system), it’s dwarfed by EPYC’s 128 or Xeon’s 64+ cores per socket for parallel workloads.</p>
+	<p>General Compute: It’s not built for high-performance computing (e.g., scientific simulations) or consumer tasks (e.g., gaming), where x86 or ARM CPUs dominate.</p>
+	
+	<p>AI Raw Power: Dedicated accelerators like NVIDIA’s H100 or Google’s TPUs far exceed Telum’s AI performance for training or large-scale inference.</p>
+	
+	<h2>Conclusion</h2>
+	</p>The IBM Telum (and Telum II) isn’t universally "faster than all others." It’s exceptionally fast—perhaps unmatched—in its niche: high-volume, low-latency, AI-infused transactional workloads with extreme reliability. For general-purpose computing, raw multi-threaded performance, or specialized AI tasks, other CPUs or accelerators (e.g., EPYC, Xeon, GPUs) outperform it. Its speed is tailored to mainframe demands, not a one-size-fits-all metric. If you’re asking about a specific use case or comparison (e.g., Telum vs. EPYC for a workload), let me know, and I can dig deeper!</p>
+</template>
