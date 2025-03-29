@@ -1,4 +1,3 @@
-console.log("script file enter");
 const mf = {
 
     open_scrollable_div: function(template_name) {
@@ -20,4 +19,3 @@ const mf = {
         toc_content.style.display = 'none';
     }
 }
-console.log("script file leave");
