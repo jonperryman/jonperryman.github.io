@@ -15,11 +15,8 @@
 
 	<script>
 
-		function setup() { 
-			prepare_body_data.style.display = "inline";
-		}
-
 		function prepare_for_website() {
+			prepare_body_button.remove();
 			fixAnchors(); 
 			fixTOC();
 			fixSrcRefs();
@@ -74,7 +71,7 @@
 	</script>
 </head>
 
-<body onload="setup()">
+<body>
 
 <div id="page_container">
 
@@ -90,7 +87,7 @@
 		<ul id="toc_content" style="display: none;"></ul>
 	</div>
 	
-	<button  id="prepare_body_data"
+	<button  id="prepare_body_button"
 		onclick="prepare_for_website();">
 		prepare for website
 	</button>

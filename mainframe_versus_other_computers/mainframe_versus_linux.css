@@ -77,9 +77,8 @@ b {
     padding: 10px; /* Optional: Add some padding */
 }
 
-#prepare_body_data {
+#prepare_body_button {
     float: right;
     font-size: 130%;
     font-weight: 300%;
-    display: none;"
 }
