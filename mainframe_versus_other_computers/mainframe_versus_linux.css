@@ -66,15 +66,15 @@ b {
 
 #scrollable_div {
     /*background: #f9f9f9 none repeat scroll 0 0; */
-    background-color: #f9f9f9;
-    position: fixed;
+    /*background-color: #f9f9f9;*/
+    /* position: fixed; */
     display: none;
-    max-width: 800px;  /* */
-    width: inherit; /* Set the width of the viewport */
-    height: 100vh; /* Set the height of the viewport */
-    overflow: auto; /* Enable scrolling */
-    border: 3px solid #ccc; /* Optional: Add a border for better visibility */
-    padding: 10px; /* Optional: Add some padding */
+    /*max-width: 800px;  /* */
+    /*width: inherit; /* Set the width of the viewport */
+    /*height: 100vh; /* Set the height of the viewport */
+    /* overflow: auto; /* Enable scrolling */
+    /*border: 3px solid #ccc; /* Optional: Add a border for better visibility */
+    /*padding: 10px; /* Optional: Add some padding */
 }
 
 #prepare_body_button {

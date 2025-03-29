@@ -6,11 +6,9 @@
 	<title>The lost art of IBM Mainframes - innovation instead of obsolescense</title>
 
 	<style>
-		#page_container {
-			max-width: 800px; width: 100%; margin: auto;
+		body {background-color: lightblue;
+			max-width: 800px; /*width: 100%;*/ margin: auto;
 		}
-		body {background-color: lightblue;}
-
 	</style>
 
 	<script>
@@ -72,23 +70,41 @@
 
 <body>
 
+<div id="scrollable_div" onmouseleave="mf.close_scrollable_div();">
+	<div style="float: right">
+		<div style=" font-size: 200%; 
+			font-weight: 300%; 
+			float: right; 
+			border-style: solid;
+			position: fixed;
+			cursor: pointer; 
+			"
+			onclick="mf.close_scrollable_div();">
+			X
+		</div>
+		&nbsp; &nbsp; &nbsp;
+	</div>
+	<div id="scrollable_data"></div>
+</div>
+
 <div id="page_container">
 
 	<link id="link_css" rel="stylesheet" type="text/css" href="mainframe_versus_linux.css">
 
 	<script id="execute_script" type="text/javascript">
-		console.log("running from script file2");
 		mf = {
 
 			open_scrollable_div: function(template_name) {
-				scrollable_div.style.display = "block";
-				document.body.style.overflowY = "hidden";
+				scrollable_div.style.display = "inline";
+				page_container.style.display = "none";
+				// document.body.style.overflowY = "hidden";
 				scrollable_data.innerHTML = template_name.innerHTML;
 			},
 
 			close_scrollable_div: function () {
 				scrollable_div.style.display = "none";
-				document.body.style.overflowY = "auto";
+				page_container.style.display = "inline";
+				//document.body.style.overflowY = "auto";
 			},
 			
 			display_toc: function () {
@@ -114,29 +130,12 @@
 		prepare for website
 	</button>
 
-	<div id="scrollable_div" onmouseleave="mf.close_scrollable_div();">
-		<div style="float: right">
-			<div style=" font-size: 200%; 
-				font-weight: 300%; 
-				float: right; 
-				border-style: solid;
-				position: fixed;
-				cursor: pointer; 
-				"
-				onclick="mf.close_scrollable_div();">
-				X
-			</div>
-			&nbsp; &nbsp; &nbsp;
-		</div>
-		<div id="scrollable_data"></div>
-	</div>
-
-	<br/>
+<br/>
 
 <h1>Under construction and incomplete</h1>
 
 <h1>Enlightening Linux software developers 
-	<br/>they lack Fundamental computer skills (even Google)</h1>
+	<br/>Google's lack of Fundamental computer skills</h1>
 
 	<p>I wanted to find out if most computer professionals now have fundamental computer skills. 
 		<span class="fake_anchor" onclick="mf.open_scrollable_div(telum_grok);">I asked the GROK AI, "Is the IBM Telum the fastest CPU?".</span>
@@ -152,39 +151,24 @@
 
 	<div class="center-container"><img src="lipstick_on_a_pig.jpg"></div>
 
-	<br/><hr/><h2>Lie #1: You're an expert who understands "Distributed computing"</h2>
+	<br/><hr/><h2>Lie #1: Google understands "Distributed computing"</h2>
 
-	<p>How many attempts will it take for Linux to solve the "Distributed computing" problem? While they understand the "Distributed computing" problem, they don't understand how to solve the "Distributed computing" problem.</p>
+	<p><b>ROTFLOL</b> (Rolling On The Floor, Laughing Out Loud)!</p>
 
-	<ul>
-		<li>Linux has Kubernetes but IBM mainframe uses Sysplex</li>
-		<li>Linux has "The Cloud" but IBM mainframe uses Sysplex</li>
-		<li>Linux has microservices but IBM mainframe uses Sysplex</li>
-		<li>Linux has grid computing but IBM mainframe uses Sysplex</li>
-		<li>Linux has pub/sub but IBM mainframe uses Sysplex</li>
-		<li>Linux has consumers & suppliers but IBM mainframe uses Sysplex</li>
-		<li>Too many to list here</li>
-	</ul>
+	<p>Linux mentality has created an endless list of crappy "distributed computing" solutions (e.g. kubernetes, "The Cloud", microservices, pub/sub, grid, NFS, consumer & suppliers and too many to list here). All solutions involve the internet & surely another will be coming next week. How many attems will it take for Linux to solve the "Distributed computing" problem?</p>
 
-	<p>Do you see the pattern? Those Linux products are only useful on the mainframe when Linux is part of the mainframe distributed computing solution. IBM designed one solution that has been successful for several decades. Linux developers must learn how to use their chosen solution but mainframe programmers don't even understand the need for distributed computing.</p>
+	<p>35 years ago, the IBM mainframe created "Sysplex" to solve the "distributed computing" problem. A single solution designed to lasts decades which Linux could have implemented but chooses to ignore it forcrappy solutions that are never fully accepted. I will leave up to you to </p>
 
-	<h2>For mainframe software developers, defining "distributed computing".</h2>
+	<p>While you may say your Linux solutions exist on the mainframe, remember they exist solely because Linux does not have Sysplex. More important, they were designed for Linux and lose most Sysplex features.</p>
 
-	<p>Because of IBM Sysplex software, mainframe people have never heard of "distributed computing" unless they've dealt with other platforms (e.g. Linux). In an ideal world, 1 computer would be large enough to do everything. Google has 5,000,000 servers because a single server is not large enough.</p>
+	<h2>IRS mainframe modernization by implementing Linux "Distributed computing" concepts</h2>
 
-	<h2>For Linux software developers, why haven't you written Sysplex software?</h2>
-
-	<P>IBM Sysplex is 35 years old. Ask yourself why does it need modernized when it was written correctly the first time?</P>
-
-	<p>IBM Sysplex is all software, so there is no excuse to not having Sysplex. Don't expect IBM to allow you to participate in their Sysplex. You are only as strong as your weakest link and it's painfully obvious that Linux is not good in distributed computing.</p>
-
-	<h2>Case study: IRS mainframe modernization by implementing "Distributed computing"</h2>
-
-	<p>ROTFLOL (Rolling On The Floor, Laughing Out Loud)! The IRS is currently "modernizing" their mainframe using JAVA and the Linux "distributed computing" database solution instead of Sysplex. JAVA was designed using Linux / Unix concepts. Forget all the other problems with JAVA and focus on JDBC (JAVA "distributed computing" database access). While this beast will not perform well on the mainframe, moving it to any other platform will be unacceptable because there's absolutely no IBM Sysplex features. Since this can't be about portability, I must assume it's about programmers refusing to learn Cobol.</p>
+	<p><b>ROTFLOL!</b>The IRS is currently "modernizing" their mainframe using JAVA and the Linux "distributed computing" database solution instead of Sysplex. JAVA was designed using Linux / Unix concepts. IBM discounts computers for customers using JAVA because they will be selling you more computers.</p>
 
 <template id="telum_grok">
 	<h1>I asked X Grok (AI) "Is IBM Telum the fastest CPU?"<br/>
 		I was horrified by the lies people still believe</h1>
+	<hr/>
 	<H2>Determining whether the IBM Telum CPU is "faster than all others" depends on the context—specifically, what "faster" means (e.g., clock speed, throughput, latency, or specialized workloads) and which CPUs it’s being compared to. The Telum, introduced in 2021 for IBM’s z16 mainframe systems, is a highly specialized processor designed for enterprise workloads like financial transactions, real-time AI inference (e.g., fraud detection), and extreme reliability. It’s not a general-purpose CPU like those in consumer PCs or even most data center servers, so a direct comparison to "all others" requires nuance.</H2>
 	<P>The original Telum operates at a base clock speed exceeding 5 GHz (often cited as 5.2 GHz), with eight cores per chip, and scales up to 256 cores across 32 chips in a full mainframe system. Each core has a massive 32 MB private L2 cache, which can act as a virtual L3 (256 MB) or L4 (2 GB) cache across the system, optimizing low-latency access for high-volume transactional workloads. It also includes a 6 TFLOPS on-chip AI accelerator, boosting performance for specific AI tasks. The newer Telum II, announced in 2024, pushes this further with a 5.5 GHz clock, 36 MB L2 cache per core (360 MB virtual L3, 2.88 GB virtual L4), and a 24 TOPS AI accelerator, claiming up to 70% performance improvement over its predecessor in key system components.</P>
 	<H2>Clock Speed Comparison</H2>
