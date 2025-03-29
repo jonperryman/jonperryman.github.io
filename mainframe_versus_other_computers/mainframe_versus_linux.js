@@ -1,3 +1,4 @@
+console.log("running from script file");
 const mf = {
 
     open_scrollable_div: function(template_name) {
