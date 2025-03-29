@@ -9,24 +9,38 @@
 		#page_container {
 			max-width: 800px; width: 100%; margin: auto;
 		}
+		body {background-color: lightblue;}
+
 	</style>
 
 	<script>
 
 		function setup() { 
-			prepare_body_data.style.display = "";
+			prepare_body_data.style.display = "inline";
 		}
 
 		function prepare_for_website() {
-			setupAnchors(); 
-			setupTOC();
+			fixAnchors(); 
+			fixTOC();
+			fixSrcRefs();
 			var source = new XMLSerializer().serializeToString(document);
 			source = source.substring(source.search("<" + "div"));
 			document.body.innerHTML = "<pre>" + source.substring(0,source.search("<template> ============ Everything after this point will not be displayed =========="))
 				.replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;") + "</pre>";
 		}
 
-		function setupAnchors() {
+		function fixSrcRefs() {
+
+			link_css.href = link_css.href.substring(link_css.href.search("/mainframe"));
+			script_include.src = script_include.src.substring(script_include.src.search("/mainframe"));
+
+			var images = document.getElementsByTagName('img');
+			for (let i = 0; i < images.length; i++) {
+				images[i].src = images[i].src.substring(images[i].src.search("/mainframe")); 
+			}
+		}
+
+		function fixAnchors() {
 			var anchors = document.getElementsByTagName('a');
 			for (let i = 0; i < anchors.length; i++) {
 				if (anchors[i].href == '')
@@ -35,7 +49,7 @@
 			}
 		}
 
-		function setupTOC() {
+		function fixTOC() {
 			if (toc_content.innerHTML != "")
 				return;
 			// const hr = document.createElement("hr");
@@ -64,118 +78,23 @@
 
 <div id="page_container">
 
-	<style>
- 
-		h1 {text-align: center;}
-		h2 {text-align: center;}
-		body {background-color: lightblue;}
-		.center-container {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-		}
-		hr {
-            border: 0;
-            height: 4px;
-            background: black; 
-		}
-		b {
-		  font-size:calc(120%);
-		}
-		.fake_anchor {
-			background: none;
-			border: none;
-			color: blue; 
-			text-decoration: underline;
-			cursor: pointer; 
-			font-size: inherit; 
-			padding: 0;
-		}
+	<link id="link_css" rel="stylesheet" type="text/css" href="mainframe_versus_linux.css">
 
-		#toc_container {
-			background: #f9f9f9 none repeat scroll 0 0;
-			border: 1px solid #aaa;
-			display: table;
-			font-size: 95%;
-			margin-bottom: 1em;
-			padding: 20px;
-			width: auto;
-			position: sticky;
-			top: 0;
-		}
-
-		.toc_title {
-			font-weight: 700;
-			text-align: center;
-		}
-
-		#toc_container li, #toc_container ul, #toc_container ul li{
-			list-style: outside none none !important;
-		}
-
-		#toc ul {
-			padding-left: 1em;
-		}
-		#toc {
-			background: #f9f9f9 none repeat scroll 0 0;
-			border: 1px solid #aaa;
-			display: table;
-			position: fixed;  /* sticky; */
-			/* top: 0; */
-			padding-left: 1em;
-			padding-right: 1em; 
-		}
-		#toc_title {
-			padding: 3px; 
-			font-weight: 700; 
-			text-align: center; 
-			font-size: 120%;
-			position: sticky;
-		}
-
-        #scrollable_div {
-			/*background: #f9f9f9 none repeat scroll 0 0; */
-			background-color: #f9f9f9;
-			position: fixed;
-			display: none;
-			max-width: 800px;  /* */
-            width: inherit; /* Set the width of the viewport */
-            height: 100vh; /* Set the height of the viewport */
-            overflow: auto; /* Enable scrolling */
-            border: 3px solid #ccc; /* Optional: Add a border for better visibility */
-            padding: 10px; /* Optional: Add some padding */
-        }
-
-	</style>
+	<script id="script_include" src="mainframe_versus_linux.js" ></script>
 
 	<div id="toc" 
-		onmouseenter="toc_content.style.display = 'block';"
-		onmouseleave="toc_content.style.display = 'none';"
+		onmouseenter="mf.display_toc();"
+		onmouseleave="mf.hide_toc();"
 	>
 		<div id="toc_title">Table of Contents</div>
 		<ul id="toc_content" style="display: none;"></ul>
 	</div>
 	
 	<button  id="prepare_body_data"
-		style="float: right;
-			font-size: 130%;
-			font-weight: 300%;
-			display: none;"
 		onclick="prepare_for_website();">
 		prepare for website
 	</button>
 
-	<script>
-		function open_scrollable_div(template_name) {
-			scrollable_div.style.display = "block";
-			document.body.style.overflowY = "hidden";
-			scrollable_div.innerHTML = close_x.innerHTML + template_name.innerHTML;
-		}
-		function close_scrollable_div() {
-			scrollable_div.style.display = "none";
-			document.body.style.overflowY = "auto";
-		}
-	</script>
 	<div id="scrollable_div" onmouseleave="close_scrollable_div();">
 	</div>
 
@@ -187,18 +106,18 @@
 	<br/>they lack Fundamental computer skills (even Google)</h1>
 
 	<p>I wanted to find out if most computer professionals now have fundamental computer skills. 
-		<span class="fake_anchor" onclick="open_scrollable_div(telum_grok);">I asked the GROK AI, "Is the IBM Telum the fastest CPU?".</span>
+		<span class="fake_anchor" onclick="mf.open_scrollable_div(telum_grok);">I asked the GROK AI, "Is the IBM Telum the fastest CPU?".</span>
 	 The Answer was horrifying. A quarter century of Linux on the mainframe and computer professionals still believe the same lies they used to justify their expertise in the past.</p>
 
 	<p>It's time to be brutally honest with yourself. Let me debunk a few of the most simple lies that you hang on to so dearly. Instead of allowing the IBM mainframe elevate you to its level, You've dragged the most modern computer into the abyss.</p> 
 
-	<div class="center-container"><img src="mainframe_versus_other_computers/lemmings.gif" /></div>
+	<div class="center-container"><img src="lemmings.gif" /></div>
 
 	<p>Linux runs on the mainframe so ask yourself why can't it do the same wonderful things GROK described (E.g. 100,000 transactions per second)! The only difference is software design and you need to understand that Linux, C and more are Broken As Designed (BAD). It's time to stop putting lipstick on this pig and see the blemishes.</p>
 
 	<p>It's time for you to ask your computer instructors why they failed to show you this pig without it's lipstick.</p>
 
-	<div class="center-container"><img src="mainframe_versus_other_computers/lipstick_on_a_pig.jpg"></div>
+	<div class="center-container"><img src="lipstick_on_a_pig.jpg"></div>
 
 	<br/><hr/><h2>Lie #1: You're an expert who understands "Distributed computing"</h2>
 
@@ -239,7 +158,7 @@
 		position: fixed;
 		cursor: pointer; 
 		"
-		onclick="close_scrollable_div();">
+		onclick="mf.close_scrollable_div();">
 		X
 	</div>
 	&nbsp; &nbsp; &nbsp;

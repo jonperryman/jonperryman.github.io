@@ -1,0 +1,85 @@
+h1 {text-align: center;}
+h2 {text-align: center;}
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+hr {
+    border: 0;
+    height: 4px;
+    background: black; 
+}
+b {
+  font-size:calc(120%);
+}
+.fake_anchor {
+    background: none;
+    border: none;
+    color: blue; 
+    text-decoration: underline;
+    cursor: pointer; 
+    font-size: inherit; 
+    padding: 0;
+}
+
+#toc_container {
+    background: #f9f9f9 none repeat scroll 0 0;
+    border: 1px solid #aaa;
+    display: table;
+    font-size: 95%;
+    margin-bottom: 1em;
+    padding: 20px;
+    width: auto;
+    position: sticky;
+    top: 0;
+}
+
+.toc_title {
+    font-weight: 700;
+    text-align: center;
+}
+
+#toc_container li, #toc_container ul, #toc_container ul li{
+    list-style: outside none none !important;
+}
+
+#toc ul {
+    padding-left: 1em;
+}
+#toc {
+    background: #f9f9f9 none repeat scroll 0 0;
+    border: 1px solid #aaa;
+    display: table;
+    position: fixed;  /* sticky; */
+    /* top: 0; */
+    padding-left: 1em;
+    padding-right: 1em; 
+}
+#toc_title {
+    padding: 3px; 
+    font-weight: 700; 
+    text-align: center; 
+    font-size: 120%;
+    position: sticky;
+}
+
+#scrollable_div {
+    /*background: #f9f9f9 none repeat scroll 0 0; */
+    background-color: #f9f9f9;
+    position: fixed;
+    display: none;
+    max-width: 800px;  /* */
+    width: inherit; /* Set the width of the viewport */
+    height: 100vh; /* Set the height of the viewport */
+    overflow: auto; /* Enable scrolling */
+    border: 3px solid #ccc; /* Optional: Add a border for better visibility */
+    padding: 10px; /* Optional: Add some padding */
+}
+
+#prepare_body_data {
+    float: right;
+    font-size: 130%;
+    font-weight: 300%;
+    display: none;"
+}
