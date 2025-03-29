@@ -46,10 +46,8 @@
 		function fixTOC() {
 			if (toc_content.innerHTML != "")
 				return;
-			// const hr = document.createElement("hr");
-			// hr.style.border = "2px solid #000";
 			var toc = "";
-			var h2 = document.getElementsByTagName('h2');
+			var h2 = page_container.getElementsByTagName('h2');
 			var close_indent = false;
 			for (let i = 0; i < h2.length; i++) {
 				h2[i].id = "toc_" + i;
@@ -58,9 +56,6 @@
 				toc += "<li><a href='#toc_" + i + "'>" + h2[i].innerText + "</a></li>\n";
 				if (h2[i].previousSibling.nodeName == "HR")
 					toc += "<ul>\n"
-
-				// var test = h2[i].parentNode.insertBefore(hr, h2[i]);
-				// var test2 =  "abc";
 			}
 			toc_content.innerHTML = toc + "</ul>";
 		}
@@ -70,7 +65,7 @@
 
 <body>
 
-<div id="scrollable_div" onmouseleave="mf.close_scrollable_div();">
+<div id="scrollable_div" style="display: none;" onmouseleave="mf.close_scrollable_div();">
 	<div style="float: right">
 		<div style=" font-size: 200%; 
 			font-weight: 300%; 
@@ -126,6 +121,9 @@
 	</div>
 	
 	<button  id="prepare_body_button"
+		style="float: right;
+			font-size: 130%;
+			font-weight: 300%;"
 		onclick="prepare_for_website();">
 		prepare for website
 	</button>
@@ -134,8 +132,12 @@
 
 <h1>Under construction and incomplete</h1>
 
+<p>Topics are being added as they are discussed.</p>
+
 <h1>Enlightening Linux software developers 
 	<br/>Google's lack of Fundamental computer skills</h1>
+
+	<p>Google with it's 5,000,000 servers does not have a single mainframe.</p>
 
 	<p>I wanted to find out if most computer professionals now have fundamental computer skills. 
 		<span class="fake_anchor" onclick="mf.open_scrollable_div(telum_grok);">I asked the GROK AI, "Is the IBM Telum the fastest CPU?".</span>
