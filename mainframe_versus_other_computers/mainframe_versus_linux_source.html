@@ -29,7 +29,7 @@
 		function fixSrcRefs() {
 
 			link_css.href = link_css.href.substring(link_css.href.search("/mainframe"));
-			
+
 			var images = document.getElementsByTagName('img');
 			for (let i = 0; i < images.length; i++) {
 				images[i].src = images[i].src.substring(images[i].src.search("/mainframe")); 
@@ -77,8 +77,8 @@
 	<link id="link_css" rel="stylesheet" type="text/css" href="mainframe_versus_linux.css">
 
 	<script id="execute_script" type="text/javascript">
-		console.log("running from script file");
-		const mf = {
+		console.log("running from script file2");
+		mf = {
 
 			open_scrollable_div: function(template_name) {
 				scrollable_div.style.display = "block";
@@ -92,11 +92,11 @@
 			},
 			
 			display_toc: function () {
-				toc_content.style.display = 'block';
+				toc_content.style.display = "block";
 			},
 			
 			hide_toc: function () {
-				toc_content.style.display = 'none';
+				toc_content.style.display = "none";
 			}
 		}
 	</script>
