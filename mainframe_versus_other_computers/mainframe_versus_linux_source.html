@@ -29,8 +29,7 @@
 		function fixSrcRefs() {
 
 			link_css.href = link_css.href.substring(link_css.href.search("/mainframe"));
-			script_include.src = script_include.src.substring(script_include.src.search("/mainframe"));
-
+			
 			var images = document.getElementsByTagName('img');
 			for (let i = 0; i < images.length; i++) {
 				images[i].src = images[i].src.substring(images[i].src.search("/mainframe")); 
