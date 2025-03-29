@@ -83,7 +83,7 @@
 			open_scrollable_div: function(template_name) {
 				scrollable_div.style.display = "block";
 				document.body.style.overflowY = "hidden";
-				scrollable_div.innerHTML = close_x.innerHTML + template_name.innerHTML;
+				scrollable_data.innerHTML = template_name.innerHTML;
 			},
 
 			close_scrollable_div: function () {
@@ -114,7 +114,21 @@
 		prepare for website
 	</button>
 
-	<div id="scrollable_div" onmouseleave="close_scrollable_div();">
+	<div id="scrollable_div" onmouseleave="mf.close_scrollable_div();">
+		<div style="float: right">
+			<div style=" font-size: 200%; 
+				font-weight: 300%; 
+				float: right; 
+				border-style: solid;
+				position: fixed;
+				cursor: pointer; 
+				"
+				onclick="mf.close_scrollable_div();">
+				X
+			</div>
+			&nbsp; &nbsp; &nbsp;
+		</div>
+		<div id="scrollable_data"></div>
 	</div>
 
 	<br/>
@@ -167,22 +181,6 @@
 	<h2>Case study: IRS mainframe modernization by implementing "Distributed computing"</h2>
 
 	<p>ROTFLOL (Rolling On The Floor, Laughing Out Loud)! The IRS is currently "modernizing" their mainframe using JAVA and the Linux "distributed computing" database solution instead of Sysplex. JAVA was designed using Linux / Unix concepts. Forget all the other problems with JAVA and focus on JDBC (JAVA "distributed computing" database access). While this beast will not perform well on the mainframe, moving it to any other platform will be unacceptable because there's absolutely no IBM Sysplex features. Since this can't be about portability, I must assume it's about programmers refusing to learn Cobol.</p>
-
-<template id="close_x">
-	<div style="float: right">
-	<div style=" font-size: 200%; 
-		font-weight: 300%; 
-		float: right; 
-		border-style: solid;
-		position: fixed;
-		cursor: pointer; 
-		"
-		onclick="mf.close_scrollable_div();">
-		X
-	</div>
-	&nbsp; &nbsp; &nbsp;
-	</div>
-</template>
 
 <template id="telum_grok">
 	<h1>I asked X Grok (AI) "Is IBM Telum the fastest CPU?"<br/>
