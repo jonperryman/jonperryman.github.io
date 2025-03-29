@@ -158,9 +158,10 @@ function processPageData() {
     // Since dynamic HTML containing javascripts doesn't execute those scripts
     // this code allows a single script with ID="execute_script" to be executed
     if (typeof execute_script != 'undefined' && typeof execute_script.innerHTML != 'undefined') {
-        var script = execute_script.innerHTML;
-        var temp_func = new Function(script);
-        temp_func();
+        eval(execute_script.innerHTML);
+        // var script = execute_script.innerHTML;
+        // var temp_func = new Function(script);
+        // temp_func();
     }
 }
 
