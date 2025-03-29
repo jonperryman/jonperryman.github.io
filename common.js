@@ -155,7 +155,7 @@ function processPageData() {
                 = '<th>'+ codeElements[i].getAttribute('_title') + '</th>';
     }
 
-    // Since dynamic HTML containing javascripts doesn't execute those scripts
+    // Since dynamic HTML containing javascripts doesn't execute scripts 
     // this code allows a single script with ID="execute_script" to be executed
     if (typeof execute_script != 'undefined' && typeof execute_script.innerHTML != 'undefined') {
         eval(execute_script.innerHTML);
