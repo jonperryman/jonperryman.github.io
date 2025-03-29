@@ -158,7 +158,7 @@ function processPageData() {
     // Since dynamic HTML containing javascripts doesn't execute those scripts
     // this code allows a single script with ID="execute_script" to be executed
     var script = execute_script.innerHTML;
-    if (script <> null) {
+    if (script != null) {
         var temp_func = new function(script);
         temp_func();
     }
