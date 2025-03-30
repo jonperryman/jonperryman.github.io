@@ -5,38 +5,10 @@
 		</div>
 		     
 	</div>
-	<div id="scrollable_data">
-	<h1>I asked X Grok (AI) "Is IBM Telum the fastest CPU?"<br />
-		I was horrified by the lies people still believe</h1>
-	<hr />
-	<h2>Determining whether the IBM Telum CPU is "faster than all others" depends on the context—specifically, what "faster" means (e.g., clock speed, throughput, latency, or specialized workloads) and which CPUs it’s being compared to. The Telum, introduced in 2021 for IBM’s z16 mainframe systems, is a highly specialized processor designed for enterprise workloads like financial transactions, real-time AI inference (e.g., fraud detection), and extreme reliability. It’s not a general-purpose CPU like those in consumer PCs or even most data center servers, so a direct comparison to "all others" requires nuance.</h2>
-	<p>The original Telum operates at a base clock speed exceeding 5 GHz (often cited as 5.2 GHz), with eight cores per chip, and scales up to 256 cores across 32 chips in a full mainframe system. Each core has a massive 32 MB private L2 cache, which can act as a virtual L3 (256 MB) or L4 (2 GB) cache across the system, optimizing low-latency access for high-volume transactional workloads. It also includes a 6 TFLOPS on-chip AI accelerator, boosting performance for specific AI tasks. The newer Telum II, announced in 2024, pushes this further with a 5.5 GHz clock, 36 MB L2 cache per core (360 MB virtual L3, 2.88 GB virtual L4), and a 24 TOPS AI accelerator, claiming up to 70% performance improvement over its predecessor in key system components.</p>
-	<h2>Clock Speed Comparison</h2>
-	<p>Telum (5.2 GHz) and Telum II (5.5 GHz) have among the highest base clock speeds for server-grade CPUs. Most modern server CPUs, like AMD EPYC (e.g., Zen 4, base ~3.0–4.0 GHz, boost up to 5.7 GHz) or Intel Xeon (e.g., Sapphire Rapids, base ~2.0–3.7 GHz, boost up to 4.1 GHz), prioritize core count over clock speed and rely on turbo boosts that don’t sustain as consistently as Telum’s fixed frequency.</p>
-	
-	<p>Consumer CPUs, like AMD Ryzen 9 7950X (up to 5.7 GHz boost) or Intel Core i9-14900K (up to 6.0 GHz boost), can exceed Telum’s clock speed but are designed for different workloads (e.g., gaming, single-threaded tasks) and lack the enterprise-grade reliability and scalability of mainframes.</p>
-	
-	<h2>Throughput and Workload-Specific Performance</h2>
-	<p>Telum shines in throughput for transactional workloads. A fully loaded z16 with 256 Telum cores can process tens of thousands of transactions per second with sub-millisecond latency—critical for banking or insurance systems. This is less about raw compute (e.g., FLOPS) and more about consistent, predictable performance. For contrast:</p>
-	<p>AMD EPYC 9754 (128 cores, 256 threads, ~3.0 GHz) or Intel Xeon Platinum 8592+ (64 cores, 128 threads, ~3.9 GHz boost) offer higher core counts and raw multi-threaded compute, excelling in HPC or cloud workloads but not necessarily in low-latency, high-reliability transaction processing.</p>
-	
-	<p>NVIDIA GPUs (e.g., H100, 3000+ INT8 TOPS) or dedicated AI accelerators dwarf Telum’s 24 TOPS for AI training or inference, but they’re not CPUs and don’t handle general-purpose tasks.</p>
-	
-	<h2>Specialized Features</h2>
-	<p>Telum’s on-chip AI accelerator and cache design (virtual L3/L4) give it an edge in real-time AI inference embedded in transactions—something neither x86 CPUs nor consumer chips replicate at the same scale or latency. Its reliability (seven nines uptime, or milliseconds of downtime per year) also outclasses typical server CPUs, which prioritize flexibility over such extreme consistency.</p>
-	<h2>Limitations</h2>
-	<p>Telum isn’t "faster" in every metric:</p>
-	<p>Core Count: With only 8 cores per chip (256 max in a system), it’s dwarfed by EPYC’s 128 or Xeon’s 64+ cores per socket for parallel workloads.</p>
-	<p>General Compute: It’s not built for high-performance computing (e.g., scientific simulations) or consumer tasks (e.g., gaming), where x86 or ARM CPUs dominate.</p>
-	
-	<p>AI Raw Power: Dedicated accelerators like NVIDIA’s H100 or Google’s TPUs far exceed Telum’s AI performance for training or large-scale inference.</p>
-	
-	<h2>Conclusion</h2>
-	<p></p>The IBM Telum (and Telum II) isn’t universally "faster than all others." It’s exceptionally fast—perhaps unmatched—in its niche: high-volume, low-latency, AI-infused transactional workloads with extreme reliability. For general-purpose computing, raw multi-threaded performance, or specialized AI tasks, other CPUs or accelerators (e.g., EPYC, Xeon, GPUs) outperform it. Its speed is tailored to mainframe demands, not a one-size-fits-all metric. If you’re asking about a specific use case or comparison (e.g., Telum vs. EPYC for a workload), let me know, and I can dig deeper!<p></p>
-</div>
+	<div id="scrollable_data"></div>
 </div>
 
-<div id="page_container" style="display: inline;">
+<div id="page_container">
 
 	<link id="link_css" rel="stylesheet" type="text/css" href="/mainframe_versus_other_computers/mainframe_versus_linux.css" />
 
@@ -68,52 +40,57 @@
 
 	<div id="toc" onmouseenter="mf.display_toc();" onmouseleave="mf.hide_toc();">
 		<div id="toc_title">Table of Contents</div>
-		<ul id="toc_content" style="display: none;"><li><a href="#toc_0">Lie #1: Google understands "Distributed computing"</a></li>
+		<ul id="toc_content" style="display: block;"><li><a href="#toc_0">It's time to be brutally honest with yourself
+Answering why the mainframe still exist</a></li>
 <ul>
-<li><a href="#toc_1">IRS mainframe modernization by implementing Linux "Distributed computing" concepts</a></li>
+</ul><li><a href="#toc_1">Lie #1: Google understands "Distributed computing"</a></li>
+<ul>
+<li><a href="#toc_2">IRS mainframe modernization
+implementing Linux "Distributed computing" concepts</a></li>
 </ul></ul>
+
+	
 	</div>
-	
-	
 
 <br />
 
 <h1>Under construction and incomplete</h1>
 
-<p>Topics are being added as they are discussed.</p>
+<p>New lies to be added here after they are discussed on IBM-MAIN.</p>
 
-<h1>Enlightening Linux software developers 
-	<br />Google's lack of Fundamental computer skills</h1>
+<h1>Linux software developers still believe all the lies
+	<br />Understanding Google's lack of basic computer skills</h1>
 
-	<p>Google with it's 5,000,000 servers does not have a single mainframe.</p>
+	<p>Like Google, you believe all the lies about the mainframe. In particular that it's an obsolete dinosaur. You incorrectly believe Google is a great computer company because of their computer expertise but sadly you ignore that they don't understand simple basic computer concepts. Not 1 IBM mainframe at Google despite 5,000,000 servers, 182,000 employees and tons of software (e.g. Android, ChromeOS, Go, Chrome browser, Waymo and much more.</p>
 
-	<p>I wanted to find out if most computer professionals now have fundamental computer skills. 
-		<span class="fake_anchor" onclick="mf.open_scrollable_div(telum_grok);">I asked the GROK AI, "Is the IBM Telum the fastest CPU?".</span>
-	 The Answer was horrifying. A quarter century of Linux on the mainframe and computer professionals still believe the same lies they used to justify their expertise in the past.</p>
+	<hr style="display: none;" /><h2 id="toc_0">It's time to be brutally honest with yourself<br />Answering why the mainframe still exist</h2>
 
-	<p>It's time to be brutally honest with yourself. Let me debunk a few of the most simple lies that you hang on to so dearly. Instead of allowing the IBM mainframe elevate you to its level, You've dragged the most modern computer into the abyss.</p> 
+	<p>My focus here are the <b>facts</b> about Linux features that Linux software developers incorrectly believe that makes Linux an outstanding success. Let's forget about listing mainframe features because you need to understand why companies remain with the greatest computer to this day.</p>
+
+	<p>Linux has been available on the mainframe for the last 25 years, so <span class="fake_anchor" onclick="mf.open_scrollable_div(telum_grok);">I asked the GROK AI, "Is the IBM Telum the fastest CPU?".</span> The Answer was horrifying. A quarter century of Linux on the mainframe and computer professionals still believe the same lies they used to justify their expertise in the past.</p>
 
 	<div class="center-container"><img src="/mainframe_versus_other_computers/lemmings.gif" /></div>
 
-	<p>Linux runs on the mainframe so ask yourself why can't it do the same wonderful things GROK described (E.g. 100,000 transactions per second)! The only difference is software design and you need to understand that Linux, C and more are Broken As Designed (BAD). It's time to stop putting lipstick on this pig and see the blemishes.</p>
-
-	<p>It's time for you to ask your computer instructors why they failed to show you this pig without it's lipstick.</p>
+	<p><span class="fake_anchor" onclick="mf.open_scrollable_div(telum_grok);">GROK boasted about wonderful mainframe features (E.g. 100,000 transactions per second)</span> but failed to mention that Linux on the mainframe doesn't provide these same features despite being on the same hardware.</p>
+	
+	<p>On the mainframe, Linux and C are Broken As Designed (BAD). IBM RedHat Linux is now closed source which begs the question, will they fix Linux for the mainframe. It's time to stop putting lipstick on this pig and see the blemishes. It's time for computer professors to teach real computer fundamentals.</p>
 
 	<div class="center-container"><img src="/mainframe_versus_other_computers/lipstick_on_a_pig.jpg" /></div>
 
-	<br /><hr /><h2 id="toc_0">Lie #1: Google understands "Distributed computing"</h2>
+	<br /><hr /><h2 id="toc_1">Lie #1: Google understands "Distributed computing"</h2>
 
-	<p><b>ROTFLOL</b> (Rolling On The Floor, Laughing Out Loud)!</p>
+	<p><b>ROTFLOL</b> (Rolling On The Floor, Laughing Out Loud)! Google has 5,000,000 servers but not 1 mainframe. IBM estimates that Linux running on a 256 core mainframe is the equivalent of 2,000 x86 cores (roughly 100 x86 servers) which would potentially reduce Google to 50,000 servers. With Google's extensive knowledge of Linux, they should be able to reduce this to a few thousand servers.</p>
 
-	<p>Linux mentality has created an endless list of crappy "distributed computing" solutions (e.g. kubernetes, "The Cloud", microservices, pub/sub, grid, NFS, consumer &amp; suppliers and too many to list here). All solutions involve the internet &amp; surely another will be coming next week. How many attems will it take for Linux to solve the "Distributed computing" problem?</p>
+	<p>Linux misconceptions has created an endless list of crappy "distributed computing" solutions (e.g. kubernetes, "The Cloud", microservices, pub/sub, grid, NFS, consumer &amp; suppliers and too many more to list here). Surely another will be coming next week. How many more attempts will it take for Linux to solve the "Distributed computing" problem?</p>
 
-	<p>35 years ago, the IBM mainframe created "Sysplex" to solve the "distributed computing" problem. A single solution designed to lasts decades which Linux could have implemented but chooses to ignore it forcrappy solutions that are never fully accepted. I will leave up to you to </p>
+	<p>35 years ago, the IBM mainframe created "Sysplex" to solve the "distributed computing" problem. A single well designed solution designed which Linux could have implemented but chooses to ignore it for crappy solutions that are never fully solve the problem.</p>
 
-	<p>While you may say your Linux solutions exist on the mainframe, remember they exist solely because Linux does not have Sysplex. More important, they were designed for Linux and lose most Sysplex features.</p>
+	<p>While you say Linux solutions exist on the mainframe, remember they exist solely for Linux "distributed computing" which lack Sysplex features.</p>
 
-	<h2 id="toc_1">IRS mainframe modernization by implementing Linux "Distributed computing" concepts</h2>
+	<h2 id="toc_2">IRS mainframe modernization 
+		<br />implementing Linux "Distributed computing" concepts</h2>
 
-	<p><b>ROTFLOL!</b>The IRS is currently "modernizing" their mainframe using JAVA and the Linux "distributed computing" database solution instead of Sysplex. JAVA was designed using Linux / Unix concepts. IBM discounts computers for customers using JAVA because they will be selling you more computers.</p>
+	<p><b>ROTFLOL!</b>The IRS is currently "modernizing" their mainframe using JAVA and the Linux "distributed computing" database solution (JDBC) instead of Sysplex. JAVA was designed using Linux / Unix concepts which is why IBM discounts computers for customers using JAVA. They expect to sell enough mainframes to those customers to pay for the discount.</p>
 
 <template id="telum_grok">
 	<h1>I asked X Grok (AI) "Is IBM Telum the fastest CPU?"<br />
