@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="initial-scale=1.0">
+	<title>IBM-MAIN news group</title>
+
+	<style>
+		body {
+            background-color: black;
+			max-width: 800px; 
+            margin: auto;
+		}
+
+        h1 {
+            text-align: center;
+        }
+        
+        .threadButtonDiv {
+            float:left;
+        }
+
+        .threadButtonDiv button {
+            font-size: 130%;
+        }
+
+        .itemButton {
+            background-color: lightblue; border-width: 3px;
+        }
+
+        .itemAnchor {
+            color:black;text-decoration:none;
+        }
+
+        .itemAuthor {
+            border-style: solid; background-color: white;
+        }
+
+        #pageData {
+            background-color: #8aafff;
+            padding: 10px;
+            zzpadding-top: 5px;
+            zzpadding-left: 5px;
+            zzmargin: 0px;
+        }
+	</style>
+
+	<script>
+
+// New page requested
+function loadPageData(page) {
+    if (page == "") 
+        currentPage = "threadlist.html";
+    else
+        currentPage = page +'.html?_=' + new Date().getTime(); // ignore caches
+
+    var xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = processPageData;
+
+    document.getElementById('pageData').innerHTML = 'Loading page: ' + currentPage;
+    xhttp.open('GET', currentPage, true);
+    xhttp.send();
+}
+
+// all elements with class="code" are considered code snippets.
+// This function modifies these elements so they are easier to
+// read and use.
+function processPageData() {
+
+    document.getElementById('pageData').innerHTML = '<h1>web page ' + currentPage
+        + ' is being downloaded - readystate: ' + this.readyState 
+        + ' status: ' + this.status + '</h1>';
+    if (this.readyState != 4) 
+        return;
+    if ((this.status == 0 && this.response == '') ||
+        this.status != 200) {
+        document.getElementById('pageData').innerHTML =
+        '<h1>This site is still under construction. Sorry for any inconvenience.</h1>'
+        +   '<h1>Failed to load: web page '
+        + currentPage
+        + ' readystate: ' + this.readyState 
+        + ' status: ' + this.status + '</h1>';
+        return;
+    }
+
+    document.getElementById('pageData').innerHTML = this.responseText;
+    return;
+
+    // Since dynamic HTML containing javascripts doesn't execute scripts 
+    // this code allows a single script with ID="execute_script" to be executed
+    if (typeof execute_script != 'undefined' && typeof execute_script.innerHTML != 'undefined') {
+        eval(execute_script.innerHTML);
+        // var script = execute_script.innerHTML;
+        // var temp_func = new Function(script);
+        // temp_func();
+    }
+}
+
+
+
+
+function itemShowHide(el, threadID) {
+    console.log("itemShowHide: ", el, threadID);
+}
+
+function indexMarkRead(el, threadID) {
+    console.log("indexMarkRead: ", el, threadID);
+}
+
+function indexDelete(el, threadID) {
+    console.log("indexDelete: ", el, threadID);
+}
+
+function indexOpen(el, threadID) {
+    console.log("indexOpen: ", el, threadID);
+}
+
+function threadRead(el, threadID) {
+    console.log("threadRead: ", el, threadID);
+}
+
+function threadShow(el, threadID) {
+    console.log("threadShow: ", el, threadID);
+}
+
+function threadDelete(el, threadID) {
+    console.log("threadDelete: ", el, threadID);
+}
+
+
+function setup() {
+    loadPageData("")
+}
+</script>
+</head>
+
+<body onload="setup();">
+    <div id="threadList"></div>
+    <div id="pageData"></div>
+</body>
+</html> 
