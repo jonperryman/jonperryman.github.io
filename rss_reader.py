@@ -243,7 +243,7 @@ def process_rss():
 
     os.system("xcopy /-I /Y " + srcDirectory + "rss_reader.html  .")
     os.system("xcopy /-I /Y " + srcDirectory + "http_server.py  .")
-    os.system("xcopy /-I /Y " + srcDirectory + "$http_server.bat  .")
+    os.system("xcopy /-I /Y " + srcDirectory + "http_server.bat  $http_server.bat")
 
     print("rss_reader.py: Successfuly completed rss updates")
 
