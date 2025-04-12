@@ -36,29 +36,34 @@
             border-style: solid; background-color: white;
         }
 
-        #pageData {
+        #indexList, #pageData {
             background-color: #8aafff;
-            padding: 10px;
+            zzpadding: 10px;
             zzpadding-top: 5px;
             zzpadding-left: 5px;
-            zzmargin: 0px;
+            margin: 0px;
         }
 	</style>
 
 	<script>
 
 // New page requested
-function loadPageData(page) {
+function loadPageData(action, page) {
+    currentAction = action
     if (page == "") 
-        currentPage = "threadlist.html";
+        currentPage = "indexlist";
     else
-        currentPage = page +'.html?_=' + new Date().getTime(); // ignore caches
+        currentPage = page +'?_=' + new Date().getTime(); // ignore caches
 
     var xhttp = new XMLHttpRequest();
 
     xhttp.onreadystatechange = processPageData;
 
+    document.getElementById('indexList').style.display = "none";
+    document.getElementById('pageData').style.display = "";
     document.getElementById('pageData').innerHTML = 'Loading page: ' + currentPage;
+    //document.getElementById('pageData').style.display = "initial";
+    
     xhttp.open('GET', currentPage, true);
     xhttp.send();
 }
@@ -81,10 +86,26 @@ function processPageData() {
         + currentPage
         + ' readystate: ' + this.readyState 
         + ' status: ' + this.status + '</h1>';
+        currentAction = ""
+        currentPage = ""
+
         return;
     }
 
-    document.getElementById('pageData').innerHTML = this.responseText;
+    if (currentAction == "load")
+        document.getElementById('pageData').innerHTML = this.responseText;
+    else {
+        if (currentAction == "loadIndexList") 
+            document.getElementById('indexList').innerHTML = this.responseText;
+        else if (currentAction == "alert")
+            alert(this.responseText);
+        else
+            alert("invalid action: ", currentAction, " for webpage: ", currentPage, " response: ", this.responseText);
+        document.getElementById('indexList').style.display = "";
+        document.getElementById('pageData').style.display = "none";    
+    }
+    currentAction = ""
+    currentPage = ""
     return;
 
     // Since dynamic HTML containing javascripts doesn't execute scripts 
@@ -97,46 +118,49 @@ function processPageData() {
     }
 }
 
-
-
-
-function itemShowHide(el, threadID) {
-    console.log("itemShowHide: ", el, threadID);
+function itemShowRead(el, threadID, a, b, c) {
+    console.log("itemShowRead: ", el, threadID);
+    loadPageData("load", "ibm_main/itemShowRead/" + threadID);
 }
 
 function indexMarkRead(el, threadID) {
     console.log("indexMarkRead: ", el, threadID);
+    loadPageData("load", "ibm_main/indexMarkRead/" + threadID);
 }
 
 function indexDelete(el, threadID) {
     console.log("indexDelete: ", el, threadID);
+    loadPageData("load", "ibm_main/indexDelete/" + threadID);
 }
 
 function indexOpen(el, threadID) {
     console.log("indexOpen: ", el, threadID);
+    loadPageData("load", "ibm_main/indexOpen/" + threadID);
 }
 
 function threadRead(el, threadID) {
     console.log("threadRead: ", el, threadID);
+    loadPageData("load", "ibm_main/threadRead/" + threadID);
 }
 
 function threadShow(el, threadID) {
     console.log("threadShow: ", el, threadID);
+    loadPageData("load", "ibm_main/threadShow/" + threadID);
 }
 
 function threadDelete(el, threadID) {
     console.log("threadDelete: ", el, threadID);
+    loadPageData("load", "ibm_main/threadDelete/" + threadID);
 }
 
-
 function setup() {
-    loadPageData("")
+    loadPageData("loadIndexList", "");
 }
 </script>
 </head>
 
 <body onload="setup();">
-    <div id="threadList"></div>
+    <div id="indexList"></div>
     <div id="pageData"></div>
 </body>
 </html> 
