@@ -15,14 +15,20 @@
         h1 {
             text-align: center;
         }
-        
+    
+        .closex {
+            float: right;
+            position: sticky;
+            font-size: 130%;
+        }
+
         .threadButtonDiv {
             float:left;
         }
 
-        .threadButtonDiv button {
+        /* .threadButtonDiv button {
             font-size: 130%;
-        }
+        } */
 
         .itemButton {
             background-color: lightblue; border-width: 3px;
@@ -36,131 +42,132 @@
             border-style: solid; background-color: white;
         }
 
-        #indexList, #pageData {
+        .whenGetWebPageActive {
+            display: block;
+        }
+
+        #indexPage, #secondaryPage, #getWebPageStatus {
             background-color: #8aafff;
             zzpadding: 10px;
             zzpadding-top: 5px;
             zzpadding-left: 5px;
             margin: 0px;
         }
+
+        #secondaryPage, #getWebPageStatus {
+            display: none;
+        }
 	</style>
 
 	<script>
 
 // New page requested
-function loadPageData(action, page) {
-    currentAction = action
-    if (page == "") 
-        currentPage = "indexlist";
-    else
-        currentPage = page +'?_=' + new Date().getTime(); // ignore caches
+function readWebPage(pageCompleteFunction, webpage) {
 
     var xhttp = new XMLHttpRequest();
 
-    xhttp.onreadystatechange = processPageData;
+    xhttp.onreadystatechange = processPageResponse;
+    processPageResponse.webpageComplete = pageCompleteFunction;
+    processPageResponse.webpage = webpage
 
-    document.getElementById('indexList').style.display = "none";
-    document.getElementById('pageData').style.display = "";
-    document.getElementById('pageData').innerHTML = 'Loading page: ' + currentPage;
-    //document.getElementById('pageData').style.display = "initial";
+    document.querySelector('.whenGetWebPageActive').style.display = "none"
+    document.getElementById('getWebPageStatus').style.display = "block"
+    document.getElementById('getWebPageStatus').innerHTML = 'Loading page: ' + webpage;
     
-    xhttp.open('GET', currentPage, true);
+    if (webpage == "")
+        xhttp.open("GET", "indexPage", true);
+    else
+        xhttp.open("GET", webpage+"?_="+new Date().getTime(), true);  // ignore cache
     xhttp.send();
 }
 
 // all elements with class="code" are considered code snippets.
 // This function modifies these elements so they are easier to
 // read and use.
-function processPageData() {
+function processPageResponse() {
 
-    document.getElementById('pageData').innerHTML = '<h1>web page ' + currentPage
+    getWebPageStatus.innerHTML = '<h1>web page ' + processPageResponse.webpage
         + ' is being downloaded - readystate: ' + this.readyState 
         + ' status: ' + this.status + '</h1>';
     if (this.readyState != 4) 
         return;
     if ((this.status == 0 && this.response == '') ||
         this.status != 200) {
-        document.getElementById('pageData').innerHTML =
-        '<h1>This site is still under construction. Sorry for any inconvenience.</h1>'
-        +   '<h1>Failed to load: web page '
-        + currentPage
-        + ' readystate: ' + this.readyState 
-        + ' status: ' + this.status + '</h1>';
-        currentAction = ""
-        currentPage = ""
-
-        return;
+        getWebPageStatus.innerHTML +=
+        '<h1>Error occured during reading of the web page. Sorry for any inconvenience.</h1>'
+        +   '<h1>Failed to load: web page</h1>'
+        return;    
     }
-
-    if (currentAction == "load")
-        document.getElementById('pageData').innerHTML = this.responseText;
-    else {
-        if (currentAction == "loadIndexList") 
-            document.getElementById('indexList').innerHTML = this.responseText;
-        else if (currentAction == "alert")
-            alert(this.responseText);
-        else
-            alert("invalid action: ", currentAction, " for webpage: ", currentPage, " response: ", this.responseText);
-        document.getElementById('indexList').style.display = "";
-        document.getElementById('pageData').style.display = "none";    
-    }
-    currentAction = ""
-    currentPage = ""
+        
+    // Reply complete turn off monitoring of response and return to original web page
+    document.querySelector('.whenGetWebPageActive').style.display = "block";
+    getWebPageStatus.style.display = "none";    
+    processPageResponse.webpageComplete(this.responseText);
     return;
 
     // Since dynamic HTML containing javascripts doesn't execute scripts 
     // this code allows a single script with ID="execute_script" to be executed
-    if (typeof execute_script != 'undefined' && typeof execute_script.innerHTML != 'undefined') {
-        eval(execute_script.innerHTML);
-        // var script = execute_script.innerHTML;
-        // var temp_func = new Function(script);
-        // temp_func();
-    }
+    // if (typeof execute_script != 'undefined' && typeof execute_script.innerHTML != 'undefined') {
+    //     eval(execute_script.innerHTML);
+    //     // var script = execute_script.innerHTML;
+    //     // var temp_func = new Function(script);
+    //     // temp_func();
+    // }
+}
+
+function setSecondaryPage(page) {
+    indexPage.style.display = "none";
+    secondaryPage.style.display = "block";    
+    secondaryPage.innerHTML = secondaryPage;
 }
 
 function itemShowRead(el, threadID, a, b, c) {
-    console.log("itemShowRead: ", el, threadID);
-    loadPageData("load", "ibm_main/itemShowRead/" + threadID);
+     readWebPage(setSecondaryPage, "ibm_main/itemShowRead/" + threadID);
 }
 
 function indexMarkRead(el, threadID) {
-    console.log("indexMarkRead: ", el, threadID);
-    loadPageData("load", "ibm_main/indexMarkRead/" + threadID);
+     readWebPage(function() {}, "ibm_main/indexMarkRead/" + threadID);
+    document.getElementById("indexButtonTr_" +threadID).style.display = "none";
 }
 
 function indexDelete(el, threadID) {
-    console.log("indexDelete: ", el, threadID);
-    loadPageData("load", "ibm_main/indexDelete/" + threadID);
+     readWebPage(setSecondaryPage, "ibm_main/indexDelete/" + threadID);
 }
 
 function indexOpen(el, threadID) {
     console.log("indexOpen: ", el, threadID);
-    loadPageData("load", "ibm_main/indexOpen/" + threadID);
+     readWebPage(setSecondaryPage, "ibm_main/indexOpen/" + threadID);
 }
 
 function threadRead(el, threadID) {
-    console.log("threadRead: ", el, threadID);
-    loadPageData("load", "ibm_main/threadRead/" + threadID);
+    readWebPage(setSecondaryPage, "ibm_main/threadRead/" + threadID);
+    document.getElementById("indexButtonTr_" +threadID).style.display = "none"
+    indexPage.style.display = "block";
+    secondaryPage.style.display = "none";    
 }
 
 function threadShow(el, threadID) {
-    console.log("threadShow: ", el, threadID);
-    loadPageData("load", "ibm_main/threadShow/" + threadID);
+     readWebPage(setSecondaryPage, "ibm_main/threadShow/" + threadID);
 }
 
 function threadDelete(el, threadID) {
-    console.log("threadDelete: ", el, threadID);
-    loadPageData("load", "ibm_main/threadDelete/" + threadID);
+     readWebPage(setSecondaryPage, "ibm_main/threadDelete/" + threadID);
+}
+
+function threadClose(el, threadID) {
+    indexPage.style.display = "block";
+    secondaryPage.style.display = "none";    
 }
 
 function setup() {
-    loadPageData("loadIndexList", "");
+    readWebPage(function(response) {indexPage.innerHTML = response;}, "indexlist");
 }
 </script>
 </head>
 
 <body onload="setup();">
-    <div id="indexList"></div>
-    <div id="pageData"></div>
+    <div id="indexPage" class="whenGetWebPageActive"></div>
+    <div id="secondaryPage" class="whenGetWebPageActive"></div>
+    <div id="getWebPageStatus" style="display: none;"></div>
 </body>
 </html> 

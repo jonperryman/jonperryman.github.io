@@ -61,7 +61,7 @@ def process_ibm_main_rss(newRSSFile):
                 work = work.split("/")
                 if len(work) > 1:
                     print("removing files for ", work)
-                    eraseCmd = "erase build_*_" + work[1].strip() + ".html"
+                    eraseCmd = "erase build_*" + work[1].strip() + ".*.html"
                     print( eraseCmd )
                     os.system( eraseCmd )
             print("***** recovery is complete. load of ibm_main.rss will now continue.")
@@ -117,13 +117,15 @@ def process_ibm_main_rss(newRSSFile):
         while True:
             if "re: fw: aw: sv:".find(threadName[:3].lower()) >= 0:
                 threadName = threadName[3:].strip() 
+            elif "auto:" == threadName[:5].lower():
+                threadName = threadName[5:].strip()
             elif "[external]" == threadName[:10].lower():
                 threadName = threadName[10:].strip()
             elif "[extern]" == threadName[:8].lower():
                 threadName = threadName[8:].strip()
             else:
                 break
-        threadID = threadName.encode('ascii', 'ignore').decode('ascii').translate(transTable)
+        threadID = threadName.encode('ascii', 'ignore').decode('ascii').translate(transTable).lower()
 
         if item["pubDate"][-3:] == "GMT": 
             work = item["pubDate"][:-3] + "+0000"        
@@ -134,7 +136,7 @@ def process_ibm_main_rss(newRSSFile):
         pubDate = datetime.strptime(work, "%a, %d %b %Y %H:%M:%S %z").astimezone(timezone.utc).replace(tzinfo=None)
         indexFilename = "index_" + pubDate.strftime("%y%m%d%H%M") + "_" + threadID + ".html"
 
-        with open("build_" + threadID + "_" + newBuildDate + ".html", "a", encoding="utf-8") as buildFile:
+        with open("build_" + threadID + "." + newBuildDate + ".show.html", "a", encoding="utf-8") as buildFile:
 
             if not os.path.exists("thread_" + threadID + ".html"):
 
@@ -191,11 +193,10 @@ def rss_rebuild_index():
         for file in reversed(file_list):
             loopCnt += 1
             if loopCnt % 100 == 0:
-                print("processing index " + loopCnt + " file=", file)
+                print("processing index ", loopCnt, " file=", file)
             work = file[ : -5 ].split("_",2)
             threadID = work[2]
-            glob.glob("build_" + threadID + "_??????????.html")
-            if len(glob.glob("build_" + threadID + "_??????????.html")) == 0:
+            if len(glob.glob("build_" + threadID + ".??????????.????.html")) == 0:
                 os.remove("thread_" + threadID + ".html")
                 os.remove(file)
                 continue   # thread no longer exists
@@ -214,7 +215,11 @@ def rss_rebuild_index():
                         "</td>",
 
                         "<td>",
-                        "<button id='index_" + threadID + "' class='index' onclick='indexOpen(this, \"" + threadID + "\");'>" + threadLastUpdated + " " + f.read() + "</button>",
+                        "<button id='indexDate_" + threadID + "' class='indexDate'>" + threadLastUpdated + + "</button>",
+                        "</td>",
+
+                        "<td>",
+                        "<button id='index_" + threadID + "' class='index' onclick='indexOpen(this, \"" + threadID + "\");'>" + f.read() + "</button>",
                         "</td>",
                         
                         "<tr>\n\n"
@@ -223,9 +228,7 @@ def rss_rebuild_index():
     os.remove("indexlist.rebuild")
 
 def process_rss():
-    srcDirectory = "C:\\Users\\jonpe\\Documents\\git\\jonperryman.github.io\\"
-    os.chdir( os.path.expanduser("~\\Documents\\jon\\ibm-main\\") )
-
+  
     if os.path.exists("ibm_main.rss") == False:
         print("Failed: ibm_main.rss does not exist\nload new data aborted")
         exit()
@@ -260,14 +263,62 @@ def fix_grok_response(filename):
         grok.write("\n".join(lines))
 
 def test():
-    srcDirectory = "C:\\Users\\jonpe\\Documents\\git\\jonperryman.github.io\\"
-    os.chdir( os.path.expanduser("~\\Documents\\jon\\ibm-main\\") )
+    testData = "\n".join(["<lastBuildDate>10 Apr 2010 01:01:01 Z</lastBuildDate>",
 
-    a=["cc","18","d9d7ef04.2504bb"]
-    with open("ibm_main_test.rss", "r", encoding="utf-8") as f:
-        data = f.read()
+        "<item>",
+        "<pubDate>Tue, 10 Apr 2010 14:09:25 +0200</pubDate>",
+        "<link>aaa;10.1</link>",
+        "<title>aaa</title>",
+        "<description>10-1</description>",
+        "<guid>rrr;rrr</guid>",
+        "<author>auth</author>",
+        "</item>",
+
+
+        "<item>",
+        "<pubDate>Tue, 10 Apr 2010 14:09:25 +0200</pubDate>",
+        "<link>aaa;10.2</link>",
+        "<title>aaa</title>",
+        "<description>10.2</description>",
+        "<guid>rrr;rrr</guid>",
+        "<author>auth</author>",
+        "</item>",
+
+        "<item>",
+        "<pubDate>Tue, 10 Apr 2010 14:09:25 +0200</pubDate>",
+        "<link>aaa;10.3</link>",
+        "<title>aaa</title>",
+        "<description>10-3</description>",
+        "<guid>rrr;rrr</guid>",
+        "<author>auth</author>",
+        "</item>"])
+    
+    testDir = os.path.expanduser("~\\Documents\\jon\\ibm-main-test\\" )
+    if not os.path.exists( testDir ):
+        os.mkdir(testDir)
+    if os.system("pushd " + testDir) != 0:
+        print("changeDir to ibm-main-test failed")
+        print("aborting test")
+        exit(99)
+
+    os.system("erase /Q *.*")
+
     with open("ibm_main.rss", "w", encoding="utf-8") as f:
-        f.write(data.replace("</link", a[0] + "</link").replace("Date>08","Date>"+a[1]).replace("f792e96a.2504</zlink>",a[2] + "</link>"))
+        f.write(testData)
+    process_rss()
+
+    with open("ibm_main.rss", "w", encoding="utf-8") as f:
+        f.write(testData.replace("10","11") + "<item>" + testData.split("<item>")[1].split("</item>")[0] + "</item>")
+    process_rss()
+
+    with open("ibm_main.rss", "w", encoding="utf-8") as f:
+        f.write(testData.replace("10","12") + "<item>" + testData.split("<item>")[1].split("</item>")[0].replace("10","11") + "</item>")
+    process_rss()
+
+
+srcDirectory = "C:\\Users\\jonpe\\Documents\\git\\jonperryman.github.io\\"
+os.chdir( os.path.expanduser("~\\Documents\\jon\\ibm-main\\") )
+
 def main():
     print("running main")
     #start_webserver()

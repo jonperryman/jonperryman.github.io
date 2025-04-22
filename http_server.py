@@ -11,6 +11,15 @@ from http.server import HTTPServer, CGIHTTPRequestHandler, SimpleHTTPRequestHand
 os.chdir( os.path.expanduser("~\\Documents\\jon\\ibm-main") )
 
 class ibm_main:
+
+    def markRead(path):
+        buildFiles = glob.glob("build_" + path[2] + ".*.show.html")
+        for file in buildFiles:
+            os.rename(file, file[:-10] + ".hide.html")
+        if len(buildFiles) > 0:
+            with open("indexhideitems.html", "a", encoding="utf-8") as f:
+                f.write("hide thread=/" + path[2] + "/ build=/" + buildFiles[-1].split(".")[-3]  + "/" )
+
     def terminate():
         self.kill_now = True
         return("Terminating web server")
@@ -25,8 +34,13 @@ class ibm_main:
         return("item show hide " + "/".join( path ))
 
     def indexMarkRead(path):
-        print("index mark read", "/".join( path ))
-        return("index mark read " +  "/".join( path ))
+        buildFiles = glob.glob("build_" + path[2] + ".*.show.html")
+        for file in buildFiles:
+            os.rename(file, file[:-10] + ".hide.html")
+        if len(buildFiles) > 0:
+            with open("indexhideitems.html", "a", encoding="utf-8") as f:
+                f.write("hide thread=/" + path[2] + "/ build=/" + buildFiles[-1].split(".")[-3]  + "/" )
+        return("index mark read has completed")
     
     def indexDelete(path):
         print("index delete", "/".join( path ))
@@ -36,20 +50,22 @@ class ibm_main:
         with open("thread_" + path[2] + ".html", "r", encoding="utf-8") as f:
             html = "\n".join([
 
-                            "<div id='threadButtonDiv_" + path[2] + "' class='threadButtonDiv'>",
+                            "<div id='threadButtonDiv'>",
                             
-                            "<button id='ThreadRead_" + path[2] + "' class='threadRead' onclick='threadRead(this, \"" + path[2] + "\");'>Read</button>",
+                            "<button id='ThreadRead' onclick='threadRead(this, \"" + path[2] + "\");'>Read</button>",
 
-                            "<button id='ThreadShow_" + path[2] + "' class='threadShow' onclick='threadShow(this, \"" + path[2] + "\");'>Show</button>",
+                            "<button id='ThreadShow' onclick='threadShow(this, \"" + path[2] + "\");'>Show</button>",
 
-                            "<button id='ThreadDelete_" + path[2] + "' class='threadDelete' onclick='threadDelete(this, \"" + path[2] + "\");'>Delete</button>",
+                            "<button id='ThreadDelete' onclick='threadDelete(this, \"" + path[2] + "\");'>Delete</button>",
 
                             "</div>", 
-                            
+
+                            "<button id='threadclosex' class='closex' onclick='threadClose(this, \"" + path[2] + "\");'>X</button>",
+
                             "<h1 id='thread_" + path[2] + "' class='threadH1'>" + f.read() + "</h1>\n\n"
                             
                         ])
-        for file in glob.glob("build_" + path[2] +"_??????????.html"):
+        for file in glob.glob("build_" + path[2] +".*.html"):
             with open(file, "r", encoding="utf-8") as f:
                 html += f.read()
         print("index open", "/".join( path ))
@@ -60,8 +76,13 @@ class ibm_main:
         return("threadShow " +  "/".join( path ))
 
     def threadRead(path):
-        print("threadRead", "/".join( path ))
-        return("threadRead " +  "/".join( path ))
+        buildFiles = glob.glob("build_" + path[2] + ".*.show.html")
+        for file in buildFiles:
+            os.rename(file, file[:-10] + ".hide.html")
+        if len(buildFiles) > 0:
+            with open("indexhideitems.html", "a", encoding="utf-8") as f:
+                f.write("hide thread=/" + path[2] + "/ build=/" + buildFiles[-1].split(".")[-3]  + "/" )
+        return("hide thread has completed")
 
     def threadDelete(path):
         print("thread delete", "/".join( path ))
@@ -110,7 +131,10 @@ def httpServer():
                     self.wfile.write(str.encode(results))
                 else:
                     if path[0] == "":
-                        path[0] = "rss_reader"
+                        if os.path.exists("./index.html"):
+                            path[0] = "index"
+                        else:
+                            path[0] = "rss_reader"
                     with open( path[0] + ".html" ) as f:
                         data = f.read().encode("utf-8")
                         self.send_response(200)
