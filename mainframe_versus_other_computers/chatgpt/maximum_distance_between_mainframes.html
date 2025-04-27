@@ -1,0 +1,38 @@
+Great question — the short answer is **no**, a **mainframe is not inherently a distributed computer**, but it **can be part of a distributed system**.
+
+### Here's the breakdown:
+
+- **Mainframe**:  
+  A **centralized computing system** — everything (processing, storage, management) is tightly integrated in one powerful machine. It’s built for **scalability and reliability**, but all the action happens in one physical system.
+
+- **Distributed computing**:  
+  Involves **multiple independent computers** (nodes) working together over a network to solve problems. They often share the workload and may be spread across locations.
+
+### However...
+Modern mainframes **can participate in distributed architectures**. For example, they might:
+
+- Communicate with other servers in a cloud environment  
+- Run microservices and APIs that interact with distributed apps  
+- Use virtualization (like IBM's z/OS with z/VM or LinuxONE) to simulate many systems inside one mainframe  
+
+So while the **core architecture of a mainframe is centralized**, it can **mimic or support distributed computing**.
+
+Want an example of how a mainframe might be part of a hybrid cloud or distributed system?
+
+### good data follows
+
+There’s no hard limit to the **maximum distance between mainframes**, because it really depends on **what they’re doing and how they’re connected**. But here’s the deal:
+
+### 🔄 If They’re Part of a Synchronized System:
+When mainframes are working together (like in active-active setups or data mirroring), **distance matters because of latency**. For real-time synchronization:
+
+- **Up to 100 km (62 miles)** is common for **high-speed fiber links** with near-instant failover (like IBM’s GDPS systems).
+- **300–500 km (200–300 miles)** can work with **asynchronous replication**, where there's a slight delay in data syncing.
+- Beyond that, **latency increases** and real-time syncing becomes impractical, though it's still possible for backups or less time-sensitive tasks.
+
+### 🌍 If They’re Independent or Loosely Coupled:
+If the mainframes aren’t tightly linked — say, one in Tokyo and another in New York — then they can be **any distance apart**. They might exchange data periodically, but they’re not acting like a single system.
+
+So, the max distance depends on **how closely they need to cooperate**.
+
+Want a visual showing how distance affects latency in these setups?

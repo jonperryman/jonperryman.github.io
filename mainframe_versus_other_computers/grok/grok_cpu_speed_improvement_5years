@@ -1,0 +1,35 @@
+<h1>I asked GROK: "how much faster are cpus than 5 years ago?"</h1>
+
+<p>Over the past five years (2020–2025), CPU performance has improved significantly, though the rate of progress varies depending on the metric (single-core, multi-core, or specific workloads) and the manufacturer (AMD, Intel, or Apple). Here’s a concise breakdown based on available data:
+Single-Core Performance
+Average Improvement: Single-core performance, critical for gaming and many everyday tasks, has improved by approximately 15–20% per year on average for desktop CPUs, compounding to roughly 100–150% faster over five years. For example:
+In 2020, AMD’s Ryzen 9 5950X scored ~631 in Cinebench R20 single-threaded tests. By 2024, top CPUs like AMD’s Ryzen 9 7950X3D or Intel’s Core i9-14900KS score ~800–900, a ~30–40% gain in single-threaded performance.
+
+Apple’s M1 (2020) to M4 (2024) shows a ~60% single-core improvement in Geekbench 6 scores over 3.5 years, suggesting a ~20% annual increase.
+
+Why? Gains come from architectural improvements (e.g., AMD’s Zen 3 to Zen 5, Intel’s Alder Lake to Arrow Lake), higher IPC (instructions per clock), and slightly better clock speeds (e.g., 5–6.2 GHz in top models). However, Moore’s Law has slowed, so gains are harder-won than in the 1990s–2000s.
+
+Multi-Core Performance
+Average Improvement: Multi-core performance has seen larger gains, roughly 200–300% faster over five years, driven by increased core counts (e.g., 6–8 cores in 2020 mainstream CPUs to 16–24 cores in 2025) and better multi-threading.
+In 2020, AMD’s Ryzen 9 5950X (16 cores) scored ~10,000 in Cinebench R23 multi-core. By 2024, AMD’s Ryzen 9 7950X3D or Intel’s Core i9-14900K (24 cores) score ~25,000–30,000, a ~2.5–3x increase.
+
+Intel’s Raptor Lake (2023) and Arrow Lake (2024) added efficiency cores, boosting multi-core tasks like video editing or 3D rendering.
+
+Why? More cores, hybrid architectures (performance + efficiency cores), and smaller process nodes (7nm to 5nm for AMD, 14nm to 10nm for Intel) enable higher parallelism and efficiency.
+
+Overall Performance Trends
+PassMark Benchmarks: PassMark’s 2024 data shows average CPU performance (across desktops and laptops) increased steadily from 2020 to 2024, but 2025 saw a slight dip, possibly due to a focus on power efficiency and AI tasks over raw performance. Top CPUs in 2024 were ~2–3x faster than 2020 models in aggregate benchmarks.
+
+Gaming: AMD’s Ryzen 7 5800X3D (2022) with 3D V-Cache outperforms Intel’s Core i9-12900K (2021) in gaming, showing how cache innovations boost specific workloads. By 2025, gaming CPUs like the Ryzen 7 7800X3D are ~50–70% faster than 2020’s Ryzen 9 3950X in frame rates.
+
+Apple’s ARM CPUs: Apple’s M-series chips (M1 to M4) have outpaced x86 in single-core efficiency, with ~2–3x multi-core performance over Intel’s 2020 mobile CPUs (e.g., i7-1065G7) due to 5nm processes and RISC architecture.
+
+Challenges and Context
+Stagnation Concerns: Some argue performance gains have slowed, with Intel’s generational improvements (e.g., Skylake to Kaby Lake) as low as 0–8% in the late 2010s. However, AMD’s Zen architecture and Apple’s M-series have driven competition, pushing ~20% annual gains recently.
+
+Focus Shift: Manufacturers prioritize efficiency, AI workloads (e.g., NPUs in Intel’s Meteor Lake), and core counts over raw clock speed, which has plateaued at 5–6 GHz since 2005.
+
+Workload-Specific Gains: Benchmarks like Cinebench or Geekbench may not reflect real-world tasks. For productivity (e.g., file compression, PDF rendering), 2021 CPUs doubled 2011’s Sandy Bridge performance, a trend continuing into 2025.
+
+Conclusion
+CPUs in 2025 are roughly 2–3x faster than those in 2020, with multi-core performance leading the charge (200–300% gains) and single-core trailing slightly (100–150% gains). AMD and Apple have driven larger leaps, while Intel’s progress has been steadier but less dramatic. If you’re upgrading from a 2020 CPU (e.g., Ryzen 9 3950X or Intel i9-10900K), expect noticeable improvements in gaming, multitasking, and professional workloads, though the need for upgrades depends on your specific tasks. For more details, check benchmark sites like PassMark or TechRadar.

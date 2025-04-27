@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head id="htmlHead">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="initial-scale=1.0">
 	<title>The lost art of IBM Mainframes - innovation instead of obsolescense</title>
@@ -13,15 +13,15 @@
 
 	<script>
 
-		function prepare_for_website() {
+		async function prepare_for_website() {
 			prepare_body_button.remove();
+			delete_template.remove();
 			fixAnchors(); 
 			fixTOC();
 			fixSrcRefs();
-			var source = new XMLSerializer().serializeToString(document);
-			source = source.substring(source.search("<" + "div"));
-			source = source.substring(0,source.search("<template> ============ Everything after this point will not be displayed =========="));
-			navigator.clipboard.writeText(source);
+			var source = new XMLSerializer().serializeToString(document.body);
+			source = source.substring(0,source.length-7).substring(source.search("<div"));
+			await navigator.clipboard.writeText(source);
 			alert("generated HTML has been copied.\nPlease paste to mainframe_versus_linux.html to make it available!");
 		}
 
@@ -61,12 +61,16 @@
 			toc_content.innerHTML = toc + "</ul>";
 		}
 
+		function scrollable_data_resize() {
+			scrollable_data.style.height = (window.innerHeight - scrollable_data.offsetTop - 20) + 'px';
+		}
+
 	</script>
 </head>
 
-<body>
+<body id="html_body" onload="scrollable_data_resize();" onresize="scrollable_data_resize();">
 
-<div id="scrollable_div" style="display: none;" onmouseleave="mf.close_scrollable_div();">
+<div id="scrollable_div" style="display: none;" onmouseleave="// mf.close_scrollable_div();">
 	<div style="float: right">
 		<div style=" font-size: 200%; 
 			font-weight: 300%; 
@@ -78,9 +82,9 @@
 			onclick="mf.close_scrollable_div();">
 			X
 		</div>
-		&nbsp; &nbsp; &nbsp;
+		&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 	</div>
-	<div id="scrollable_data"></div>
+	<iframe id='scrollable_data' style='width: 100%; border: none;' ></iframe>
 </div>
 
 <div id="page_container">
@@ -90,11 +94,11 @@
 	<script id="execute_script" type="text/javascript">
 		mf = {
 
-			open_scrollable_div: function(template_name) {
+			open_scrollable_div: function(webpage) {
 				scrollable_div.style.display = "inline";
 				page_container.style.display = "none";
 				// document.body.style.overflowY = "hidden";
-				scrollable_data.innerHTML = template_name.innerHTML;
+				scrollable_data.src = webpage	;
 			},
 
 			close_scrollable_div: function () {
@@ -130,46 +134,123 @@
 
 <br/>
 
-<h1>Debunking decades of lies by the Linux community<br/>
-	When it's Linux that is Broken As Designed (BAD)<br/>
-	that caused the rapid decay of software design skills</h1>
+<h1>Linux is all hype and no substance!<br/>
+	Debunking decades of lies from Linux softwaare engineers</h1>
+
+	<p>By the time you read this to the end, you will conclude that much of what you believe about Linux & C is not reality. Just because you do a job, does not mean you do it well.</p>
 	
-	<p><b>Motivated reasoning</b>: a person's need to believe they are software experts is so strong that they ignore common sense and real facts!</p>
+	<p><b>Motivated reasoning</b>: a person's need to be a software expert is so strong that they ignore common sense and real facts!</p>
 
-	<p><b>Name 1 thing that Linux and C software engineers designed correctly!</b> Before you attempt to name that 1 thing, you should to read this list of Linux and C failures and the lies that have been debunked. Linux and C are based on a false sense of successs (lies).</p>
+	<p>It's time to be brutally honest! Linux has caused the decay of simple and basic design skills. Look no farther than the decades of debunked lies that persist to this day.</p>
 
-	<p>Today's software engineers have lost the most basic computer skills. With only the most basic Linux concepts covered here, what makes anyone think anything complex has been engineered correctly.</p>
+	<p><b>It's time computer educators (software and hardware) teach the basics that have been lost. It's time they open their students eyes to the lies that have convinced them they are exceptional compared to the IBM mainframe.</b></p>
 
-<h1>Linux could be repaired so why not repair it?<br/>
-	Is IBM taking Redhat "closed source" a sign?</h1>
-	
-	<p>IBM RedHat is now closed source and we can only speculate as to why. Do they want to charge for RedHat modifications? Very unlikely because companies can simply move to another distro. Most likely is that IBM wants to modernize and redesign Linux.</p>
-		
-	<p>Linux can be repaired but the question is: will IBM repair it now that REDHAT is closed source? IBM is the only company remaining with the experience, expertise and skills to repair Linux.</p>
+	<div class="center-container"><img src="lemmings.gif"></div>
 
-	<p>It's time to wake up and stop putting lipstick on this pig!</p>
+<h2>Linux is Broken As Designed (BAD)!</h2>
+
+	<p>The one thing software engineers can never admit, is that Linux and C are broken because of their design. This list is about the lies you tell yourself because you need Linux to be the greatest OS ever. This is about the lies you need to justify your hatred for the mainframe when the reality is its decades ahead of every other computer architecture and operating system.</p>
+
+	<p>After reviewing this list of debunked Linux Lies, <b>name 1 design that Linux and C software engineers designed correctly!</b> While their designs solve a problem, they introduce new problems. The real question is how anyone considers these great.</p>
+
+	<p>Despising the mainframe, while popular, is not a valid reason to ignore Linux failures and there are a lot of failuress that are being ignored. Google is proof "you can't fix stupid" when none of their 5,000,000 servers is a mainframe.</p>
 
 	<div class="center-container"><img src="lipstick_on_a_pig.jpg"></div>
 
-<h1>Understand the mainframe has been despised for decades<br/>
-	because it doesn't allow mediocre minds to do anything they want.<br/>
-	It's delusional for brighter minds to ignore mainframe hardware and software design.</h1>
-
-	<p>Despising the mainframe, while popular, is not a valid reason to ignore Linux failures and there are a lot that are being ignored. </p>
+<h2>Dumbing down to the computer basics because of Linux<br/>
+	Even Google engineers don't truly understand the basics of computing</h2>
 	
-	<div class="center-container"><img src="lemmings.gif" /></div>
+	<p>Basic understanding of computers has greatly diminished because of the mainframes decline. Since most people would claim they understand <b>"servers</b>, let's debunk that first.</p>
+
+<h2>Lie : Software engineers understand "servers"</h2>
+
+	<p><b>ROTFLOL</b>, Rolling On The Floor Laughing Out Loud! Linux server concept is solely "internet" based even when the client is on the same computer as the server.</p>
+
+	<p>Before I was even born, the IBM mainframe was designed around</p>
+
+	<p>I asked the GROK (the X AI): <span class="fake_anchor" onclick="mf.open_scrollable_div('grok_are_servers_centralized.html');">"Are servers centralized?"</span>. <b>ROTFLOL</b>, GROK got it all wrong. No computer (server or not) is inherently centralized, not even the mainframe. </p>
 		
-<h1>Debunking decades of lies<br/>
-	Dumbing down to basics because even Google engineers don't understand computers!</h1>
+		
+		
+		need to understand that their knowledge & expertise is limited to Linux. say they understand but clearly they don't. This page is about educating Linux & Unix software engineers whose limited understanding of software designs has them falsely believing lies. For far too long, IBM has described the mainframe capabilities that software engineers don't comprehend.</p>
 	
-	<p>Software engineers say they understand but clearly they don't. For instance, they falsely believe they understand "distributed computing" which is the first lie to be debunked here.</p>
+<hr/><H2>Lie 1: Mainframes & Supercomputers are specialized computers<br/>
+	while Linux computers are great at generalized computing</h2>
 
-	<p>This page is about Linux & Unix because for far too long, IBM has described the mainframe capabilities that software engineers don't understand.
+	<p><b>ROTFLOL!</b> Rolling On The Floor Laughing Out Loud!</p>
 
-c is not efficient
-c is not portable
-CPUs are not 
-mainframes run on other hardware
+	<p>There is very little difference between any of these computers. It has been proven that any operating system is capable of running on most computers. Other than an IBM License, any of the IBM mainframe operating systems will run happily but with degraded performance on any of these computers.</p>  
+
+<h2>The largest supercomputer is actually a server farm</h2>
+
+	<p>The El Capitan Supercomputer <a>https://en.wikipedia.org/wiki/El_Capitan_(supercomputer)</a> is actually a server farm consisting of 43,808 blade servers each containing 2 AMD x86 CPU's and 1 AMD GPU. Google could replace their 5,000,000 servers (& GPUs) with 114 El Capitan supercomputers.</p>
+
+<h2>A quarter century<br/>
+	Linux running on IBM mainframe computers<br/>
+	IBM mainframe operating systems running on non-mainframe computers</h2>
+
+	<p>How many more decades before people learn that "mainframe" has never had a definable meaning? IBM operating systems happily run on other computers without any special hardware. Linux happily runs on IBM mainframe hardware. Just because this occurred in 2000, does not mean it couldn't have occurred with the first PC. It simply means there was no demand!</p>
+
+	<p>The mainframe (both hardware & software) is not specialized as Linux software engineers claim and has always been fully capable of doing everything peformed by Linux. These capabilities did not exist because there wasn't sufficient demand. Linux costing $0 running on cheap computers is great motivation to ignore the mainframe.</p>
+
+<h2>Lie #1 summary: no real difference in capabilities</h2>
+
+<ul>
+	<li>Mainframe and supercomputer are meaningless words.</li>
+	<li>El Capitan supercomputer proves Linux has the capacity to equal the IBM mainframe but sadly lacks the skills to follow through.</li>
+	<li>Desktops and laptops are dominated by Microsoft and Apple. Despite Linux and ChromeOS (Google Linux) being free, after decades they failed achieve their goal of becoming the dominant desktop.</li>
+	<li>IBM mainframe ignored desktops and laptops. They didn't waant to fail like Linux and ChromeOS.</li>
+</ul>
+
+<hr/><h2>Lie #: No CPU stands out as the fastest CPU</h2>
+
+<hr/><h2>Lie #: C is a portable language</h2>
+
+<hr/><h2>Lie #: C produces efficient executables</h2>
+
+<hr/><h2>Lie #: Linux software engineers understand computer terminology & concepts</h2>
+
+<hr/><h2>Lie #: Linux software engineers understand transactions</h2>
+
+<hr/><h2>Lie #: Linux databases are efficient</h2>
+
+<hr/><h2>Lie #: Linux understands "distributed computing"</h2>
+
+<hr/><h2>Lie #: Linux understands "sharing"</h2>
+
+<hr/><h2>Lie #: Linux filesystems are efficient</h2>
+
+<hr/><h2>Lie #: Every computer requires at least 1 disk drive</h2>
+
+<hr/><h2>Lie #: Every Linux requires it own filesystem with unique files</h2>
+
+<hr/><h2>Lie #: </h2>
+
+<hr/><h2>Lie #: </h2>
+
+<hr/><h2>Lie #: </h2>
+
+<hr/><h2>Lie #: </h2>
+
+<hr/><h2>Lie #: </h2>
+
+<hr/><h2>Lie #: </h2>
+
+<hr/><h2>Lie #: </h2>
+
+<hr/><h2>Lie #: </h2>
+<template id="delete_template"> ============ Everything after this point will not be displayed ==========
+<template> ============ Everything after this point will not be displayed ==========
+<template> ============ Everything after this point will not be displayed ==========
+<template> ============ Everything after this point will not be displayed ==========
+<template> ============ Everything after this point will not be displayed ==========
+<template> ============ Everything after this point will not be displayed ==========
+<template> ============ Everything after this point will not be displayed ==========
+
+
+
+<p>For your benefit, I asked X AI GROK <span class="fake_anchor" onclick="mf.open_scrollable_div('grok_is_telum_faster_intel_amd.html');">"How does a distributed database work?"</span>. </p>
+
 
 
 

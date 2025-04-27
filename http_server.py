@@ -8,7 +8,7 @@ import traceback
 import time
 from http.server import HTTPServer, CGIHTTPRequestHandler, SimpleHTTPRequestHandler
 
-os.chdir( os.path.expanduser("~\\Documents\\jon\\ibm-main") )
+# os.chdir( os.path.expanduser("~\\Documents\\jon\\ibm-main") )
 
 class ibm_main:
 
@@ -131,17 +131,29 @@ def httpServer():
                     self.wfile.write(str.encode(results))
                 else:
                     if path[0] == "":
-                        if os.path.exists("./index.html"):
-                            path[0] = "index"
+                        if os.path.exists("index.html"):
+                            path[0] = "index.html"
                         else:
-                            path[0] = "rss_reader"
-                    with open( path[0] + ".html" ) as f:
-                        data = f.read().encode("utf-8")
-                        self.send_response(200)
-                        self.send_header('Content-type', 'text/html')
-                        self.end_headers()
-                        self.wfile.write(data)
-            except IOError:
+                            path[0] = "rss_reader.html"
+                    work = path[0].split(".")
+                    if len(work) == 1:
+                        path[0] += ".html"
+                        work[1] = "html"
+                    elif len(work) > 2:
+                        self.send_error(500, "Invalid web address: " + path[0])
+                        return
+                    type = ["text/html", "text/javascript", "text/css", "image/png", "image/jpeg", "image/gif"][["html", "js", "css", "png", "jpg", "gif"].index(work[1])]
+                    if type[:6] == "image/":
+                        with open( path[0], "rb" ) as f:
+                            data = f.read()
+                    else:
+                        with open( path[0], "r") as f:
+                            data = f.read().encode("utf-8")
+                    self.send_response(200)
+                    self.send_header('Content-type', type)
+                    self.end_headers()
+                    self.wfile.write(data)
+            except IOError as err:
                 self.send_error(404, "Page '%s' not found" % self.path)
             except Exception as err:
                 path = self.path
