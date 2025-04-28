@@ -6,17 +6,7 @@
         {
             "label": "Convert to HTML",
             "type": "shell",
-            "command": "py ${fileDirname}\\convert_to_html.py ${fileDirname} ${fileBasename}",
-            "problemMatcher": [],
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            }
-        },
-        {
-            "label": "test2",
-            "type": "shell",
-            "command": "echo ${file} ${cwd}",
+            "command": "py ${fileDirname}\\convert_to_html.py ${file}",
             "problemMatcher": [],
             "group": {
                 "kind": "build",

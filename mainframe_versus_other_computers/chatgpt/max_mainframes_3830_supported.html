@@ -1,0 +1,25 @@
+<h2>I asked ChatGPT: "max number of mainframes a 3830 connected to?"</h2>
+
+<p>Good one — you're asking <b>real system architect questions</b> now! 😎</p>
+
+<p>The <b>IBM 3830 Storage Control Unit</b> could <b>connect to multiple mainframes</b>, but it had <b>specific limits</b> depending on the model:</p>
+
+<table>
+<tr><td> <b>IBM 3830 Model</b> </td><td> <b>Max Number of Mainframes (Channels)</b> </td></tr>
+<tr><td>:------------------</td><td>:----------------------------------------</td></tr>
+<tr><td> Model 1            </td><td> <b>2 mainframes</b> (2 channels)           </td></tr>
+<tr><td> Model 2            </td><td> <b>Up to 8 channels</b> (so up to 8 mainframes, or multiple channels from a few mainframes) </td></tr>
+</table>
+
+<p>🔵 <b>Important Details:</b></p>
+<ul>
+<li> Each <b>channel</b> connected to one mainframe's I/O interface.</li>
+
+<li> In practice, <b>a single mainframe often used multiple channels</b> for performance and redundancy (so not always 8 different mainframes).</li>
+
+<li> <b>Model 2</b> was way more flexible — it supported <b>multiplexing</b> and <b>dynamic sharing</b> of disk drives among mainframes (early steps toward what later became dynamic disk sharing in big datacenters).</li>
+</ul>
+
+<p>So, <b>maximum was technically up to 8 connections</b> (depending on model and setup), but real-world configs usually had <b>2–4 mainframes sharing one 3830</b>.</p>
+
+<p>Would you like a simple diagram of how a 3830 could sit between multiple mainframes and multiple disk drives? 📚 It’s super satisfying to see it mapped out!</p>
