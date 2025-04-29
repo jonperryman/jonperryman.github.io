@@ -19,7 +19,10 @@
 				scrollable_div.style.display = "inline";
 				page_container.style.display = "none";
 				// document.body.style.overflowY = "hidden";
-				scrollable_data.src = webpage	;
+				if (document.location.pathname == "/")
+					scrollable_data.src = "mainframe_versus_other_computers/" + webpage;
+				else
+					scrollable_data.src = webpage;
 			},
 
 			close_scrollable_div: function () {
