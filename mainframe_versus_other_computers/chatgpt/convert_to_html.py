@@ -11,7 +11,7 @@ def main(file):
     with open(file, "rb") as f:
         dataSplit = f.read().split(b'**')
 
-    if dataSplit[:1] == "<":
+    if dataSplit[0][:1] == "<":
         print("failed: file ", file, " appears to be converted")
         return
 
@@ -27,20 +27,18 @@ def main(file):
             data += segment0
 
     data = b''.join(data.split(b'\r'))      # remove carriage returns, we only use new lines \n
+    data = b'\n'.join([line.strip() for line in data.split(b'\n')])
 
     # Replace ### with <h2> </h2>
-    dataSplit = data.split(b'\n### ')
+    dataSplit = data.split(b'\n#')
     data = dataSplit.pop(0)
-    h2 = False
     for segment0 in dataSplit:
         splitPosition = segment0.find(b'\n')
-        data += b'\n<h2>' + segment0[:splitPosition] + b'</h2>' + segment0[splitPosition:]
+        data += b'\n<h2>' + segment0[:splitPosition].split(b' ',1)[1] + b'</h2>' + segment0[splitPosition:]
 
     data = b''.join(data.split(b'\n---\n')) # remove useless sepeerator line
 
     # replace \n- with <li> </li>
-    data = data.replace(b' \n',b'\n').replace(b' \n',b'\n').replace(b' \n',b'\n').replace(b' \n',b'\n').replace(b' \n',b'\n')
-
     dataSplit = b'\n-'.join(data.split(b'\n\n-')).split(b'\n-')      # remove preceeding blank line on <li> itemscarriage returns, we only use new lines \n
     data = dataSplit.pop(0)         # not an <li>
     startLIgroup = True
@@ -77,11 +75,10 @@ def main(file):
             table = False
 
         #if line not enclosed in html tags, then enclose it in <p> </p>
-        if len(element) == 0 or element[:1] == b'<' or element[:1] == b' ':
+        if len(element) == 0 or element[:1] == b'<':
             data += element + b'\n'
         else:
             data += b'<p>' + element + b'</p>\n'
-
 
     with open(file, "wb") as f:
         f.write(data)

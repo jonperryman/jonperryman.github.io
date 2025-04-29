@@ -1,0 +1,76 @@
+<h2>I asked ChatGPT to "tell us about IBM 2841"</h2>
+
+<p>Sure! Let's dive into it:</p>
+
+<p><b>IBM 2841 Storage Control Unit</b></p>
+
+<b>The IBM 2841</b> was a <b>storage control unit</b> introduced by IBM in the mid-1960s to work with the <b>System/360</b> mainframe family.
+
+<p>It acted as the <b>"middleman"</b> between the CPU and the disk drives — translating system commands into actual read/write operations on the disks.</p>
+
+<p><b>Key Facts about IBM 2841</b></p>
+
+<table>
+<tr><td> Feature </td><td> Details </td></tr>
+<tr><td>:-------</td><td>:--------</td></tr>
+<tr><td> <b>Announced</b> </td><td> 1965 </td></tr>
+<tr><td> <b>Primary Role</b> </td><td> Interface between IBM System/360 and disk storage (2311, 2314 drives) </td></tr>
+<tr><td> <b>Connected to</b> </td><td> CPU via "selector channels" or "multiplexer channels" </td></tr>
+<tr><td> <b>Supported Devices</b> </td><td> IBM 2311 disk drives, IBM 2314 disk systems </td></tr>
+<tr><td> <b>Capacity</b> </td><td> Could manage multiple disk drives at once </td></tr>
+<tr><td> <b>Location</b> </td><td> Usually installed near the mainframe but physically separate </td></tr>
+</table>
+
+<p><b>What Did the 2841 Actually Do?</b></p>
+<ul>
+<li> <b>Buffered</b> communication between the CPU and the disks — allowing the CPU to move on while the 2841 handled the slower disk I/O operations.</li>
+
+<li> <b>Managed</b> seeking (moving the disk arm), reading, and writing at the drive level.</li>
+
+<li> <b>Optimized</b> data transfer across channels to prevent bottlenecks.</li>
+
+<li> <b>Handled Errors</b> like retries if a disk read/write had a problem.</li>
+
+<li> <b>Multiplexed</b> access to multiple drives — multiple operations could happen independently on different drives.</li>
+</ul>
+
+<b>Without the 2841, the CPU would have to wait</b> while every slow disk movement completed — meaning wasted time and poor performance.
+
+<p><b>Which Disk Systems Needed a 2841?</b></p>
+<ul>
+<li> <b>IBM 2311 Direct Access Storage Device</b> (single drives)</li>
+
+<li> <b>IBM 2314 Direct Access Storage Facility</b> (arrays of drives)</li>
+</ul>
+
+<p>The <b>2314</b>, for example, needed the 2841 to coordinate operations across all its drives.</p>
+
+<p><b>Rough System Layout</b></p>
+
+<p>System/360 CPU
+↓<br/>
+Selector Channel (high-speed data path)<br/>
+↓<br/>
+IBM 2841 Storage Control Unit<br/>
+↓<br/>
+2311 or 2314 Disk Drives</p>
+
+<p><b>Technical Note</b></p>
+<ul>
+<li> The <b>2841</b> worked with <b>selector channels</b> (designed for fast, large data transfers) rather than just <b>multiplexer channels</b> (which juggled lots of small devices like card readers or printers).</li>
+
+<li> Later systems improved on this design with more advanced controllers integrated into disk subsystems.</li>
+</ul>
+
+<p><b>Fun Fact</b></p>
+<ul>
+<li> To install a 2841 and a full 2314 disk complex, a company often had to <b>remodel their data center</b> — the floors had to support several tons of equipment, and the air conditioning had to be upgraded because of the heat produced!</li>
+</ul>
+
+<p><b>Summary</b></p>
+
+<table>
+<tr><td> <b>IBM 2841 = "Disk traffic cop"</b> </td><td> Manages disk operations between mainframe and storage devices. </td></tr>
+<tr><td> <b>Critical to performance</b> </td><td> Freed the CPU from getting "stuck" waiting for slow disk I/O. </td></tr>
+<tr><td> <b>Supported major System/360 disks</b> </td><td> Especially IBM 2311 and IBM 2314. </td></tr>
+</table>
