@@ -1,0 +1,40 @@
+<h1>I asked Gemini for "percentage of transactional software that uses a database"</h1>
+
+It's challenging to provide a precise percentage of transactional software that uses a database because:
+
+* **Broad Definition:** "Transactional software" is a broad term. Many types of software perform operations that could be considered transactional in nature (requiring atomicity, consistency, isolation, and durability - ACID properties) to some degree.
+* **Varying Levels of Transactional Support:** Some software might implement full ACID transactions, while others might have more basic mechanisms for ensuring data integrity.
+* **Internal Implementation Details:** It's not always publicly known how software internally manages its data and ensures consistency. Some might use embedded databases or custom data management solutions.
+
+**However, it's safe to say that a very significant majority of software that requires robust and reliable transactional behavior relies on a database (either relational or NoSQL with transactional capabilities) as a core component for data persistence and integrity.**
+
+Here's why databases are so prevalent in transactional systems:
+
+* **Built-in ACID Compliance:** Database Management Systems (DBMS) are specifically designed to handle transactions and enforce ACID properties. This is a fundamental feature of most modern databases.
+* **Concurrency Control:** Databases provide mechanisms (like locking, multi-version concurrency control) to manage concurrent access and ensure isolation between transactions.
+* **Durability:** Databases ensure that once a transaction is committed, the changes are permanently stored and can survive system failures (often through mechanisms like write-ahead logs).
+* **Mature and Well-Tested Technology:** Database technology has been around for decades and is highly mature, reliable, and well-understood.
+
+**Examples of Transactional Software That Commonly Use Databases:**
+
+* **Financial Systems:** Banking applications, payment processors, stock trading platforms.
+* **E-commerce Platforms:** Online stores, shopping carts, order processing systems.
+* **Enterprise Resource Planning (ERP) Systems:** Managing various business processes like inventory, supply chain, and accounting.
+* **Customer Relationship Management (CRM) Systems:** Tracking customer interactions and sales activities.
+* **Online Booking Systems:** Hotel, flight, and event reservations.
+* **Healthcare Records Systems:** Managing patient information and medical histories.
+
+**Software That is Transactional But Does Not Always Use a Traditional Database:**
+
+As you correctly pointed out, some software achieves transactional behavior without a full-fledged external database:
+
+* **Version Control Systems (e.g., Git, Mercurial):** Commits are transactional, ensuring all changes are recorded atomically. They use their own file-based data structures.
+* **Software Transactional Memory (STM) Systems:** Used in concurrent programming, providing atomic blocks of code that operate on shared memory without explicit locks or a database.
+* **Transactional File Systems (Research/Specialized):** Aim to provide ACID properties for file operations directly within the file system.
+* **Message Queues with Transactional Semantics (e.g., Kafka, RabbitMQ):** Ensure messages are delivered exactly once through transactional producers and consumers.
+* **Workflow Engines:** Manage state transitions in a transactional manner, sometimes using internal state management or lighter-weight persistence mechanisms.
+* **Configuration Management Tools (e.g., Ansible, Chef):** Aim for atomic application of configurations, often with rollback capabilities, using their own state management.
+
+**Conclusion:**
+
+While there isn't a precise percentage available, it's highly likely that **a very large majority (well over 75%, and possibly closer to 90% or more) of software that demands strong, reliable transactional guarantees relies on a database system** for managing data persistence and ensuring ACID properties. Databases are the established and optimized technology for this critical aspect of many software applications. The examples of non-database transactional software tend to be more specialized or focused on a specific domain of operations.

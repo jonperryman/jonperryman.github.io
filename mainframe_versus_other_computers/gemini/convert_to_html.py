@@ -1,5 +1,6 @@
 import sys
 import glob
+import re
 
 def main(file):
 
@@ -20,65 +21,71 @@ def main(file):
 
     # create <h2> </h2>
     dataSplit = data.split(b'\n**')
-    data = b'<h2>I asked Gemini: ""</h2>\n\n' + dataSplit.pop(0)
+    data = dataSplit.pop(0)
     for segment in dataSplit:
-        splitPosition = segment.find(b'\n')
-        if segment[splitPosition-2:splitPosition] != b'**':
-            print("failed: expected **\\n not found at ", splitPosition, " in: ", segment)
-            exit
-        data += b'\n<h2>' + segment[:splitPosition-2] + b'</h2>' + segment[splitPosition:]
+        segment = segment.split(b'**',1)
+        data += b'\n<h2>' + segment[0] + b'</h2>' + segment[1]
 
     # replace ** with <b> </b>
-    dataSplit = data.split(b'**')
-    data = b''
-    Flag = False
+    dataSplit = data.split(b' **')
+    data = dataSplit.pop(0)
     for segment in dataSplit:
-        if Flag:
-            Flag = False
-            data += b'<b>' + segment + b'</b>'
-        else:
-            Flag = True
-            data += segment
+        segment = segment.split(b'**',1)
+        data += b'<b>' + segment[0] + b'</b>' + segment[1]
+
+    # handle tables 
+    dataSplit = data.split(b'```')
+    data = dataSplit.pop(0)
+    while len(dataSplit) != 0:
+        segments = dataSplit.pop(0).split(b'\n')
+        data += b'<table style="border: 1px solid;"><tr style="border: 1px solid; background-color: lightgreen;"><td>' + segments.pop(0) + b'</td></tr>'
+        for segment in segments:
+            data += b'<tr><td>' + segment + b'</td></tr>'
+        data += b'</table>\n'
+
+        data += dataSplit.pop(0)
 
     # replace \n*  with <li> </li>
-    dataSplit = data.split(b'\n* ')
-    data = dataSplit.pop(0)         # not an <li>
-    startLIgroup = True
-    for segment in dataSplit:
-
-        if startLIgroup:                 # first <li> in a list group
-            startLIgroup = False
-            data += b'\n<ul>'  
-        
-        # start of an <li>
-        liItem = segment.split(b'\n',1)  # end of <ul> list@
-        data += b'\n<li>' + liItem.pop(0) + b'</li>\n'
-        if len(liItem) == 0:
-            continue
-        if liItem[0][:6] == b'    * ':
-            liItem = liItem[0].split(b'\n')
-            data += b'\n<ul>\n'
-            while len(liItem) > 0:
-                if liItem[0][:6] == "    * ":
-                    data += b'<li>' + liItem.pop(0) + b'</li>\n'
-                else:
-                    break
-            data += b'/ul>'
-        if len(liItem) > 1:
-            data += b'</ul>\n\n' + b'\n'.join(liItem)
-            startLIgroup = True
-
-    # all other lines not in html use <p> </p>
     dataSplit = data.split(b'\n')
-    data = b''
-    table = False
-    for element in dataSplit:
+    if dataSplit[0][:4] == b'<h1>':
+        data = dataSplit.pop(0)
+    else:
+        data = b'<h1>I asked Gemini: ""</h1>\n'
+    liLevel = -4
+    startLI = False
+    for line in dataSplit:
 
-        #if line not enclosed in html tags, then enclose it in <p> </p>
-        if len(element) == 0 or element[:1] == b'<':
-            data += element + b'\n'
+        if line == b'':
+            data += b'\n'
+            continue
+    
+        indentation = re.match(b'^ *', line).span()[1]
+        indentChar = line[indentation:indentation+1]
+
+        if indentChar == b'*':
+            if indentation > liLevel and indentChar == b'*':
+                if indentation - liLevel != 4:
+                    print("failed: invalid indentation: ", line)
+                    exit()
+                data += b'\n<ul>\n<li>' + line[indentation+1:]
+                liLevel = indentation
+            else:
+                data += b'</li></ul>' * int( (liLevel - indentation)/4 )
+                liLevel = indentation
+                data += b'</li>\n<li>' + line[indentation+1:]
+            continue
+
+        if liLevel != -4 and liLevel >= indentation:
+            liLevel -= 4
+            data += b'</li>\n</ul>'
+        
+        if line[:4] == b'<h2>':
+            data += b'\n' + line 
         else:
-            data += b'<p>' + element + b'</p>\n'
+            data += b'\n<p>' + line + b'</p>'
+
+    data = b'\n\n'.join( data.split(b'\n\n\n') )
+    data = b'</tr>\n'.join( data.split(b'</tr>') )
 
     with open(file, "wb") as f:
         f.write(data)

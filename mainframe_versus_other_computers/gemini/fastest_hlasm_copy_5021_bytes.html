@@ -1,0 +1,42 @@
+<h1>I asked Gemini: "fastest hlasm code to copy 5021 bytes"</h1>
+
+You're looking for the absolute fastest HLASM (High Level Assembler for z/Architecture) code to copy 5021 bytes. Given the architecture's strengths, the **`MVC` (Move Character)** instruction remains the top contender, especially for contiguous block moves within memory.
+
+Here's the HLASM code optimized for speed and clarity:
+
+```hlasm
+         TITLE 'FASTEST MOVE 5021 BYTES (HLASM)'
+         SPACE 1
+FASTMOVE CSECT
+         STM   14,12,12(13)    Save caller's registers
+         LR    13,15           Establish addressability
+
+         LA    R6,SOURCE        Load address of source
+         LA    R7,TARGET        Load address of target
+
+         MVC   TARGET(5021),SOURCE Move the 5021 bytes
+
+         L     13,4(13)        Restore caller's save area
+         LM    14,12,12(13)    Restore caller's registers
+         BR    14              Return to caller
+
+         SPACE 1
+SOURCE     DC    CL5021'This is the source data...'
+TARGET     DS    CL5021
+
+         END   FASTMOVE
+```
+
+**Why this is the fastest (and likely only optimal) approach in HLASM for this specific task:**
+
+* **`MVC` Instruction Optimization:** The `MVC` instruction is a fundamental and highly optimized instruction in the z/Architecture for moving contiguous blocks of bytes in memory. The hardware is specifically designed to execute this efficiently.
+* **Single Instruction Execution:** Using a single `MVC` instruction to move the entire 5021-byte block minimizes instruction fetch and decode overhead. Looping with smaller moves would introduce significant overhead.
+* **z/Architecture Design:** The architecture prioritizes efficient block memory operations, and `MVC` directly leverages this design.
+
+**Why other approaches are less optimal:**
+
+* **Looping with smaller `MVC` or other move instructions (e.g., `MVCL`, `MVCS`):** Introducing a loop would add instruction overhead for loop control (branching, counter decrementing), making it slower than a single `MVC`. While `MVCL` is excellent for variable-length moves, for a known, fixed-size block like this, `MVC` is more direct. `MVCS` (Move Character String) is for handling strings with delimiters, not a raw byte copy.
+* **Using individual byte moves (`MVI` in a loop):** This would be extremely inefficient due to the high instruction count.
+* **Leveraging specialized vector instructions (if available on the specific z/Architecture variant):** While some newer z/Architecture implementations might have vector extensions, for a simple byte-by-byte copy of a known size, the overhead of setting up and using vector registers for this relatively small transfer (compared to the vector register sizes) would likely outweigh any potential gain over the highly optimized `MVC`. The `MVC` instruction is already designed for efficient block transfers.
+
+**In summary, for copying a fixed-size block of bytes like 5021 in HLASM, the direct use of the `MVC` instruction with the specified length is the fastest and most efficient method.** The z/Architecture hardware is built to handle this operation with high performance.
