@@ -1,0 +1,261 @@
+<p align="center"><font style="font-size: 14pt; font-weight: bold;">I asked Gemini "what linux software cannot run on mainframe linux"</font></p>
+<p style="margin-bottom: 0.17in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans Text, serif">While
+Mainframe Linux (running on IBM Z and LinuxONE systems) is a
+full-fledged Linux distribution, certain types of Linux software
+either cannot run or face significant challenges. The primary reason
+is the fundamental difference in the underlying CPU architecture
+(z/Architecture, or s390x) compared to the prevalent x86
+architecture.</font></font></p>
+<p style="margin-bottom: 0.08in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans Text, serif">Here's a
+breakdown of what generally cannot run or is highly challenging:</font></font></p>
+<ol>
+	<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>x86
+	Binary-Only Software (Native Compiled Applications):</b></font></font></p></li>
+</ol>
+<ol>
+	<ul>
+		<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif">This is
+		the biggest category. Any application compiled specifically for x86
+		(e.g., .deb or .rpm packages built for amd64 or i386) </font></font><font color="#1b1c1d"><font face="Google Sans Text, serif"><b>will
+		not run directly</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+		on a mainframe. The CPU simply doesn't understand the x86
+		instruction set.</font></font></p></li>
+		<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif">This
+		includes most commercial, closed-source software that doesn't
+		provide an s390x build. Examples might include:</font></font></p></li>
+	</ul>
+</ol>
+<ol>
+	<ul>
+		<ul>
+			<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+			<font color="#1b1c1d"><font face="Google Sans Text, serif">Proprietary
+			CAD/CAM software</font></font></p></li>
+			<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+			<font color="#1b1c1d"><font face="Google Sans Text, serif">Specialized
+			engineering or scientific applications</font></font></p></li>
+			<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+			<font color="#1b1c1d"><font face="Google Sans Text, serif">Certain
+			gaming engines or games (though mainframes are not gaming
+			machines)</font></font></p></li>
+			<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+			<font color="#1b1c1d"><font face="Google Sans Text, serif">Niche
+			security software</font></font></p></li>
+		</ul>
+	</ul>
+</ol>
+<ol>
+	<ul>
+		<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Solution:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+		You would need the software vendor to provide an s390x-compiled
+		version, or if it's open source, you'd need to recompile it from
+		source code for s390x.</font></font></p></li>
+	</ul>
+</ol>
+<ol start="2">
+	<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Software
+	Relying on x86-Specific CPU Features/Intrinsics:</b></font></font></p></li>
+</ol>
+<ol>
+	<ul>
+		<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif">Applications
+		that heavily leverage </font></font><font color="#1b1c1d"><font face="Google Sans Text, serif"><b>x86-specific
+		instruction set extensions</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+		like:</font></font></p></li>
+	</ul>
+</ol>
+<ol>
+	<ul>
+		<ul>
+			<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+			<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>AVX,
+			AVX2, AVX-512</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+			(as we discussed)</font></font></p></li>
+			<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+			<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>SSE,
+			SSE2, SSE3, SSE4</b></font></font></p></li>
+			<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+			<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>FMA,
+			BMI, AES-NI</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+			(unless an s390x equivalent is used or emulation is provided)</font></font></p></li>
+			<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+			<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Intel
+			SGX (Software Guard Extensions)</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+			or other unique hardware security features.</font></font></p></li>
+		</ul>
+	</ul>
+</ol>
+<ol>
+	<ul>
+		<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif">While
+		RISC-V (and by extension, s390x for certain operations) has its own
+		vector extensions and cryptographic accelerators, the code built to
+		use x86 intrinsics directly cannot run. Recompilation would be
+		needed, and the compiler/programmer would have to map these to
+		s390x equivalents or generic code.</font></font></p></li>
+	</ul>
+</ol>
+<ol start="3">
+	<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Drivers
+	for x86-Specific Hardware:</b></font></font></p></li>
+</ol>
+<ol>
+	<ul>
+		<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif">Linux
+		requires drivers to interact with hardware.</font></font><font color="#575b5f"><sup><font face="Google Sans Text, serif"><font size="3" style="font-size: 12pt">1</font></font></sup></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+		Mainframes have their own unique I/O architecture (channels,
+		channel paths, control units, etc.), which is fundamentally
+		different from the PCI Express-based I/O of x86 servers.</font></font><font color="#575b5f"><sup><font face="Google Sans Text, serif"><font size="3" style="font-size: 12pt">2</font></font></sup></font><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial, serif"><font size="2" style="font-size: 11pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent"><br/>
+</span></span></span></font></font></span></font></span><br/>
+
+		</p></li>
+		<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif">Therefore,
+		</font></font><font color="#1b1c1d"><font face="Google Sans Text, serif"><b>any
+		Linux driver written specifically for x86 hardware</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+		(e.g., specific NVIDIA GPUs, exotic RAID controllers, certain
+		network cards, USB devices) </font></font><font color="#1b1c1d"><font face="Google Sans Text, serif"><b>cannot
+		run on a mainframe.</b></font></font></p></li>
+		<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif">The
+		Linux kernel for s390x includes drivers for mainframe-specific
+		hardware.</font></font><font color="#575b5f"><sup><font face="Google Sans Text, serif"><font size="3" style="font-size: 12pt">3</font></font></sup></font><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial, serif"><font size="2" style="font-size: 11pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent"><br/>
+</span></span></span></font></font></span></font></span><br/>
+
+		</p></li>
+	</ul>
+</ol>
+<ol start="4">
+	<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Software
+	that Bundles x86 Binaries:</b></font></font></p></li>
+</ol>
+<ol>
+	<ul>
+		<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif">Some
+		software packages, even if written in an interpreted language (like
+		Python), might include compiled </font></font><font color="#1b1c1d"><font face="Google Sans Text, serif"><b>binary
+		components or native libraries (.so files)</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+		that are pre-compiled for x86.</font></font></p></li>
+		<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif">If these
+		native components don't have an s390x version, the software will
+		not function. You'd need to rebuild those components for s390x.</font></font></p></li>
+	</ul>
+</ol>
+<ol start="5">
+	<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>GUI
+	Applications (with caveats):</b></font></font></p></li>
+</ol>
+<ol>
+	<ul>
+		<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif">While
+		you </font></font><font color="#1b1c1d"><font face="Google Sans Text, serif"><i>can</i></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+		run graphical desktop environments and GUI applications on
+		Mainframe Linux, it's not their primary use case. Mainframes are
+		typically run &quot;headless&quot; for server workloads.</font></font></p></li>
+		<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif">Performance
+		for demanding graphical applications (e.g., video editing, 3D
+		rendering, complex IDEs like a full Visual Studio Code desktop
+		client) might not be ideal, as the graphical output would need to
+		be rendered on the mainframe and then displayed remotely (e.g., via
+		VNC or X11 forwarding), incurring latency. The mainframe's
+		strengths are I/O, transaction processing, and massive scalability,
+		not interactive desktop graphics.</font></font></p></li>
+	</ul>
+</ol>
+<ol start="6">
+	<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Certain
+	Low-Level System Utilities/Bootloaders:</b></font></font></p></li>
+</ol>
+<ol>
+	<ul>
+		<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif">Bootloaders
+		like GRUB or LILO (though some s390x equivalents exist, like zipl)
+		are highly architecture-specific and cannot be swapped between x86
+		and s390x.</font></font></p></li>
+		<li><p style="margin-bottom: 0.08in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif">Low-level
+		debugging tools or kernel modules that directly manipulate x86 CPU
+		registers or specific hardware features would obviously not work.</font></font></p></li>
+	</ul>
+</ol>
+<p style="margin-top: 0.17in; margin-bottom: 0.08in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>What
+</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif"><i><b>can</b></i></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif"><b>
+run (and often runs very well):</b></font></font></p>
+<ul>
+	<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Interpreted
+	Languages:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+	Python, Java (with s390x JVM), Node.js, Ruby, Perl, PHP.</font></font><font color="#575b5f"><sup><font face="Google Sans Text, serif"><font size="3" style="font-size: 12pt">4</font></font></sup></font><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial, serif"><font size="2" style="font-size: 11pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent"><br/>
+</span></span></span></font></font></span></font></span><br/>
+
+	</p></li>
+	<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Container
+	Runtimes:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+	Docker, Podman, Kubernetes (with s390x-compatible images).</font></font><font color="#575b5f"><sup><font face="Google Sans Text, serif"><font size="3" style="font-size: 12pt">5</font></font></sup></font><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial, serif"><font size="2" style="font-size: 11pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent"><br/>
+</span></span></span></font></font></span></font></span><br/>
+
+	</p></li>
+	<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Databases:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+	PostgreSQL, MySQL, MariaDB, Db2, Oracle (if s390x versions are
+	provided).</font></font></p></li>
+	<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Web
+	Servers/Application Servers:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+	Apache HTTP Server, Nginx, JBoss, Tomcat.</font></font></p></li>
+	<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Middleware:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+	Kafka, RabbitMQ, Redis, OpenShift.</font></font></p></li>
+	<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Cloud
+	Native Tools:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+	Many Cloud Native Computing Foundation (CNCF) projects have s390x
+	support.</font></font><font color="#575b5f"><sup><font face="Google Sans Text, serif"><font size="3" style="font-size: 12pt">6</font></font></sup></font><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial, serif"><font size="2" style="font-size: 11pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent"><br/>
+</span></span></span></font></font></span></font></span><br/>
+
+	</p></li>
+	<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Standard
+	Linux Utilities:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+	bash, grep, awk, sed, coreutils, etc.</font></font></p></li>
+	<li><p style="margin-bottom: 0.08in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Compilers:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+	GCC, Clang (for s390x).</font></font><font color="#575b5f"><sup><font face="Google Sans Text, serif"><font size="3" style="font-size: 12pt">7</font></font></sup></font><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial, serif"><font size="2" style="font-size: 11pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent"><br/>
+</span></span></span></font></font></span></font></span><br/>
+<br/>
+
+	</p></li>
+</ul>
+<p style="margin-top: 0.17in; margin-bottom: 0.17in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans Text, serif">In
+essence, any Linux software that is open-source and well-maintained,
+adheres to POSIX standards, and doesn't have hardcoded x86-specific
+binaries or hardware dependencies, has a very good chance of being
+compiled and running successfully on Mainframe Linux. The IBM Z and
+LinuxONE platforms are well-supported by major Linux distributions,
+ensuring a robust open-source ecosystem.</font></font><font color="#575b5f"><sup><font face="Google Sans Text, serif"><font size="3" style="font-size: 12pt">8</font></font></sup></font></p>
+<p style="margin-bottom: 0in; line-height: 100%; border: none; padding: 0in; background: transparent">
+<br/>
+
+</p>

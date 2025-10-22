@@ -1,0 +1,272 @@
+<p align="center"><font style="font-size: 14pt; font-weight: bold;">I asked Gemini "of 1000 bytes"</font></p>
+<p style="margin-bottom: 0.17in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans Text, serif">Aha! The
+&quot;of 1000 bytes&quot; is a crucial clarification.</font></font></p>
+<p style="margin-bottom: 0.17in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans Text, serif">The
+previous example for AVX-512 was for 64 bytes because AVX-512
+operates on 512-bit (64-byte) vectors. To perform a masked move over
+1000 bytes, you need to iterate and process the data in chunks.</font></font></p>
+<p style="margin-bottom: 0.17in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans Text, serif">Here's how
+you would perform a masked &quot;storage-to-storage&quot; move for
+1000 bytes using AVX-512, emphasizing the loop structure.</font></font></p>
+<p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font face="Google Sans Text, serif">Scenario:</font></p>
+<p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font face="Google Sans Text, serif">You have a SOURCE_BUFFER of 1000
+bytes and a DEST_BUFFER of 1000 bytes. You also have a MASK_BUFFER
+(which would conceptually contain 1000 bits, or 125 bytes, translated
+into 64-bit opmask values for each 64-byte chunk). You want to
+conditionally copy bytes from SOURCE_BUFFER to DEST_BUFFER based on
+the mask.</font></p>
+<p style="margin-bottom: 0.17in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Key
+Concept: Looping in 64-byte (512-bit) Chunks</b></font></font></p>
+<p style="margin-bottom: 0.08in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans Text, serif">Since
+AVX-512 instructions operate on 64-byte vectors, you'll process the
+1000-byte buffer in segments.</font></font></p>
+<ul>
+	<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif">1000
+	bytes / 64 bytes/vector = 15 full vectors with 40 bytes remaining.</font></font></p></li>
+	<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif">You'll
+	perform 15 iterations of the 64-byte masked move logic.</font></font></p></li>
+	<li><p style="margin-bottom: 0.08in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif">The
+	remaining 40 bytes will need a special handling (e.g., using a mask
+	that only covers the valid 40 bytes, or using a different, smaller
+	instruction if available, but a masked load/store is still the most
+	efficient way to handle partial vectors).</font></font></p></li>
+</ul>
+<p style="margin-top: 0.17in; margin-bottom: 0.17in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Example
+(x86 AVX-512 Assembly with Pseudo-code comments for a loop):</b></font></font></p>
+<p style="margin-bottom: 0.17in; line-height: 115%; margin-right: 0.08in; border: none; padding: 0in; margin-left: 0.17in; background: transparent">
+<br/>
+<br/>
+
+</p>
+<p style="margin-top: 0.08in; margin-bottom: 0.1in; line-height: 115%; margin-right: 0.08in; border: none; padding: 0in; margin-left: 0.17in; background: transparent">
+<font color="#575b5f"><font face="Google Sans Text, serif"><span style="background: #f0f4f9">Code
+snippet</span></font></font></p>
+<p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans Text, serif"><span style="background: #f0f4f9">;
+Assume:<br/>
+;   SOURCE_BUFFER  is a pointer to 1000 bytes in
+memory<br/>
+;   DEST_BUFFER    is a pointer to 1000 bytes in memory<br/>
+;
+  MASK_DATA      is a pointer to an array of 64-bit masks.<br/>
+;    
+             You'd need 16 masks: 15 for full 64-byte chunks, 1 for
+the 40-byte remainder.<br/>
+;                  (Each mask applies to
+8 elements, where an element is 8 bytes for VMOVAPD)<br/>
+<br/>
+section
+.data<br/>
+    ; Example data - for a real scenario, these would be
+much larger<br/>
+    ; We'll just define small placeholder data for
+demonstration<br/>
+    align 64<br/>
+    SOURCE_BUFFER   resb 1000   
+; Reserve 1000 bytes<br/>
+    DEST_BUFFER     resb 1000    ; Reserve
+1000 bytes<br/>
+    MASK_DATA       resq 16      ; Reserve 16
+quadwords for masks (16 * 8 bytes = 128 bytes)<br/>
+<br/>
+section
+.text<br/>
+global _start<br/>
+<br/>
+_start:<br/>
+    ; Initialize
+buffers with some data (e.g., fill with values to see changes)<br/>
+ 
+  ; ... (code to initialize SOURCE_BUFFER and DEST_BUFFER would go
+here)<br/>
+    ; For example:<br/>
+    ; mov rcx, 1000<br/>
+    ; xor
+rax, rax<br/>
+    ; mov rdi, SOURCE_BUFFER<br/>
+    ; rep stosb<br/>
+
+   ; mov rdi, DEST_BUFFER<br/>
+    ; mov rax, 0xAA          ; Fill
+DEST_BUFFER with 0xAA<br/>
+    ; mov rcx, 1000<br/>
+    ; rep stosb<br/>
+<br/>
+
+   ; --- Loop setup ---<br/>
+    mov rsi, SOURCE_BUFFER  ; rsi will
+point to current source chunk<br/>
+    mov rdi, DEST_BUFFER    ; rdi
+will point to current destination chunk<br/>
+    mov rbx, MASK_DATA  
+   ; rbx will point to current mask in MASK_DATA array<br/>
+<br/>
+   
+mov rcx, 15             ; Loop counter for 15 full 64-byte
+chunks<br/>
+<br/>
+.loop_full_chunks:<br/>
+    ; 1. Load the current
+64-bit mask for this chunk<br/>
+    mov rax, [rbx]          ; Load
+64-bit mask value from MASK_DATA<br/>
+    kmovq k1, rax           ;
+Move to K-register k1<br/>
+<br/>
+    ; 2. Load the current 64-byte
+chunk from DEST_BUFFER into zmm0<br/>
+    vmovapd zmm0, [rdi]<br/>
+<br/>
+
+   ; 3. Perform a masked load from SOURCE_BUFFER into zmm1<br/>
+    ;
+   Elements in zmm1 not selected by k1 will be zeroed.<br/>
+   
+vmovapd zmm1 {k1}, [rsi]<br/>
+<br/>
+    ; 4. Blend zmm0 (original
+DEST) and zmm1 (masked SOURCE) using k1<br/>
+    ;    Result in zmm0<br/>
+
+   vblendmpd zmm0 {k1}, zmm0, zmm1<br/>
+<br/>
+    ; 5. Store the
+combined result from zmm0 back to DEST_BUFFER<br/>
+    vmovapd [rdi],
+zmm0<br/>
+<br/>
+    ; 6. Advance pointers and loop counter<br/>
+   
+add rsi, 64             ; Move SOURCE_BUFFER pointer to next 64-byte
+chunk<br/>
+    add rdi, 64             ; Move DEST_BUFFER pointer to
+next 64-byte chunk<br/>
+    add rbx, 8              ; Move MASK_DATA
+pointer to next 64-bit mask<br/>
+    dec rcx<br/>
+    jnz
+.loop_full_chunks<br/>
+<br/>
+    ; --- Handle the remaining 40 bytes
+---<br/>
+    ; This requires a specific mask for the partial vector.<br/>
+
+   ; For 40 bytes, you need to select 5 quadwords (5 * 8 = 40).<br/>
+
+   ; The mask would be 0b00011111 (0x1F) if you're only interested in
+the first 5 elements.<br/>
+<br/>
+    ; Load the mask for the partial
+chunk (assuming it's the last mask in MASK_DATA)<br/>
+    mov rax,
+[rbx]          ; Load the 16th mask (for the last 40 bytes)<br/>
+   
+kmovq k1, rax           ; Move to K-register k1<br/>
+<br/>
+    ; Load
+the remaining 40 bytes (64 bytes actually) from DEST_BUFFER into
+zmm0<br/>
+    ; The load instruction will still load 64 bytes, but
+only the first 40 will be relevant<br/>
+    ; or effectively used due
+to the mask on the subsequent store.<br/>
+    vmovapd zmm0, [rdi]<br/>
+<br/>
+
+   ; Perform a masked load of the remaining 40 bytes from
+SOURCE_BUFFER into zmm1<br/>
+    ; This load will still read 64
+bytes, but only the first 40 bytes will be used<br/>
+    ; in the
+blend due to k1. The elements outside the 40-byte range will be
+zeroed.<br/>
+    vmovapd zmm1 {k1}, [rsi]<br/>
+<br/>
+    ; Blend zmm0
+(original DEST) and zmm1 (masked SOURCE) using k1<br/>
+    ; Result
+in zmm0. This will correctly merge only the first 40 bytes.<br/>
+   
+vblendmpd zmm0 {k1}, zmm0, zmm1<br/>
+<br/>
+    ; Perform a masked
+store of the remaining 40 bytes to DEST_BUFFER<br/>
+    ; This
+ensures only the relevant 40 bytes of DEST_BUFFER are modified,<br/>
+
+   ; preserving the bytes beyond the 40-byte boundary (if any, though
+in this<br/>
+    ; case, it's the end of the 1000-byte buffer).<br/>
+
+   vmovapd [rdi] {k1}, zmm0<br/>
+    ; Note: The masked store here is
+crucial for the partial chunk.<br/>
+    ; If the destination array
+was aligned and we were *not* at the end,<br/>
+    ; and there was
+data beyond the 40 bytes we didn't want to touch,<br/>
+    ; this
+masked store would prevent writes to those bytes.<br/>
+<br/>
+    ;
+Exit<br/>
+    mov eax, 60<br/>
+    xor rdi, rdi<br/>
+    syscall<br/>
+</span></font></font><br/>
+
+</p>
+<p style="margin-bottom: 0.08in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Key
+Points for 1000 Bytes:</b></font></font></p>
+<ol>
+	<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Chunking:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+	Data is processed in 64-byte (512-bit) chunks, as that's the native
+	width of AVX-512 registers and operations.</font></font></p></li>
+	<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Looping:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+	A loop is used to iterate through the chunks.</font></font></p></li>
+	<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Mask
+	Array:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+	You would need an array of 64-bit masks in memory (MASK_DATA in the
+	example). Each 64-bit mask corresponds to a 64-byte chunk of the
+	source/destination data. The bits within each mask determine which
+	of the 8 quadword elements (8 bytes each) within that 64-byte chunk
+	are copied.</font></font></p></li>
+	<li><p style="margin-bottom: 0.08in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Remainder
+	Handling:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+	The last chunk (40 bytes in this case) requires a specific mask that
+	only enables the elements within that 40-byte range. A masked store
+	(vmovapd [mem] {k1}, zmm) is particularly important for the final,
+	partial chunk to ensure you don't write beyond the intended buffer
+	boundary or corrupt adjacent data if the buffer isn't perfectly
+	aligned to 64 bytes.</font></font></p></li>
+</ol>
+<p style="margin-top: 0.17in; margin-bottom: 0.17in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans Text, serif">This
+approach demonstrates how &quot;masked move storage to storage&quot;
+is effectively achieved in modern CPUs with vector extensions like
+AVX-512, even though it's not a single, atomic instruction for
+arbitrary lengths.</font></font></p>

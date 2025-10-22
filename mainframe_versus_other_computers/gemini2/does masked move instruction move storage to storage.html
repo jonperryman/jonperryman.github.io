@@ -1,0 +1,147 @@
+<p align="center"><font style="font-size: 14pt; font-weight: bold;">I asked Gemini "does masked move instruction move storage to storage"</font></p>
+<p style="margin-bottom: 0.17in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans Text, serif">Yes,
+masked move instructions can move data </font></font><font color="#1b1c1d"><font face="Google Sans Text, serif"><b>from
+storage to storage</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">,
+or from </font></font><font color="#1b1c1d"><font face="Google Sans Text, serif"><b>storage
+to register</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">,
+or from </font></font><font color="#1b1c1d"><font face="Google Sans Text, serif"><b>register
+to storage</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">,
+or </font></font><font color="#1b1c1d"><font face="Google Sans Text, serif"><b>register
+to register</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">.</font></font><font color="#575b5f"><sup><font face="Google Sans Text, serif"><font size="3" style="font-size: 12pt">1</font></font></sup></font></p>
+<p style="margin-bottom: 0in; line-height: 100%; border: none; padding: 0in; background: transparent">
+<br/>
+
+</p>
+<p style="margin-bottom: 0.17in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans Text, serif">While the
+most common and powerful use of masked move instructions (like those
+in AVX-512) is often with </font></font><font color="#1b1c1d"><font face="Google Sans Text, serif"><b>vector
+registers</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+(e.g., ZMM registers), they are fully capable of interacting with
+memory (storage).</font></font></p>
+<p style="margin-bottom: 0.08in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans Text, serif">Here's how
+that works in practice with AVX-512:</font></font></p>
+<ul>
+	<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Masked
+	Loads (Storage to Register):</b></font></font></p></li>
+</ul>
+<ul>
+	<ul>
+		<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif">Instructions
+		like VMOVDQU64 zmm1 {k1}, MEM (Move Unaligned Packed Quadword
+		Integer) would load 64 bytes (512 bits) from a memory address MEM
+		into zmm1.</font></font></p></li>
+		<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif">The k1
+		mask register would determine which 64-bit elements within the zmm1
+		register are actually loaded. If a bit in k1 is 0, the
+		corresponding element in zmm1 would either remain unchanged
+		(merging behavior) or be zeroed out, depending on the instruction.
+		This means you are conditionally loading data from memory into a
+		register.</font></font></p></li>
+	</ul>
+</ul>
+<ul>
+	<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Masked
+	Stores (Register to Storage):</b></font></font></p></li>
+</ul>
+<ul>
+	<ul>
+		<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif">Instructions
+		like VMOVDQU64 MEM {k1}, zmm1 would store the contents of zmm1 to a
+		memory address MEM.</font></font></p></li>
+		<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif">Again,
+		the k1 mask register is crucial. Only the elements in zmm1
+		corresponding to a set bit in k1 would be written to memory.
+		Elements in memory where the mask bit is 0 would remain untouched.
+		This provides a highly efficient way to update only specific parts
+		of a data structure in memory.</font></font></p></li>
+	</ul>
+</ul>
+<ul>
+	<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Masked
+	Gathers/Scatters (Storage to Register / Register to Storage):</b></font></font></p></li>
+</ul>
+<ul>
+	<ul>
+		<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif">AVX-512
+		also introduced </font></font><font color="#1b1c1d"><font face="Google Sans Text, serif"><b>masked
+		gather</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+		and </font></font><font color="#1b1c1d"><font face="Google Sans Text, serif"><b>masked
+		scatter</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+		instructions.</font></font><font color="#575b5f"><sup><font face="Google Sans Text, serif"><font size="3" style="font-size: 12pt">2</font></font></sup></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+		These are more complex &quot;storage-to-register&quot; and
+		&quot;register-to-storage&quot; operations respectively.</font></font><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial, serif"><font size="2" style="font-size: 11pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent"><br/>
+</span></span></span></font></font></span></font></span><br/>
+
+		</p></li>
+		<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Gather:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+		Loads multiple, non-contiguous elements from memory into a vector
+		register based on a set of indices and a mask.</font></font><font color="#575b5f"><sup><font face="Google Sans Text, serif"><font size="3" style="font-size: 12pt">3</font></font></sup></font><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial, serif"><font size="2" style="font-size: 11pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent"><br/>
+</span></span></span></font></font></span></font></span><br/>
+
+		</p></li>
+		<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Scatter:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+		Stores multiple, non-contiguous elements from a vector register to
+		memory based on a set of indices and a mask.</font></font></p></li>
+		<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif">The mask
+		is integral to these operations, as it determines which elements
+		are actually gathered/scattered, allowing for efficient sparse data
+		access.</font></font><font color="#575b5f"><sup><font face="Google Sans Text, serif"><font size="3" style="font-size: 12pt">4</font></font></sup></font><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial, serif"><font size="2" style="font-size: 11pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent"><br/>
+</span></span></span></font></font></span></font></span><br/>
+
+		</p></li>
+	</ul>
+</ul>
+<ul>
+	<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif">Internal
+	Operations (Often involves registers first):</font></font><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial, serif"><font size="2" style="font-size: 11pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent"><br/>
+</span></span></span></font></font></span></font></span><font color="#1b1c1d"><font face="Google Sans Text, serif">While
+	you might not have a single &quot;masked move storage to storage&quot;
+	instruction that directly manipulates two memory locations with a
+	mask in one go (like IBM's MVC for non-masked operations), the
+	common pattern is:</font></font></p></li>
+</ul>
+<ul>
+	<ol>
+		<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Masked
+		Load:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+		Load relevant data from source memory to a vector register (using a
+		mask if needed).</font></font></p></li>
+		<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Optional
+		Processing:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+		Perform any computations on the data in the register.</font></font></p></li>
+		<li><p style="margin-bottom: 0.08in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Masked
+		Store:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+		Store the (potentially modified) data from the vector register back
+		to the destination memory (using a mask if needed to preserve
+		existing data).</font></font></p></li>
+	</ol>
+</ul>
+<p style="margin-top: 0.17in; margin-bottom: 0.17in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans Text, serif">This
+sequence effectively achieves &quot;storage to storage&quot; masked
+movement, just in multiple steps, leveraging the power of the CPU's
+internal vector units and mask registers.</font></font></p>
+<p style="margin-bottom: 0.17in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans Text, serif">So, while
+the fundamental operation of a masked move is about conditional
+element transfer, it absolutely extends to moving data between memory
+(storage) and registers, and thus, implicitly enables masked &quot;storage
+to storage&quot; operations.</font></font></p>

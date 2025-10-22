@@ -1,0 +1,249 @@
+<p align="center"><font style="font-size: 14pt; font-weight: bold;">I asked Gemini "does riscv have a masked move"</font></p>
+<p style="margin-bottom: 0.17in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans Text, serif">Yes,
+</font></font><font color="#1b1c1d"><font face="Google Sans Text, serif"><b>RISC-V's
+Vector (V) Extension</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+provides robust support for masked operations, including masked moves
+(loads and stores) between registers and memory.</font></font><font color="#575b5f"><sup><font face="Google Sans Text, serif"><font size="3" style="font-size: 12pt">1</font></font></sup></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+This is one of the key features of the RISC-V Vector Extension,
+enabling efficient vectorized code for various applications.</font></font></p>
+<p style="margin-bottom: 0in; line-height: 100%; border: none; padding: 0in; background: transparent">
+<br/>
+
+</p>
+<p style="margin-bottom: 0.17in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans Text, serif">Here's how
+masking works in RISC-V V-extension:</font></font></p>
+<p style="margin-bottom: 0.17in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Key
+Differences from AVX-512 (and other SIMD ISAs):</b></font></font></p>
+<p style="margin-bottom: 0.08in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans Text, serif">The most
+significant difference in RISC-V's vector masking compared to AVX-512
+is that </font></font><font color="#1b1c1d"><font face="Google Sans Text, serif"><b>RISC-V
+does not have dedicated mask registers (like AVX-512's k0-k7).</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+Instead, </font></font><font color="#1b1c1d"><font face="Google Sans Text, serif"><b>the
+lowest-numbered vector register, </b></font></font><font color="#575b5f"><font face="Google Sans Text, serif"><b>v0</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif"><b>,
+is repurposed as the implicit mask register for all masked vector
+instructions.</b></font></font><font color="#575b5f"><sup><font face="Google Sans Text, serif"><font size="3" style="font-size: 12pt"><b>2</b></font></font></sup></font></p>
+<p style="margin-bottom: 0in; line-height: 100%; border: none; padding: 0in; background: transparent">
+<br/>
+
+</p>
+<ul>
+	<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#575b5f"><font face="Google Sans Text, serif"><b>v0</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif"><b>
+	as the Mask Register:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+	When a vector instruction is specified as &quot;masked&quot; (using
+	a specific encoding bit), the bits of </font></font><font color="#575b5f"><font face="Google Sans Text, serif">v0</font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+	are interpreted as the mask.</font></font><font color="#575b5f"><sup><font face="Google Sans Text, serif"><font size="3" style="font-size: 12pt">3</font></font></sup></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+	Each bit in v0 corresponds to an element in the vector operation.</font></font><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial, serif"><font size="2" style="font-size: 11pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent"><br/>
+</span></span></span></font></font></span></font></span><br/>
+
+	</p></li>
+	<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Scalable
+	Vector Length (VLEN) and Element Width (SEW):</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+	RISC-V's Vector Extension is highly flexible due to its scalable
+	design.</font></font><font color="#575b5f"><sup><font face="Google Sans Text, serif"><font size="3" style="font-size: 12pt">4</font></font></sup></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+	VLEN (Vector Length) is an implementation-defined maximum vector
+	register size (e.g., 128-bit, 256-bit, 512-bit, or even larger). </font></font><font color="#575b5f"><font face="Google Sans Text, serif">SEW</font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+	(Standard Element Width) defines the size of individual elements
+	(e.g., 8-bit bytes, 16-bit half-words, 32-bit words, 64-bit
+	doublewords).</font></font><font color="#575b5f"><sup><font face="Google Sans Text, serif"><font size="3" style="font-size: 12pt">5</font></font></sup></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+	The number of elements processed in a single vector instruction
+	depends on VLEN and SEW.</font></font><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial, serif"><font size="2" style="font-size: 11pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent"><br/>
+</span></span></span></font></font></span></font></span><br/>
+
+	</p></li>
+	<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>vl
+	(Vector Length Register):</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+	This Control and Status Register (CSR) determines the actual number
+	of elements currently active in a vector operation, which can be
+	less than the maximum possible for the current SEW and VLEN.</font></font></p></li>
+	<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Mask
+	Policies:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+	RISC-V V-extension defines policies for how inactive elements (those
+	with a 0 in the mask, or &quot;tail&quot; elements beyond </font></font><font color="#575b5f"><font face="Google Sans Text, serif">vl</font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">)
+	are handled:</font></font><font color="#575b5f"><sup><font face="Google Sans Text, serif"><font size="3" style="font-size: 12pt">6</font></font></sup></font><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial, serif"><font size="2" style="font-size: 11pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent"><br/>
+</span></span></span></font></font></span></font></span><br/>
+
+	</p></li>
+</ul>
+<ul>
+	<ul>
+		<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Mask
+		Undisturbed:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+		Inactive elements in the destination register (or memory for
+		stores) are left unmodified. This is the equivalent of AVX-512's
+		&quot;merging&quot; behavior.</font></font></p></li>
+		<li><p style="margin-bottom: 0.08in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Mask
+		Agnostic:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+		Inactive elements can be left unmodified or set to all ones.</font></font><font color="#575b5f"><sup><font face="Google Sans Text, serif"><font size="3" style="font-size: 12pt">7</font></font></sup></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+		This provides flexibility for implementations.</font></font><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial, serif"><font size="2" style="font-size: 11pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent"><br/>
+</span></span></span></font></font></span></font></span><br/>
+<br/>
+
+		</p></li>
+	</ul>
+</ul>
+<p style="margin-top: 0.17in; margin-bottom: 0.17in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Masked
+Move Instructions (Load and Store):</b></font></font></p>
+<p style="margin-bottom: 0.08in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans Text, serif">RISC-V
+V-extension includes a comprehensive set of masked load and store
+instructions.</font></font><font color="#575b5f"><sup><font face="Google Sans Text, serif"><font size="3" style="font-size: 12pt">8</font></font></sup></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+These are the equivalent of &quot;masked move&quot; operations
+to/from storage.</font></font></p>
+<p style="margin-bottom: 0in; line-height: 100%; border: none; padding: 0in; background: transparent">
+<br/>
+
+</p>
+<ul>
+	<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Masked
+	Unit-Stride Loads/Stores:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+	These load/store contiguous blocks of memory, applying the mask.</font></font></p></li>
+</ul>
+<ul>
+	<ul>
+		<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif">vle&lt;N&gt;.v
+		vd, (rs1), v0.t (Vector Load Element, masked, tail undisturbed) -
+		Loads N-bit elements into vector register vd from address rs1, only
+		where v0 bit is 1. Inactive elements in vd are undisturbed.</font></font></p></li>
+		<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif">vse&lt;N&gt;.v
+		vs3, (rs1), v0.t (Vector Store Element, masked, tail undisturbed) -
+		Stores N-bit elements from vector register vs3 to address rs1, only
+		where v0 bit is 1. Memory locations corresponding to inactive
+		elements are undisturbed.</font></font></p></li>
+	</ul>
+</ul>
+<ul>
+	<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Masked
+	Strided Loads/Stores:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+	These load/store elements with a fixed stride (e.g., every 4th
+	element), applying the mask.</font></font></p></li>
+</ul>
+<ul>
+	<ul>
+		<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#575b5f"><font face="Google Sans Text, serif">vls&lt;N&gt;.v
+		vd, (rs1), rs2, v0.t</font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+		(Vector Load Strided Element)</font></font><font color="#575b5f"><sup><font face="Google Sans Text, serif"><font size="3" style="font-size: 12pt">9</font></font></sup></font><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial, serif"><font size="2" style="font-size: 11pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent"><br/>
+</span></span></span></font></font></span></font></span><br/>
+
+		</p></li>
+		<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif">vss&lt;N&gt;.v
+		vs3, (rs1), rs2, v0.t (Vector Store Strided Element)</font></font></p></li>
+	</ul>
+</ul>
+<ul>
+	<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Masked
+	Indexed (Gather/Scatter) Loads/Stores:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+	These load/store non-contiguous elements from memory using indices
+	stored in another vector register, applying the mask.</font></font></p></li>
+</ul>
+<ul>
+	<ul>
+		<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif">vlx&lt;N&gt;.v
+		vd, (rs1), vs2, v0.t (Vector Load Indexed Element) - Gathers
+		elements.</font></font></p></li>
+		<li><p style="margin-bottom: 0.08in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif">vsx&lt;N&gt;.v
+		vs3, (rs1), vs2, v0.t (Vector Store Indexed Element) - Scatters
+		elements.</font></font></p></li>
+	</ul>
+</ul>
+<p style="margin-top: 0.17in; margin-bottom: 0.17in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Example
+Conceptual Flow (RISC-V equivalent of &quot;masked move storage to
+storage&quot;):</b></font></font></p>
+<p style="margin-bottom: 0.08in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans Text, serif">Similar to
+AVX-512, to achieve a &quot;masked storage-to-storage&quot; operation
+in RISC-V, you would generally:</font></font></p>
+<ol>
+	<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Generate
+	/ Load Mask:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+	Compute your mask bits and store them into v0.</font></font></p></li>
+</ol>
+<ol>
+	<ul>
+		<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif">This
+		might involve vector comparison instructions (vmseq, vmsgt, etc.)
+		to generate masks based on data, or loading a pre-defined mask from
+		memory (e.g., vle8.v v0, (mask_ptr) where elements are 1-bit and
+		packed).</font></font></p></li>
+	</ul>
+</ol>
+<ol start="2">
+	<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Load
+	Destination (masked or unmasked):</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+	Load the current content of the destination memory region into a
+	vector register (e.g., v1). If you load unmasked, you'll ensure all
+	original destination elements are in the register.</font></font></p></li>
+	<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Masked
+	Load Source:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+	Load the source data into another vector register (e.g., </font></font><font color="#575b5f"><font face="Google Sans Text, serif">v2</font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">),
+	using </font></font><font color="#575b5f"><font face="Google Sans Text, serif">v0</font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+	as the mask.</font></font><font color="#575b5f"><sup><font face="Google Sans Text, serif"><font size="3" style="font-size: 12pt">10</font></font></sup></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+	This will bring only the desired source elements into v2, with
+	inactive elements behaving according to the mask policy (e.g.,
+	undisturbed or zeroed).</font></font><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial, serif"><font size="2" style="font-size: 11pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent"><br/>
+</span></span></span></font></font></span></font></span><br/>
+
+	</p></li>
+	<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Merge
+	(if needed):</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+	If the masked load (step 3) produced zeroes for inactive elements,
+	you might need a vector merge instruction (</font></font><font color="#575b5f"><font face="Google Sans Text, serif">vmerge.vvm</font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">)
+	to combine the originally loaded destination (</font></font><font color="#575b5f"><font face="Google Sans Text, serif">v1</font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">)
+	with the masked source (</font></font><font color="#575b5f"><font face="Google Sans Text, serif">v2</font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">)
+	based on the mask in </font></font><font color="#575b5f"><font face="Google Sans Text, serif">v0</font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">.
+	</font></font><font color="#575b5f"><sup><font face="Google Sans Text, serif"><font size="3" style="font-size: 12pt">11</font></font></sup></font><font color="#1b1c1d"><font face="Google Sans Text, serif">This
+	achieves the &quot;merging&quot; behavior if your load didn't
+	already handle it as desired.</font></font><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial, serif"><font size="2" style="font-size: 11pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent"><br/>
+</span></span></span></font></font></span></font></span><br/>
+
+	</p></li>
+	<li><p style="margin-bottom: 0.08in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Masked
+	Store:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+	Store the final result from the merged vector register (e.g., v1)
+	back to the destination memory, again using v0 as the mask. This
+	ensures that only the elements corresponding to the mask bits are
+	written to memory, preserving the original contents of the unmasked
+	locations.</font></font></p></li>
+</ol>
+<p style="margin-top: 0.17in; margin-bottom: 0.17in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>In
+summary:</b></font></font></p>
+<p style="margin-bottom: 0.17in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans Text, serif">RISC-V's
+V-extension definitely includes sophisticated masking capabilities
+for its vector instructions, including masked loads and stores that
+enable &quot;masked move&quot; operations between registers and
+memory.</font></font><font color="#575b5f"><sup><font face="Google Sans Text, serif"><font size="3" style="font-size: 12pt">12</font></font></sup></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+While the mechanism for masking (v0 as the implicit mask register)
+differs from AVX-512's dedicated mask registers, the functional
+outcome of conditional data movement is the same.</font></font></p>
+<p style="margin-bottom: 0in; line-height: 100%; border: none; padding: 0in; background: transparent">
+<br/>
+
+</p>

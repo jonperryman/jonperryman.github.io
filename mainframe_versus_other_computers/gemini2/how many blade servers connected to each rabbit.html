@@ -1,0 +1,43 @@
+<p align="center"><font style="font-size: 14pt; font-weight: bold;">I asked Gemini "how many blade servers connected to each rabbit"</font></p>
+<p style="margin-bottom: 0.17in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans Text, serif">In El
+Capitan, </font></font><font color="#1b1c1d"><font face="Google Sans Text, serif"><b>one
+Rabbit module is connected to eight compute blades, which contain a
+total of 16 compute nodes</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">.</font></font></p>
+<p style="margin-bottom: 0.08in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans Text, serif">Here's the
+breakdown:</font></font></p>
+<ul>
+	<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif">An El
+	Capitan </font></font><font color="#1b1c1d"><font face="Google Sans Text, serif"><b>compute
+	chassis</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+	houses </font></font><font color="#1b1c1d"><font face="Google Sans Text, serif"><b>8
+	compute blades</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">.</font></font><font color="#575b5f"><sup><font face="Google Sans Text, serif"><font size="3" style="font-size: 12pt">1</font></font></sup></font><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial, serif"><font size="2" style="font-size: 11pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent"><br/>
+</span></span></span></font></font></span></font></span><br/>
+
+	</p></li>
+	<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif">Each
+	compute blade contains </font></font><font color="#1b1c1d"><font face="Google Sans Text, serif"><b>2
+	compute nodes</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">.</font></font></p></li>
+	<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif">Therefore,
+	each chassis holds 8&nbsp;blades×2&nbsp;nodes/blade=16 compute
+	nodes.</font></font></p></li>
+	<li><p style="margin-bottom: 0.08in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>One
+	Rabbit module</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+	is deployed per compute chassis, directly connected to these 8
+	compute blades (16 compute nodes) via PCIe.</font></font><font color="#575b5f"><sup><font face="Google Sans Text, serif"><font size="3" style="font-size: 12pt">2</font></font></sup></font><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial, serif"><font size="2" style="font-size: 11pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent"><br/>
+</span></span></span></font></font></span></font></span><br/>
+<br/>
+
+	</p></li>
+</ul>
+<p style="margin-top: 0.17in; margin-bottom: 0.17in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans Text, serif">This
+architecture ensures that the high-speed local storage provided by
+the &quot;Rabbits&quot; is readily available to a dedicated group of
+compute nodes, minimizing latency and maximizing data throughput for
+the most demanding workloads.</font></font></p>

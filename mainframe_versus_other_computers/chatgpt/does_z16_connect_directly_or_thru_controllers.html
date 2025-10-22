@@ -1,11 +1,11 @@
-<h2>I asked ChatGPT: "does z16 connect directly to devices or control units?"</h2>
+<h3>I asked ChatGPT: "does z16 connect directly to devices or control units?"</h3>
 
 <p>Great question. The <b>IBM z16</b> connects primarily to <b>control units</b>, not directly to most end devices. Here's how it works:</p>
 
-<h2>✅ <b>Short Answer:</b></h2>
+<h3>✅ <b>Short Answer:</b></h3>
 <p> The <b>z16 connects to control units</b>, and <b>those control units manage the actual devices</b> (e.g., disks, tapes, network adapters).</p>
 
-<h2>🧠 <b>How It Works — Modern Mainframe I/O Path:</b></h2>
+<h3>🧠 <b>How It Works — Modern Mainframe I/O Path:</b></h3>
 
 <p>1. <b>z16 Channels/Adapters</b></p>
 <ul>
@@ -28,11 +28,11 @@
 <li> These are rarely connected directly to the mainframe CPU or channel.</li>
 </ul>
 
-<h2>📦 Example: Storage Connection Flow</h2>
+<h3>📦 Example: Storage Connection Flow</h3>
 
 <p>z16 Channel → FICON Adapter → Control Unit (e.g., DS8950F) → Disk Arrays</p>
 
-<h2>🔄 Why Use Control Units?</h2>
+<h3>🔄 Why Use Control Units?</h3>
 
 <table>
 <tr><td> Benefit </td><td> Description </td></tr>
@@ -43,7 +43,7 @@
 <tr><td> <b>Reliability</b> </td><td> Built-in redundancy, buffering, and failover capabilities </td></tr>
 </table>
 
-<h2>🚫 When is direct connection used?</h2>
+<h3>🚫 When is direct connection used?</h3>
 <ul>
 <li> Some <b>modern PCIe adapters</b>, like:</li>
 
@@ -56,7 +56,7 @@
 <li> These plug directly into the mainframe’s PCIe bus and don’t use a separate external control unit.</li>
 </ul>
 
-<h2>✅ Summary:</h2>
+<h3>✅ Summary:</h3>
 
 <table>
 <tr><td> Type of Device </td><td> Goes Through Control Unit? </td></tr>

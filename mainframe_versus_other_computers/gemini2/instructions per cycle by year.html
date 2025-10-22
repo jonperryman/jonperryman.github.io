@@ -1,0 +1,219 @@
+<p align="center"><font style="font-size: 14pt; font-weight: bold;">I asked Gemini "instructions per cycle by year"</font></p>
+<p style="margin-bottom: 0.17in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans Text, serif">Instructions
+Per Cycle (IPC), also known as Cycles Per Instruction (CPI – which
+is 1/IPC), is a crucial metric for CPU performance. It measures the
+average number of instructions a processor can execute in a single
+clock cycle. Unlike clock speed (GHz), which tells you how many
+cycles per second a CPU performs, IPC tells you how </font></font><font color="#1b1c1d"><font face="Google Sans Text, serif"><i>efficiently</i></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+each of those cycles is used.</font></font></p>
+<p style="margin-bottom: 0.08in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans Text, serif">Tracking
+&quot;IPC by year&quot; isn't as straightforward as tracking GHz
+because IPC is highly dependent on:</font></font></p>
+<ul>
+	<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Microarchitecture:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+	The internal design of the CPU. This is the biggest factor.</font></font></p></li>
+	<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Instruction
+	Set Architecture (ISA):</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+	The set of instructions the CPU understands (e.g., x86, ARM). A
+	simpler ISA might lead to higher IPC per instruction, but a more
+	complex ISA might achieve more work with fewer total instructions.</font></font></p></li>
+	<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Workload:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+	Different programs and tasks will have different IPC values on the
+	same CPU, depending on factors like cache hits/misses, branch
+	prediction accuracy, and instruction dependencies.</font></font></p></li>
+	<li><p style="margin-bottom: 0.08in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Manufacturing
+	Process:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+	Smaller process nodes allow for more transistors, enabling more
+	complex and efficient architectures.</font></font></p></li>
+</ul>
+<p style="margin-top: 0.17in; margin-bottom: 0.17in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans Text, serif">However,
+we can talk about the </font></font><font color="#1b1c1d"><font face="Google Sans Text, serif"><i>trends</i></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+and major architectural innovations that have driven IPC growth over
+the years:</font></font></p>
+<p style="margin-bottom: 0.08in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Early
+Years (1970s - Early 1990s): From ~0.1-0.5 IPC to 1 IPC (Scalar
+Processors)</b></font></font></p>
+<ul>
+	<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Sequential
+	Execution:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+	Early CPUs were &quot;scalar&quot; processors. They executed one
+	instruction at a time, often taking multiple clock cycles for a
+	single instruction. So, IPC was often less than 1.</font></font></p></li>
+</ul>
+<ul>
+	<ul>
+		<li><p style="margin-bottom: 0.08in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Innovations:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+		Basic pipelining started to emerge, breaking down instruction
+		execution into stages (fetch, decode, execute, write-back) to
+		overlap operations. This was a foundational step toward improving
+		IPC.</font></font></p></li>
+	</ul>
+</ul>
+<p style="margin-top: 0.17in; margin-bottom: 0.08in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>The
+Rise of Superscalar Architectures (Mid-1990s - Early 2000s): IPC &gt;
+1</b></font></font></p>
+<ul>
+	<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Pentium
+	Era (Intel P5, P6):</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+	This period saw significant breakthroughs that pushed IPC well above
+	1.</font></font></p></li>
+</ul>
+<ul>
+	<ul>
+		<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Superscalar
+		Execution:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+		CPUs gained the ability to execute multiple instructions
+		</font></font><font color="#1b1c1d"><font face="Google Sans Text, serif"><i>simultaneously</i></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+		in a single clock cycle by having multiple execution units (e.g.,
+		multiple ALUs).</font></font></p></li>
+		<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Deeper
+		Pipelines:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+		Pipelines became longer, allowing more instructions to be &quot;in
+		flight&quot; at once.</font></font></p></li>
+		<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Branch
+		Prediction:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+		Sophisticated mechanisms to predict the outcome of conditional
+		branches, reducing costly pipeline stalls (where the CPU has to
+		wait to see which path to take).</font></font></p></li>
+		<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Out-of-Order
+		Execution:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+		CPUs started executing instructions in an order different from the
+		program's original sequence to avoid waiting for data dependencies,
+		then reordering the results to maintain correctness. This greatly
+		improved utilization of execution units.</font></font></p></li>
+	</ul>
+</ul>
+<ul>
+	<li><p style="margin-bottom: 0.08in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif">By the
+	late 1990s, processors like Intel's P6 (Pentium Pro, Pentium II,
+	Pentium III) and AMD's K6/K7 (Athlon) were achieving substantially
+	higher IPC than their predecessors, often in the range of 2-3
+	instructions per cycle on average for common workloads.</font></font></p></li>
+</ul>
+<p style="margin-top: 0.17in; margin-bottom: 0.08in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>The
+&quot;NetBurst&quot; Era (Early 2000s): Focus on Clock Speed over IPC</b></font></font></p>
+<ul>
+	<li><p style="margin-bottom: 0.08in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Intel
+	Pentium 4 (NetBurst):</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+	Intel's strategy with the Pentium 4 was to prioritize very high
+	clock speeds by using extremely long pipelines (e.g., 20-31 stages).
+	While this allowed for high GHz, it often came at the cost of lower
+	IPC (around 1-1.5 in many cases) and severe penalties for
+	mispredicted branches. AMD's K7 and K8 architectures generally
+	offered higher IPC at lower clock speeds during this period.</font></font></p></li>
+</ul>
+<p style="margin-top: 0.17in; margin-bottom: 0.08in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>The
+Architectural Renaissance (Mid-2000s - Present): Balanced Growth</b></font></font></p>
+<ul>
+	<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Intel
+	Core Architecture (2006 onwards):</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+	After the Pentium 4, Intel shifted back to a more balanced approach,
+	focusing heavily on IPC improvements. The Core 2 Duo (based on the
+	P6-derived Core microarchitecture) offered significantly higher IPC
+	than the Pentium 4, even at lower clock speeds.</font></font></p></li>
+</ul>
+<ul>
+	<ul>
+		<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Key
+		improvements:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+		Wider execution units, improved caches, more efficient branch
+		prediction, better power management, and the advent of multi-core
+		designs (though core count affects overall throughput, not strictly
+		single-core IPC).</font></font></p></li>
+	</ul>
+</ul>
+<ul>
+	<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>AMD
+	Zen Architecture (2017 onwards):</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+	AMD's Zen architecture marked a major resurgence, delivering
+	substantial IPC gains over their previous &quot;Bulldozer&quot;
+	family, allowing them to compete much more effectively with Intel.</font></font></p></li>
+</ul>
+<ul>
+	<ul>
+		<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Continued
+		Focus:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+		Both Intel (with architectures like Sandy Bridge, Haswell, Skylake,
+		Golden Cove) and AMD (with Zen, Zen 2, Zen 3, Zen 4, Zen 5) have
+		continued to make incremental but significant IPC improvements with
+		each new generation. These improvements come from:</font></font></p></li>
+	</ul>
+</ul>
+<ul>
+	<ul>
+		<ul>
+			<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+			<font color="#1b1c1d"><font face="Google Sans Text, serif">Larger
+			and smarter caches (L1, L2, L3)</font></font></p></li>
+			<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+			<font color="#1b1c1d"><font face="Google Sans Text, serif">More
+			sophisticated branch predictors</font></font></p></li>
+			<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+			<font color="#1b1c1d"><font face="Google Sans Text, serif">Wider
+			instruction decoders and execution units</font></font></p></li>
+			<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+			<font color="#1b1c1d"><font face="Google Sans Text, serif">Advanced
+			pre-fetching techniques</font></font></p></li>
+			<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+			<font color="#1b1c1d"><font face="Google Sans Text, serif">Specialized
+			execution units (e.g., AVX-512, AI accelerators like Intel's AMX
+			or VNNI)</font></font></p></li>
+			<li><p style="margin-bottom: 0.08in; line-height: 115%; border: none; padding: 0in; background: transparent">
+			<font color="#1b1c1d"><font face="Google Sans Text, serif">Improved
+			inter-core communication and memory controllers.</font></font></p></li>
+		</ul>
+	</ul>
+</ul>
+<p style="margin-top: 0.17in; margin-bottom: 0.17in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Quantifying
+IPC Growth:</b></font></font></p>
+<p style="margin-bottom: 0.08in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans Text, serif">It's
+challenging to give precise, universal IPC numbers by year because:</font></font></p>
+<ul>
+	<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif">Benchmarks
+	are used to measure relative IPC, often by normalizing results to a
+	fixed clock speed.</font></font></p></li>
+	<li><p style="margin-bottom: 0.08in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif">Different
+	benchmarks measure different workloads, leading to varying IPC
+	results.</font></font></p></li>
+</ul>
+<p style="margin-top: 0.17in; margin-bottom: 0.17in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans Text, serif">However,
+broadly speaking, from the early 2000s to the present, while
+single-core clock speeds have largely plateaued around 3-5 GHz (with
+turbo boosts higher), </font></font><font color="#1b1c1d"><font face="Google Sans Text, serif"><b>average
+single-threaded performance has still increased significantly due to
+compounding IPC gains, often in the range of 5-15% per generation for
+major architectural leaps.</b></font></font></p>
+<p style="margin-bottom: 0.17in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans Text, serif">This
+ongoing improvement in IPC is why a modern 4 GHz CPU can vastly
+outperform a 2005-era 3.8 GHz Pentium 4. The modern CPU simply does
+much more work in each clock cycle.</font></font></p>

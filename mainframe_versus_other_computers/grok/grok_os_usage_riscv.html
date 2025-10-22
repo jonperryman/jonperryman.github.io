@@ -1,67 +1,67 @@
-<h1>I asked GROK "rank the OS usage for RISC-V CPUs</h1>
+<h2>I asked GROK "rank the OS usage for RISC-V CPUs</h2>
 
 <p>RISC-V is an open-source instruction set architecture (ISA) that supports a variety of operating systems, ranging from general-purpose OSes to real-time operating systems (RTOS) tailored for embedded systems. Below is a list of operating systems commonly used with RISC-V CPUs, ranked roughly by their estimated usage based on adoption, community support, and application scope as of April 6, 2025. Note that exact usage statistics for RISC-V are not widely available due to its diverse applications and open nature, so this ranking is an informed approximation based on ecosystem maturity, developer activity, and hardware support.</p>
 <p>Operating Systems for RISC-V CPUs, Ranked by Usage</p>
-<h2>Linux (Various Distributions)</h2>  
+<h3>Linux (Various Distributions)</h3>  
 <p>Description: Linux is the most widely used operating system for RISC-V, with major distributions like Ubuntu, Debian, Fedora, and openSUSE providing official support. It’s versatile, running on everything from single-board computers (e.g., SiFive HiFive, VisionFive) to high-performance RISC-V systems.  </p>
 
 <p>Why It Ranks First: Linux has a mature RISC-V port (kernel support since 4.15), extensive community backing, and broad hardware compatibility. It’s the go-to OS for developers targeting general-purpose computing, servers, and desktops on RISC-V.  </p>
 
 <p>Usage Context: Dominant in development boards, cloud computing research, and emerging high-performance computing (HPC) projects.</p>
 
-<h2>FreeRTOS</h2>  
+<h3>FreeRTOS</h3>  
 <p>Description: FreeRTOS is a lightweight, open-source RTOS designed for embedded systems. It has been ported to RISC-V and is popular in microcontroller and IoT applications.  </p>
 
 <p>Why It Ranks Second: Its simplicity and efficiency make it a top choice for resource-constrained RISC-V devices like the ESP32-C3 (Espressif) or low-end microcontrollers. The embedded market is a significant driver of RISC-V adoption.  </p>
 
 <p>Usage Context: Common in IoT, wearables, and small-scale embedded projects.</p>
 
-<h2>Zephyr</h2>
+<h3>Zephyr</h3>
 <p>Description: Zephyr is an open-source RTOS backed by the Linux Foundation, optimized for resource-constrained devices. It supports RISC-V and is gaining traction in industrial and IoT applications.  </p>
 
 <p>Why It Ranks Third: Zephyr’s scalability and growing ecosystem (including support from companies like Intel and NXP) place it behind FreeRTOS but ahead of other RTOS options. It’s newer but increasingly adopted.  </p>
 
 <p>Usage Context: Used in IoT, automotive, and embedded systems requiring real-time performance.</p>
 
-<h2>RT-Thread</h2>
+<h3>RT-Thread</h3>
 <p>Description: RT-Thread is an open-source RTOS from China, with strong RISC-V support since 2006. It’s popular in Asia, especially for IoT and consumer electronics.  </p>
 
 <p>Why It Ranks Fourth: It has a significant user base in the Chinese market and supports a wide range of RISC-V hardware, but its global adoption lags behind FreeRTOS and Zephyr.  </p>
 
 <p>Usage Context: Prevalent in IoT devices, smart home systems, and embedded applications in Asia.</p>
 
-<h2>FreeBSD</h2>
+<h3>FreeBSD</h3>
 <p>Description: FreeBSD, a Unix-like OS, has a RISC-V port (riscv64) and was one of the first OSes to boot on RISC-V hardware (e.g., SiFive HiFive Unleashed).  </p>
 
 <p>Why It Ranks Fifth: While robust and well-suited for research and niche applications, FreeBSD has a smaller user base than Linux and is less common in embedded systems compared to RTOSes.  </p>
 
 <p>Usage Context: Used in academic settings, networking, and some embedded systems.</p>
 
-<h2>OpenBSD</h2>
+<h3>OpenBSD</h3>
 <p>Description: OpenBSD, another Unix-like OS, supports RISC-V with a focus on security and simplicity.  </p>
 
 <p>Why It Ranks Sixth: Its adoption is limited compared to Linux and FreeBSD due to its specialized focus on security rather than broad hardware support or performance.  </p>
 
 <p>Usage Context: Niche use in security-focused RISC-V projects and research.</p>
 
-<h2>embOS</h2>
+<h3>embOS</h3>
 <p>Description: embOS is a commercial RTOS from SEGGER, with RISC-V support for embedded systems.  </p>
 
 <p>Why It Ranks Seventh: As a paid solution, its usage is narrower than open-source RTOSes like FreeRTOS or Zephyr, targeting professional embedded developers.  </p>
 
 <p>Usage Context: Industrial automation, automotive, and professional embedded systems.</p>
 
-<h2>Tock</h2>
+<h3>Tock</h3>
 <p>Description: Tock is an embedded OS written in Rust, designed for security and running multiple untrusted applications on RISC-V platforms.  </p>
 
 <p>Why It Ranks Eighth: It’s a newer, experimental OS with a smaller community, primarily used in academic and security research.  </p>
 
 <p>Usage Context: Research projects and secure IoT systems.</p>
 
-<h2>Notes on Ranking</h2>
+<h3>Notes on Ranking</h3>
 <p>Linux Dominance: Linux’s top rank reflects its widespread use in RISC-V development boards and its role as the primary OS for general-purpose computing. Distributions like Debian and Ubuntu are particularly active in the RISC-V ecosystem.</p>
 
-<h2>RTOS Prevalence: FreeRTOS, Zephyr, and RT-Thread rank high due to RISC-V’s strong presence in embedded systems, where low power and real-time performance are critical.</h2>
+<h3>RTOS Prevalence: FreeRTOS, Zephyr, and RT-Thread rank high due to RISC-V’s strong presence in embedded systems, where low power and real-time performance are critical.</h3>
 
 <p>Niche OSes: FreeBSD, OpenBSD, embOS, and Tock serve specific audiences (e.g., Unix enthusiasts, security researchers, or commercial developers), limiting their overall usage.</p>
 

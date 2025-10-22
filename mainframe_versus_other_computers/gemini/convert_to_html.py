@@ -1,3 +1,5 @@
+# VSCODE ctrl-1 invokes this script against the Gemini responses saved in the current file
+
 import sys
 import glob
 import re
@@ -19,19 +21,23 @@ def main(file):
 
     data = b''.join(data.split(b'\r')) # remove carriage returns - not needed & simplifies conversion
 
-    # create <h2> </h2>
+    # create <h3> </h3>
     dataSplit = data.split(b'\n**')
     data = dataSplit.pop(0)
     for segment in dataSplit:
-        segment = segment.split(b'**',1)
-        data += b'\n<h2>' + segment[0] + b'</h2>' + segment[1]
+        work = segment.split(b'**',1)
+        if work[1].split(b'\n')[0].strip() == b'':
+            data += b'\n<h3>' + work[0] + b'</h3>' + work[1]
+        else:
+            data += b'\n**' + segment
 
     # replace ** with <b> </b>
-    dataSplit = data.split(b' **')
+    dataSplit = data.split(b'**')
     data = dataSplit.pop(0)
-    for segment in dataSplit:
-        segment = segment.split(b'**',1)
-        data += b'<b>' + segment[0] + b'</b>' + segment[1]
+    cnt = 0
+    while cnt < len(dataSplit):
+        data += b'<b>' + dataSplit[cnt] + b'</b>' + dataSplit[cnt+1]
+        cnt += 2
 
     # handle tables 
     dataSplit = data.split(b'```')
@@ -47,10 +53,10 @@ def main(file):
 
     # replace \n*  with <li> </li>
     dataSplit = data.split(b'\n')
-    if dataSplit[0][:4] == b'<h1>':
+    if dataSplit[0][:4] == b'<h2>':
         data = dataSplit.pop(0)
     else:
-        data = b'<h1>I asked Gemini: ""</h1>\n'
+        data = b'<h2>I asked Gemini: ""</h2>\n'
     liLevel = -4
     startLI = False
     for line in dataSplit:
@@ -63,7 +69,7 @@ def main(file):
         indentChar = line[indentation:indentation+1]
 
         if indentChar == b'*':
-            if indentation > liLevel and indentChar == b'*':
+            if liLevel < indentation:
                 if indentation - liLevel != 4:
                     print("failed: invalid indentation: ", line)
                     exit()
@@ -71,15 +77,16 @@ def main(file):
                 liLevel = indentation
             else:
                 data += b'</li></ul>' * int( (liLevel - indentation)/4 )
-                liLevel = indentation
                 data += b'</li>\n<li>' + line[indentation+1:]
+            
+            liLevel = indentation
             continue
 
-        if liLevel != -4 and liLevel >= indentation:
-            liLevel -= 4
-            data += b'</li>\n</ul>'
+        if liLevel >= indentation:
+            data += b'</li></ul>' * int( (liLevel + 4 - indentation)/4 )
+            liLevel = indentation - 4
         
-        if line[:4] == b'<h2>':
+        if line[:4] == b'<h3>':
             data += b'\n' + line 
         else:
             data += b'\n<p>' + line + b'</p>'

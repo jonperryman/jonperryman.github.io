@@ -1,0 +1,37 @@
+<p align="center"><font style="font-size: 14pt; font-weight: bold;">I asked Gemini "how much memory does each blade server in el capitan contain"</font></p>
+<p style="margin-bottom: 0.17in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans Text, serif">Each blade
+server (more accurately, each </font></font><font color="#1b1c1d"><font face="Google Sans Text, serif"><b>compute
+node</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">)
+in El Capitan has </font></font><font color="#1b1c1d"><font face="Google Sans Text, serif"><b>512
+GB of HBM3 memory</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">.
+This memory is shared across the four AMD Instinct MI300A Accelerated
+Processing Units (APUs) that are present in each node.</font></font></p>
+<p style="margin-bottom: 0.08in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans Text, serif">To break
+it down further:</font></font></p>
+<ul>
+	<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif">Each </font></font><font color="#1b1c1d"><font face="Google Sans Text, serif"><b>AMD
+	Instinct MI300A APU</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+	has </font></font><font color="#1b1c1d"><font face="Google Sans Text, serif"><b>128
+	GB of HBM3 memory</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">.</font></font><font color="#575b5f"><sup><font face="Google Sans Text, serif"><font size="3" style="font-size: 12pt">1</font></font></sup></font><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial, serif"><font size="2" style="font-size: 11pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent"><br/>
+</span></span></span></font></font></span></font></span><br/>
+
+	</p></li>
+	<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif">Each
+	</font></font><font color="#1b1c1d"><font face="Google Sans Text, serif"><b>compute
+	node</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+	in El Capitan contains </font></font><font color="#1b1c1d"><font face="Google Sans Text, serif"><b>four</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+	of these AMD Instinct MI300A APUs.</font></font></p></li>
+	<li><p style="margin-bottom: 0.08in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif">Therefore,
+	4&nbsp;APUs/node×128&nbsp;GB/APU=512&nbsp;GB/node.</font></font></p></li>
+</ul>
+<p style="margin-top: 0.17in; margin-bottom: 0.17in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans Text, serif">This
+unified memory architecture, where the CPU and GPU cores within the
+MI300A APUs share the same high-bandwidth memory, is designed to
+reduce data transfer bottlenecks and improve efficiency for El
+Capitan's complex workloads.</font></font></p>

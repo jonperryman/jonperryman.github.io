@@ -1,0 +1,154 @@
+<p align="center"><font style="font-size: 14pt; font-weight: bold;">I asked Gemini "why are riscv cpu_s slower than x86"</font></p>
+<p style="margin-bottom: 0.17in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans Text, serif">It's not
+entirely accurate to say that RISC-V CPUs are inherently &quot;slower&quot;
+than x86 CPUs in a fundamental, theoretical sense. Both are
+instruction set architectures (ISAs), and the actual performance
+depends heavily on the </font></font><font color="#1b1c1d"><font face="Google Sans Text, serif"><b>microarchitecture</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+(the specific design of the CPU) and the </font></font><font color="#1b1c1d"><font face="Google Sans Text, serif"><b>implementation</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+(how that design is built on silicon).</font></font></p>
+<p style="margin-bottom: 0.08in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans Text, serif">However,
+in the current market, </font></font><font color="#1b1c1d"><font face="Google Sans Text, serif"><b>high-performance
+x86 CPUs generally outperform high-performance RISC-V CPUs</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">.
+Here's why:</font></font></p>
+<ol>
+	<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Maturity
+	and Investment:</b></font></font></p></li>
+</ol>
+<ol>
+	<ul>
+		<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>x86:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+		Intel and AMD have spent </font></font><font color="#1b1c1d"><font face="Google Sans Text, serif"><i>decades</i></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+		and billions of dollars optimizing x86 microarchitectures. They've
+		poured resources into advanced techniques like deep pipelines,
+		out-of-order execution, speculative execution, sophisticated branch
+		prediction, large multi-level caches, and highly optimized
+		compilers. This extensive R&amp;D has led to highly refined and
+		performant designs.</font></font></p></li>
+		<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>RISC-V:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+		As a newer, open-source ISA, RISC-V is still relatively young in
+		terms of high-performance implementations. While there are
+		companies developing advanced RISC-V cores, they haven't had the
+		same decades of iterative refinement and massive investment as
+		Intel and AMD.</font></font></p></li>
+	</ul>
+</ol>
+<ol start="2">
+	<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Complexity
+	of Design and Manufacturing:</b></font></font></p></li>
+</ol>
+<ol>
+	<ul>
+		<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>x86:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+		The x86 ISA is a Complex Instruction Set Computer (CISC)
+		architecture.</font></font><font color="#575b5f"><sup><font face="Google Sans Text, serif"><font size="3" style="font-size: 12pt">1</font></font></sup></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+		While modern x86 CPUs translate CISC instructions into simpler
+		micro-operations internally (making them more RISC-like under the
+		hood), the decoding logic for x86 instructions is still incredibly
+		complex and requires significant silicon area and power. This
+		complexity, while challenging, has been masterfully optimized over
+		time to extract maximum performance.</font></font><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial, serif"><font size="2" style="font-size: 11pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent"><br/>
+</span></span></span></font></font></span></font></span><br/>
+
+		</p></li>
+		<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>RISC-V:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+		RISC-V, as a Reduced Instruction Set Computer (RISC) architecture,
+		has a simpler and more streamlined instruction set.</font></font><font color="#575b5f"><sup><font face="Google Sans Text, serif"><font size="3" style="font-size: 12pt">2</font></font></sup></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+		This simplicity can lead to more power-efficient designs and easier
+		implementation.</font></font><font color="#575b5f"><sup><font face="Google Sans Text, serif"><font size="3" style="font-size: 12pt">3</font></font></sup></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+		However, achieving high performance often means executing more
+		instructions to accomplish the same task as a complex x86
+		instruction. To compensate, RISC-V designs (like any
+		high-performance CPU) need advanced microarchitectural features.
+		Many current RISC-V implementations are focused on embedded systems
+		and lower-power applications where simplicity and efficiency are
+		prioritized over raw peak performance. High-performance features
+		like deep out-of-order pipelines and large caches are starting to
+		appear in RISC-V designs, but they are not as prevalent or as
+		mature as in x86.</font></font><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial, serif"><font size="2" style="font-size: 11pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent"><br/>
+</span></span></span></font></font></span></font></span><br/>
+
+		</p></li>
+	</ul>
+</ol>
+<ol start="3">
+	<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Ecosystem
+	and Software Optimization:</b></font></font></p></li>
+</ol>
+<ol>
+	<ul>
+		<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>x86:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+		x86 has a vast, mature software ecosystem with decades of
+		optimization. Compilers, operating systems (like Windows), and
+		applications have been heavily tuned to leverage x86-specific
+		features and instructions (like AVX-512).</font></font></p></li>
+		<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>RISC-V:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+		The software ecosystem for RISC-V is growing rapidly but is still
+		less mature.</font></font><font color="#575b5f"><sup><font face="Google Sans Text, serif"><font size="3" style="font-size: 12pt">4</font></font></sup></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+		While Linux support is improving, other operating systems like
+		Windows have limited or no native support. Developers and compilers
+		are still catching up in optimizing code specifically for various
+		RISC-V implementations. The modularity of RISC-V, while an
+		advantage for customization, can also lead to fragmentation if not
+		managed well, potentially making software optimization more
+		challenging across different RISC-V implementations.</font></font><font color="#575b5f"><sup><font face="Google Sans Text, serif"><font size="3" style="font-size: 12pt">5</font></font></sup></font><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial, serif"><font size="2" style="font-size: 11pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent"><br/>
+</span></span></span></font></font></span></font></span><br/>
+
+		</p></li>
+	</ul>
+</ol>
+<ol start="4">
+	<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Market
+	Focus:</b></font></font></p></li>
+</ol>
+<ol>
+	<ul>
+		<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>x86:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+		Primarily targets high-performance desktops, laptops, and servers,
+		where raw computational power is often the top priority, even at
+		the cost of higher power consumption and complexity.</font></font><font color="#575b5f"><sup><font face="Google Sans Text, serif"><font size="3" style="font-size: 12pt">6</font></font></sup></font><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial, serif"><font size="2" style="font-size: 11pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent"><br/>
+</span></span></span></font></font></span></font></span><br/>
+
+		</p></li>
+		<li><p style="margin-bottom: 0.08in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>RISC-V:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+		Has a strong presence in embedded systems, IoT devices, and
+		specialized accelerators, where efficiency, customizability, and
+		lower licensing costs are key.</font></font><font color="#575b5f"><sup><font face="Google Sans Text, serif"><font size="3" style="font-size: 12pt">7</font></font></sup></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+		While efforts are underway to push RISC-V into higher-performance
+		segments, it's a newer focus for many developers.</font></font><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial, serif"><font size="2" style="font-size: 11pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent"><br/>
+</span></span></span></font></font></span></font></span><br/>
+<br/>
+
+		</p></li>
+	</ul>
+</ol>
+<p style="margin-top: 0.17in; margin-bottom: 0.17in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>In
+summary:</b></font></font></p>
+<p style="margin-bottom: 0.17in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans Text, serif">RISC-V
+isn't inherently slower, but the current state of its
+high-performance implementations lags behind the highly optimized and
+mature x86 designs due to differences in R&amp;D investment, the
+complexity of existing designs, and the maturity of their respective
+ecosystems.</font></font><font color="#575b5f"><sup><font face="Google Sans Text, serif"><font size="3" style="font-size: 12pt">8</font></font></sup></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+As RISC-V continues to evolve and attract more investment, its
+performance gap with x86 in high-end applications is expected to
+narrow.</font></font></p>
+<p style="margin-bottom: 0in; line-height: 100%; border: none; padding: 0in; background: transparent">
+<br/>
+
+</p>

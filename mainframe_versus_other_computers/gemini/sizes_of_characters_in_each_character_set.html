@@ -1,0 +1,64 @@
+<h2>I asked Gemini: "what are the sizes of characters in each character set?"</h2>
+
+<p>The size of characters varies depending on the character set and, importantly, the <b>encoding</b> used for that character set. Here's a breakdown of the sizes in some common character sets:</p>
+
+<h3>1. ASCII (American Standard Code for Information Interchange):</h3>
+
+<ul>
+<li> <b>Size:</b> 7 bits per character.</li>
+<li> <b>Storage:</b> Typically stored in 1 byte (8 bits). The most significant bit is often 0.</li>
+<li> <b>Range:</b> 128 characters, including uppercase and lowercase English letters, digits, punctuation marks, and control characters.
+</li></ul>
+<h3>2. Extended ASCII:</h3>
+
+<ul>
+<li> <b>Size:</b> 8 bits per character (1 byte).</li>
+<li> <b>Storage:</b> 1 byte.</li>
+<li> <b>Range:</b> 256 characters. Extends the original ASCII to include additional symbols, accented letters, and graphical characters. However, there are various incompatible "extended ASCII" sets (code pages).
+</li></ul>
+<h3>3. Unicode:</h3>
+
+<ul>
+<li> Unicode is a character *set* that aims to assign a unique code point to every character in every known writing system. The size of a character in Unicode itself (the code point) is conceptually 21 bits.</li>
+<li> However, when Unicode characters are stored or transmitted, they need to be *encoded*. Different Unicode encodings use different numbers of bytes per character:
+
+<ul>
+<li> <b>UTF-8 (Unicode Transformation Format - 8-bit):</b>
+<ul>
+<li> <b>Size:</b> Variable, 1 to 4 bytes per character.</li>
+<li> <b>Breakdown:</b>
+<ul>
+<li> 1 byte for ASCII characters (U+0000 to U+007F).</li>
+<li> 2 bytes for most Latin, Greek, Cyrillic, Hebrew, Arabic, etc. (U+0080 to U+07FF).</li>
+<li> 3 bytes for most characters in the Basic Multilingual Plane (BMP), including most CJK characters (U+0800 to U+FFFF).</li>
+<li> 4 bytes for supplementary characters (emoji, less common CJK, etc.) (U+10000 to U+10FFFF).</li></ul></li>
+<li> <b>Most widely used encoding for web pages and general text due to its efficiency and backward compatibility with ASCII.</b>
+</li></ul></li>
+<li> <b>UTF-16 (Unicode Transformation Format - 16-bit):</b>
+<ul>
+<li> <b>Size:</b> Variable, 2 or 4 bytes per character.</li>
+<li> <b>Breakdown:</b>
+<ul>
+<li> 2 bytes (16 bits) for most characters in the Basic Multilingual Plane (BMP) (U+0000 to U+FFFF), excluding surrogate code points.</li>
+<li> 4 bytes (two 16-bit code units called surrogate pairs) for supplementary characters (U+10000 to U+10FFFF).</li></ul></li>
+<li> <b>Used internally by some operating systems and programming languages (e.g., Java, Windows internally).</b> Can be either big-endian (UTF-16BE) or little-endian (UTF-16LE).
+</li></ul></li>
+<li> <b>UTF-32 (Unicode Transformation Format - 32-bit):</b>
+<ul>
+<li> <b>Size:</b> Fixed, 4 bytes (32 bits) per character.</li>
+<li> <b>Range:</b> Can directly represent all Unicode code points.</li>
+<li> <b>Advantage:</b> Simplifies character indexing and manipulation due to the fixed width.</li>
+<li> <b>Disadvantage:</b> Less efficient in terms of storage space, especially for text containing mostly ASCII characters. Can also be big-endian (UTF-32BE) or little-endian (UTF-32LE).
+</li></ul></li></ul></li></ul>
+<h3>In summary:</h3>
+
+<ul>
+<li> <b>ASCII:</b> 1 byte per character.</li>
+<li> <b>Extended ASCII:</b> 1 byte per character (but varies between sets).</li>
+<li> <b>Unicode:</b> The size depends on the <b>encoding</b>:
+<ul>
+<li> <b>UTF-8:</b> 1-4 bytes per character.</li>
+<li> <b>UTF-16:</b> 2 or 4 bytes per character.</li>
+<li> <b>UTF-32:</b> 4 bytes per character.
+</li></ul></li></ul>
+<p>When working with text, it's crucial to know both the character set and the encoding being used to correctly interpret the data and determine the storage size of the characters. UTF-8's variable-width nature makes it efficient for diverse text, while UTF-32's fixed width simplifies processing at the cost of space. UTF-16 offers a compromise.</p>

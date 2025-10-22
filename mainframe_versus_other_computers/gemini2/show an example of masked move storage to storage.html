@@ -1,0 +1,250 @@
+<p align="center"><font style="font-size: 14pt; font-weight: bold;">I asked Gemini "show an example of masked move storage to storage"</font></p>
+<p style="margin-bottom: 0.17in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans Text, serif">You're
+asking for a very specific type of instruction that directly moves
+data from one memory location to another, </font></font><font color="#1b1c1d"><font face="Google Sans Text, serif"><i>applying
+a mask during that direct memory-to-memory transfer</i></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">.</font></font></p>
+<p style="margin-bottom: 0.17in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans Text, serif">In the
+context of </font></font><font color="#1b1c1d"><font face="Google Sans Text, serif"><b>x86
+CPUs with AVX-512</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">,
+there isn't a </font></font><font color="#1b1c1d"><font face="Google Sans Text, serif"><i>single</i></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+instruction that performs a direct &quot;masked storage-to-storage&quot;
+move. The design philosophy of AVX-512, and SIMD in general, is that
+data typically passes through </font></font><font color="#1b1c1d"><font face="Google Sans Text, serif"><b>vector
+registers (ZMM registers)</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+for masked operations.</font></font></p>
+<p style="margin-bottom: 0.17in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans Text, serif">However,
+you can </font></font><font color="#1b1c1d"><font face="Google Sans Text, serif"><i>achieve
+the effect</i></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+of a masked storage-to-storage move by combining masked load and
+masked store instructions. This is the most common way to do it in
+modern x86 architectures.</font></font></p>
+<p style="margin-bottom: 0.17in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans Text, serif">Let's
+illustrate with an example using AVX-512 assembly.</font></font></p>
+<p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font face="Google Sans Text, serif">Scenario:</font></p>
+<p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font face="Google Sans Text, serif">You have a 64-byte (512-bit)
+block of data at SOURCE_ARRAY and another at DEST_ARRAY. You want to
+copy specific elements from SOURCE_ARRAY to DEST_ARRAY based on a
+mask, while preserving the other elements in DEST_ARRAY.</font></p>
+<p style="margin-bottom: 0.17in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Example
+(x86 AVX-512 Assembly with Pseudo-code comments):</b></font></font></p>
+<p style="margin-bottom: 0.17in; line-height: 115%; margin-right: 0.08in; border: none; padding: 0in; margin-left: 0.17in; background: transparent">
+<br/>
+<br/>
+
+</p>
+<p style="margin-top: 0.08in; margin-bottom: 0.1in; line-height: 115%; margin-right: 0.08in; border: none; padding: 0in; margin-left: 0.17in; background: transparent">
+<font color="#575b5f"><font face="Google Sans Text, serif"><span style="background: #f0f4f9">Code
+snippet</span></font></font></p>
+<p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans Text, serif"><span style="background: #f0f4f9">;
+Assume:<br/>
+;   SOURCE_ARRAY is a pointer to 64 bytes in memory<br/>
+;
+  DEST_ARRAY   is a pointer to 64 bytes in memory<br/>
+;   MASK_VALUE
+  is a 64-bit integer where each bit corresponds to an 8-byte
+(quadword) element<br/>
+;                (e.g., if MASK_VALUE =
+0x000000000000000C, only the 3rd and 4th quadwords will be moved)<br/>
+<br/>
+;
+Data definitions (in a .data or .bss section)<br/>
+section .data<br/>
+
+   SOURCE_ARRAY  dq  1, 2, 3, 4, 5, 6, 7, 8   ; 8 quadwords (64 bytes
+total)<br/>
+    DEST_ARRAY    dq  10, 20, 30, 40, 50, 60, 70, 80 ; 8
+quadwords (64 bytes total)<br/>
+<br/>
+section .text<br/>
+global
+_start<br/>
+<br/>
+_start:<br/>
+<br/>
+    ; 1. Load the mask into a
+K-register (e.g., k1)<br/>
+    ;    We'll assume the mask is
+pre-calculated or loaded elsewhere.<br/>
+    ;    For this example,
+let's hardcode a mask that selects elements 2 and 3 (0-indexed).<br/>
+
+   ;    Binary: ...0000 1100 (for 64-bit mask, where 1 means select)<br/>
+
+   mov rdx, 0x0C          ; Load the 64-bit mask value into rdx<br/>
+
+   kmovq k1, rdx          ; Move the mask from GPR to K-register k1<br/>
+<br/>
+
+   ; 2. Perform a masked load from SOURCE_ARRAY into a ZMM register
+(e.g., zmm0)<br/>
+    ;    The VMOVAPD instruction with a {k} mask
+implies merging behavior by default,<br/>
+    ;    meaning elements
+in zmm0 that are NOT selected by the mask are unchanged.<br/>
+    ;  
+ However, for a clean &quot;masked move storage to storage&quot;, we
+typically want<br/>
+    ;    to load the DEST_ARRAY first to preserve
+its non-masked elements.<br/>
+<br/>
+    ; Let's refine the approach
+for a true masked storage-to-storage effect:<br/>
+<br/>
+    ; a. Load
+the current DEST_ARRAY content into a ZMM register (zmm0)<br/>
+   
+vmovapd zmm0, [DEST_ARRAY]<br/>
+<br/>
+    ; b. Perform a masked load
+from SOURCE_ARRAY into another ZMM register (zmm1)<br/>
+    ;   
+Using {k1} in VMOVAPD (load variant) means that elements of zmm1<br/>
+
+   ;    corresponding to a 0-bit in k1 will be loaded as 0.<br/>
+   
+;    (Note: Some instructions have a {z} suffix for zero-masking,
+otherwise it's merging)<br/>
+    ;    For VMOVAPD load, without {z},
+non-masked elements are typically loaded as 0.<br/>
+    vmovapd zmm1
+{k1}, [SOURCE_ARRAY]<br/>
+    ; After this, zmm1 will contain:<br/>
+ 
+  ;   [0, 0, SOURCE_ARRAY[2], SOURCE_ARRAY[3], 0, 0, 0, 0]<br/>
+    ;
+(Assuming quadword elements and our mask 0x0C)<br/>
+<br/>
+    ; c.
+Combine zmm0 and zmm1 using a blend operation guided by the mask.<br/>
+
+   ;    VBLENDMPD performs a byte-granular blend using the mask.<br/>
+
+   ;    It merges corresponding elements from the first source
+operand (zmm1)<br/>
+    ;    and the second source operand (zmm0)
+based on the mask k1.<br/>
+    vblendmpd zmm0 {k1}, zmm0, zmm1<br/>
+ 
+  ; This instruction effectively says:<br/>
+    ; For elements where
+k1 bit is 1, take from zmm1 (our masked source data).<br/>
+    ; For
+elements where k1 bit is 0, take from zmm0 (our original destination
+data).<br/>
+    ; So, zmm0 will now contain:<br/>
+    ;  
+[DEST_ARRAY[0], DEST_ARRAY[1], SOURCE_ARRAY[2], SOURCE_ARRAY[3],
+DEST_ARRAY[4], ..., DEST_ARRAY[7]]<br/>
+<br/>
+    ; d. Perform a
+masked store from the combined ZMM register (zmm0) back to
+DEST_ARRAY<br/>
+    ;    The mask {k1} here means only write elements
+where k1 is 1.<br/>
+    ;    However, since we already blended the
+full result into zmm0, we can do a full store.<br/>
+    ;    If we
+wanted *only* the new elements to be written and old ones untouched,<br/>
+
+   ;    the blend approach above is key.<br/>
+    vmovapd
+[DEST_ARRAY], zmm0<br/>
+    ; After this, DEST_ARRAY in memory will
+be updated with the combined result.<br/>
+<br/>
+    ; Exit<br/>
+   
+mov eax, 60<br/>
+    xor rdi, rdi<br/>
+    syscall<br/>
+</span></font></font><br/>
+
+</p>
+<p style="margin-bottom: 0.08in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Explanation:</b></font></font></p>
+<ol>
+	<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Load
+	Mask:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+	We load the desired 64-bit mask value into a general-purpose
+	register, then use kmovq to transfer it to one of the AVX-512
+	dedicated mask registers (k0-k7).</font></font></p></li>
+	<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Load
+	Destination:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+	We load the </font></font><font color="#1b1c1d"><font face="Google Sans Text, serif"><i>current</i></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+	content of the DEST_ARRAY into a ZMM register (zmm0). This is
+	crucial because we want to preserve the elements in DEST_ARRAY that
+	are </font></font><font color="#1b1c1d"><font face="Google Sans Text, serif"><i>not</i></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+	selected by the mask.</font></font></p></li>
+	<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Masked
+	Load Source:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+	We perform a masked load from SOURCE_ARRAY into another ZMM register
+	(zmm1), using k1. The way VMOVAPD (and similar load instructions)
+	work with a mask is that elements corresponding to a clear mask bit
+	will often be zeroed out in the destination register zmm1 if not
+	explicitly specified otherwise (like a merging load with an original
+	destination).</font></font></p></li>
+	<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Blend/Merge:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+	This is the critical step. We use a </font></font><font color="#1b1c1d"><font face="Google Sans Text, serif"><b>blend
+	instruction (VBLENDMPD)</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+	to combine zmm0 (original destination data) and zmm1 (masked source
+	data). The k1 mask determines which elements come from zmm1 (where
+	the mask is 1) and which come from zmm0 (where the mask is 0). The
+	result is stored back into zmm0.</font></font></p></li>
+	<li><p style="margin-bottom: 0.08in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Store
+	Result:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+	Finally, zmm0, which now contains the desired merged data, is stored
+	back to DEST_ARRAY. Since zmm0 already has the preserved elements
+	from DEST_ARRAY, a non-masked VMOVAPD store is sufficient here.</font></font></p></li>
+</ol>
+<p style="margin-top: 0.17in; margin-bottom: 0.08in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Why no
+direct &quot;masked storage-to-storage&quot; instruction?</b></font></font></p>
+<ul>
+	<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Complexity:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+	Direct memory-to-memory masked operations would require more complex
+	memory unit logic to read, mask, and then conditionally write,
+	potentially involving read-modify-write cycles that could be slower
+	than register-based operations.</font></font></p></li>
+	<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>SIMD
+	Philosophy:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+	SIMD (Single Instruction, Multiple Data) primarily focuses on
+	performing parallel operations on data </font></font><font color="#1b1c1d"><font face="Google Sans Text, serif"><i>within
+	registers</i></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">.
+	Memory access instructions are generally optimized for loading data
+	into registers and storing data from registers.</font></font></p></li>
+	<li><p style="margin-bottom: 0.08in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Performance:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+	It's often more performant to load data into fast registers, perform
+	the (masked) manipulation, and then write it back to memory, rather
+	than trying to do complex masking directly in the memory path.</font></font></p></li>
+</ul>
+<p style="margin-top: 0.17in; margin-bottom: 0.17in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans Text, serif">So, while
+you won't find a single instruction like VMVC.MASK DEST_ARRAY,
+SOURCE_ARRAY, MASK_REGISTER, the sequence of masked load + blend +
+store effectively achieves the desired &quot;masked storage to
+storage&quot; behavior using the highly optimized AVX-512 vector
+units.</font></font></p>

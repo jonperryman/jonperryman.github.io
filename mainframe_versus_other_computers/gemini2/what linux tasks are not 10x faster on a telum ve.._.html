@@ -1,0 +1,195 @@
+<p align="center"><font style="font-size: 14pt; font-weight: bold;">I asked Gemini "what linux tasks are not 10x faster on a telum ve.._"</font></p>
+<p style="margin-bottom: 0.17in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans Text, serif">You're
+absolutely right to question the &quot;10x faster&quot; statement, as
+it's highly specific to the mainframe's traditional strengths. While
+IBM Telum CPUs (and the zSystems/LinuxONE platform they power) are
+incredibly performant for their designed workloads, many common Linux
+tasks would likely </font></font><font color="#1b1c1d"><font face="Google Sans Text, serif"><i>not</i></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+be 10x faster, and some might even be slower, than on a
+well-configured x86 system.</font></font></p>
+<p style="margin-bottom: 0.17in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans Text, serif">Here's a
+breakdown of Linux tasks where Telum likely wouldn't offer a 10x
+speedup over x86, and why:</font></font></p>
+<p style="margin-bottom: 0.08in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Tasks
+NOT 10x faster (and potentially slower) on Telum:</b></font></font></p>
+<ol>
+	<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>General-Purpose
+	Computation (CPU-Bound, Single-Threaded):</b></font></font></p></li>
+</ol>
+<ol>
+	<ul>
+		<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Compiling
+		large software projects (e.g., Linux kernel, GCC):</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+		While Telum cores are fast, the gains for a single compilation
+		thread wouldn't be 10x over a modern high-clocked x86 core (like a
+		top-end Intel Core i9 or AMD Ryzen). The benefits of Telum's
+		massive cache are more apparent in highly transactional,
+		data-intensive workloads, not necessarily in the sequential
+		operations of a compiler.</font></font><font color="#575b5f"><sup><font face="Google Sans Text, serif"><font size="3" style="font-size: 12pt">1</font></font></sup></font><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial, serif"><font size="2" style="font-size: 11pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent"><br/>
+</span></span></span></font></font></span></font></span><br/>
+
+		</p></li>
+		<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Many
+		scientific simulations or high-performance computing (HPC) tasks:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+		Unless specifically optimized to leverage the z/Architecture's
+		unique features (like certain vector instructions or specific data
+		types), general floating-point heavy computations or tightly
+		coupled HPC workloads might find x86 systems (especially those with
+		many cores or specialized accelerators like GPUs) more performant.
+		Telum focuses on transactional integrity and low latency, not raw
+		floating-point throughput per core in the same way x86 HPC systems
+		do.</font></font><font color="#575b5f"><sup><font face="Google Sans Text, serif"><font size="3" style="font-size: 12pt">2</font></font></sup></font><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial, serif"><font size="2" style="font-size: 11pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent"><br/>
+</span></span></span></font></font></span></font></span><br/>
+
+		</p></li>
+		<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Video
+		encoding/transcoding:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+		These are often heavily optimized for x86's SIMD (AVX, AVX2,
+		AVX-512) instructions and, increasingly, dedicated hardware
+		accelerators found on many x86 GPUs or integrated into Intel/AMD
+		CPUs. Telum doesn't have the same focus on these specific media
+		workloads.</font></font></p></li>
+		<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Image
+		processing (e.g., Photoshop filters, large image manipulation):</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+		Similar to video encoding, these often leverage highly optimized
+		libraries that take advantage of x86-specific SIMD instructions.</font></font></p></li>
+		<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Web
+		serving for static content or simple dynamic pages:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+		While a mainframe can handle immense web traffic, for basic static
+		file serving or less complex dynamic pages, the overhead of the
+		mainframe environment and its specialized architecture wouldn't
+		necessarily translate to a 10x speedup per request compared to
+		optimized x86 web servers. The &quot;speed&quot; here is more about
+		the sheer </font></font><font color="#1b1c1d"><font face="Google Sans Text, serif"><i>volume</i></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+		of concurrent connections and transactions a mainframe can handle
+		reliably, not necessarily individual request processing time.</font></font></p></li>
+	</ul>
+</ol>
+<ol start="2">
+	<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Graphics
+	and Gaming:</b></font></font></p></li>
+</ol>
+<ol>
+	<ul>
+		<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Any
+		3D rendering or gaming workload:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+		Telum CPUs have no integrated or dedicated graphics processing
+		units (GPUs) for 3D rendering, which is where x86-based systems
+		with discrete GPUs (NVIDIA, AMD) or even integrated graphics excel.
+		Mainframes are not designed for visual workloads.</font></font></p></li>
+	</ul>
+</ol>
+<ol start="3">
+	<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Workloads
+	Heavily Reliant on Specific x86 Instructions or Ecosystem:</b></font></font></p></li>
+</ol>
+<ol>
+	<ul>
+		<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Software
+		not ported or optimized for s390x (IBM Z architecture):</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+		Many open-source and commercial applications are primarily
+		developed and optimized for x86. While Linux on Z supports a vast
+		array of software, if a particular application heavily uses
+		x86-specific assembly, instruction sets, or libraries that don't
+		have equivalent s390x optimizations, performance might be worse.</font></font></p></li>
+		<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Virtualization
+		of x86 guests:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+		Running x86 virtual machines on a Telum-based mainframe would
+		involve significant emulation overhead, making them much slower
+		than running on native x86 hardware. The z/VM hypervisor is
+		designed for z/Architecture guests (including Linux on Z).</font></font></p></li>
+	</ul>
+</ol>
+<ol start="4">
+	<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Distributed
+	Computing (where horizontal scaling is preferred):</b></font></font></p></li>
+</ol>
+<ol>
+	<ul>
+		<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Large-scale
+		Hadoop/Spark clusters (for batch processing):</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+		While a mainframe can process massive datasets, the strength of
+		Hadoop/Spark often lies in scaling horizontally across thousands of
+		commodity x86 servers. For workloads that thrive on distributing
+		tasks across many smaller, cheaper nodes, a single, highly powerful
+		mainframe might not offer the same cost-efficiency or parallel
+		scaling benefits.</font></font></p></li>
+		<li><p style="margin-bottom: 0.08in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Kubernetes/Container
+		orchestration (for microservices with many small, independent
+		services):</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+		While Linux on Z supports containers, the &quot;10x faster&quot;
+		notion doesn't apply to the orchestration logic itself. The
+		benefits would be in consolidating a huge number of containers on a
+		single, highly reliable, and secure platform, rather than
+		individual container performance being 10x faster.</font></font></p></li>
+	</ul>
+</ol>
+<p style="margin-top: 0.17in; margin-bottom: 0.17in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Where
+Telum </b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif"><i><b>does</b></i></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif"><b>
+excel (and where the &quot;10x&quot; claims originate in context):</b></font></font></p>
+<p style="margin-bottom: 0.08in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans Text, serif">The 10x
+(or even higher) performance advantages for Telum and zSystems come
+in highly specific, mission-critical enterprise workloads:</font></font></p>
+<ul>
+	<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Online
+	Transaction Processing (OLTP):</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+	Handling billions of concurrent financial transactions (e.g., credit
+	card processing, banking transfers) with extreme low latency and
+	high reliability.</font></font><font color="#575b5f"><sup><font face="Google Sans Text, serif"><font size="3" style="font-size: 12pt">3</font></font></sup></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+	The unique cache hierarchy and I/O acceleration are paramount here.</font></font><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial, serif"><font size="2" style="font-size: 11pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent"><br/>
+</span></span></span></font></font></span></font></span><br/>
+
+	</p></li>
+	<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Real-time
+	AI Inference:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+	Especially for fraud detection, risk analysis, or other AI models
+	directly embedded within high-volume transactional pipelines,
+	leveraging Telum's on-chip AI accelerators.</font></font><font color="#575b5f"><sup><font face="Google Sans Text, serif"><font size="3" style="font-size: 12pt">4</font></font></sup></font><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial, serif"><font size="2" style="font-size: 11pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent"><br/>
+</span></span></span></font></font></span></font></span><br/>
+
+	</p></li>
+	<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Large-scale
+	Database Operations:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+	For massive, highly active databases where cache efficiency, I/O
+	speed, and transaction integrity are critical.</font></font></p></li>
+	<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Consolidation
+	and Virtualization:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+	Running thousands of Linux instances (or other mainframe workloads)
+	on a single physical system with unparalleled isolation, security,
+	and uptime.</font></font></p></li>
+	<li><p style="margin-bottom: 0.08in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Security
+	and Compliance:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+	Hardware-level encryption, secure execution environments, and
+	built-in redundancy provide levels of security and availability very
+	difficult and expensive to replicate on x86.</font></font></p></li>
+</ul>
+<p style="margin-top: 0.17in; margin-bottom: 0.17in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans Text, serif">In
+summary, Telum is a specialized marvel of engineering optimized for a
+particular niche. It's not a general-purpose speed demon that will
+make every Linux task fly 10 times faster. Its strengths lie in the
+unique demands of mainframe environments.</font></font></p>

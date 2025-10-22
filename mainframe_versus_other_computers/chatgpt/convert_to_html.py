@@ -16,7 +16,7 @@ def main(file):
         return
 
     # replace ## with <b> </b>
-    data = b'<h2>I asked ChatGPT: ""</h2>\n\n'
+    data = b'<h3>I asked ChatGPT: ""</h3>\n\n'
     Flag = False
     for segment0 in dataSplit:
         if Flag:
@@ -29,12 +29,12 @@ def main(file):
     data = b''.join(data.split(b'\r'))      # remove carriage returns, we only use new lines \n
     data = b'\n'.join([line.strip() for line in data.split(b'\n')])
 
-    # Replace ### with <h2> </h2>
+    # Replace ### with <h3> </h3>
     dataSplit = data.split(b'\n#')
     data = dataSplit.pop(0)
     for segment0 in dataSplit:
         splitPosition = segment0.find(b'\n')
-        data += b'\n<h2>' + segment0[:splitPosition].split(b' ',1)[1] + b'</h2>' + segment0[splitPosition:]
+        data += b'\n<h3>' + segment0[:splitPosition].split(b' ',1)[1] + b'</h3>' + segment0[splitPosition:]
 
     data = b''.join(data.split(b'\n---\n')) # remove useless sepeerator line
 

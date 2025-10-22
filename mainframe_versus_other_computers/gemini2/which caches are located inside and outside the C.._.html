@@ -1,0 +1,335 @@
+<p align="center"><font style="font-size: 14pt; font-weight: bold;">I asked Gemini "which caches are located inside and outside the C.._"</font></p>
+<p style="margin-bottom: 0.17in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans Text, serif">CPU caches
+are an essential part of the memory hierarchy in modern computer
+systems, designed to bridge the significant speed gap between the
+very fast CPU and much slower main memory (RAM).</font></font><font color="#575b5f"><sup><font face="Google Sans Text, serif"><font size="3" style="font-size: 12pt">1</font></font></sup></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+They store frequently used data and instructions close to the
+processor to minimize latency.</font></font><font color="#575b5f"><sup><font face="Google Sans Text, serif"><font size="3" style="font-size: 12pt">2</font></font></sup></font></p>
+<p style="margin-bottom: 0in; line-height: 100%; border: none; padding: 0in; background: transparent">
+<br/>
+
+</p>
+<p style="margin-bottom: 0.17in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans Text, serif">Here's a
+breakdown of the typical cache levels and their location:</font></font></p>
+<p style="margin-bottom: 0.17in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<br/>
+<br/>
+
+</p>
+<h3 class="western" style="line-height: 115%; margin-top: 0in; margin-bottom: 0.08in; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans, serif">Caches Located
+</font></font><font color="#1b1c1d"><font face="Google Sans Text, serif"><font size="4" style="font-size: 14pt"><span style="font-style: normal"><b>Inside</b></span></font></font></font><font color="#1b1c1d"><font face="Google Sans, serif">
+the CPU (On-Die)</font></font></h3>
+<p style="margin-bottom: 0.17in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0.08in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans Text, serif">Almost all
+modern CPUs integrate multiple levels of cache directly onto the
+processor die.</font></font><font color="#575b5f"><sup><font face="Google Sans Text, serif"><font size="3" style="font-size: 12pt">3</font></font></sup></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+These are the fastest and smallest caches.</font></font></p>
+<p style="margin-bottom: 0in; line-height: 100%; border: none; padding: 0in; background: transparent">
+<br/>
+
+</p>
+<ol>
+	<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>L1
+	Cache (Level 1 Cache):</b></font></font></p></li>
+</ol>
+<ol>
+	<ul>
+		<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Location:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+		This is the smallest, fastest, and most expensive cache. It is
+		</font></font><font color="#1b1c1d"><font face="Google Sans Text, serif"><b>always
+		located directly within each CPU core</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">.</font></font></p></li>
+		<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Characteristics:</b></font></font></p></li>
+	</ul>
+</ol>
+<ol>
+	<ul>
+		<ul>
+			<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+			<font color="#1b1c1d"><font face="Google Sans Text, serif">Extremely
+			fast access, typically 1-3 CPU clock cycles.</font></font><font color="#575b5f"><sup><font face="Google Sans Text, serif"><font size="3" style="font-size: 12pt">4</font></font></sup></font><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial, serif"><font size="2" style="font-size: 11pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent"><br/>
+</span></span></span></font></font></span></font></span><br/>
+
+			</p></li>
+			<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+			<font color="#1b1c1d"><font face="Google Sans Text, serif">Smallest
+			capacity, usually between 32KB and 128KB per core.</font></font><font color="#575b5f"><sup><font face="Google Sans Text, serif"><font size="3" style="font-size: 12pt">5</font></font></sup></font><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial, serif"><font size="2" style="font-size: 11pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent"><br/>
+</span></span></span></font></font></span></font></span><br/>
+
+			</p></li>
+			<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+			<font color="#1b1c1d"><font face="Google Sans Text, serif">Often
+			divided into two parts:</font></font></p></li>
+		</ul>
+	</ul>
+</ol>
+<ol>
+	<ul>
+		<ul>
+			<ul>
+				<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+				<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>L1
+				Instruction Cache (L1i):</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+				Stores frequently accessed instructions.</font></font></p></li>
+				<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+				<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>L1
+				Data Cache (L1d):</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+				Stores frequently accessed data.</font></font></p></li>
+			</ul>
+		</ul>
+	</ul>
+</ol>
+<ol>
+	<ul>
+		<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Purpose:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+		To provide the CPU core with immediate access to the data and
+		instructions it needs </font></font><font color="#1b1c1d"><font face="Google Sans Text, serif"><i>right
+		now</i></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">,
+		minimizing stalls.</font></font><font color="#575b5f"><sup><font face="Google Sans Text, serif"><font size="3" style="font-size: 12pt">6</font></font></sup></font><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial, serif"><font size="2" style="font-size: 11pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent"><br/>
+</span></span></span></font></font></span></font></span><br/>
+
+		</p></li>
+	</ul>
+</ol>
+<ol start="2">
+	<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>L2
+	Cache (Level 2 Cache):</b></font></font></p></li>
+</ol>
+<ol>
+	<ul>
+		<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Location:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+		The L2 cache is also almost always located </font></font><font color="#1b1c1d"><font face="Google Sans Text, serif"><b>on
+		the CPU die</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">,
+		usually slightly further from the core than L1 but still highly
+		integrated.</font></font></p></li>
+		<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Characteristics:</b></font></font></p></li>
+	</ul>
+</ol>
+<ol>
+	<ul>
+		<ul>
+			<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+			<font color="#1b1c1d"><font face="Google Sans Text, serif">Larger
+			than L1, typically ranging from 256KB to 2MB per core.</font></font></p></li>
+			<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+			<font color="#1b1c1d"><font face="Google Sans Text, serif">Slower
+			than L1 (e.g., 10-20 CPU cycles) but still significantly faster
+			than RAM.</font></font><font color="#575b5f"><sup><font face="Google Sans Text, serif"><font size="3" style="font-size: 12pt">7</font></font></sup></font><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial, serif"><font size="2" style="font-size: 11pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent"><br/>
+</span></span></span></font></font></span></font></span><br/>
+
+			</p></li>
+			<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+			<font color="#1b1c1d"><font face="Google Sans Text, serif">Can be
+			</font></font><font color="#1b1c1d"><font face="Google Sans Text, serif"><b>private</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+			(one L2 per core) or </font></font><font color="#1b1c1d"><font face="Google Sans Text, serif"><b>shared</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+			among a few cores, depending on the CPU architecture.</font></font><font color="#575b5f"><sup><font face="Google Sans Text, serif"><font size="3" style="font-size: 12pt">8</font></font></sup></font><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial, serif"><font size="2" style="font-size: 11pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent"><br/>
+</span></span></span></font></font></span></font></span><br/>
+
+			</p></li>
+		</ul>
+	</ul>
+</ol>
+<ol>
+	<ul>
+		<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Purpose:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+		To serve as a backup for the L1 cache, storing more data and
+		instructions that might be needed soon but didn't fit in L1, thus
+		reducing trips to the slower L3 or main memory.</font></font><font color="#575b5f"><sup><font face="Google Sans Text, serif"><font size="3" style="font-size: 12pt">9</font></font></sup></font><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial, serif"><font size="2" style="font-size: 11pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent"><br/>
+</span></span></span></font></font></span></font></span><br/>
+
+		</p></li>
+	</ul>
+</ol>
+<ol start="3">
+	<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>L3
+	Cache (Level 3 Cache):</b></font></font></p></li>
+</ol>
+<ol>
+	<ul>
+		<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Location:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+		The L3 cache is also located </font></font><font color="#1b1c1d"><font face="Google Sans Text, serif"><b>on
+		the CPU die</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">.
+		It is generally the largest cache level within the CPU.</font></font></p></li>
+		<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Characteristics:</b></font></font></p></li>
+	</ul>
+</ol>
+<ol>
+	<ul>
+		<ul>
+			<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+			<font color="#1b1c1d"><font face="Google Sans Text, serif">Much
+			larger than L1 and L2, ranging from several MB to hundreds of MB
+			(e.g., 16MB, 32MB, 64MB, or even more in high-end processors like
+			AMD's X3D CPUs with V-Cache).</font></font></p></li>
+			<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+			<font color="#1b1c1d"><font face="Google Sans Text, serif">Slower
+			than L1 and L2, but still much faster than main memory (e.g.,
+			30-60 CPU cycles).</font></font></p></li>
+			<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+			<font color="#1b1c1d"><font face="Google Sans Text, serif">Almost
+			always </font></font><font color="#1b1c1d"><font face="Google Sans Text, serif"><b>shared
+			by all cores</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+			on the CPU die. This allows different cores to easily share data
+			without having to go out to main memory.</font></font></p></li>
+		</ul>
+	</ul>
+</ol>
+<ol>
+	<ul>
+		<li><p style="margin-bottom: 0.08in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Purpose:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+		To reduce the average memory access time for data that isn't found
+		in L1 or L2, acting as a large pool of frequently accessed
+		information for all cores.</font></font><font color="#575b5f"><sup><font face="Google Sans Text, serif"><font size="3" style="font-size: 12pt">10</font></font></sup></font><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial, serif"><font size="2" style="font-size: 11pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent"><br/>
+</span></span></span></font></font></span></font></span><br/>
+<br/>
+
+		</p></li>
+	</ul>
+</ol>
+<p style="margin-top: 0.17in; margin-bottom: 0.17in; line-height: 115%; font-variant: normal; font-style: normal; font-weight: normal; border: none; padding: 0in; background: transparent; text-decoration: none">
+<br/>
+<br/>
+
+</p>
+<h3 class="western" style="line-height: 115%; margin-top: 0in; margin-bottom: 0.08in; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans, serif">Caches Located
+</font></font><font color="#1b1c1d"><font face="Google Sans Text, serif"><font size="4" style="font-size: 14pt"><span style="font-style: normal"><b>Outside</b></span></font></font></font><font color="#1b1c1d"><font face="Google Sans, serif">
+the CPU (Historically, or for very specific purposes)</font></font></h3>
+<p style="margin-bottom: 0.17in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0.08in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans Text, serif">While the
+vast majority of CPU cache is now integrated on-die, historically,
+some levels of cache were located outside the CPU.</font></font></p>
+<ol>
+	<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Older
+	L2 or L3 Caches (Historical):</b></font></font></p></li>
+</ol>
+<ol>
+	<ul>
+		<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif">In the
+		past (e.g., in the Pentium II, early Pentium III, and some older
+		Athlon CPUs), the L2 cache was sometimes located on a separate chip
+		or module </font></font><font color="#1b1c1d"><font face="Google Sans Text, serif"><b>on
+		the motherboard</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">,
+		very close to the CPU. This was due to manufacturing limitations at
+		the time.</font></font></p></li>
+		<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif">Similarly,
+		very early L3 caches (before they became common on-die) might have
+		been motherboard-based.</font></font><font color="#575b5f"><sup><font face="Google Sans Text, serif"><font size="3" style="font-size: 12pt">11</font></font></sup></font><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial, serif"><font size="2" style="font-size: 11pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent"><br/>
+</span></span></span></font></font></span></font></span><br/>
+
+		</p></li>
+		<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Modern
+		relevance:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+		This is largely historical. Almost all L1, L2, and L3 caches in
+		current desktop, laptop, and server CPUs are integrated onto the
+		processor die.</font></font></p></li>
+	</ul>
+</ol>
+<ol start="2">
+	<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>L4
+	Cache (Rare and Specialized):</b></font></font></p></li>
+</ol>
+<ol>
+	<ul>
+		<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Location:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+		An L4 cache, when present, is typically located </font></font><font color="#1b1c1d"><font face="Google Sans Text, serif"><b>outside
+		the main CPU die but still within the CPU package</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+		(e.g., on the same multi-chip module) or sometimes on the
+		motherboard, acting as an intermediary between the CPU's on-die
+		caches and main RAM.</font></font><font color="#575b5f"><sup><font face="Google Sans Text, serif"><font size="3" style="font-size: 12pt">12</font></font></sup></font><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial, serif"><font size="2" style="font-size: 11pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent"><br/>
+</span></span></span></font></font></span></font></span><br/>
+
+		</p></li>
+		<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Characteristics:</b></font></font></p></li>
+	</ul>
+</ol>
+<ol>
+	<ul>
+		<ul>
+			<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+			<font color="#1b1c1d"><font face="Google Sans Text, serif">Usually
+			very large (e.g., 128MB or more).</font></font></p></li>
+			<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+			<font color="#1b1c1d"><font face="Google Sans Text, serif">Often
+			implemented using eDRAM (embedded DRAM), which is denser than SRAM
+			(used for L1-L3) but slower.</font></font></p></li>
+			<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+			<font color="#1b1c1d"><font face="Google Sans Text, serif">Primarily
+			used in specific architectures, for example, some Intel Haswell
+			and Broadwell CPUs with integrated GPUs used eDRAM as an L4 cache
+			(often called &quot;Crystalwell&quot;) to provide high-bandwidth
+			memory for both the CPU cores and the powerful integrated
+			graphics. Intel has experimented with L4 again in some newer
+			architectures like Meteor Lake.</font></font><font color="#575b5f"><sup><font face="Google Sans Text, serif"><font size="3" style="font-size: 12pt">13</font></font></sup></font><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial, serif"><font size="2" style="font-size: 11pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent"><br/>
+</span></span></span></font></font></span></font></span><br/>
+
+			</p></li>
+		</ul>
+	</ul>
+</ol>
+<ol>
+	<ul>
+		<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Purpose:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+		To serve as a very large victim cache for L3, a shared memory pool
+		for integrated GPUs, or a bridge to main memory to further reduce
+		latency for certain workloads.</font></font></p></li>
+		<li><p style="margin-bottom: 0.08in; line-height: 115%; border: none; padding: 0in; background: transparent">
+		<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Modern
+		relevance:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+		L4 cache is not standard on most consumer CPUs. It's a specialized
+		implementation found in particular architectures where a specific
+		performance bottleneck (e.g., integrated graphics memory bandwidth)
+		justifies its inclusion.</font></font></p></li>
+	</ul>
+</ol>
+<p style="margin-top: 0.17in; margin-bottom: 0.08in; line-height: 115%; border: none; padding: 0in; background: transparent">
+<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>In
+summary:</b></font></font></p>
+<ul>
+	<li><p style="margin-bottom: 0in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Inside
+	the CPU (on-die):</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+	L1, L2, and L3 caches are universally found on the processor chip
+	itself in modern CPUs, ordered by speed (L1 fastest) and size (L3
+	largest).</font></font></p></li>
+	<li><p style="margin-bottom: 0.08in; line-height: 115%; border: none; padding: 0in; background: transparent">
+	<font color="#1b1c1d"><font face="Google Sans Text, serif"><b>Outside
+	the CPU:</b></font></font><font color="#1b1c1d"><font face="Google Sans Text, serif">
+	This is largely a historical artifact for L2/L3. L4 cache can be
+	considered &quot;outside&quot; the main CPU die but usually within
+	the same package for specific, niche implementations. Main Memory
+	(RAM) is always physically separate from the CPU, connected via the
+	motherboard's memory channels.</font></font></p></li>
+</ul>

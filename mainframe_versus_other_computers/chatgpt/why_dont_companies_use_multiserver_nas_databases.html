@@ -1,10 +1,10 @@
-<h2>I asked ChatGPT: "why don't companies use multi-server NAS database?"</h2>
+<h3>I asked ChatGPT: "why don't companies use multi-server NAS database?"</h3>
 
 <p>Companies often <b>avoid using multi-server NAS-based databases</b> for a few key technical and operational reasons — primarily due to <b>performance, complexity, reliability, and scalability limitations</b>.</p>
 
-<h2>🚫 <b>Why Multi-Server NAS Databases Are Rarely Used</b></h2>
+<h3>🚫 <b>Why Multi-Server NAS Databases Are Rarely Used</b></h3>
 
-<h2>1. ⚡ <b>Performance Bottlenecks</b></h2>
+<h3>1. ⚡ <b>Performance Bottlenecks</b></h3>
 <ul>
 <li> <b>NAS is network-based</b> (usually over TCP/IP), which introduces <b>latency and throughput limits</b> compared to local disk or SAN (Storage Area Network).</li>
 
@@ -13,7 +13,7 @@
 <li> Most NAS systems use protocols like <b>NFS or SMB</b>, which add overhead not ideal for concurrent, high-speed database access.</li>
 </ul>
 
-<h2>2. 🧠 <b>Concurrency and Locking Risks</b></h2>
+<h3>2. 🧠 <b>Concurrency and Locking Risks</b></h3>
 <ul>
 <li> When <b>multiple database nodes write to the same files</b>, there must be <b>perfect coordination</b>.</li>
 
@@ -22,7 +22,7 @@
 <li> Only a few databases (like <b>Oracle RAC</b> or <b>SQL Server FCI</b>) are architected to handle this correctly.</li>
 </ul>
 
-<h2>3. ⚙️ <b>Configuration Complexity</b></h2>
+<h3>3. ⚙️ <b>Configuration Complexity</b></h3>
 <ul>
 <li> Shared-storage clustering (e.g., Oracle RAC) is <b>difficult and expensive</b> to deploy and maintain.</li>
 
@@ -37,7 +37,7 @@
 <li> Certified hardware compatibility</li>
 </ul>
 
-<h2>4. 💸 <b>Cost vs. Benefit</b></h2>
+<h3>4. 💸 <b>Cost vs. Benefit</b></h3>
 <ul>
 <li> Enterprise NAS with the performance needed (e.g., <b>NetApp, IBM Spectrum Scale, Dell PowerScale</b>) is <b>very expensive</b>.</li>
 
@@ -50,7 +50,7 @@
 <li> Or deploy on SAN-backed or cloud-native storage instead</li>
 </ul>
 
-<h2>5. 🔄 <b>Shift to Scale-Out Architectures</b></h2>
+<h3>5. 🔄 <b>Shift to Scale-Out Architectures</b></h3>
 <ul>
 <li> Modern systems favor <b>scale-out databases</b> (shared-nothing) over <b>shared-storage clusters</b>.</li>
 
@@ -59,7 +59,7 @@
 <li> This design is <b>easier to scale</b>, <b>resilient</b>, and better suited for <b>cloud deployments</b>.</li>
 </ul>
 
-<h2>✅ <b>When Do Companies Use Multi-Server NAS for Databases?</b></h2>
+<h3>✅ <b>When Do Companies Use Multi-Server NAS for Databases?</b></h3>
 
 <p>Only in <b>very specific cases</b>, like:</p>
 <ul>
@@ -72,7 +72,7 @@
 <li> Centralized backups, data lakes, or analytics workloads (read-heavy)</li>
 </ul>
 
-<h2>🧠 Summary:</h2>
+<h3>🧠 Summary:</h3>
 
 <table>
 <tr><td> Reason </td><td> Why Companies Avoid Multi-Server NAS DBs </td></tr>
